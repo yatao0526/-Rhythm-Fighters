@@ -11,9 +11,6 @@ public class GameController : MonoBehaviour
     public static int BPM;
     public int BPMNum;
 
-    //生成するノーツの初期値
-    private Vector2 _notePop = new Vector2(9, -4);
-    
     void Start()
     {
         BPM = BPMNum;
