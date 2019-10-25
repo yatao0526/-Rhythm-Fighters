@@ -5,16 +5,16 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     [SerializeField]
-    private GameObject _checkBox;
+    private GameObject checkBox;
 
-    public static int _notesSpeed;
+    public static int notesSpeed;
     public static int BPM;
     public int BPMNum;
 
     void Start()
     {
         BPM = BPMNum;
-        _notesSpeed = BPMNum / 20;
+        notesSpeed = BPMNum / 20;
     }
 
     void Update()
