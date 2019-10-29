@@ -4,36 +4,41 @@ using UnityEngine;
 
 public class NotesJenerate : MonoBehaviour
 {
-    #region シリアライズ化
     //ノーツ・ノーツをまとめる箱(親)
     [SerializeField]
     private GameObject note, notesBox;
+    //何小節か
     [SerializeField]
+    private int measure;
+    //ノーツの流れるスピード
     private float beatSpeed;
-    #endregion
-
+    private float timeElapsed;
+    
+    
 
     //生成するノーツの初期値
     private Vector2 notePop = new Vector2(9, -4);
     
-    private float timeElapsed;
-
     private void Start()
     {
-        //debug
-        //NoteJenerater(_notePop);
+        beatSpeed = 60 * measure / GameController.BPM;
     }
     
     private void Update()
     {
+        NoteJene();
+    }
+    public void NoteJene()
+    {
         timeElapsed += Time.deltaTime;
-        if(timeElapsed >= beatSpeed)
+        if (timeElapsed >= beatSpeed)
         {
-            NoteJenerater(notePop);
+            NoteInstant(notePop);
+            Debug.Log(beatSpeed);
             timeElapsed = 0.0f;
         }
     }
-    public void NoteJenerater(Vector2 vec2)
+    private void NoteInstant(Vector2 vec2)
     {
         Instantiate(note, vec2, Quaternion.identity).transform.SetParent(notesBox.transform);
     }

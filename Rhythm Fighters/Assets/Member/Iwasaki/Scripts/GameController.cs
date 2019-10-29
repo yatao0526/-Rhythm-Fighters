@@ -9,17 +9,19 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private AudioSource audioSource;
 
+    public GameObject judgeLine;
+
     public static int notesSpeed;
-    public static int BPM;
+    public static float BPM;
     public int BPMNum;
 
     private float tes;
+
+
     void Start()
     {
         BPM = BPMNum;
         notesSpeed = BPMNum / 20;
-        
-        //tes = (60 * 4) / BPM * 
     }
 
     void Update()
