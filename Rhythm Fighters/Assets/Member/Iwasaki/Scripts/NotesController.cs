@@ -4,13 +4,26 @@ using UnityEngine;
 
 public class NotesController : MonoBehaviour
 {
-    //判定ライン
+    private enum ThisNote
+    {
+        RtoLNote,
+        LtoRNote,
+    }
     [SerializeField]
-    private GameObject _judgeLine;
+    private ThisNote thisNote;
+
     void Update()
     {
-        this.transform.position -= transform.right * 10 * Time.deltaTime;
-
-        if (this.gameObject.transform.position.x <= -9.5f) Destroy(gameObject);
+        switch (thisNote)
+        {
+            case ThisNote.RtoLNote:
+                this.transform.position -= transform.right * 10 * Time.deltaTime;
+                if (this.gameObject.transform.position.x <= 0) Destroy(gameObject);
+                break;
+            case ThisNote.LtoRNote:
+                this.transform.position += transform.right * 10 * Time.deltaTime;
+                if (this.gameObject.transform.position.x >= 0) Destroy(gameObject);
+                break;
+        }
     }
 }

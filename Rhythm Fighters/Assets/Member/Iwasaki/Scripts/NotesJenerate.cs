@@ -14,8 +14,6 @@ public class NotesJenerate : MonoBehaviour
     private float beatSpeed;
     private float timeElapsed;
     
-    
-
     //生成するノーツの初期値
     private Vector2 notePop = new Vector2(9, -4);
     
@@ -23,23 +21,14 @@ public class NotesJenerate : MonoBehaviour
     {
         beatSpeed = 60 * measure / GameController.BPM;
     }
-    
-    private void Update()
-    {
-        NoteJene();
-    }
-    public void NoteJene()
+    public void NoteJene(GameObject obj, Vector2 vec2pos)
     {
         timeElapsed += Time.deltaTime;
         if (timeElapsed >= beatSpeed)
         {
-            NoteInstant(notePop);
+            Instantiate(obj, vec2pos, Quaternion.identity).transform.SetParent(notesBox.transform);
             Debug.Log(beatSpeed);
             timeElapsed = 0.0f;
         }
-    }
-    private void NoteInstant(Vector2 vec2)
-    {
-        Instantiate(note, vec2, Quaternion.identity).transform.SetParent(notesBox.transform);
     }
 }
