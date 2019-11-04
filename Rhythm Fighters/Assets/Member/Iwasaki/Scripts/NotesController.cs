@@ -18,11 +18,11 @@ public class NotesController : MonoBehaviour
         {
             case ThisNote.RtoLNote:
                 this.transform.position -= transform.right * 10 * Time.deltaTime;
-                if (this.gameObject.transform.position.x <= 0) Destroy(gameObject);
+                if (this.gameObject.transform.position.x <= -1) Destroy(gameObject);
                 break;
             case ThisNote.LtoRNote:
                 this.transform.position += transform.right * 10 * Time.deltaTime;
-                if (this.gameObject.transform.position.x >= 0) Destroy(gameObject);
+                if (this.gameObject.transform.position.x >= 1) Destroy(gameObject);
                 break;
         }
     }
