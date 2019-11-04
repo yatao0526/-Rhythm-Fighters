@@ -44,5 +44,4 @@ public class NoteObjectPool : MonoBehaviour
         newObj.name = noteObj.name + (noteObjPool.Count + 1);
         return newObj;
     }
-
 }

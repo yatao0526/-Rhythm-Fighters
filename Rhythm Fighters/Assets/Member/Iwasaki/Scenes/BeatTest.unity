@@ -336,20 +336,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteObj:
-  - {fileID: 1737478973}
-  - {fileID: 1822308667}
   - {fileID: 2570703493631974395, guid: 8f939ceca4c52dd4c86618654913f3bc, type: 3}
   - {fileID: 4547110244429500135, guid: 2e5930fdadf235d4d93d4733022866d1, type: 3}
-  lrCon:
-  - {fileID: 1737478977}
-  - {fileID: 1822308671}
-  - {fileID: 5598295480756626028, guid: 8f939ceca4c52dd4c86618654913f3bc, type: 3}
-  - {fileID: 1932050879438604409, guid: 2e5930fdadf235d4d93d4733022866d1, type: 3}
   notePop:
   - {x: 9, y: -4}
   - {x: -9, y: -4}
   nj: {fileID: 2133740698}
-  audioSource: {fileID: 843259786}
   BPMNum: 170
 --- !u!4 &814301633
 Transform:
@@ -364,133 +356,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &843259785
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 843259787}
-  - component: {fileID: 843259786}
-  m_Layer: 0
-  m_Name: AudioTest
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!82 &843259786
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 843259785}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!4 &843259787
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 843259785}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1145459561
 GameObject:
@@ -585,7 +450,6 @@ GameObject:
   - component: {fileID: 1737478975}
   - component: {fileID: 1737478974}
   - component: {fileID: 1737478976}
-  - component: {fileID: 1737478977}
   m_Layer: 0
   m_Name: CheckBox_R
   m_TagString: Untagged
@@ -681,19 +545,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.48}
   m_EdgeRadius: 0
---- !u!114 &1737478977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1737478973}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93115d3cb89d2b349993f804a56220e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lr: 0
 --- !u!1 &1822308667
 GameObject:
   m_ObjectHideFlags: 0
@@ -705,7 +556,6 @@ GameObject:
   - component: {fileID: 1822308670}
   - component: {fileID: 1822308669}
   - component: {fileID: 1822308668}
-  - component: {fileID: 1822308671}
   m_Layer: 0
   m_Name: CheckBox_L
   m_TagString: Untagged
@@ -801,19 +651,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1822308671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1822308667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93115d3cb89d2b349993f804a56220e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lr: 1
 --- !u!1 &2133740697
 GameObject:
   m_ObjectHideFlags: 0
@@ -843,7 +680,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d714a0dba14553458b0c7c81394d25e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  note: {fileID: 2570703493631974395, guid: 8f939ceca4c52dd4c86618654913f3bc, type: 3}
   notesBox: {fileID: 330849964}
   measure: 2
 --- !u!4 &2133740699
