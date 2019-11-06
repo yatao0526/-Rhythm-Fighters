@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class arroｗController : MonoBehaviour
+public class arrow1Controller : MonoBehaviour
 {
-    public int charNum=1;
+    public int charNum_1=1;
     //選択されたキャラのナンバー数を設定
 
     // Start is called before the first frame update
     void Start()
     {
-        GameObject arrow;
-        arrow = GameObject.Find("arrow");
+        GameObject arrow1;
+        
+        arrow1 = GameObject.Find("arrow1");
        
     }
 
@@ -19,37 +20,37 @@ public class arroｗController : MonoBehaviour
     void FixedUpdate()
          
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.A))
         {
             
-            if (charNum == 1)
+            if (charNum_1 == 1)
             {
-                charNum = 6;
+                charNum_1 = 6;
             }else
             {
-                charNum = charNum - 1;
+                charNum_1 = charNum_1 - 1;
             }
-            Debug.Log("hitari" + charNum);
+            Debug.Log("hitari" + charNum_1);
         }
         //左へ移動
 
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.D))
         {
             
-            if (charNum == 6)
+            if (charNum_1 == 6)
             {
-                charNum = 1;
+                charNum_1 = 1;
             }
             else
             {
-                charNum = charNum + 1;
+                charNum_1 = charNum_1 + 1;
             }
-            Debug.Log("migi" + charNum);
+            Debug.Log("migi" + charNum_1);
         }
         //右へ移動
 
-        switch (charNum)
+        switch (charNum_1)
         {
             case 1:
                 this.transform.position = new Vector3(335, 760, 0);
