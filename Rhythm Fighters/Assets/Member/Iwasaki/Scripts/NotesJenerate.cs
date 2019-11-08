@@ -9,7 +9,12 @@ public class NotesJenerate : MonoBehaviour
     private GameObject notesBox;
     //何小節か
     [SerializeField]
+<<<<<<< HEAD
     private float measure;
+=======
+    private int measure;
+
+>>>>>>> 8d7642ebf169f55118414d7bec7b00cd66862e3b
     //ノーツの流れるスピード
     private float beatSpeed;
     private float timeElapsed;
