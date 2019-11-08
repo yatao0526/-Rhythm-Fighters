@@ -37,11 +37,11 @@ public class Player3 : MonoBehaviour
 
         moveBeforePos = moveAfter;
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             moveAfter = transform.position + moveX;
         }
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             moveAfter = transform.position - moveX;
         }
