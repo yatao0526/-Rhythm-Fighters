@@ -1,37 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UniRx;
-using UniRx.Toolkit;
 
 public class GameController : MonoBehaviour
 {
-    //note入れてる
+    //判定
     [SerializeField]
-    private GameObject[] noteObj;
-    //生成するノーツの初期値(右から生成)
+    private GameObject[] judge;
+    //Notes(Prefab)入れてる
     [SerializeField]
-    private Vector2[] notePop;
-    //notejenerate呼ぶため
-    [SerializeField]
-    private NotesJenerate nj;
+    private GameObject[] Notes;
+    //objectpool参照
+    private NoteObjectPool pool;
 
     public static int notesSpeed;
-    public static float BPM;
-    public int BPMNum;
+    public int BPM;
+
+    private float judgeTime;
     
     void Start()
     {
-        BPM = BPMNum;
-        notesSpeed = BPMNum / 20;
-        
-    }
-
-    void Update()
-    {
-        //instatiate呼び出し
-        nj.NoteJene(noteObj[0], notePop[0]);
-        nj.NoteJene(noteObj[1], notePop[1]);
+        notesSpeed = BPM / 2;
+        pool = GetComponent<NoteObjectPool>();
+        pool.CreatePool(Notes[0], 10);
+        pool.CreatePool(Notes[1], 10);
     }
 }
 

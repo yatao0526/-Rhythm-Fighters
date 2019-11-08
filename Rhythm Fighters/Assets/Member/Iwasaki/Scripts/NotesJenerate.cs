@@ -9,22 +9,22 @@ public class NotesJenerate : MonoBehaviour
     private GameObject notesBox;
     //何小節か
     [SerializeField]
-    private int measure;
+    private float measure;
     //ノーツの流れるスピード
     private float beatSpeed;
     private float timeElapsed;
     
     private void Start()
     {
-        beatSpeed = 60 * measure / GameController.BPM;
+        //beatSpeed = 60 * measure / GameController.BPM;
     }
 
-    public void NoteJene(GameObject obj, Vector2 vec2pos)
+    public void NoteJene(GameObject Lobj, Vector2 Lvec2)
     {
         timeElapsed += Time.deltaTime;
         if (timeElapsed >= beatSpeed)
         {
-            Instantiate(obj, vec2pos, Quaternion.identity).transform.SetParent(notesBox.transform);
+            Instantiate(Lobj, Lvec2, Quaternion.identity).transform.SetParent(notesBox.transform);
             Debug.Log(beatSpeed);
             timeElapsed = 0.0f;
         }

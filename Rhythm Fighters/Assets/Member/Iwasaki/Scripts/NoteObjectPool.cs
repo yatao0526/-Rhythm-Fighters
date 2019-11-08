@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//オブジェクトプールとやら
 public class NoteObjectPool : MonoBehaviour
 {
     private List<GameObject> noteObjPool;
     private GameObject noteObj;
+    [SerializeField]
+    private GameObject parentObj;
 
     //オブジェクトプール作成
     public void CreatePool(GameObject obj, int maxCount)
@@ -42,6 +45,7 @@ public class NoteObjectPool : MonoBehaviour
     {
         var newObj = Instantiate(noteObj);
         newObj.name = noteObj.name + (noteObjPool.Count + 1);
+        newObj.transform.SetParent(parentObj.transform);
         return newObj;
     }
 }
