@@ -8,10 +8,10 @@ public class GameController : MonoBehaviour
 {
     //note入れてる
     [SerializeField]
-    private GameObject[] noteObj;
+    private GameObject noteObj;
     //生成するノーツの初期値(右から生成)
     [SerializeField]
-    private Vector2[] notePop;
+    private Vector2 notePop;
     //notejenerate呼ぶため
     [SerializeField]
     private NotesJenerate nj;
@@ -24,14 +24,12 @@ public class GameController : MonoBehaviour
     {
         BPM = BPMNum;
         notesSpeed = BPMNum / 20;
-        
     }
 
     void Update()
     {
         //instatiate呼び出し
-        nj.NoteJene(noteObj[0], notePop[0]);
-        nj.NoteJene(noteObj[1], notePop[1]);
+        nj.NoteJene(noteObj, notePop);
     }
 }
 

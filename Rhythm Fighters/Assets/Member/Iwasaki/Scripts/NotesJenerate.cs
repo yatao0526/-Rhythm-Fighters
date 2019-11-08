@@ -10,6 +10,7 @@ public class NotesJenerate : MonoBehaviour
     //何小節か
     [SerializeField]
     private int measure;
+
     //ノーツの流れるスピード
     private float beatSpeed;
     private float timeElapsed;
