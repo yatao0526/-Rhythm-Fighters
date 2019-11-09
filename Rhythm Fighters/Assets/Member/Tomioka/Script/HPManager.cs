@@ -23,9 +23,13 @@ public class HPManager : MonoBehaviour
 
     //1Pと2PのHP
     [SerializeField]
-    private float player1HP, player2HP = 1000;
+    private float player1HP = 1000;
+    [SerializeField]
+    private float player2HP = 1000;
 
     private float HPTime = 0.5f;
+
+    private bool fightNow = true;
 
     // Start is called before the first frame update
     void Start()
@@ -33,23 +37,27 @@ public class HPManager : MonoBehaviour
         KO.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        //10キーの1を押すと1PのHPが減る
+        if (fightNow == true && Input.GetKeyDown(KeyCode.Keypad1))
         {
             player1HP -= damage;
         }
 
-        if (Input.GetKeyDown(KeyCode.Return))
+        //10キーの2を押すと2PのHPが減る
+        if (fightNow == true && Input.GetKeyDown(KeyCode.Keypad2))
         {
             player2HP -= damage;
         }
 
+        //どちらかのプレイヤーのHPが0になったらKOを表示
         if (player1HP <= 0 || player2HP <= 0)
         {
             KO.SetActive(true);
+            fightNow = false;
         }
+
         HP();
     }
 
