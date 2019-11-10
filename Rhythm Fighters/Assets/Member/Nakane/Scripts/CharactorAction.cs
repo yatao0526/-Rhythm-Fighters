@@ -7,7 +7,7 @@ public class CharactorAction : MonoBehaviour
     // 1P(左側)の移動
 
     // 一回の左右移動で動く距離
-    float moveSpeed = 2.0f;
+    public float moveSpeed = 2.0f;
 
     void Start()
     {
@@ -58,7 +58,9 @@ public class CharactorAction : MonoBehaviour
 
     void StancePose()
     {
-        CommandTechnique();
+        CommandTechnique01();
+
+        CommandTechnique02();
     }
 
     void WeakAttack()
@@ -71,10 +73,18 @@ public class CharactorAction : MonoBehaviour
 
     }
 
-    // コマンド技
-    void CommandTechnique()
+    // コマンド技1
+    void CommandTechnique01()
     {
 
+        StancePose();
+    }
+
+    // コマンド技2
+    void CommandTechnique02()
+    {
+
+        StancePose();
     }
     
     // ノックバック
