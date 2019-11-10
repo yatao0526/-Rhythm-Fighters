@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class NotesController : MonoBehaviour
 {
-<<<<<<< HEAD
     private enum ThisNote
     {
         RtoLNote,
@@ -16,7 +15,7 @@ public class NotesController : MonoBehaviour
     private Vector3 pos;
     private void Start()
     {
-        pos = this.transform.position;   
+        pos = this.transform.position;
     }
     void Update()
     {
@@ -39,12 +38,5 @@ public class NotesController : MonoBehaviour
                 if (this.gameObject.transform.position.x >= 1) this.transform.position = pos;
                 break;
         }
-=======
-    //ノーツの移動処理
-    void Update()
-    {
-        this.transform.position -= transform.right * 10 * Time.deltaTime;
-        if (this.gameObject.transform.position.x <= -1) Destroy(gameObject);
->>>>>>> 8d7642ebf169f55118414d7bec7b00cd66862e3b
     }
 }
