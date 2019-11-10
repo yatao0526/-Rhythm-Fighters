@@ -12,13 +12,22 @@ public class PSConTest : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetAxis("Left") > 0.5f)
+        PSConDebug();
+    }
+
+    private void PSConDebug()
+    {
+        if (Input.GetAxis("LeftRight") > 0.5f)
         {
             Debug.Log("右");
         }
-        if (Input.GetAxis("Left") < -0.5f)
+        if (Input.GetAxis("LeftRight") < -0.5f)
         {
             Debug.Log("左");
+        }
+        if (Input.GetAxis("Down") < -0.5f)
+        {
+            Debug.Log("下");
         }
         if (Input.GetButtonDown("Maru"))
         {
@@ -36,5 +45,6 @@ public class PSConTest : MonoBehaviour
         {
             Debug.Log("□");
         }
+
     }
 }

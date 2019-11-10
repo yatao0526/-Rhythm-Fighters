@@ -31,7 +31,6 @@ public class HPManager : MonoBehaviour
 
     private bool fightNow = true;
 
-    // Start is called before the first frame update
     void Start()
     {
         KO.SetActive(false);

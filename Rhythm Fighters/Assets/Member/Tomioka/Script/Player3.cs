@@ -13,9 +13,9 @@ public class Player3 : MonoBehaviour
     private float stepTime;
 
     //移動後の場所
-    Vector3 moveAfter;
+    private Vector3 moveAfter;
 
-    Vector3 moveBeforePos;
+    private Vector3 moveBeforePos;
 
     void Start()
     {
@@ -32,22 +32,24 @@ public class Player3 : MonoBehaviour
         Move();
     }
 
+    //押したキーによって進む方向を決める
     void SetTargetPosition()
     {
 
         moveBeforePos = moveAfter;
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetAxis("LeftRight") > 0.5f || Input.GetKeyDown(KeyCode.RightArrow))
         {
             moveAfter = transform.position + moveX;
         }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetAxis("LeftRight") < -0.5f || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             moveAfter = transform.position - moveX;
         }
 
     }
-
+    
+    //移動用の関数
     void Move()
     {
         transform.position = Vector3.MoveTowards(transform.position, moveAfter, stepTime * 10 * Time.deltaTime);
