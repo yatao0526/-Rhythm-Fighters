@@ -12,18 +12,17 @@ public class GameController : MonoBehaviour
     private GameObject[] Notes;
     //objectpool参照
     private NoteObjectPool pool;
-    
 
     public static int BPMNum;
     public static int notesSpeed;
     public int BPM;
-
+    //判定用タイム
     private float judgeTime;
     private void Awake()
     {
         pool = GetComponent<NoteObjectPool>();
-        pool.CreatePool(Notes[0], 10);
-        pool.CreatePool(Notes[1], 10);
+        pool.CreatePool(Notes[0], 1);
+        pool.CreatePool(Notes[1], 1);
     }
     private void Start()
     {
@@ -35,6 +34,7 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
+        pool.GetGameObj();
     }
 }
 
