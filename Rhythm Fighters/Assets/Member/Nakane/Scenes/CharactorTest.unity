@@ -226,7 +226,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab0657540d9db7b45b8acdba03fa8f76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   moveSpeed: 2
+=======
+>>>>>>> nakane
 --- !u!65 &534767267
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -403,4 +406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 350816b8422afbb4f8ea496fb0532c3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   moveSpeed: 2
+=======
+>>>>>>> nakane
