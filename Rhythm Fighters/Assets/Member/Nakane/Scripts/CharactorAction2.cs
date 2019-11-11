@@ -38,7 +38,7 @@ public class CharactorAction2 : MonoBehaviour
         // 構え
         if (Input.GetKeyDown(KeyCode.L))
         {
-            StancePose();
+            //StancePose();
         }
 
         // 弱攻撃
@@ -76,18 +76,15 @@ public class CharactorAction2 : MonoBehaviour
     // コマンド技1
     void CommandTechnique01()
     {
-
         StancePose();
     }
 
     // コマンド技2
     void CommandTechnique02()
     {
-
         StancePose();
     }
     
-
     // ノックバック
     void KnockBack()
     {
