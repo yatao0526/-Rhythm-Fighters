@@ -10,8 +10,7 @@ public class arrow2Controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject arrow2;
-        arrow2 = GameObject.Find("arrow2");
+       
 
     }
 
@@ -20,36 +19,7 @@ public class arrow2Controller : MonoBehaviour
 
     {
         
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-
-            if (charNum_2 == 1)
-            {
-                charNum_2 = 6;
-            }
-            else
-            {
-                charNum_2 = charNum_2 - 1;
-            }
-            Debug.Log("hitari" + charNum_2);
-        }
-        //左へ移動
-
-
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-
-            if (charNum_2 == 6)
-            {
-                charNum_2 = 1;
-            }
-            else
-            {
-                charNum_2 = charNum_2 + 1;
-            }
-            Debug.Log("migi" + charNum_2);
-        }
-        //右へ移動
+       
 
         switch (charNum_2)
         {
