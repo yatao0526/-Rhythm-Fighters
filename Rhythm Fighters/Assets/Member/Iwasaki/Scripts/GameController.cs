@@ -36,5 +36,8 @@ public class GameController : MonoBehaviour
     {
         pool.GetGameObj();
     }
+    //判定
+    //押したときの成功・失敗   押さなかったときの無反応
+
 }
 
