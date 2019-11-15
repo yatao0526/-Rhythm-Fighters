@@ -10,38 +10,48 @@ public class GameController : MonoBehaviour
     //Notes(Prefab)入れてる
     [SerializeField]
     private GameObject[] Notes;
+    //
+    [SerializeField]
+    private float timeOut;
     //objectpool参照
-    private NoteObjectPool pool;
+    private NoteObjectPool poolL, poolR;
 
     public static int BPMNum;
     public static int notesSpeed;
     public int BPM;
+    
     //判定用タイム
     private float judgeTime;
+
     private void Awake()
     {
-        pool = GetComponent<NoteObjectPool>();
-        pool.CreatePool(Notes[0], 1);
-        pool.CreatePool(Notes[1], 1);
+        poolL = GetComponent<NoteObjectPool>();
+        poolR = GetComponent<NoteObjectPool>();
+        poolL.CreatePool(Notes[0], 10);
+        poolR.CreatePool(Notes[1], 10);
     }
     private void Start()
     {
-        notesSpeed = BPM / 2;
 
-        BPM = BPMNum;
-        notesSpeed = BPMNum / 20;
     }
 
     private void Update()
     {
-        pool.GetGameObj();
+        //Debug.Log(judgeTime);
+        judgeTime += Time.deltaTime;
+        if(judgeTime >= timeOut)
+        {
+            poolL.GetGameObjL();
+            poolR.GetGameObjR();
+            judgeTime = 0.0f;
+        }
     }
     //判定
     //押したときの成功・失敗   押さなかったときの無反応
     private void Check()
     {
         //成功
-
+        
         //失敗
 
         //何もしない

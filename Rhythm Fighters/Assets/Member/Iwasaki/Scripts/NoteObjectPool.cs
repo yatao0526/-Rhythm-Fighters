@@ -23,12 +23,29 @@ public class NoteObjectPool : MonoBehaviour
         }
     }
     //
-    public GameObject GetGameObj()
+    public GameObject GetGameObjR()
     {
         //使用中でないものを探す
         foreach(var obj in noteObjPool)
         {
             if(obj.activeSelf == false)
+            {
+                obj.SetActive(true);
+                return obj;
+            }
+        }
+        //すべて使用中だったら新しく作って返す
+        var newObj = CreateNewObject();
+        newObj.SetActive(true);
+        noteObjPool.Add(newObj);
+        return newObj;
+    }
+    public GameObject GetGameObjL()
+    {
+        //使用中でないものを探す
+        foreach (var obj in noteObjPool)
+        {
+            if (obj.activeSelf == false)
             {
                 obj.SetActive(true);
                 return obj;
