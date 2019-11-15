@@ -15,9 +15,14 @@ public class NotesController : MonoBehaviour
 
     private Vector3 pos;
 
+    private Rigidbody2D rb2d;
+
+    public static bool judge = false;
+
     private void Start()
     {
         pos = this.transform.position;
+        rb2d = GetComponent<Rigidbody2D>();
     }
     void Update()
     {
@@ -47,6 +52,20 @@ public class NotesController : MonoBehaviour
                     this.gameObject.SetActive(false);
                 }
                 break;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.gameObject.name == "CheckBox_R")
+        {
+            judge = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if(other.gameObject.name == "CheckBox_R")
+        {
+            judge = false;
         }
     }
 }
