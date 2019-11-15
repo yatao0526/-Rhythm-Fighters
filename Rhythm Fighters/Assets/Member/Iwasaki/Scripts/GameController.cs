@@ -38,6 +38,13 @@ public class GameController : MonoBehaviour
     }
     //判定
     //押したときの成功・失敗   押さなかったときの無反応
+    private void Check()
+    {
+        //成功
 
+        //失敗
+
+        //何もしない
+    }
 }
 
