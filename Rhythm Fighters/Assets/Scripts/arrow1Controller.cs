@@ -13,6 +13,14 @@ public class arrow1Controller : MonoBehaviour
     public GameObject arrow2;
     public bool player1PCharacter = false;
     public bool player2PCharacter = false;
+    public Image player1_Icon;
+    public Image player2_Icon;
+    public Image player1_Comment;
+    public Image player2_Comment;
+    public Sprite[]player_Comments= new Sprite[6];
+    public Sprite[]player_Icons= new Sprite[6];
+
+
 
     //選択されたキャラのナンバー数を設定
 
@@ -25,6 +33,10 @@ public class arrow1Controller : MonoBehaviour
         arrow2 = GameObject.Find("arrow2");
         arrow1.transform.position = new Vector3(characters[charNum_1].transform.position.x, 320, 0);
         arrow2.transform.position = new Vector3(characters[charNum_2].transform.position.x, 760, 0);
+        player1_Icon.sprite = player_Icons[charNum_1];
+        player1_Comment.sprite = player_Comments[charNum_1];
+        player2_Icon.sprite = player_Icons[charNum_2];
+        player2_Comment.sprite = player_Comments[charNum_2];
     }
 
     // Update is called once per frame
@@ -86,6 +98,8 @@ public class arrow1Controller : MonoBehaviour
 
         }
         arrow1.transform.position = new Vector3(characters[charNum_1].transform.position.x, 320, 0);
+            player1_Icon.sprite = player_Icons[charNum_1];
+            player1_Comment.sprite = player_Comments[charNum_1];
 
             if (Input.GetKeyDown(KeyCode.E) && !player1PCharacter)
             {
@@ -143,7 +157,8 @@ public class arrow1Controller : MonoBehaviour
             }
 
             arrow2.transform.position = new Vector3(characters[charNum_2].transform.position.x, 760, 0);
-
+            player2_Icon.sprite = player_Icons[charNum_2];
+            player2_Comment.sprite = player_Comments[charNum_2];
 
             if (Input.GetKeyDown(KeyCode.Space)&& !player2PCharacter)
             {
