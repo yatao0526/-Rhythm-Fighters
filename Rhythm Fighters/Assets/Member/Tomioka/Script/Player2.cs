@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Player2 : MonoBehaviour
 {
-    private UnityEngine.Animator animator;
+    private Animator animator;
 
     //移動する距離(Vector3)
     [SerializeField]
@@ -69,6 +69,10 @@ public class Player2 : MonoBehaviour
         {
             moveAfter = transform.position - moveX;
             animator.SetTrigger("Trigger_l");
+        }
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            animator.SetTrigger("Trigger_LP");
         }
     }
 

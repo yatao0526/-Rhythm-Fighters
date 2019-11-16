@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CharactorAction : MonoBehaviour
-{   
+{
+    private Animator animator;
+
     // 1P(左側)の移動
 
     // 一回の左右移動で動く距離
@@ -11,7 +13,7 @@ public class CharactorAction : MonoBehaviour
 
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -28,11 +30,13 @@ public class CharactorAction : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.D) || (Input.GetKeyDown(KeyCode.RightArrow)))
         {
             position.x += moveSpeed;
+            animator.SetTrigger("Trigger_r");
         }
         // 左方向移動
         else if (Input.GetKeyDown(KeyCode.A) || (Input.GetKeyDown(KeyCode.LeftArrow)))
         {
             position.x -= moveSpeed;
+            animator.SetTrigger("Trigger_l");
         }
 
         // 構え
@@ -44,7 +48,9 @@ public class CharactorAction : MonoBehaviour
         // 弱攻撃
         if (Input.GetKeyDown(KeyCode.Z))
         {
+            animator.SetTrigger("Trigger_LP");
             WeakAttack();
+
         }
 
         // 強攻撃
