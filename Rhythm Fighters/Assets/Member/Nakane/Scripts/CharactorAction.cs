@@ -56,6 +56,7 @@ public class CharactorAction : MonoBehaviour
         // 強攻撃
         if (Input.GetKeyDown(KeyCode.X))
         {
+            animator.SetTrigger("Trigger_HP");
             StrengthAttack();
         }
 

@@ -74,6 +74,10 @@ public class Player2 : MonoBehaviour
         {
             animator.SetTrigger("Trigger_LP");
         }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            animator.SetTrigger("Trigger_HP");
+        }
     }
 
     //移動用の関数
