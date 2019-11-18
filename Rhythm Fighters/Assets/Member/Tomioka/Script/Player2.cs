@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Player2 : MonoBehaviour
 {
+    private Animator animator;
+
     //移動する距離(Vector3)
     [SerializeField]
     private Vector3 moveX;
@@ -22,6 +26,7 @@ public class Player2 : MonoBehaviour
     void Start()
     {
         moveAfter = this.transform.position;
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -58,10 +63,20 @@ public class Player2 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow) && this.transform.position.x < maxMove.x)
         {
             moveAfter = transform.position + moveX;
+            animator.SetTrigger("Trigger_r");
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow) && transform.position.x > minMove.x)
         {
             moveAfter = transform.position - moveX;
+            animator.SetTrigger("Trigger_l");
+        }
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            animator.SetTrigger("Trigger_LP");
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            animator.SetTrigger("Trigger_HP");
         }
     }
 
