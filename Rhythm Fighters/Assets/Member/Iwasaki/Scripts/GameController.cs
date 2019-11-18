@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -10,34 +11,51 @@ public class GameController : MonoBehaviour
     //Notes(Prefab)入れてる
     [SerializeField]
     private GameObject[] Notes;
+    //生成する秒
+    [SerializeField]
+    private float timeOut;
+    //テスト用のテキスト(モック終わったら消す)
+    [SerializeField]
+    private Text text;
     //objectpool参照
-    private NoteObjectPool pool;
+    private NoteObjectPool poolL, poolR;
 
-    public static int BPMNum;
-    public static int notesSpeed;
-    public int BPM;
     //判定用タイム
     private float judgeTime;
+
     private void Awake()
     {
-        pool = GetComponent<NoteObjectPool>();
-        pool.CreatePool(Notes[0], 1);
-        pool.CreatePool(Notes[1], 1);
+        poolL = GetComponent<NoteObjectPool>();
+        poolR = GetComponent<NoteObjectPool>();
+        poolL.CreatePoolL(Notes[0], 10);
+        poolR.CreatePoolR(Notes[1], 10);
     }
-    private void Start()
-    {
-        notesSpeed = BPM / 2;
-
-        BPM = BPMNum;
-        notesSpeed = BPMNum / 20;
-    }
-
     private void Update()
     {
-        pool.GetGameObj();
+        MoveTime();
+        //テスト用テキスト
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            switch (NotesController.judge)
+            {
+                case true:
+                    text.text = "むぎちゃ";
+                    break;
+                case false:
+                    text.text = "かれー";
+                    break;
+            }
+        }
     }
-    //判定
-    //押したときの成功・失敗   押さなかったときの無反応
-
+    private void MoveTime()
+    {
+        judgeTime += Time.deltaTime;
+        if (judgeTime >= timeOut)
+        {
+            poolL.GetGameObjL();
+            poolR.GetGameObjR();
+            judgeTime = 0.0f;
+        }
+    }
 }
 
