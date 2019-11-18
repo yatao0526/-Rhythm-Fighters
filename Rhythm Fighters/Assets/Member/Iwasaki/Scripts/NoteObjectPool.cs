@@ -5,45 +5,28 @@ using UnityEngine;
 //オブジェクトプールとやら
 public class NoteObjectPool : MonoBehaviour
 {
-    private List<GameObject> noteObjPool;
+    private List<GameObject> noteObjPoolL;
+    private List<GameObject> noteObjPoolR;
     private GameObject noteObj;
     [SerializeField]
     private GameObject parentObj;
 
-    //オブジェクトプール作成
-    public void CreatePool(GameObject obj, int maxCount)
+    //オブジェクトプール作成(左)
+    public void CreatePoolL(GameObject obj, int maxCount)
     {
         noteObj = obj;
-        noteObjPool = new List<GameObject>();
+        noteObjPoolL = new List<GameObject>();
         for(int i = 0; i < maxCount; i++)
         {
-            var newObj = CreateNewObject();
+            var newObj = CreateNewObjectL();
             newObj.SetActive(false);
-            noteObjPool.Add(newObj);
+            noteObjPoolL.Add(newObj);
         }
-    }
-    //
-    public GameObject GetGameObjR()
-    {
-        //使用中でないものを探す
-        foreach(var obj in noteObjPool)
-        {
-            if(obj.activeSelf == false)
-            {
-                obj.SetActive(true);
-                return obj;
-            }
-        }
-        //すべて使用中だったら新しく作って返す
-        var newObj = CreateNewObject();
-        newObj.SetActive(true);
-        noteObjPool.Add(newObj);
-        return newObj;
     }
     public GameObject GetGameObjL()
     {
         //使用中でないものを探す
-        foreach (var obj in noteObjPool)
+        foreach (var obj in noteObjPoolL)
         {
             if (obj.activeSelf == false)
             {
@@ -52,16 +35,51 @@ public class NoteObjectPool : MonoBehaviour
             }
         }
         //すべて使用中だったら新しく作って返す
-        var newObj = CreateNewObject();
+        var newObj = CreateNewObjectL();
         newObj.SetActive(true);
-        noteObjPool.Add(newObj);
+        noteObjPoolL.Add(newObj);
         return newObj;
     }
-    //
-    private GameObject CreateNewObject()
+    private GameObject CreateNewObjectL()
     {
         var newObj = Instantiate(noteObj);
-        newObj.name = noteObj.name + (noteObjPool.Count + 1);
+        newObj.name = noteObj.name + (noteObjPoolL.Count + 1);
+        newObj.transform.SetParent(parentObj.transform);
+        return newObj;
+    }
+    //オブジェクトプール作成(右)
+    public void CreatePoolR(GameObject obj, int maxCount)
+    {
+        noteObj = obj;
+        noteObjPoolR = new List<GameObject>();
+        for (int i = 0; i < maxCount; i++)
+        {
+            var newObj = CreateNewObjectR();
+            newObj.SetActive(false);
+            noteObjPoolR.Add(newObj);
+        }
+    }
+    public GameObject GetGameObjR()
+    {
+        //使用中でないものを探す
+        foreach(var obj in noteObjPoolR)
+        {
+            if(obj.activeSelf == false)
+            {
+                obj.SetActive(true);
+                return obj;
+            }
+        }
+        //すべて使用中だったら新しく作って返す
+        var newObj = CreateNewObjectR();
+        newObj.SetActive(true);
+        noteObjPoolR.Add(newObj);
+        return newObj;
+    }
+    private GameObject CreateNewObjectR()
+    {
+        var newObj = Instantiate(noteObj);
+        newObj.name = noteObj.name + (noteObjPoolR.Count + 1);
         newObj.transform.SetParent(parentObj.transform);
         return newObj;
     }

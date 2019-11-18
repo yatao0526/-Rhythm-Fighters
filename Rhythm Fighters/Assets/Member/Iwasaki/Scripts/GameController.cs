@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -10,16 +11,15 @@ public class GameController : MonoBehaviour
     //Notes(Prefab)入れてる
     [SerializeField]
     private GameObject[] Notes;
-    //
+    //生成する秒
     [SerializeField]
     private float timeOut;
+    //テスト用のテキスト(モック終わったら消す)
+    [SerializeField]
+    private Text text;
     //objectpool参照
     private NoteObjectPool poolL, poolR;
 
-    public static int BPMNum;
-    public static int notesSpeed;
-    public int BPM;
-    
     //判定用タイム
     private float judgeTime;
 
@@ -27,25 +27,35 @@ public class GameController : MonoBehaviour
     {
         poolL = GetComponent<NoteObjectPool>();
         poolR = GetComponent<NoteObjectPool>();
-        poolL.CreatePool(Notes[0], 10);
-        poolR.CreatePool(Notes[1], 10);
+        poolL.CreatePoolL(Notes[0], 10);
+        poolR.CreatePoolR(Notes[1], 10);
     }
-    private void Start()
-    {
-
-    }
-
     private void Update()
     {
-        //Debug.Log(judgeTime);
+        MoveTime();
+        //テスト用テキスト
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            switch (NotesController.judge)
+            {
+                case true:
+                    text.text = "むぎちゃ";
+                    break;
+                case false:
+                    text.text = "かれー";
+                    break;
+            }
+        }
+    }
+    private void MoveTime()
+    {
         judgeTime += Time.deltaTime;
-        if(judgeTime >= timeOut)
+        if (judgeTime >= timeOut)
         {
             poolL.GetGameObjL();
             poolR.GetGameObjR();
             judgeTime = 0.0f;
         }
-        Debug.Log(NotesController.judge);
     }
 }
 
