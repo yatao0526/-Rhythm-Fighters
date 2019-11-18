@@ -39,10 +39,10 @@ public class GameController : MonoBehaviour
             switch (NotesController.judge)
             {
                 case true:
-                    text.text = "むぎちゃ";
+                    text.text = "OK";
                     break;
                 case false:
-                    text.text = "かれー";
+                    text.text = "NG";
                     break;
             }
         }
