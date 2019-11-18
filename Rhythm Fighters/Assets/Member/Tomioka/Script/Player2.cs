@@ -1,36 +1,38 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-
 
 public class Player2 : MonoBehaviour
 {
-    private Animator animator;
-
     //移動する距離(Vector3)
     [SerializeField]
     private Vector3 moveX;
 
+    //移動した数
     [SerializeField]
-    private Vector3 minMove, maxMove;
+    private int numberMoves;
+
+    //移動できる最小値と最大値
+    [SerializeField]
+    private int minMove, maxMove;
 
     // 移動時間
     [SerializeField]
     private float stepTime;
 
-    //移動後と移動前の場所
+    //移動後の場所
     private Vector3 moveAfter;
+
     private Vector3 moveBeforePos;
 
     void Start()
     {
         moveAfter = this.transform.position;
-        animator = GetComponent<Animator>();
     }
 
     void Update()
     {
+
         if (this.transform.position == moveAfter)
         {
             SetTargetPosition();
@@ -40,49 +42,47 @@ public class Player2 : MonoBehaviour
     }
 
     //押したキーによって進む方向を決める
-    void SetTargetPosition()
+    private void SetTargetPosition()
     {
+
         moveBeforePos = moveAfter;
 
-        if (Input.GetAxis("LeftRight") > 0.5f && this.transform.position.x < maxMove.x)
+        if (Input.GetAxis("LeftRight") > 0.5f && numberMoves < maxMove)
         {
             moveAfter = transform.position + moveX;
+            numberMoves++;
         }
-        if (Input.GetAxis("LeftRight") < -0.5f && this.transform.position.x > minMove.x)
+        if (Input.GetAxis("LeftRight") < -0.5f && numberMoves > minMove)
         {
             moveAfter = transform.position - moveX;
+            numberMoves--;
         }
 
     }
 
     //デバッグ用
-    void DebugSetTargetPosition()
+    private void DebugSetTargetPosition()
     {
+
         moveBeforePos = moveAfter;
 
-        if (Input.GetKeyDown(KeyCode.RightArrow) && this.transform.position.x < maxMove.x)
+        if (Input.GetKeyDown(KeyCode.RightArrow) && numberMoves < maxMove)
         {
             moveAfter = transform.position + moveX;
-            animator.SetTrigger("Trigger_r");
+            numberMoves++;
         }
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && transform.position.x > minMove.x)
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && numberMoves > minMove)
         {
             moveAfter = transform.position - moveX;
-            animator.SetTrigger("Trigger_l");
+            numberMoves--;
         }
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            animator.SetTrigger("Trigger_LP");
-        }
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            animator.SetTrigger("Trigger_HP");
-        }
+
     }
 
     //移動用の関数
-    void Move()
+    private void Move()
     {
         transform.position = Vector3.MoveTowards(transform.position, moveAfter, stepTime * 10 * Time.deltaTime);
     }
 }
+
