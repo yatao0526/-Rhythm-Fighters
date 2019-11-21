@@ -16,7 +16,8 @@ public class Player2 : MonoBehaviour
     [SerializeField]
     private int minMove, maxMove;
 
-    // 移動時間
+    //移動する速さ
+    [Header("移動する速さ")]
     [SerializeField]
     private float stepTime;
 

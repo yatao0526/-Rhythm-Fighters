@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-
 
 public class Player1 : MonoBehaviour
 {
@@ -15,7 +13,8 @@ public class Player1 : MonoBehaviour
     [SerializeField]
     private Vector3 minMove, maxMove;
 
-    // 移動時間
+    //移動する速さ
+    [Header("移動する速さ")]
     [SerializeField]
     private float stepTime;
 
@@ -60,12 +59,12 @@ public class Player1 : MonoBehaviour
     {
         moveBeforePos = moveAfter;
 
-        if (Input.GetKeyDown(KeyCode.RightArrow) && this.transform.position.x < maxMove.x)
+        if (Input.GetKeyDown(KeyCode.D) && this.transform.position.x < maxMove.x)
         {
             moveAfter = transform.position + moveX;
             animator.SetTrigger("Trigger_r");
         }
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && transform.position.x > minMove.x)
+        if (Input.GetKeyDown(KeyCode.A) && transform.position.x > minMove.x)
         {
             moveAfter = transform.position - moveX;
             animator.SetTrigger("Trigger_l");
