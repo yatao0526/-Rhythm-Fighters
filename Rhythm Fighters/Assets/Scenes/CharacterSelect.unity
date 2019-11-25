@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 15392667}
   - component: {fileID: 15392669}
   - component: {fileID: 15392668}
+  - component: {fileID: 15392670}
   m_Layer: 5
   m_Name: Character5
   m_TagString: Untagged
@@ -187,6 +188,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 15392666}
   m_CullTransparentMesh: 0
+--- !u!114 &15392670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15392666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2a94161eed8caf4286abefdfe0f980b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGradientColourMove: 0
+  gradientColourMoveSpeet: 0.33333334
 --- !u!1 &94895380
 GameObject:
   m_ObjectHideFlags: 0
@@ -588,6 +603,7 @@ GameObject:
   - component: {fileID: 492662181}
   - component: {fileID: 492662183}
   - component: {fileID: 492662182}
+  - component: {fileID: 492662184}
   m_Layer: 5
   m_Name: Character6
   m_TagString: Untagged
@@ -652,6 +668,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 492662180}
   m_CullTransparentMesh: 0
+--- !u!114 &492662184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492662180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2a94161eed8caf4286abefdfe0f980b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGradientColourMove: 0
+  gradientColourMoveSpeet: 0.33333334
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,6 +775,7 @@ GameObject:
   - component: {fileID: 540872653}
   - component: {fileID: 540872655}
   - component: {fileID: 540872654}
+  - component: {fileID: 540872656}
   m_Layer: 5
   m_Name: Character1
   m_TagString: Untagged
@@ -809,6 +840,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 540872652}
   m_CullTransparentMesh: 0
+--- !u!114 &540872656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540872652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2a94161eed8caf4286abefdfe0f980b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGradientColourMove: 0
+  gradientColourMoveSpeet: 0.33333334
+--- !u!1 &544618266
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 544618268}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &544618268
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544618266}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 960, y: 540, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &649532695
 GameObject:
   m_ObjectHideFlags: 0
@@ -894,6 +969,7 @@ GameObject:
   - component: {fileID: 859234988}
   - component: {fileID: 859234990}
   - component: {fileID: 859234989}
+  - component: {fileID: 859234991}
   m_Layer: 5
   m_Name: Character4
   m_TagString: Untagged
@@ -958,6 +1034,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 859234987}
   m_CullTransparentMesh: 0
+--- !u!114 &859234991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859234987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2a94161eed8caf4286abefdfe0f980b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGradientColourMove: 0
+  gradientColourMoveSpeet: 0.33333334
 --- !u!1 &1084085315
 GameObject:
   m_ObjectHideFlags: 0
@@ -969,6 +1059,7 @@ GameObject:
   - component: {fileID: 1084085316}
   - component: {fileID: 1084085318}
   - component: {fileID: 1084085317}
+  - component: {fileID: 1084085319}
   m_Layer: 5
   m_Name: Character2
   m_TagString: Untagged
@@ -1033,6 +1124,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1084085315}
   m_CullTransparentMesh: 0
+--- !u!114 &1084085319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084085315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2a94161eed8caf4286abefdfe0f980b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGradientColourMove: 0
+  gradientColourMoveSpeet: 0.33333334
 --- !u!1 &1131390662
 GameObject:
   m_ObjectHideFlags: 0
@@ -1100,6 +1205,8 @@ MonoBehaviour:
   Background: {fileID: 1476110756}
   player1PCharacter: 0
   player2PCharacter: 0
+  isPlayerSelection: 0
+  isPlayer1: 0
   player1_Icon: {fileID: 210794679}
   player2_Icon: {fileID: 649532697}
   player_Icons:
@@ -1161,6 +1268,7 @@ GameObject:
   - component: {fileID: 1186058637}
   - component: {fileID: 1186058639}
   - component: {fileID: 1186058638}
+  - component: {fileID: 1186058640}
   m_Layer: 5
   m_Name: Character3
   m_TagString: Untagged
@@ -1225,6 +1333,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1186058636}
   m_CullTransparentMesh: 0
+--- !u!114 &1186058640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186058636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2a94161eed8caf4286abefdfe0f980b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGradientColourMove: 0
+  gradientColourMoveSpeet: 0.33333334
 --- !u!1 &1204826309
 GameObject:
   m_ObjectHideFlags: 0
