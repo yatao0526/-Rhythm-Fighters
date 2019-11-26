@@ -6,14 +6,21 @@ using UnityEngine.SceneManagement;
 
 public class arrow1Controller : MonoBehaviour
 {
-    [SerializeField] private int charNum1 = 0, charNum2 = 5, charNumMAX = 6;
 
-    [SerializeField] private int charNum_1 = 0, charNum_2 = 5;//いま選択しているキャラクター
-    [SerializeField] private GameObject[] characters = new GameObject[6];//キャラクター達
-    [SerializeField] private GameObject arrow1, arrow2, Background;//今だれか何か選択してる　赤い 青い//Backgroundは背景
-    [SerializeField] private bool player1PCharacter = false, player2PCharacter = false, isPlayerSelection = false, isPlayer1 = false;//選択確認
-    [SerializeField] private Image player1_Icon, player2_Icon;//選択したキャラクター
-    [SerializeField] private Sprite[] player_Icons = new Sprite[6], Backgrounds = new Sprite[3];//キャラクター画像//背景画像
+    //いま選択しているキャラクター
+    [SerializeField] private int charNum_1 = 0, charNum_2 = 5, charNumMAX = 6;
+    //キャラクター達
+    [SerializeField] private GameObject[] characters = new GameObject[6];
+    [SerializeField] private GameObject[] backgroundGameObjects = new GameObject[3];
+    //今だれか何か選択してる　赤い 青い//Backgroundは背景
+    [SerializeField] private GameObject arrow1, arrow2, Background;
+    //選択確認
+    [SerializeField] private bool player1PCharacter = false, player2PCharacter = false, isPlayerSelection = false, isPlayer1 = false;
+    //選択したキャラクター
+
+    [SerializeField] private Image player1_Icon, player2_Icon;
+    //キャラクター画像//背景画像
+    [SerializeField] private Sprite[] player_Icons = new Sprite[6], Backgrounds = new Sprite[3];
 
     //選択されたキャラのナンバー数を設定
 
@@ -29,7 +36,6 @@ public class arrow1Controller : MonoBehaviour
         player2_Icon.sprite = player_Icons[charNum_2];
 
     }
-
     // Update is called once per frame
     private void Update()
     {
@@ -38,7 +44,7 @@ public class arrow1Controller : MonoBehaviour
 
 
         //-test
-    
+
         //--
 
     }
@@ -60,8 +66,8 @@ public class arrow1Controller : MonoBehaviour
             {
                 charNum_1--;
             }
-            
-           
+
+
         }
         else if (Input.GetKeyDown(KeyCode.D) && !player1PCharacter && !isPlayerSelection)
         {
@@ -111,10 +117,10 @@ public class arrow1Controller : MonoBehaviour
             characters[charNum_2].GetComponent<Image>().color = new Color(0.0f, 0.0f, 0.0f);
             //左へ移動
             charNum_2--;
-          
+
             if (charNum_2 % charNumMAX < 0)
             {
-                charNum_2 = charNumMAX-1;
+                charNum_2 = charNumMAX - 1;
             }
             if (charNum_2 % charNumMAX == charNum_1 % charNumMAX)
             {
@@ -186,19 +192,47 @@ public class arrow1Controller : MonoBehaviour
     private void CharactersGradientColour()
     {
         Debug.Log("CharactersGradientColour");
-        for ( int charactersSprite = 0; charactersSprite < 6; charactersSprite++)
+        for (int charactersSprite = 0; charactersSprite < 6; charactersSprite++)
         {
             Debug.Log("int charactersSprite = 0; charactersSprite < 6; charactersSprite++)");
             if (charactersSprite != charNum_1 && charactersSprite != charNum_2)
             {//削除したい画像はプレイヤーが選択した画像なら
-                Debug.Log(" if (charactersSprite != charNum_1 && charactersSprite != charNum_2)"+ charactersSprite);
+                Debug.Log(" if (charactersSprite != charNum_1 && charactersSprite != charNum_2)" + charactersSprite);
                 characters[charactersSprite].GetComponent<ImageGradientColour>().isGradientColourMove = true;
                 Debug.Log("    characters[charactersSprite].GetComponent<ImageGradientColour>().gradientColourMove = true;" + characters[charactersSprite].GetComponent<ImageGradientColour>().isGradientColourMove);
             }
+            CardsPosXMove();
         }
     }
+    private void CardsPosXMove()
+    {
+        characters[charNum_1].GetComponent<ImageGradientColour>().myX = 160;
+        characters[charNum_1].GetComponent<ImageGradientColour>().isCardPosXMove = true;
+        characters[charNum_2].GetComponent<ImageGradientColour>().myX = 1760;
+        characters[charNum_2].GetComponent<ImageGradientColour>().isCardPosXMove = true;
+        Debug.Log(characters[charNum_2].gameObject.transform.position.y);
+        characters[charNum_2].transform.eulerAngles = new Vector3(0, 180, 0);
+      
+    }
+    public GameObject AS;
+    void Player1RotationYMove()
+    {
+        for (int i=0; i < 3; i++)
+        {
+             backgroundGameObjects[i].transform.position = new Vector3(transform.position.y, 200);
+        }
+    
+    
+        
+    }
 }
-
+/*
+ *  
+ * 
+ * 
+ * 
+ * 
+ */
 
 //キャラクター　
 //顔向き
