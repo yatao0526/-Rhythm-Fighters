@@ -253,6 +253,7 @@ public class CharacterSelectPlayersController : MonoBehaviour
                 CharacterSelectPlayersControllerEnd();
             }
             stageNum = stageNum % stageNumMAX;
+            Background.GetComponent<Image>().sprite = backgroundGameObjects[stageNum].GetComponent<Image>().sprite;
             backgroundGameObjects[stageNum].GetComponent<Image>().color = new Color(0 / 255.0f, 62 / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f);
         }
     }
