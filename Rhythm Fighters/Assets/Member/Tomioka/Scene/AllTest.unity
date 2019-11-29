@@ -321,9 +321,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveX: {x: 2, y: 0, z: 0}
-  numberMoves: 5
-  minMove: 0
-  maxMove: 6
+  minMove: {x: -5, y: 0, z: 0}
+  maxMove: {x: 5, y: 0, z: 0}
   stepTime: 1
 --- !u!212 &462026433
 SpriteRenderer:
@@ -469,7 +468,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &492567459
 MonoBehaviour:
   m_ObjectHideFlags: 0

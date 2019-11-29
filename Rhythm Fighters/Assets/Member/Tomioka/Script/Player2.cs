@@ -4,36 +4,32 @@ using UnityEngine;
 
 public class Player2 : MonoBehaviour
 {
+    private Animator animator;
+
     //移動する距離(Vector3)
     [SerializeField]
     private Vector3 moveX;
 
-    //移動した数
     [SerializeField]
-    private int numberMoves;
-
-    //移動できる最小値と最大値
-    [SerializeField]
-    private int minMove, maxMove;
+    private Vector3 minMove, maxMove;
 
     //移動する速さ
     [Header("移動する速さ")]
     [SerializeField]
     private float stepTime;
 
-    //移動後の場所
+    //移動後と移動前の場所
     private Vector3 moveAfter;
-
     private Vector3 moveBeforePos;
 
     void Start()
     {
         moveAfter = this.transform.position;
+        animator = GetComponent<Animator>();
     }
 
     void Update()
     {
-
         if (this.transform.position == moveAfter)
         {
             SetTargetPosition();
@@ -64,20 +60,26 @@ public class Player2 : MonoBehaviour
     //デバッグ用
     private void DebugSetTargetPosition()
     {
-
         moveBeforePos = moveAfter;
 
-        if (Input.GetKeyDown(KeyCode.RightArrow) && numberMoves < maxMove)
+        if (Input.GetKeyDown(KeyCode.RightArrow) && this.transform.position.x < maxMove.x)
         {
             moveAfter = transform.position + moveX;
-            numberMoves++;
+            animator.SetTrigger("Trigger_r");
         }
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && numberMoves > minMove)
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && transform.position.x > minMove.x)
         {
             moveAfter = transform.position - moveX;
-            numberMoves--;
+            animator.SetTrigger("Trigger_l");
         }
-
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            animator.SetTrigger("Trigger_LP");
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            animator.SetTrigger("Trigger_HP");
+        }
     }
 
     //移動用の関数
