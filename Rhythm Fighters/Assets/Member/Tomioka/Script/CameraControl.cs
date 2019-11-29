@@ -13,27 +13,21 @@ public class CameraControl : MonoBehaviour
     [SerializeField]
     private Vector2 center;
 
-
-
-    // Start is called before the first frame update
     void Start()
     {
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         between1Pand2P();
     }
 
+    //1Pと2Pの間にカメラを持ってくる
     private void between1Pand2P()
     {
         center = (player1.transform.position + player2.transform.position) * 0.5f;
         this.transform.position = center;
     }
-
-
-   
 }
 

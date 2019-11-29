@@ -6,6 +6,8 @@ public class PSConTest : MonoBehaviour
 {
     private bool neutralLRPosition = true;
     private bool neutralDownPosition = true;
+    private bool neutral2PLRPosition = true;
+    private bool neutral2PDownPosition = true;
 
 
     void Update()
@@ -15,16 +17,19 @@ public class PSConTest : MonoBehaviour
 
     private void PSConDebug()
     {
-        //コントローラーの左右
+        //1P
+        #region
+
+        //1Pのコントローラーの左右
         #region
         if (Input.GetAxis("LeftRight") > 0.5f && neutralLRPosition == true)
         {
-            Debug.Log("右");
+            Debug.Log("1P 右");
             neutralLRPosition = false;
         }
         if (Input.GetAxis("LeftRight") < -0.5 && neutralLRPosition == true)
         {
-            Debug.Log("左");
+            Debug.Log("1P 左");
             neutralLRPosition = false;
         }
         if (Input.GetAxis("LeftRight") == 0.0f)
@@ -33,11 +38,11 @@ public class PSConTest : MonoBehaviour
         }
         #endregion
 
-        //コントローラーの下
+        //1Pのコントローラーの下
         #region
         if (Input.GetAxis("Down") < -0.5f && neutralDownPosition == true)
         {
-            Debug.Log("下");
+            Debug.Log("1P 下");
             neutralDownPosition = false;
         }
         if (Input.GetAxis("Down") == 0.0f)
@@ -46,25 +51,77 @@ public class PSConTest : MonoBehaviour
         }
         #endregion
 
-        //〇×△□のボタン
+        //1Pの〇×△□のボタン
         #region
         if (Input.GetButtonDown("Maru"))
         {
-            Debug.Log("〇");
+            Debug.Log("1P 〇");
         }
         if (Input.GetButtonDown("Batu"))
         {
-            Debug.Log("×");
+            Debug.Log("1P ×");
         }
         if (Input.GetButtonDown("Sankaku"))
         {
-            Debug.Log("△");
+            Debug.Log("1P △");
         }
         if (Input.GetButtonDown("Sikaku"))
         {
-            Debug.Log("□");
+            Debug.Log("1P □");
         }
         #endregion
 
+        #endregion
+
+
+        //2P
+        #region
+        if (Input.GetAxis("2PLeftRight") > 0.5f && neutral2PLRPosition == true)
+        {
+            Debug.Log("2P 右");
+            neutral2PLRPosition = false;
+        }
+        if (Input.GetAxis("2PLeftRight") < -0.5 && neutral2PLRPosition == true)
+        {
+            Debug.Log("2P 左");
+            neutral2PLRPosition = false;
+        }
+        if (Input.GetAxis("2PLeftRight") == 0.0f)
+        {
+            neutral2PLRPosition = true;
+        }
+
+        if (Input.GetAxis("2PDown") < -0.5f && neutral2PDownPosition == true)
+        {
+            Debug.Log("2P 下");
+            neutral2PDownPosition = false;
+        }
+        if (Input.GetAxis("2PDown") == 0.0f)
+        {
+            neutral2PDownPosition = true;
+        }
+
+
+        //2Pの〇×△□のボタン
+        #region
+        if (Input.GetButtonDown("2PMaru"))
+        {
+            Debug.Log("2P 〇");
+        }
+        if (Input.GetButtonDown("2PBatu"))
+        {
+            Debug.Log("2P ×");
+        }
+        if (Input.GetButtonDown("2PSankaku"))
+        {
+            Debug.Log("2P △");
+        }
+        if (Input.GetButtonDown("2PSikaku"))
+        {
+            Debug.Log("2P □");
+        }
+        #endregion
+
+        #endregion
     }
 }

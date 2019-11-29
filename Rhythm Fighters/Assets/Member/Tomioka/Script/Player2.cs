@@ -41,18 +41,15 @@ public class Player2 : MonoBehaviour
     //押したキーによって進む方向を決める
     private void SetTargetPosition()
     {
-
         moveBeforePos = moveAfter;
 
-        if (Input.GetAxis("LeftRight") > 0.5f && numberMoves < maxMove)
+        if (Input.GetAxis("2PLeftRight") > 0.5f && this.transform.position.x < maxMove.x)
         {
             moveAfter = transform.position + moveX;
-            numberMoves++;
         }
-        if (Input.GetAxis("LeftRight") < -0.5f && numberMoves > minMove)
+        if (Input.GetAxis("2PLeftRight") < -0.5f && this.transform.position.x > minMove.x)
         {
             moveAfter = transform.position - moveX;
-            numberMoves--;
         }
 
     }
@@ -76,7 +73,7 @@ public class Player2 : MonoBehaviour
         {
             animator.SetTrigger("Trigger_LP");
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             animator.SetTrigger("Trigger_HP");
         }
@@ -88,4 +85,3 @@ public class Player2 : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, moveAfter, stepTime * 10 * Time.deltaTime);
     }
 }
-
