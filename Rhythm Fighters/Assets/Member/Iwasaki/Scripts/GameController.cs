@@ -22,6 +22,14 @@ public class GameController : MonoBehaviour
 
     //判定用タイム
     private float judgeTime;
+    //判定補助タイマー（BGM開始時間指定用）
+    private float audioTime;
+
+    //test用、soundManager
+    public GameObject soundManager;
+    //test用、BGMか流しているかどうかの判断
+    private static bool soundPlaying = false;
+    private float time = 0;
 
     private void Awake()
     {
@@ -30,7 +38,7 @@ public class GameController : MonoBehaviour
         poolL.CreatePoolL(Notes[0], 10);
         poolR.CreatePoolR(Notes[1], 10);
     }
-    private void Update()
+    private void FixedUpdate()
     {
         MoveTime();
         //テスト用テキスト
@@ -46,15 +54,42 @@ public class GameController : MonoBehaviour
                     break;
             }
         }
+        //AudioSourceがloop時発生するズレ修正
+        if (soundManager.GetComponent<AudioSource>().time - time < 0)
+        {
+            judgeTime = (time % 0.75f + soundManager.GetComponent<AudioSource>().time);
+            //Debug用
+            //Debug.Log("loop");
+            //Debug.Log("time = " + time);
+            //Debug.Log("time%0.75 = " + (time%0.75f));
+            //Debug.Log(soundManager.GetComponent<AudioSource>().time);
+            //Debug.Log("judgeTime = " + judgeTime);
+        }
+        //真ん中になる時、判定を出す
+        if (NotesController.getActive)
+        {
+            Debug.Log("判定");
+            //Debug.Log(audioTime);
+            NotesController.getActive = false;
+        }
+        //BGM流す
+        if (soundPlaying == false && audioTime >= 0.75f)//ノーズの流すスピードで計算（=9.5/10-0.2(反応スピード)）
+        {
+            soundPlaying = true;
+            soundManager.GetComponent<AudioSource>().Play();
+        }
+        //ズレ修正用
+        time = soundManager.GetComponent<AudioSource>().time;
     }
     private void MoveTime()
     {
         judgeTime += Time.deltaTime;
+        audioTime += Time.deltaTime;
         if (judgeTime >= timeOut)
         {
             poolL.GetGameObjL();
             poolR.GetGameObjR();
-            judgeTime = 0.0f;
+            judgeTime -= timeOut;//ズレ修正
         }
     }
 }
