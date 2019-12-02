@@ -23,7 +23,7 @@ public class CharacterSelectPlayersController : MonoBehaviour
     // [SerializeField] private Image player1_Icon, player2_Icon;
     //キャラクター画像//背景画像
     //　選択できる　キャラクターと背景の画像
-    [SerializeField] private Sprite[] player_Icons = new Sprite[6], Backgrounds = new Sprite[3];
+    [SerializeField] private Sprite[] player_Icons = new Sprite[6], playerCharacterAffirmations = new Sprite[6], playerCharacters = new Sprite[6], Backgrounds = new Sprite[3];
     //選択の結果
     [SerializeField] private string player1PCharacterName, player2PCharacterName, stageName;
     // Start is called before the first frame update
@@ -245,18 +245,21 @@ public class CharacterSelectPlayersController : MonoBehaviour
                 {
                     stageNum = stageNumMAX - 1;
                 }
+                Background.GetComponent<BackgroundMoveScript>().speedTime = 1.0f;
             }
             else if (Input.GetKeyDown(KeyCode.D))
             {
                 backgroundGameObjects[stageNum].GetComponent<Image>().color = new Color(255.0f / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f);
                 stageNum++;
+                Background.GetComponent<BackgroundMoveScript>().speedTime = 1.0f;
             }
             else if (Input.GetKeyDown(KeyCode.E))
             {
                 CharacterSelectPlayersControllerEnd();
             }
             stageNum = stageNum % stageNumMAX;
-          //  Background.GetComponent<Image>().sprite = backgroundGameObjects[stageNum].GetComponent<Image>().sprite;
+            Background.GetComponent<BackgroundMoveScript>().myX = stageNum;
+            //  Background.GetComponent<Image>().sprite = backgroundGameObjects[stageNum].GetComponent<Image>().sprite;
             backgroundGameObjects[stageNum].GetComponent<Image>().color = new Color(255.0f / 255.0f, 8 / 255.0f, 0 / 255.0f, 255.0f / 255.0f);
         }
         else if (isStageController && !isPlayer1)
@@ -282,6 +285,7 @@ public class CharacterSelectPlayersController : MonoBehaviour
                 CharacterSelectPlayersControllerEnd();
             }
             stageNum = stageNum % stageNumMAX;
+
             Background.GetComponent<BackgroundMoveScript>().myX = stageNum;
           
             //  Background.GetComponent<Image>().sprite = backgroundGameObjects[stageNum].GetComponent<Image>().sprite;
