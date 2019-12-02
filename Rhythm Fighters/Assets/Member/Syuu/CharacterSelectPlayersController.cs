@@ -7,8 +7,9 @@ using UnityEngine.SceneManagement;
 public class CharacterSelectPlayersController : MonoBehaviour
 {
 
-    // charNum_1　charNum_2プレイヤーが選択しているキャラクター, stageNum選択するステージ
+    // charNum_1　   charNum_2プレイヤーが選択しているキャラクター, stageNum選択するステージ
     [SerializeField] private int charNum_1 = 0, charNum_2 = 5, charNumMAX = 6, stageMoves = 0, stageNum = 0, stageNumMAX = 3;
+    [SerializeField] private float gradientColourMoveSpeet = 0.5f;
     //キャラクター達
     [SerializeField] private GameObject[] characters = new GameObject[6];
     [SerializeField] private GameObject[] backgroundGameObjects = new GameObject[3];
@@ -18,7 +19,8 @@ public class CharacterSelectPlayersController : MonoBehaviour
     [SerializeField] private bool player1PCharacter = false, player2PCharacter = false, isPlayerSelection = false, isPlayer1 = false, isStageController = false;
     //選択したキャラクター
     //プレイヤーのアイコン　赤い　青い
-    [SerializeField] private Image player1_Icon, player2_Icon;
+    [SerializeField] private GameObject player1_Icon, player2_Icon;
+    // [SerializeField] private Image player1_Icon, player2_Icon;
     //キャラクター画像//背景画像
     //　選択できる　キャラクターと背景の画像
     [SerializeField] private Sprite[] player_Icons = new Sprite[6], Backgrounds = new Sprite[3];
@@ -28,12 +30,13 @@ public class CharacterSelectPlayersController : MonoBehaviour
     private void Start()
     {
         charNum_1 = charNum_1 % charNumMAX;
-        arrow1.transform.position = new Vector3(characters[charNum_1].transform.position.x, 320, 0);
-        player1_Icon.sprite = player_Icons[charNum_1];
+        arrow1.transform.position = new Vector3(characters[charNum_1].transform.position.x, 760, 0);
+        player1_Icon.GetComponent<Image>().sprite = player_Icons[charNum_1];
 
         charNum_2 = charNum_2 % charNumMAX;
         arrow2.transform.position = new Vector3(characters[charNum_2].transform.position.x, 760, 0);
-        player2_Icon.sprite = player_Icons[charNum_2];
+        player2_Icon.GetComponent<Image>().sprite = player_Icons[charNum_2];
+        //  player2_Icon.sprite = player_Icons[charNum_2];
 
     }
     // Update is called once per frame
@@ -52,7 +55,7 @@ public class CharacterSelectPlayersController : MonoBehaviour
             charNum_1--;
             if (charNum_1 % charNumMAX < 0)
             {
-               // Debug.Log("  if (charNum_1 % charNumMAX <0)" + charNum_1);
+                // Debug.Log("  if (charNum_1 % charNumMAX <0)" + charNum_1);
                 charNum_1 = charNumMAX - 1;
             }
             if (charNum_1 % charNumMAX == charNum_2 % charNumMAX)
@@ -70,8 +73,14 @@ public class CharacterSelectPlayersController : MonoBehaviour
             }
         }
         charNum_1 = charNum_1 % charNumMAX;
-        player1_Icon.sprite = player_Icons[charNum_1];
-        arrow1.transform.position = new Vector3(characters[charNum_1].transform.position.x, 320, 0);
+
+        // player1_Icon.sprite = player_Icons[charNum_1];
+        if (arrow1 != null)
+        {
+            player1_Icon.GetComponent<Image>().sprite = player_Icons[charNum_1];
+            arrow1.transform.position = new Vector3(characters[charNum_1].transform.position.x, 760, 0);
+        }
+
         if (Input.GetKeyDown(KeyCode.E) && !player1PCharacter && !isPlayerSelection)
         {
             player1PCharacter = true;
@@ -119,8 +128,13 @@ public class CharacterSelectPlayersController : MonoBehaviour
 
         }
         charNum_2 = charNum_2 % charNumMAX;
-        arrow2.transform.position = new Vector3(characters[charNum_2].transform.position.x, 760, 0);
-        player2_Icon.sprite = player_Icons[charNum_2];
+        if (arrow2 != null)
+        {
+            arrow2.transform.position = new Vector3(characters[charNum_2].transform.position.x, 760, 0);
+            player2_Icon.GetComponent<Image>().sprite = player_Icons[charNum_2];
+        }
+
+        // player2_Icon.sprite = player_Icons[charNum_2];
         if (Input.GetKeyDown(KeyCode.Space) && !player2PCharacter && !isPlayerSelection)
         {
             player2PCharacter = true;
@@ -131,9 +145,10 @@ public class CharacterSelectPlayersController : MonoBehaviour
             player2PCharacter = false;
         }
         if (player2PCharacter) { characters[charNum_2].GetComponent<Image>().color = new Color(0 / 255.0f, 62 / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f); }
-        else { characters[charNum_2].GetComponent<Image>().color = new Color(0 / 255.0f, 62 / 255.0f, 255.0f / 255.0f, 130.0f / 255.0f); }
+        else { characters[charNum_2].GetComponent<Image>().color = new Color(0 / 255.0f, 62 / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f); }
     }
     //誰か先に選択おしたか
+
     private void PlayerSelectionMove()
     {
 
@@ -166,16 +181,27 @@ public class CharacterSelectPlayersController : MonoBehaviour
     //選択されてなかったキャラクター消す
     private void CharactersGradientColour()
     {
-      //  Debug.Log("CharactersGradientColour");
+        //  Debug.Log("CharactersGradientColour");
         for (int charactersSprite = 0; charactersSprite < 6; charactersSprite++)
         {
-          //  Debug.Log("int charactersSprite = 0; charactersSprite < 6; charactersSprite++)");
+            //  Debug.Log("int charactersSprite = 0; charactersSprite < 6; charactersSprite++)");
             if (charactersSprite != charNum_1 && charactersSprite != charNum_2)
             {//削除したい画像はプレイヤーが選択した画像なら
-            //    Debug.Log(" if (charactersSprite != charNum_1 && charactersSprite != charNum_2)" + charactersSprite);
+             //    Debug.Log(" if (charactersSprite != charNum_1 && charactersSprite != charNum_2)" + charactersSprite);
+                characters[charactersSprite].GetComponent<ImageGradientColour>().gradientColourMoveSpeet = gradientColourMoveSpeet;
                 characters[charactersSprite].GetComponent<ImageGradientColour>().isGradientColourMove = true;
-             //   Debug.Log("    characters[charactersSprite].GetComponent<ImageGradientColour>().gradientColourMove = true;" + characters[charactersSprite].GetComponent<ImageGradientColour>().isGradientColourMove);
+                //   Debug.Log("    characters[charactersSprite].GetComponent<ImageGradientColour>().gradientColourMove = true;" + characters[charactersSprite].GetComponent<ImageGradientColour>().isGradientColourMove);
             }
+            arrow1.GetComponent<ImageGradientColour>().gradientColourMoveSpeet = gradientColourMoveSpeet - 0.1f;
+            arrow1.GetComponent<ImageGradientColour>().isGradientColourMove = true;
+            arrow2.GetComponent<ImageGradientColour>().gradientColourMoveSpeet = gradientColourMoveSpeet - 0.1f;
+            arrow2.GetComponent<ImageGradientColour>().isGradientColourMove = true;
+            player1_Icon.GetComponent<ImageGradientColour>().gradientColourMoveSpeet = gradientColourMoveSpeet - 0.1f;
+            player1_Icon.GetComponent<ImageGradientColour>().isGradientColourMove = true;
+            player2_Icon.GetComponent<ImageGradientColour>().gradientColourMoveSpeet = gradientColourMoveSpeet - 0.1f;
+            player2_Icon.GetComponent<ImageGradientColour>().isGradientColourMove = true;
+
+
             CardsPosXMove();
         }
     }//選択されたキャラクター各場所に転移
@@ -186,14 +212,14 @@ public class CharacterSelectPlayersController : MonoBehaviour
         characters[charNum_2].GetComponent<ImageGradientColour>().myX = 1760;
         characters[charNum_2].GetComponent<ImageGradientColour>().isCardPosXMove = true;
         characters[charNum_2].transform.eulerAngles = new Vector3(0, 180, 0);
-        Invoke("stageMove", 3f);
+        Invoke("stageMove", 2.0f);
     }
     //ステージ選択開始
     private void stageMove()
     {
         if (stageMoves < 3)
         {
-            backgroundGameObjects[stageMoves].transform.position = new Vector3(backgroundGameObjects[stageMoves].transform.position.x, 540);
+            backgroundGameObjects[stageMoves].transform.position = new Vector3(backgroundGameObjects[stageMoves].transform.position.x, 150);
             backgroundGameObjects[stageMoves].GetComponent<BackgroundScropt>().isGradientColourMove = true;
             stageMoves++;
             Invoke("stageMove", stageMoves * 3);
@@ -202,6 +228,7 @@ public class CharacterSelectPlayersController : MonoBehaviour
         {
             //ステージ選択できるようになった
             isStageController = true;
+            Background.GetComponent<Image>().sprite = backgroundGameObjects[1].GetComponent<Image>().sprite;
         }
     }
     //ステージ選択入力
@@ -229,7 +256,7 @@ public class CharacterSelectPlayersController : MonoBehaviour
                 CharacterSelectPlayersControllerEnd();
             }
             stageNum = stageNum % stageNumMAX;
-            Background.GetComponent<Image>().sprite = backgroundGameObjects[stageNum].GetComponent<Image>().sprite;
+          //  Background.GetComponent<Image>().sprite = backgroundGameObjects[stageNum].GetComponent<Image>().sprite;
             backgroundGameObjects[stageNum].GetComponent<Image>().color = new Color(255.0f / 255.0f, 8 / 255.0f, 0 / 255.0f, 255.0f / 255.0f);
         }
         else if (isStageController && !isPlayer1)
@@ -242,30 +269,35 @@ public class CharacterSelectPlayersController : MonoBehaviour
                 {
                     stageNum = stageNumMAX - 1;
                 }
+                Background.GetComponent<BackgroundMoveScript>().speedTime = 1.0f;
             }
             else if (Input.GetKeyDown(KeyCode.RightArrow))
             {
                 backgroundGameObjects[stageNum].GetComponent<Image>().color = new Color(255.0f / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f);
                 stageNum++;
+                Background.GetComponent<BackgroundMoveScript>().speedTime = 1.0f;
             }
             else if (Input.GetKeyDown(KeyCode.Space))
             {
                 CharacterSelectPlayersControllerEnd();
             }
             stageNum = stageNum % stageNumMAX;
-            Background.GetComponent<Image>().sprite = backgroundGameObjects[stageNum].GetComponent<Image>().sprite;
+            Background.GetComponent<BackgroundMoveScript>().myX = stageNum;
+          
+            //  Background.GetComponent<Image>().sprite = backgroundGameObjects[stageNum].GetComponent<Image>().sprite;
             backgroundGameObjects[stageNum].GetComponent<Image>().color = new Color(0 / 255.0f, 62 / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f);
         }
     }
 
     //最終結果　データを他のスクリプト出す処理
-    private void CharacterSelectPlayersControllerEnd() {
+    private void CharacterSelectPlayersControllerEnd()
+    {
         isStageController = false;
         player1PCharacterName = characters[charNum_1].name;
         player2PCharacterName = characters[charNum_2].name;
         stageName = backgroundGameObjects[stageNum].name;
-        Debug.Log( " プレイヤー1Pのキャラクター"+ player1PCharacterName + "です,"+ " プレイヤー2Pのキャラクター" + player2PCharacterName + "です,"+ " ステージは" + stageName + "です");
-    
+        Debug.Log(" プレイヤー1Pのキャラクター" + player1PCharacterName + "です," + " プレイヤー2Pのキャラクター" + player2PCharacterName + "です," + " ステージは" + stageName + "です");
+
         Debug.Log("ステージ転移先と選択結果のデータ出し先は分からないので、まだ書いてません");
         //ステージ転移
         // SceneManager.LoadScene("Game");

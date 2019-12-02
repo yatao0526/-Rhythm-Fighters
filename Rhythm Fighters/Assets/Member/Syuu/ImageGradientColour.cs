@@ -7,7 +7,7 @@ public class ImageGradientColour : MonoBehaviour
 {
     // Start is called before the first frame update
     public bool isGradientColourMove = false;
-    [SerializeField] private float gradientColourMoveSpeet;
+    public float gradientColourMoveSpeet;
     //
     [SerializeField]
     private float speedTime = 2;
@@ -27,7 +27,7 @@ public class ImageGradientColour : MonoBehaviour
    private void GradientColourMove() {
         if (isGradientColourMove && GetComponent<Image>().color.a > 0)
         {
-            this.GetComponent<Image>().color = new Color(this.GetComponent<Image>().color.r, this.GetComponent<Image>().color.b, this.GetComponent<Image>().color.g, this.GetComponent<Image>().color.a - (gradientColourMoveSpeet * Time.deltaTime));
+            this.GetComponent<Image>().color = new Color(this.GetComponent<Image>().color.r, this.GetComponent<Image>().color.g, this.GetComponent<Image>().color.b, this.GetComponent<Image>().color.a - (gradientColourMoveSpeet * Time.deltaTime));
             if (GetComponent<Image>().color.a <= 0)
             {
                 Destroy(this.gameObject);
