@@ -8,7 +8,8 @@ public class CharacterSelectPlayersController : MonoBehaviour
 {
 
     // charNum_1　   charNum_2プレイヤーが選択しているキャラクター, stageNum選択するステージ
-    [SerializeField] private int charNum_1 = 0, charNum_2 = 5, charNumMAX = 6, stageMoves = 0, stageNum = 0, stageNumMAX = 3;
+    [SerializeField] private int charNum_1 = 0, charNum_2 = 5, charNumMAX = 6, stageMoves = 0, stageNumMAX = 3;
+    public int stageNum = 1;
     [SerializeField] private float gradientColourMoveSpeet = 0.5f;
     //キャラクター達
     [SerializeField] private GameObject[] characters = new GameObject[6];
@@ -113,14 +114,15 @@ public class CharacterSelectPlayersController : MonoBehaviour
             characters[charNum_2].GetComponent<Image>().color = new Color(255.0f / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f);
             //左へ移動
             charNum_2--;
-            if (charNum_2 % charNumMAX < 0)
-            {
-                charNum_2 = charNumMAX - 1;
-            }
             if (charNum_2 % charNumMAX == charNum_1 % charNumMAX)
             {
                 charNum_2--;
             }
+            if (charNum_2 % charNumMAX < 0)
+            {
+                charNum_2 = charNumMAX - 1;
+            }
+            
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow) && !player2PCharacter && !isPlayerSelection)
         {
