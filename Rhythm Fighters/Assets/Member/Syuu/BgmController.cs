@@ -5,9 +5,9 @@ using UnityEngine;
 public class BgmController : MonoBehaviour
 {
     [SerializeField]
-    private  AudioClip[] bgms=new AudioClip[3];
-    AudioSource audioSource;// Musicals インターフェース
-    public int gbmNum=1;
+    private AudioClip[] bgms = new AudioClip[3];
+    private AudioSource audioSource;// Musicals インターフェース
+    public int gbmNum = 1;
     // Update is called once per frame
     void Update()
     {
