@@ -40,7 +40,7 @@ public class GameController : MonoBehaviour
     {
         //テスト用の曲を200に無理やりしてる後で消す
         audioSource.pitch = audioSource.pitch + 0.5f;
-        timeOut = 240 / BPM / 2
+        timeOut = 240 / BPM;
     }
     private void Update()
     { 
