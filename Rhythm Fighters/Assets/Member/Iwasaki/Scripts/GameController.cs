@@ -17,17 +17,19 @@ public class GameController : MonoBehaviour
     //テスト用のテキスト(モック終わったら消す)
     [SerializeField]
     private Text text;
-    [SerializeField]
-    private AudioSource audioSource;
     //objectpool参照
     private NoteObjectPool poolL, poolR;
+
     //判定用タイム
     private float judgeTime;
-    //曲の時間
+    //判定補助タイマー（BGM開始時間指定用）
     private float audioTime;
-    //
-    [SerializeField]
-    private int BPM;
+
+    //test用、soundManager
+    public GameObject soundManager;
+    //test用、BGMか流しているかどうかの判断
+    private static bool soundPlaying = false;
+    private float time = 0;
 
     private void Awake()
     {
@@ -36,29 +38,48 @@ public class GameController : MonoBehaviour
         poolL.CreatePoolL(Notes[0], 10);
         poolR.CreatePoolR(Notes[1], 10);
     }
-    private void Start()
+    private void FixedUpdate()
     {
-        //テスト用の曲を200に無理やりしてる後で消す
-        audioSource.pitch = audioSource.pitch + 0.5f;
-        timeOut = 240 / BPM;
-    }
-    private void Update()
-    { 
-        text.text = audioTime.ToString("F4");
         MoveTime();
         //テスト用テキスト
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    switch (NotesController.judge)
-        //    {
-        //        case true:
-        //            text.text = "OK";
-        //            break;
-        //        case false:
-        //            text.text = "NG";
-        //            break;
-        //    }
-        //}
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            switch (NotesController.judge)
+            {
+                case true:
+                    text.text = "OK";
+                    break;
+                case false:
+                    text.text = "NG";
+                    break;
+            }
+        }
+        //AudioSourceがloop時発生するズレ修正
+        if (soundManager.GetComponent<AudioSource>().time - time < 0)
+        {
+            judgeTime = (time % 0.75f + soundManager.GetComponent<AudioSource>().time);
+            //Debug用
+            //Debug.Log("loop");
+            //Debug.Log("time = " + time);
+            //Debug.Log("time%0.75 = " + (time%0.75f));
+            //Debug.Log(soundManager.GetComponent<AudioSource>().time);
+            //Debug.Log("judgeTime = " + judgeTime);
+        }
+        //真ん中になる時、判定を出す
+        if (NotesController.getActive)
+        {
+            Debug.Log("判定");
+            //Debug.Log(audioTime);
+            NotesController.getActive = false;
+        }
+        //BGM流す
+        if (soundPlaying == false && audioTime >= 0.75f)//ノーズの流すスピードで計算（=9.5/10-0.2(反応スピード)）
+        {
+            soundPlaying = true;
+            soundManager.GetComponent<AudioSource>().Play();
+        }
+        //ズレ修正用
+        time = soundManager.GetComponent<AudioSource>().time;
     }
     private void MoveTime()
     {
@@ -68,7 +89,7 @@ public class GameController : MonoBehaviour
         {
             poolL.GetGameObjL();
             poolR.GetGameObjR();
-            judgeTime = audioTime % timeOut;
+            judgeTime -= timeOut;//ズレ修正
         }
     }
 }

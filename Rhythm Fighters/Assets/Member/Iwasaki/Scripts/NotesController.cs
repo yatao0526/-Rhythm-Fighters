@@ -18,6 +18,8 @@ public class NotesController : MonoBehaviour
     private Rigidbody2D rb2d;
 
     public static bool judge = false;
+    //行動用bool
+    public static bool getActive = false;
 
     private void Start()
     {
@@ -56,9 +58,13 @@ public class NotesController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.gameObject.name == "CheckBox_R")
+        if (col.gameObject.name == "CheckBox_R")
         {
             judge = true;
+        }
+        if (col.gameObject.name == "CheckBox_M")
+        {
+            getActive = true;
         }
     }
     private void OnTriggerExit2D(Collider2D other)
@@ -66,6 +72,10 @@ public class NotesController : MonoBehaviour
         if(other.gameObject.name == "CheckBox_R")
         {
             judge = false;
+        }
+        if (other.gameObject.name == "CheckBox_M")
+        {
+            getActive = false;
         }
     }
 }
