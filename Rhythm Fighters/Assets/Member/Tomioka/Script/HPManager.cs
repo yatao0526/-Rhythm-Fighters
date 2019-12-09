@@ -9,10 +9,6 @@ public class HPManager : MonoBehaviour
     [SerializeField]
     private Image HP1PBar, HP2PBar;
 
-    //KOの文字
-    [SerializeField]
-    private GameObject KO;
-
     //HPの最大値
     private int playerMaxHP = 1000;
 
@@ -20,12 +16,9 @@ public class HPManager : MonoBehaviour
     [SerializeField]
     private int damage = 100;
 
-
     //1Pと2PのHP
-    [SerializeField]
-    private float player1HP = 1000;
-    [SerializeField]
-    private float player2HP = 1000;
+    public static float player1HP = 1000;
+    public static float player2HP = 1000;
 
     private float HPTime = 0.5f;
 
@@ -33,7 +26,6 @@ public class HPManager : MonoBehaviour
 
     void Start()
     {
-        KO.SetActive(false);
     }
 
     void Update()
@@ -53,7 +45,6 @@ public class HPManager : MonoBehaviour
         //どちらかのプレイヤーのHPが0になったらKOを表示
         if (player1HP <= 0 || player2HP <= 0)
         {
-            KO.SetActive(true);
             fightNow = false;
         }
 

@@ -18,6 +18,7 @@ public class AttackManager : MonoBehaviour
                 break;
 
             case "Player2":
+                HPManager.player2HP -= 100;
                 Debug.Log("プレイヤーに当たった→ダメージとのけぞりへ");
                 break;
         }
