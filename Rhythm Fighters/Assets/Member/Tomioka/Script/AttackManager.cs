@@ -5,20 +5,21 @@ using UnityEngine;
 public class AttackManager : MonoBehaviour
 {
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        switch (other.tag)
+        switch (col.tag)
         {
             case "WeakAttack":
-                Debug.Log("弱攻撃");
+                Debug.Log("弱攻撃に当たった→打ち消しモードへ");
+                break;
+                
+            case "StrongAttack":
+                Debug.Log("強攻撃に当たった→打ち消しモードへ");
                 break;
 
-
-            case "strongAttack":
-                Debug.Log("強攻撃");
+            case "Player2":
+                Debug.Log("プレイヤーに当たった→ダメージとのけぞりへ");
                 break;
         }
-
-        //Debug.Log("OnTriggerEnter2D: " + other.gameObject.name);
     }
 }
