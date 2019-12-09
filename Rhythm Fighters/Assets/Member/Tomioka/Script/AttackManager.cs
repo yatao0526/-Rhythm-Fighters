@@ -9,15 +9,14 @@ public class AttackManager : MonoBehaviour
     {
         switch (other.tag)
         {
-            case "Player":
-                Debug.Log("プレイヤー(Player)");
+            case "WeakAttack":
+                Debug.Log("弱攻撃");
                 break;
 
 
-            case "GameController":
-                Debug.Log("攻撃(GameController)");
+            case "strongAttack":
+                Debug.Log("強攻撃");
                 break;
-
         }
 
         //Debug.Log("OnTriggerEnter2D: " + other.gameObject.name);
