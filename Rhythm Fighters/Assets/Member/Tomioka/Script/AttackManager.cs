@@ -10,15 +10,16 @@ public class AttackManager : MonoBehaviour
         switch (col.tag)
         {
             case "WeakAttack":
-                Debug.Log("弱攻撃に当たった→打ち消しモードへ");
+                Debug.Log("弱攻撃が当たった");
+                HPManager.player2HP -= 100;
                 break;
-                
+
             case "StrongAttack":
-                Debug.Log("強攻撃に当たった→打ち消しモードへ");
+                Debug.Log("強攻撃が当たった");
+                HPManager.player2HP -= 100;
                 break;
 
             case "Player2":
-                HPManager.player2HP -= 100;
                 Debug.Log("プレイヤーに当たった→ダメージとのけぞりへ");
                 break;
         }
