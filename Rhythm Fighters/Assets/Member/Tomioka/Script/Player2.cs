@@ -22,6 +22,9 @@ public class Player2 : MonoBehaviour
     private Vector3 moveAfter;
     private Vector3 moveBeforePos;
 
+    [SerializeField]
+    private PleyerCol pleyercol;
+
     void Start()
     {
         moveAfter = this.transform.position;
@@ -75,10 +78,17 @@ public class Player2 : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 animator.SetTrigger("Trigger_LP");
+                pleyercol.LPCol();
             }
             if (Input.GetKeyDown(KeyCode.Return))
             {
                 animator.SetTrigger("Trigger_HP");
+                pleyercol.HPCol();
+            }
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                animator.SetTrigger("Trigger_S2");
+                pleyercol.S2Col();
             }
         }
     }
