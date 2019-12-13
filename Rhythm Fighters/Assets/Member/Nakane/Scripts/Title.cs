@@ -15,26 +15,43 @@ public class Title : MonoBehaviour
     // 読み込み率を表示するスライダー
     [SerializeField]
     private Slider slider;
+    // 背景
+    [SerializeField]
+    private GameObject backGround;
 
-    public void OnClick()
+    void Start()
     {
-        // 対戦モードボタンをクリックでCharacterSelectへ遷移
-        //SceneManager.LoadScene("CharacterSelect");
+        // 一定時間後MoveMovie関数実行
+        Invoke("MoveMovie", 7.0f);
+    }
 
-        // ロード画面UIをアクティブに
-        loadingUI.SetActive(true);
+    void Update()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            // ロード画面UI表示
+            loadingUI.SetActive(true);
 
-        // コルーチン開始
-        StartCoroutine("LoadingScreen");
+            // 背景非表示
+            backGround.SetActive(false);
+
+            // コルーチン開始
+            StartCoroutine("LoadingScreen");
+
+            // Invokeを呼び出さないようにする
+            CancelInvoke();
+
+            // 一定時間後、再びInvokeを呼び出す
+            //Invoke("MoveMovie", 10.0f);
+        }
     }
 
     IEnumerator LoadingScreen()
     {
-        
         yield return new WaitForSeconds(0.5f);
 
         // シーンの読み込み
-        async = SceneManager.LoadSceneAsync("CharacterSelect");
+        async = SceneManager.LoadSceneAsync("CharacterSelectPlayersController");
 
         // 読み込みが終わるまで進捗状況をスライダーの値に反映させる
         while (!async.isDone)
@@ -46,27 +63,9 @@ public class Title : MonoBehaviour
 
     }
 
-    void Start()
-    {
-        // 一定時間後MoveMovieScene関数実行
-        Invoke("MoveMovie", 7.0f);
-    }
-
-    void Update()
-    {
-        if (Input.GetMouseButton(0))
-        {
-            // 左クリックでInvokeを呼び出さないようにする
-            CancelInvoke();
-
-            // 一定時間後、再びInvokeを呼び出す
-            Invoke("MoveMovie", 10.0f);
-        }
-    }
-
     public void MoveMovie()
     {
-        // Movieへ遷移
+        // Movieシーンへ遷移
         SceneManager.LoadScene("Movie");
     }
 }
