@@ -31,6 +31,9 @@ public class GameController : MonoBehaviour
     private static bool soundPlaying = false;
     private float time = 0;
 
+    [SerializeField]
+    Player1 player1;
+
     private void Awake()
     {
         poolL = GetComponent<NoteObjectPool>();
@@ -68,6 +71,7 @@ public class GameController : MonoBehaviour
         //真ん中になる時、判定を出す
         if (NotesController.getActive)
         {
+            player1.MoveAction();
             Debug.Log("判定");
             //Debug.Log(audioTime);
             NotesController.getActive = false;

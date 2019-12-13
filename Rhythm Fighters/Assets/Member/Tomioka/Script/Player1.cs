@@ -24,6 +24,9 @@ public class Player1 : MonoBehaviour
     [SerializeField]
     private PleyerCol pleyercol;
 
+    [HideInInspector]
+    public static int  player1ActionNumber;
+
     void Start()
     {
         moveAfter = this.transform.position;
@@ -48,28 +51,24 @@ public class Player1 : MonoBehaviour
         {
             if (Input.GetAxis("LeftRight") > 0.5f && this.transform.position.x < maxMove.x && PSConTest.neutralLRPosition == true)
             {
-                moveAfter = transform.position + moveX;
-                animator.SetTrigger("Trigger_r");
+                player1ActionNumber = 2;
             }
             if (Input.GetAxis("LeftRight") < -0.5f && this.transform.position.x > minMove.x && PSConTest.neutralLRPosition == true)
             {
-                moveAfter = transform.position - moveX;
-                animator.SetTrigger("Trigger_l");
+                player1ActionNumber = 3;
             }
             if (Input.GetButtonDown("Maru"))
             {
-                animator.SetTrigger("Trigger_LP");
-                pleyercol.LPCol();
+                player1ActionNumber = 4;
             }
             if (Input.GetButtonDown("Batu"))
             {
-                animator.SetTrigger("Trigger_HP");
-                pleyercol.HPCol();
+                player1ActionNumber = 5;
             }
         }
         else
         {
-            animator.SetTrigger("Trigger_Miss");
+            player1ActionNumber = 0;
         }
     }
 
@@ -119,5 +118,66 @@ public class Player1 : MonoBehaviour
     private void Move()
     {
         transform.position = Vector3.MoveTowards(transform.position, moveAfter, stepTime * 10 * Time.deltaTime);
+    }
+
+    public void MoveAction()
+    {
+        Debug.Log(player1ActionNumber);
+        switch (player1ActionNumber)
+        {
+            case 0:
+                animator.SetTrigger("Trigger_Miss");
+                break;
+
+            case 1:
+                animator.SetTrigger("Trigger_Pause");
+                break;
+
+            case 2:
+                moveAfter = transform.position + moveX;
+                animator.SetTrigger("Trigger_r");
+                player1ActionNumber = 1;
+                break;
+
+            case 3:
+                moveAfter = transform.position - moveX;
+                animator.SetTrigger("Trigger_l");
+                player1ActionNumber = 1;
+                break;
+
+            case 4:
+                animator.SetTrigger("Trigger_LP");
+                pleyercol.LPCol();
+                player1ActionNumber = 1;
+                break;
+
+            case 5:animator.SetTrigger("Trigger_HP");
+                pleyercol.HPCol();
+                player1ActionNumber = 1;
+                break;
+
+            case 6:
+                break;
+
+            case 7:
+                animator.SetTrigger("Trigger_S2");
+                pleyercol.S2Col();
+                break;
+
+            case 8:
+                break;
+
+            case 9:
+                break;
+
+            case 10:
+                break;
+
+            case 11:
+                break;
+
+            default:
+                break;
+        }
     }
 }
