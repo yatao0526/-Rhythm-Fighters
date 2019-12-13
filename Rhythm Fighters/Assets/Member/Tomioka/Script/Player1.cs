@@ -22,7 +22,7 @@ public class Player1 : MonoBehaviour
     private Vector3 moveBeforePos;
 
     [SerializeField]
-    private PleyerCol pleyercol;
+    private PlayerCol playercol;
 
     [HideInInspector]
     public static int  player1ActionNumber;
