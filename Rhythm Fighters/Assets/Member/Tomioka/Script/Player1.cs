@@ -159,7 +159,7 @@ public class Player1 : MonoBehaviour
 
             //立ちのポーズ
             case 1:
-                animator.SetTrigger("Trigger_Pause");
+                //animator.SetTrigger("Trigger_Stand");
                 break;
 
             //右に移動

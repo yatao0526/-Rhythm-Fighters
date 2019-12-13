@@ -9,12 +9,6 @@ public class PSConTest : MonoBehaviour
     private bool neutral2PLRPosition = true;
     private bool neutral2PDownPosition = true;
 
-    private void Start()
-    {
-        var controllerNames = Input.GetJoystickNames();
-        //Debug.Log(controllerNames.Length);
-    }
-
     void Update()
     {
         PSConDebug();

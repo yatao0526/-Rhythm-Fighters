@@ -126,7 +126,7 @@ public class Player2 : MonoBehaviour
                 break;
 
             case 1:
-                animator.SetTrigger("Trigger_Pause");
+                //animator.SetTrigger("Trigger_Pause");
                 break;
 
             case 2:
