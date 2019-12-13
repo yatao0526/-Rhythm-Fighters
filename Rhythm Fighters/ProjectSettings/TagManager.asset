@@ -4,9 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - StrongAttack
-  - WeakAttack
+  - Player1
   - Player2
+  - LightPunch
+  - HeavyPunch
+  - Skill1
+  - Skill2
   layers:
   - Default
   - TransparentFX

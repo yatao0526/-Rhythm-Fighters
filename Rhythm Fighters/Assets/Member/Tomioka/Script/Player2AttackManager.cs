@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackManager : MonoBehaviour
+public class Player2AttackManager : MonoBehaviour
 {
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -11,16 +11,16 @@ public class AttackManager : MonoBehaviour
         {
             case "WeakAttack":
                 Debug.Log("弱攻撃が当たった");
-                HPManager.player2HP -= 100;
+                HPManager.player1HP -= 100;
                 break;
 
             case "StrongAttack":
                 Debug.Log("強攻撃が当たった");
-                HPManager.player2HP -= 100;
+                HPManager.player1HP -= 100;
                 break;
 
-            case "Player2":
-                Debug.Log("プレイヤーに当たった→ダメージとのけぞりへ");
+            case "Player1":
+                Debug.Log("");
                 break;
         }
     }

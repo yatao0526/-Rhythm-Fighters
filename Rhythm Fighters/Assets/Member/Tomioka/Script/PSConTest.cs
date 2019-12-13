@@ -16,6 +16,11 @@ public class PSConTest : MonoBehaviour
 
     private void PSConDebug()
     {
+        ///summary
+        ///InputManagerのボタン内はjoystick 2 と入れないと反応しないから
+        ///1Pと2Pにも入れることを、忘れないようにすること
+        ///summary
+
         //1P
         #region
 
@@ -73,6 +78,10 @@ public class PSConTest : MonoBehaviour
         #endregion
 
 
+        ///summary
+        ///InputManagerのボタン内はjoystick 2 と入れないと反応しないから
+        ///1Pと2Pにも入れることを、忘れないようにすること
+        ///summary
         //2P
         #region
         if (Input.GetAxis("2PLeftRight") > 0.5f && neutral2PLRPosition == true)
