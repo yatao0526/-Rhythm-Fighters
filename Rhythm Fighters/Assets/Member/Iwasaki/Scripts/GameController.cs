@@ -3,6 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum Chara
+{
+    MIYAZAWA = 0,
+    SUZUKI = 1,
+    NITSUMA = 2,
+    NEGISHI = 3,
+    YOKOYAMA = 4,
+    LUO = 5
+}
+public enum Attack
+{
+    LightPunch,
+    HeavyPunch,
+    Comand1,
+    Comand2
+}
+
 public class GameController : MonoBehaviour
 {
     public enum ModeType
