@@ -9,11 +9,23 @@ public class NegationMode : MonoBehaviour
     //打消しモードに入ったときにbool値をもらう
     public static bool check = false;
 
+    [SerializeField]
+    private GameObject negationBerR;
+    [SerializeField]
+    private GameObject negationBerL;
+    private void Start()
+    {
+        negationBerR.SetActive(false);
+        negationBerL.SetActive(false);
+    }
     private void Update()
     {
-        if(check == true)
+        if (GameController.modeType == GameController.ModeType.negationMode)
         {
-            NegationModeStart();
+            if(check == false)
+            {
+                NegationModeStart();
+            }
         }
     }
 
@@ -21,12 +33,22 @@ public class NegationMode : MonoBehaviour
     {
         switch (negationModeNum)
         {
-            case 0:
+            case 0://弱弱
                 break;
-            case 1:
+            case 1://弱強
                 break;
-            case 2:
+            case 2://弱
+                break;
+            case 3:
                 break;
         }
+    }
+    private void ObjActiv(int sizeR,int sizeL)
+    {
+        negationBerR.SetActive(true);
+        negationBerL.SetActive(true);
+
+        negationBerR.transform.localScale = new Vector2(sizeR, 4.05f);
+        negationBerL.transform.localScale = new Vector2(sizeR, -4.05f);
     }
 }
