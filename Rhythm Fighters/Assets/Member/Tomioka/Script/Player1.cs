@@ -49,11 +49,11 @@ public class Player1 : MonoBehaviour
         moveBeforePos = moveAfter;
         if (NotesController.judge)
         {
-            if (Input.GetAxis("LeftRight") > 0.5f && this.transform.position.x < maxMove.x && PSConTest.neutralLRPosition == true)
+            if (Input.GetAxis("LeftRight") > 0.5f && this.transform.position.x < maxMove.x)
             {
                 player1ActionNumber = 2;
             }
-            if (Input.GetAxis("LeftRight") < -0.5f && this.transform.position.x > minMove.x && PSConTest.neutralLRPosition == true)
+            if (Input.GetAxis("LeftRight") < -0.5f && this.transform.position.x > minMove.x)
             {
                 player1ActionNumber = 3;
             }
@@ -68,7 +68,8 @@ public class Player1 : MonoBehaviour
         }
         else
         {
-            player1ActionNumber = 0;
+            //何もしていない状態のためPauseの状態
+            player1ActionNumber = 1;
         }
     }
 
@@ -127,6 +128,7 @@ public class Player1 : MonoBehaviour
         {
             case 0:
                 animator.SetTrigger("Trigger_Miss");
+                Debug.Log("ミス");
                 break;
 
             case 1:

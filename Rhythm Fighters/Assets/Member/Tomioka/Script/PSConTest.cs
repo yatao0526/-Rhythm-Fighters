@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PSConTest : MonoBehaviour
 {
-    public static bool neutralLRPosition = true;
-    public static bool neutralDownPosition = true;
-    public static bool neutral2PLRPosition = true;
-    public static bool neutral2PDownPosition = true;
+    private bool neutralLRPosition = true;
+    private bool neutralDownPosition = true;
+    private bool neutral2PLRPosition = true;
+    private bool neutral2PDownPosition = true;
 
 
     void Update()
