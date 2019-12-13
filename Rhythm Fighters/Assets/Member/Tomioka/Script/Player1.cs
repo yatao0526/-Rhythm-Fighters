@@ -44,16 +44,33 @@ public class Player1 : MonoBehaviour
     private void SetTargetPosition()
     {
         moveBeforePos = moveAfter;
-
-        if (Input.GetAxis("LeftRight") > 0.5f && this.transform.position.x < maxMove.x)
+        if (NotesController.judge)
         {
-            moveAfter = transform.position + moveX;
+            if (Input.GetAxis("LeftRight") > 0.5f && this.transform.position.x < maxMove.x && PSConTest.neutralLRPosition == true)
+            {
+                moveAfter = transform.position + moveX;
+                animator.SetTrigger("Trigger_r");
+            }
+            if (Input.GetAxis("LeftRight") < -0.5f && this.transform.position.x > minMove.x && PSConTest.neutralLRPosition == true)
+            {
+                moveAfter = transform.position - moveX;
+                animator.SetTrigger("Trigger_l");
+            }
+            if (Input.GetButtonDown("Maru"))
+            {
+                animator.SetTrigger("Trigger_LP");
+                pleyercol.LPCol();
+            }
+            if (Input.GetButtonDown("Batu"))
+            {
+                animator.SetTrigger("Trigger_HP");
+                pleyercol.HPCol();
+            }
         }
-        if (Input.GetAxis("LeftRight") < -0.5f && this.transform.position.x > minMove.x)
+        else
         {
-            moveAfter = transform.position - moveX;
+            animator.SetTrigger("Trigger_Miss");
         }
-
     }
 
     //デバッグ用
