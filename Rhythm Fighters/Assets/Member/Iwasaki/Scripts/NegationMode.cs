@@ -11,7 +11,8 @@ public class NegationMode : MonoBehaviour
 
     private int p1Num;
     private int p2Num;
-    
+    private string nokezori;
+
     [SerializeField]
     private SpriteFillBar negationBerR;
     [SerializeField]
@@ -27,20 +28,15 @@ public class NegationMode : MonoBehaviour
         {4,0.7f },
         {5,1.0f },
     };
-
-    private string nokezori;
-    private void Start()
-    {
-
-    }
-
+    
     private void Update()
     {
         if (GameController.modeType == GameController.ModeType.negationMode)
         {
             if (check == false)
             {
-                //NegationModeStart();
+                GetNum();
+                SetBar();
             }
         }
     }
