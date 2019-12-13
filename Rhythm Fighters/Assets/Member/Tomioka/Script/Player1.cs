@@ -26,6 +26,7 @@ public class Player1 : MonoBehaviour
 
     [HideInInspector]
     public static int player1ActionNumber;
+    private int player1BackNumber = 0;
 
     void Start()
     {
@@ -49,21 +50,41 @@ public class Player1 : MonoBehaviour
         moveBeforePos = moveAfter;
         if (NotesController.judge)
         {
+            //左移動
             if (Input.GetAxis("LeftRight") > 0.5f && this.transform.position.x < maxMove.x)
             {
                 player1ActionNumber = 2;
             }
+            //右移動
             if (Input.GetAxis("LeftRight") < -0.5f && this.transform.position.x > minMove.x)
             {
                 player1ActionNumber = 3;
             }
-            if (Input.GetButtonDown("Maru"))
+            //構え
+            if (Input.GetAxis("Down") < -0.5f)
+            {
+                player1ActionNumber = 6;
+                player1BackNumber = 1;
+            }
+            //弱攻撃
+            if (player1BackNumber == 0 && Input.GetButtonDown("Maru"))
             {
                 player1ActionNumber = 4;
             }
-            if (Input.GetButtonDown("Batu"))
+            //強攻撃
+            if (player1BackNumber == 0 && Input.GetButtonDown("Batu"))
             {
                 player1ActionNumber = 5;
+            }
+            //スキル1
+            if (player1BackNumber == 1 && Input.GetButtonDown("Maru"))
+            {
+                player1ActionNumber = 7;
+            }
+            //スキル2
+            if (player1BackNumber == 1 && Input.GetButtonDown("Batu"))
+            {
+                player1ActionNumber = 8;
             }
         }
         else
@@ -71,6 +92,7 @@ public class Player1 : MonoBehaviour
             if (Input.anyKey)
             {
                 player1ActionNumber = 0;
+                player1BackNumber = 0;
             }
         }
     }
@@ -125,7 +147,7 @@ public class Player1 : MonoBehaviour
 
     public void Move1PAction()
     {
-        Debug.Log(player1ActionNumber);
+        //Debug.Log(player1ActionNumber);
         switch (player1ActionNumber)
         {
             //ミス
@@ -161,23 +183,32 @@ public class Player1 : MonoBehaviour
                 player1ActionNumber = 1;
                 break;
 
-                //強攻撃
+            //強攻撃
             case 5:
                 animator.SetTrigger("Trigger_HP");
                 playercol.HPCol();
                 player1ActionNumber = 1;
                 break;
 
+            //構え
             case 6:
+                animator.SetTrigger("Trigger_Pose");
+                Debug.Log("構え");
+                player1ActionNumber = 1;
                 break;
 
-                //スキル2
+
+
+            //スキル1
             case 7:
+                Debug.Log("スキル1");
+                break;
+
+            //スキル2
+            case 8:
+                Debug.Log("スキル2");
                 animator.SetTrigger("Trigger_S2");
                 playercol.S2Col();
-                break;
-
-            case 8:
                 break;
 
             case 9:

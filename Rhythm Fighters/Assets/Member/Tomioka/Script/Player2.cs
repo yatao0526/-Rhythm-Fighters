@@ -117,7 +117,7 @@ public class Player2 : MonoBehaviour
 
     public void Move2PAction()
     {
-        Debug.Log(player2ActionNumber);
+        //Debug.Log(player2ActionNumber);
         switch (player2ActionNumber)
         {
             case 0:
