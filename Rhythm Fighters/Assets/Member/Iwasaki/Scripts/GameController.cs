@@ -49,7 +49,7 @@ public class GameController : MonoBehaviour
     {
         MoveTime();
         //テスト用テキスト
-        if (Input.GetKeyDown(KeyCode.Space))
+        if ((Input.GetKeyDown(KeyCode.Space)) || (Input.GetKeyDown(KeyCode.A)) || (Input.GetKeyDown(KeyCode.D)) || (Input.GetKeyDown(KeyCode.LeftArrow)) || (Input.GetKeyDown(KeyCode.RightArrow)))
         {
             switch (NotesController.judge)
             {

@@ -58,24 +58,28 @@ public class Player2 : MonoBehaviour
     private void DebugSetTargetPosition()
     {
         moveBeforePos = moveAfter;
-
-        if (Input.GetKeyDown(KeyCode.RightArrow) && this.transform.position.x < maxMove.x)
+        if (NotesController.judge)
         {
-            moveAfter = transform.position + moveX;
-            animator.SetTrigger("Trigger_r");
-        }
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && transform.position.x > minMove.x)
-        {
-            moveAfter = transform.position - moveX;
-            animator.SetTrigger("Trigger_l");
-        }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            animator.SetTrigger("Trigger_LP");
-        }
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            animator.SetTrigger("Trigger_HP");
+            //左移動
+            if (Input.GetKeyDown(KeyCode.RightArrow) && this.transform.position.x < maxMove.x)
+            {
+                moveAfter = transform.position + moveX;
+                animator.SetTrigger("Trigger_r");
+            }
+            //右移動
+            if (Input.GetKeyDown(KeyCode.LeftArrow) && transform.position.x > minMove.x)
+            {
+                moveAfter = transform.position - moveX;
+                animator.SetTrigger("Trigger_l");
+            }
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                animator.SetTrigger("Trigger_LP");
+            }
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                animator.SetTrigger("Trigger_HP");
+            }
         }
     }
 

@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-
 
 public class Player1 : MonoBehaviour
 {
@@ -62,16 +60,19 @@ public class Player1 : MonoBehaviour
         if (NotesController.judge)
         {
             Debug.Log("行動可能");
-            if (Input.GetKeyDown(KeyCode.RightArrow) && this.transform.position.x < maxMove.x)
+            //左移動
+            if (Input.GetKeyDown(KeyCode.D) && this.transform.position.x < maxMove.x)
             {
                 moveAfter = transform.position + moveX;
                 animator.SetTrigger("Trigger_r");
             }
-            if (Input.GetKeyDown(KeyCode.LeftArrow) && transform.position.x > minMove.x)
+            //右移動
+            if (Input.GetKeyDown(KeyCode.A) && transform.position.x > minMove.x)
             {
                 moveAfter = transform.position - moveX;
                 animator.SetTrigger("Trigger_l");
             }
+
             if (Input.GetKeyDown(KeyCode.Z))
             {
                 animator.SetTrigger("Trigger_LP");
