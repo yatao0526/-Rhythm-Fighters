@@ -96,17 +96,17 @@ public class Player1 : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Z))
             {
                 animator.SetTrigger("Trigger_LP");
-                pleyercol.LPCol();
+                playercol.LPCol();
             }
             if (Input.GetKeyDown(KeyCode.X))
             {
                 animator.SetTrigger("Trigger_HP");
-                pleyercol.HPCol();
+                playercol.HPCol();
             }
             if (Input.GetKeyDown(KeyCode.C))
             {
                 animator.SetTrigger("Trigger_S2");
-                pleyercol.S2Col();
+                playercol.S2Col();
             }
         }
         else
@@ -149,12 +149,12 @@ public class Player1 : MonoBehaviour
 
             case 4:
                 animator.SetTrigger("Trigger_LP");
-                pleyercol.LPCol();
+                playercol.LPCol();
                 player1ActionNumber = 1;
                 break;
 
             case 5:animator.SetTrigger("Trigger_HP");
-                pleyercol.HPCol();
+                playercol.HPCol();
                 player1ActionNumber = 1;
                 break;
 
@@ -163,7 +163,7 @@ public class Player1 : MonoBehaviour
 
             case 7:
                 animator.SetTrigger("Trigger_S2");
-                pleyercol.S2Col();
+                playercol.S2Col();
                 break;
 
             case 8:
