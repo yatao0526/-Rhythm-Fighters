@@ -3,8 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum Chara
+{
+    MIYAZAWA = 0,
+    SUZUKI = 1,
+    NITSUMA = 2,
+    NEGISHI = 3,
+    YOKOYAMA = 4,
+    LUO = 5
+}
+public enum Attack
+{
+    LightPunch,
+    HeavyPunch,
+    Comand1,
+    Comand2
+}
+
 public class GameController : MonoBehaviour
 {
+    public enum ModeType
+    {
+        normalMode,
+        negationMode
+    }
+    public static ModeType modeType = ModeType.normalMode;
+
     //判定
     [SerializeField]
     private GameObject[] judge;
@@ -58,6 +82,11 @@ public class GameController : MonoBehaviour
                     text.text = "NG";
                     break;
             }
+        }
+        if(Input.GetKeyDown(KeyCode.M))
+        {
+            modeType = ModeType.negationMode;
+            //Debug.Log("打消し");
         }
         //AudioSourceがloop時発生するズレ修正
         if (soundManager.GetComponent<AudioSource>().time - time < 0)
