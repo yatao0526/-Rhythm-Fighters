@@ -86,6 +86,11 @@ public class Player1 : MonoBehaviour
                 animator.SetTrigger("Trigger_HP");
                 pleyercol.HPCol();
             }
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                animator.SetTrigger("Trigger_S2");
+                pleyercol.S2Col();
+            }
         }
         else
         {

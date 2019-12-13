@@ -33,6 +33,11 @@ public class PleyerCol : MonoBehaviour
             {
                 animator.SetTrigger("Trigger_HP_Col");
             }
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                animator.SetTrigger("Trigger_S2_Col");
+            }
+
         }
     }
 
@@ -44,6 +49,10 @@ public class PleyerCol : MonoBehaviour
     public void HPCol()
     {
         animator.SetTrigger("Trigger_HP_Col");
+    }
+    public void S2Col()
+    {
+        animator.SetTrigger("Trigger_S2_Col");
     }
 }
 
