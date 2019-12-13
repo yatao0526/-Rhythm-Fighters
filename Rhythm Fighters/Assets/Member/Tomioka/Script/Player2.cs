@@ -13,8 +13,7 @@ public class Player2 : MonoBehaviour
     [SerializeField]
     private Vector3 minMove, maxMove;
 
-    //移動する速さ
-    [Header("移動する速さ")]
+    // 移動時間
     [SerializeField]
     private float stepTime;
 
@@ -24,6 +23,9 @@ public class Player2 : MonoBehaviour
 
     [SerializeField]
     private PlayerCol playercol;
+
+    [HideInInspector]
+    public static int player2ActionNumber;
 
     void Start()
     {
@@ -45,16 +47,30 @@ public class Player2 : MonoBehaviour
     private void SetTargetPosition()
     {
         moveBeforePos = moveAfter;
-
-        if (Input.GetAxis("2PLeftRight") > 0.5f && this.transform.position.x < maxMove.x)
+        if (NotesController.judge)
         {
-            moveAfter = transform.position + moveX;
+            if (Input.GetAxis("2PLeftRight") > 0.5f && this.transform.position.x < maxMove.x)
+            {
+                player2ActionNumber = 2;
+            }
+            if (Input.GetAxis("2PLeftRight") < -0.5f && this.transform.position.x > minMove.x)
+            {
+                player2ActionNumber = 3;
+            }
+            if (Input.GetButtonDown("2PMaru"))
+            {
+                player2ActionNumber = 4;
+            }
+            if (Input.GetButtonDown("2PBatu"))
+            {
+                player2ActionNumber = 5;
+            }
         }
-        if (Input.GetAxis("2PLeftRight") < -0.5f && this.transform.position.x > minMove.x)
+        else
         {
-            moveAfter = transform.position - moveX;
+            //何もしていない状態のためPauseの状態
+            player2ActionNumber = 1;
         }
-
     }
 
     //デバッグ用
@@ -97,5 +113,68 @@ public class Player2 : MonoBehaviour
     private void Move()
     {
         transform.position = Vector3.MoveTowards(transform.position, moveAfter, stepTime * 10 * Time.deltaTime);
+    }
+
+    public void Move2PAction()
+    {
+        Debug.Log(player2ActionNumber);
+        switch (player2ActionNumber)
+        {
+            case 0:
+                animator.SetTrigger("Trigger_Miss");
+                Debug.Log("ミス");
+                break;
+
+            case 1:
+                animator.SetTrigger("Trigger_Pause");
+                break;
+
+            case 2:
+                moveAfter = transform.position + moveX;
+                animator.SetTrigger("Trigger_r");
+                player2ActionNumber = 1;
+                break;
+
+            case 3:
+                moveAfter = transform.position - moveX;
+                animator.SetTrigger("Trigger_l");
+                player2ActionNumber = 1;
+                break;
+
+            case 4:
+                animator.SetTrigger("Trigger_LP");
+                playercol.LPCol();
+                player2ActionNumber = 1;
+                break;
+
+            case 5:
+                animator.SetTrigger("Trigger_HP");
+                playercol.HPCol();
+                player2ActionNumber = 1;
+                break;
+
+            case 6:
+                break;
+
+            case 7:
+                animator.SetTrigger("Trigger_S2");
+                playercol.S2Col();
+                break;
+
+            case 8:
+                break;
+
+            case 9:
+                break;
+
+            case 10:
+                break;
+
+            case 11:
+                break;
+
+            default:
+                break;
+        }
     }
 }

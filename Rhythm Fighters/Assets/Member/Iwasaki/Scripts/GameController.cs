@@ -33,6 +33,8 @@ public class GameController : MonoBehaviour
 
     [SerializeField]
     Player1 player1;
+    [SerializeField]
+    Player2 player2;
 
     private void Awake()
     {
@@ -71,7 +73,9 @@ public class GameController : MonoBehaviour
         //真ん中になる時、判定を出す
         if (NotesController.getActive)
         {
-            player1.MoveAction();
+            player1.Move1PAction();
+            player2.Move2PAction();
+
             Debug.Log("判定");
             //Debug.Log(audioTime);
             NotesController.getActive = false;

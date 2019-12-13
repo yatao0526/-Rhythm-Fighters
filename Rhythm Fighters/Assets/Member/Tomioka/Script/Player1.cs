@@ -25,7 +25,7 @@ public class Player1 : MonoBehaviour
     private PlayerCol playercol;
 
     [HideInInspector]
-    public static int  player1ActionNumber;
+    public static int player1ActionNumber;
 
     void Start()
     {
@@ -68,8 +68,10 @@ public class Player1 : MonoBehaviour
         }
         else
         {
-            //何もしていない状態のためPauseの状態
-            player1ActionNumber = 1;
+            if (Input.anyKey)
+            {
+                player1ActionNumber = 0;
+            }
         }
     }
 
@@ -121,39 +123,47 @@ public class Player1 : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, moveAfter, stepTime * 10 * Time.deltaTime);
     }
 
-    public void MoveAction()
+    public void Move1PAction()
     {
         Debug.Log(player1ActionNumber);
         switch (player1ActionNumber)
         {
+            //ミス
             case 0:
                 animator.SetTrigger("Trigger_Miss");
                 Debug.Log("ミス");
+                player1ActionNumber = 1;
                 break;
 
+            //立ちのポーズ
             case 1:
                 animator.SetTrigger("Trigger_Pause");
                 break;
 
+            //右に移動
             case 2:
                 moveAfter = transform.position + moveX;
                 animator.SetTrigger("Trigger_r");
                 player1ActionNumber = 1;
                 break;
 
+            //左に移動
             case 3:
                 moveAfter = transform.position - moveX;
                 animator.SetTrigger("Trigger_l");
                 player1ActionNumber = 1;
                 break;
 
+            //弱攻撃
             case 4:
                 animator.SetTrigger("Trigger_LP");
                 playercol.LPCol();
                 player1ActionNumber = 1;
                 break;
 
-            case 5:animator.SetTrigger("Trigger_HP");
+                //強攻撃
+            case 5:
+                animator.SetTrigger("Trigger_HP");
                 playercol.HPCol();
                 player1ActionNumber = 1;
                 break;
@@ -161,6 +171,7 @@ public class Player1 : MonoBehaviour
             case 6:
                 break;
 
+                //スキル2
             case 7:
                 animator.SetTrigger("Trigger_S2");
                 playercol.S2Col();
