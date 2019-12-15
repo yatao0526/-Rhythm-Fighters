@@ -44,7 +44,7 @@ public class Player1 : MonoBehaviour
         Move();
     }
 
-    //押したキーによって進む方向を決める
+    //プレイヤーの操作番号
     private void SetTargetPosition()
     {
         moveBeforePos = moveAfter;
@@ -196,8 +196,6 @@ public class Player1 : MonoBehaviour
                 Debug.Log("構え");
                 player1ActionNumber = 1;
                 break;
-
-
 
             //スキル1
             case 7:
