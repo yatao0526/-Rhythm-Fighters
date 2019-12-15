@@ -9,18 +9,18 @@ public class Player2AttackManager : MonoBehaviour
     {
         switch (col.tag)
         {
-            case "WeakAttack":
-                Debug.Log("弱攻撃が当たった");
+            case "LightPunch":
+                Debug.Log("1Pの弱攻撃が当たった");
                 HPManager.player1HP -= 100;
                 break;
 
-            case "StrongAttack":
-                Debug.Log("強攻撃が当たった");
+            case "HeavyPunch":
+                Debug.Log("1Pの強攻撃が当たった");
                 HPManager.player1HP -= 100;
                 break;
 
             case "Player1":
-                Debug.Log("");
+                Debug.Log("2Pが1Pに当たった");
                 break;
         }
     }
