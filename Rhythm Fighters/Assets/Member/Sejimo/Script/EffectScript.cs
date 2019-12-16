@@ -19,21 +19,21 @@ public class EffectScript : MonoBehaviour
 
     public void MissFX()
     {
-
+        animator.SetTrigger("Miss_Fx");
     }
 
     public void HpFx()
     {
-
+        animator.SetTrigger("HP_Fx_Down");
     }
 
     public void S2Fx()
     {
-
+        animator.SetTrigger("S2_Fx");
     }
 
     public void PoseFx()
     {
-
+        animator.SetTrigger("Pose_Fx");
     }
 }

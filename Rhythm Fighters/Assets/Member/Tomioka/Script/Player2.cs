@@ -23,6 +23,8 @@ public class Player2 : MonoBehaviour
 
     [SerializeField]
     private PlayerCol playercol;
+    [SerializeField]
+    private EffectScript effectscript;
 
     [HideInInspector]
     public static int player2ActionNumber;
@@ -100,11 +102,13 @@ public class Player2 : MonoBehaviour
             {
                 animator.SetTrigger("Trigger_HP");
                 playercol.HPCol();
+                effectscript.HpFx();
             }
             if (Input.GetKeyDown(KeyCode.P))
             {
                 animator.SetTrigger("Trigger_S2");
                 playercol.S2Col();
+                effectscript.S2Fx();
             }
         }
     }
@@ -122,6 +126,7 @@ public class Player2 : MonoBehaviour
         {
             case 0:
                 animator.SetTrigger("Trigger_Miss");
+                effectscript.MissFX();
                 Debug.Log("ミス");
                 break;
 
@@ -150,6 +155,7 @@ public class Player2 : MonoBehaviour
             case 5:
                 animator.SetTrigger("Trigger_HP");
                 playercol.HPCol();
+                effectscript.HpFx();
                 player2ActionNumber = 1;
                 break;
 
@@ -159,6 +165,7 @@ public class Player2 : MonoBehaviour
             case 7:
                 animator.SetTrigger("Trigger_S2");
                 playercol.S2Col();
+                effectscript.S2Fx();
                 break;
 
             case 8:

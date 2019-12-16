@@ -23,6 +23,8 @@ public class Player1 : MonoBehaviour
 
     [SerializeField]
     private PlayerCol playercol;
+    [SerializeField]
+    private EffectScript effectscript;
 
     [HideInInspector]
     public static int player1ActionNumber;
@@ -126,11 +128,14 @@ public class Player1 : MonoBehaviour
             {
                 animator.SetTrigger("Trigger_HP");
                 playercol.HPCol();
+                effectscript.HpFx();
+
             }
             if (Input.GetKeyDown(KeyCode.C))
             {
                 animator.SetTrigger("Trigger_S2");
                 playercol.S2Col();
+                effectscript.S2Fx();
             }
         }
         else
@@ -153,6 +158,7 @@ public class Player1 : MonoBehaviour
             //ミス
             case 0:
                 animator.SetTrigger("Trigger_Miss");
+                effectscript.MissFX();
                 Debug.Log("ミス");
                 player1ActionNumber = 1;
                 break;
@@ -187,12 +193,14 @@ public class Player1 : MonoBehaviour
             case 5:
                 animator.SetTrigger("Trigger_HP");
                 playercol.HPCol();
+                effectscript.HpFx();
                 player1ActionNumber = 1;
                 break;
 
             //構え
             case 6:
                 animator.SetTrigger("Trigger_Pose");
+                effectscript.PoseFx();
                 Debug.Log("構え");
                 player1ActionNumber = 1;
                 break;
@@ -209,6 +217,7 @@ public class Player1 : MonoBehaviour
                 Debug.Log("スキル2");
                 animator.SetTrigger("Trigger_S2");
                 playercol.S2Col();
+                effectscript.S2Fx();
                 break;
 
             case 9:
