@@ -60,6 +60,9 @@ public class GameController : MonoBehaviour
     [SerializeField]
     Player2 player2;
 
+    [SerializeField]
+    private Image image,image2;
+
     private void Awake()
     {
         poolL = GetComponent<NoteObjectPool>();
@@ -77,9 +80,13 @@ public class GameController : MonoBehaviour
             {
                 case true:
                     text.text = "OK";
+                    image.enabled = true;
+                    image2.enabled = false;
                     break;
                 case false:
                     text.text = "NG";
+                    image.enabled = false;
+                    image2.enabled = true;
                     break;
             }
         }
