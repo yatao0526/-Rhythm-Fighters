@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class NegationMode : MonoBehaviour
 {
-    //どの攻撃判定なったかをint値で管理
-    private int negationModeNum;
     //打消しモードに入ったときにbool値をもらう
     public static bool check = false;
-
-    private int p1Num;
-    private int p2Num;
+    
+    public static int p1Num;
+    public static int p2Num;
     private string nokezori;
 
     [SerializeField]
@@ -28,7 +26,7 @@ public class NegationMode : MonoBehaviour
         {4,0.7f },
         {5,1.0f },
     };
-    
+
     private void Update()
     {
         if (GameController.modeType == GameController.ModeType.negationMode)
@@ -39,6 +37,10 @@ public class NegationMode : MonoBehaviour
                 SetBar();
                 check = true;
             }
+        }
+        else
+        {
+            check = false;
         }
     }
     //
@@ -58,9 +60,18 @@ public class NegationMode : MonoBehaviour
         negationBerR.SetCollider(p2gaugelange);
     }
     //ゲージ減算
-    public void DecreaseGauge()
+    public void Decrease1PGauge()
     {
         p1Num -= 1;
+        SetBar();
+        if(p1Num == 0)
+        {
+            GameController.modeType = GameController.ModeType.normalMode;
+        }
+        Debug.Log(p1Num);
+    }
+    public void Decrease2PGauge()
+    {
         p2Num -= 1;
         SetBar();
     }
@@ -68,7 +79,7 @@ public class NegationMode : MonoBehaviour
     private int GetRevocatioNum(Chara chara, Attack attack)
     {
         ChractorData data = chractorData[(int)chara];
-        int  nokezoriNum = 0;
+        int nokezoriNum = 0;
         switch (attack)
         {
             case Attack.LightPunch:
@@ -84,7 +95,7 @@ public class NegationMode : MonoBehaviour
                 nokezori = data._c2.ToString();
                 break;
         }
-        switch(nokezori)
+        switch (nokezori)
         {
             case "None":
                 nokezoriNum = 1;
@@ -104,16 +115,5 @@ public class NegationMode : MonoBehaviour
 
         }
         return nokezoriNum;
-    }
-    
-    //
-    private void ObjActive(int sizeR,int sizeL)
-    {
-        //negationBerR.SetActive(true);
-        //negationBerL.SetActive(true);
-
-        negationBerR.transform.localScale = new Vector2(sizeR, 0.3f);
-        negationBerL.transform.localScale = new Vector2(sizeL, 0.3f);
-        check = true;
     }
 }
