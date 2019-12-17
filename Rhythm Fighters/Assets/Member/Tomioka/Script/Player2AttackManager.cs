@@ -11,12 +11,12 @@ public class Player2AttackManager : MonoBehaviour
         {
             case "LightPunch":
                 Debug.Log("1Pの弱攻撃が当たった");
-                HPManager.player1HP -= 100;
+                HPManager.player2HP -= 100;
                 break;
 
             case "HeavyPunch":
                 Debug.Log("1Pの強攻撃が当たった");
-                HPManager.player1HP -= 100;
+                HPManager.player2HP -= 100;
                 break;
 
             case "Player1":
