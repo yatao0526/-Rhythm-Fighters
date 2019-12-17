@@ -17,6 +17,8 @@ public class Player1 : MonoBehaviour
     [SerializeField]
     private float stepTime;
 
+    private float way1P = 0;
+
     //移動後と移動前の場所
     private Vector3 moveAfter;
     private Vector3 moveBeforePos;
@@ -25,17 +27,23 @@ public class Player1 : MonoBehaviour
     private PlayerCol playercol;
 
     [HideInInspector]
-    public static int player1ActionNumber;
+    public static int player1ActionNumber = 1;
     private int player1BackNumber = 0;
+
+    [SerializeField]
+    private GameObject player2;
+
 
     void Start()
     {
+        player1ActionNumber = 1;
         moveAfter = this.transform.position;
         animator = GetComponent<Animator>();
     }
 
     void Update()
     {
+        Player1Way();
         if (this.transform.position == moveAfter)
         {
             SetTargetPosition();
@@ -87,12 +95,13 @@ public class Player1 : MonoBehaviour
                 player1ActionNumber = 8;
             }
         }
-        else
+        else if (NotesController.judge == false)
         {
-            if (Input.anyKey)
+            if (Input.GetAxis("LeftRight") != 0 || Input.GetAxis("Down") != 0 || Input.GetButtonDown("Maru") || Input.GetButtonDown("Batu"))
             {
                 player1ActionNumber = 0;
                 player1BackNumber = 0;
+
             }
         }
     }
@@ -143,8 +152,26 @@ public class Player1 : MonoBehaviour
     private void Move()
     {
         transform.position = Vector3.MoveTowards(transform.position, moveAfter, stepTime * 10 * Time.deltaTime);
+        Player1Way();
     }
 
+    //プレイヤーの向き変更
+    private void Player1Way()
+    {
+        float x = this.transform.position.x;
+        if (x < player2.transform.position.x)
+        {
+            way1P = 0;
+        }
+        else if (player2.transform.position.x < x)
+        {
+            way1P = 180;
+        }
+        this.transform.rotation = new Quaternion(0f, way1P, 0f, 1f);
+    }
+
+
+    //アクションナンバーの数によって1Pの行動をする
     public void Move1PAction()
     {
         //Debug.Log(player1ActionNumber);

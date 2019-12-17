@@ -17,6 +17,8 @@ public class Player2 : MonoBehaviour
     [SerializeField]
     private float stepTime;
 
+    private float way2P = 0;
+
     //移動後と移動前の場所
     private Vector3 moveAfter;
     private Vector3 moveBeforePos;
@@ -28,6 +30,9 @@ public class Player2 : MonoBehaviour
     public static int player2ActionNumber;
     private int player2BackNumber = 0;
 
+    [SerializeField]
+    private GameObject player1;
+
     void Start()
     {
         moveAfter = this.transform.position;
@@ -36,10 +41,12 @@ public class Player2 : MonoBehaviour
 
     void Update()
     {
+        Player2Way();
         if (this.transform.position == moveAfter)
         {
             SetTargetPosition();
             DebugSetTargetPosition();
+
         }
         Move();
     }
@@ -85,11 +92,12 @@ public class Player2 : MonoBehaviour
         }
         else
         {
-            if (Input.anyKey)
+            if (Input.GetAxis("2PDown") == 0)
             {
-                player2ActionNumber = 0;
+                player2ActionNumber = 1;
                 player2BackNumber = 0;
             }
+
         }
     }
 
@@ -135,6 +143,21 @@ public class Player2 : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, moveAfter, stepTime * 10 * Time.deltaTime);
     }
 
+    //プレイヤーの向き変更
+    private void Player2Way()
+    {
+        if (this.transform.position.x < player1.transform.position.x)
+        {
+            way2P = 0;
+        }
+        else if (player1.transform.position.x < this.transform.position.x)
+        {
+            way2P = 180;
+        }
+        this.transform.rotation = new Quaternion(0f, way2P, 0f, 1f);
+    }
+
+    //アクションナンバーの数によって2Pの行動をする
     public void Move2PAction()
     {
         //Debug.Log(player2ActionNumber);

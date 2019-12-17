@@ -1247,6 +1247,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd34825052c77a04f9480b1cd614ef4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1104412484 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 154232243324364690, guid: 2340071ec1f86594eb9a3f92bebf4e32,
+    type: 3}
+  m_PrefabInstance: {fileID: 8269037824052261586}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1163551477
 GameObject:
   m_ObjectHideFlags: 0
@@ -2007,7 +2013,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 8269037824052261586}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1104412484}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a54dfd4fc9528ab4f84579c849ce2b2f, type: 3}
@@ -2087,6 +2093,11 @@ PrefabInstance:
       propertyPath: playercol
       value: 
       objectReference: {fileID: 392112619}
+    - target: {fileID: 8134195264264536980, guid: 9082436be83301c49b3986ab31a3af15,
+        type: 3}
+      propertyPath: player2
+      value: 
+      objectReference: {fileID: 1104412484}
     - target: {fileID: 8134195264264536983, guid: 9082436be83301c49b3986ab31a3af15,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2207,10 +2218,15 @@ PrefabInstance:
       propertyPath: playercol
       value: 
       objectReference: {fileID: 1025679450}
+    - target: {fileID: 8269037822030488577, guid: 2340071ec1f86594eb9a3f92bebf4e32,
+        type: 3}
+      propertyPath: player1
+      value: 
+      objectReference: {fileID: 860304972}
     - target: {fileID: 154232243324364692, guid: 2340071ec1f86594eb9a3f92bebf4e32,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.2999997
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 154232243324364692, guid: 2340071ec1f86594eb9a3f92bebf4e32,
         type: 3}
