@@ -80,17 +80,24 @@ public class GameController : MonoBehaviour
             {
                 case true:
                     text.text = "OK";
-                    image.enabled = true;
-                    image2.enabled = false;
                     break;
                 case false:
                     text.text = "NG";
-                    image.enabled = false;
-                    image2.enabled = true;
                     break;
             }
         }
-        if(Input.GetKeyDown(KeyCode.M))
+        switch (NotesController.judge)
+        {
+            case true:
+                image.enabled = true;
+                image2.enabled = false;
+                break;
+            case false:
+                image.enabled = false;
+                image2.enabled = true;
+                break;
+        }
+        if (Input.GetKeyDown(KeyCode.M))
         {
             modeType = ModeType.negationMode;
             //Debug.Log("打消し");
