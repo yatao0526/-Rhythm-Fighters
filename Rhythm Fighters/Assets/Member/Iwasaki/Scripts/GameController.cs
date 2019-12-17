@@ -38,17 +38,17 @@ public class GameController : MonoBehaviour
     //生成する秒
     [SerializeField]
     private float timeOut;
-    //テスト用のテキスト(モック終わったら消す)
+    //確認用のテキスト
     [SerializeField]
     private Text text;
     //objectpool参照
     private NoteObjectPool poolL, poolR;
-
+    [SerializeField]
+    private NegationMode negationMode;
     //判定用タイム
     private float judgeTime;
     //判定補助タイマー（BGM開始時間指定用）
     private float audioTime;
-
     //test用、soundManager
     public GameObject soundManager;
     //test用、BGMか流しているかどうかの判断
@@ -60,6 +60,9 @@ public class GameController : MonoBehaviour
     [SerializeField]
     Player2 player2;
 
+    [SerializeField]
+    private Image image,image2;
+
     private void Awake()
     {
         poolL = GetComponent<NoteObjectPool>();
@@ -69,6 +72,7 @@ public class GameController : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        Debug.Log(modeType);
         MoveTime();
         //テスト用テキスト
         if ((Input.GetKeyDown(KeyCode.Space)) || (Input.GetKeyDown(KeyCode.A)) || (Input.GetKeyDown(KeyCode.D)) || (Input.GetKeyDown(KeyCode.LeftArrow)) || (Input.GetKeyDown(KeyCode.RightArrow)))
@@ -82,8 +86,61 @@ public class GameController : MonoBehaviour
                     text.text = "NG";
                     break;
             }
+            switch (NotesController.negation2PFlag)
+            {
+                case true:
+                    text.text = "打消し中OK";
+                    break;
+                case false:
+                    text.text = "打消し中NG";
+                    break;
+            }
         }
-        if(Input.GetKeyDown(KeyCode.M))
+        if(GameController.modeType == GameController.ModeType.negationMode)
+        {
+            //打消し中ようのデバック
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                switch (NotesController.negation1PFlag)
+                {
+                    case true:
+                        text.text = "打消し中OK";
+                        negationMode.Decrease1PGauge();
+                        break;
+                    case false:
+                        text.text = "打消し中NG";
+                        break;
+                }
+            }
+            //打消し中ようのデバック
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                switch (NotesController.negation2PFlag)
+                {
+                    case true:
+                        text.text = "打消し中OK";
+                        negationMode.Decrease2PGauge();
+                        break;
+                    case false:
+                        text.text = "打消し中NG";
+                        break;
+                }
+            }
+        }
+        //ボタン押す目あす
+        switch (NotesController.judge)
+        {
+            case true:
+                image.enabled = true;
+                image2.enabled = false;
+                break;
+            case false:
+                image.enabled = false;
+                image2.enabled = true;
+                break;
+        }
+        //打消しモードデバック
+        if (Input.GetKeyDown(KeyCode.M))
         {
             modeType = ModeType.negationMode;
             //Debug.Log("打消し");

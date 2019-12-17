@@ -20,6 +20,11 @@ public class NotesController : MonoBehaviour
     public static bool judge = false;
     //行動用bool
     public static bool getActive = false;
+    //打消しで使うフラグ
+    public static bool negation1PFlag = false;
+    public static bool negation2PFlag = false;
+    //ボタン押す目あす
+    public static bool pushBottun = false;
 
     private void Start()
     {
@@ -58,24 +63,61 @@ public class NotesController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.name == "CheckBox_R")
+        if (GameController.modeType == GameController.ModeType.normalMode)
         {
-            judge = true;
+            switch(col.gameObject.name)
+            {
+                case "CheckBox_R":
+                    judge = true;
+                    break;
+                case "CheckBox_L":
+                    judge = true;
+                    break;
+                case "CheckBox_M":
+                    getActive = true;
+                    break;
+            }
         }
-        if (col.gameObject.name == "CheckBox_M")
+        else
         {
-            getActive = true;
+            if (col.gameObject.name == "RevocationGaugeR")
+            {
+                negation2PFlag = true;
+            }
+            if (col.gameObject.name == "RevocationGaugeL")
+            {
+                negation1PFlag = true;
+            }
         }
     }
+
     private void OnTriggerExit2D(Collider2D other)
     {
-        if(other.gameObject.name == "CheckBox_R")
+        if (GameController.modeType == GameController.ModeType.normalMode)
         {
-            judge = false;
+            switch (other.gameObject.name)
+            {
+                case "CheckBox_R":
+                    judge = false;
+                    break;
+                case "CheckBox_L":
+                    judge = false;
+                    break;
+                case "CheckBox_M":
+                    getActive = false;
+                    break;
+            }
         }
-        if (other.gameObject.name == "CheckBox_M")
+        else
         {
-            getActive = false;
+            if (other.gameObject.name == "RevocationGaugeR")
+            {
+                negation2PFlag = false;
+            }
+            if (other.gameObject.name == "RevocationGaugeL")
+            {
+                negation1PFlag = false;
+            }
         }
     }
 }
