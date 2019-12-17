@@ -19,8 +19,9 @@ public class Player2AttackManager : MonoBehaviour
                 HPManager.player2HP -= 100;
                 break;
 
-            case "Player1":
-                Debug.Log("2Pが1Pに当たった");
+            case "Skill2":
+                Debug.Log("1Pのスキル2が当たった");
+                HPManager.player2HP -= 100;
                 break;
         }
     }
