@@ -435,6 +435,7 @@ GameObject:
   - component: {fileID: 8134195264264536983}
   - component: {fileID: 8134195264264536982}
   - component: {fileID: 8134195264264536980}
+  - component: {fileID: 4261432381819321123}
   - component: {fileID: 8134195264264536981}
   - component: {fileID: 8134195264264537002}
   - component: {fileID: 8134195264264537003}
@@ -529,6 +530,18 @@ MonoBehaviour:
   maxMove: {x: 5, y: 0, z: 0}
   stepTime: 2
   playercol: {fileID: 0}
+--- !u!114 &4261432381819321123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8134195264264536977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da26f5ab709a533448c78609856a8dcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!111 &8134195264264536981
 Animation:
   m_ObjectHideFlags: 0

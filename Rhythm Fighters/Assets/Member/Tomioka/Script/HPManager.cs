@@ -20,8 +20,6 @@ public class HPManager : MonoBehaviour
     public static float player1HP = 1000;
     public static float player2HP = 1000;
 
-    private float HPTime = 0.5f;
-
     private bool fightNow = true;
 
     void Start()
