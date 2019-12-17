@@ -37,14 +37,15 @@ public class NegationMode : MonoBehaviour
             {
                 GetNum();
                 SetBar();
+                check = true;
             }
         }
     }
     //
     public void GetNum()
     {
-        p1Num = GetRevocatioNum(Chara.SUZUKI, Attack.LightPunch);
-        p2Num = GetRevocatioNum(Chara.SUZUKI, Attack.LightPunch);
+        p1Num = GetRevocatioNum(Chara.SUZUKI, Attack.HeavyPunch);
+        p2Num = GetRevocatioNum(Chara.SUZUKI, Attack.Comand1);
     }
     //
     public void SetBar()
@@ -57,7 +58,7 @@ public class NegationMode : MonoBehaviour
         negationBerR.SetCollider(p2gaugelange);
     }
     //ゲージ減算
-    private void DecreaseGauge()
+    public void DecreaseGauge()
     {
         p1Num -= 1;
         p2Num -= 1;
