@@ -46,6 +46,7 @@ public class NotesController : MonoBehaviour
                 if (this.gameObject.transform.position.x <= -1)
                 {
                     this.transform.position = pos;
+
                     this.gameObject.SetActive(false);
                 }
                 break;
@@ -63,6 +64,10 @@ public class NotesController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
+        if (col.gameObject.name == "CheckBox_M")
+        {
+            getActive = true;
+        }
         if (GameController.modeType == GameController.ModeType.normalMode)
         {
             switch(col.gameObject.name)
@@ -72,9 +77,6 @@ public class NotesController : MonoBehaviour
                     break;
                 case "CheckBox_L":
                     judge = true;
-                    break;
-                case "CheckBox_M":
-                    getActive = true;
                     break;
             }
         }
@@ -93,6 +95,10 @@ public class NotesController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        if (other.gameObject.name == "CheckBox_M")
+        {
+            getActive = false;
+        }
         if (GameController.modeType == GameController.ModeType.normalMode)
         {
             switch (other.gameObject.name)
@@ -102,9 +108,6 @@ public class NotesController : MonoBehaviour
                     break;
                 case "CheckBox_L":
                     judge = false;
-                    break;
-                case "CheckBox_M":
-                    getActive = false;
                     break;
             }
         }

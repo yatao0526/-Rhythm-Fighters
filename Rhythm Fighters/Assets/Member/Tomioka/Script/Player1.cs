@@ -33,6 +33,10 @@ public class Player1 : MonoBehaviour
     [SerializeField]
     private GameObject player2;
 
+    [SerializeField]
+    private NegationMode negationMode;
+
+    public static bool negationButton1P = false;
 
     void Start()
     {
@@ -55,6 +59,24 @@ public class Player1 : MonoBehaviour
     //プレイヤーの操作番号
     private void SetTargetPosition()
     {
+        if (GameController.modeType == GameController.ModeType.negationMode)
+        {
+            //弱攻撃
+            if (Input.GetButtonDown("Batu") || Input.GetButtonDown("Maru"))
+            {
+                switch (NotesController.negation1PFlag)
+                {
+                    case true:
+                        animator.SetTrigger("Trigger_ Negate");
+                        negationMode.Decrease1PGauge();
+                        negationButton1P = true;
+                        break;
+                    case false:
+                        GameController.modeType = GameController.ModeType.normalMode;
+                        break;
+                }
+            }
+        }
         moveBeforePos = moveAfter;
         if (NotesController.judge)
         {
@@ -101,7 +123,6 @@ public class Player1 : MonoBehaviour
             {
                 player1ActionNumber = 0;
                 player1BackNumber = 0;
-
             }
         }
     }
@@ -237,6 +258,8 @@ public class Player1 : MonoBehaviour
                 break;
 
             case 9:
+
+
                 break;
 
             case 10:
