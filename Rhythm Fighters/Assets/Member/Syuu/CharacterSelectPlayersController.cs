@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class CharacterSelectPlayersController : MonoBehaviour
 {
+    GameObject Common1;
+    GameObject Common2;
+
+
 
     // charNum_1　   charNum_2プレイヤーが選択しているキャラクター, stageNum選択するステージ
     [SerializeField] private int charNum_1 = 0, charNum_2 = 5, charNumMAX = 6, stageMoves = 0, stageNumMAX = 3;
@@ -30,6 +34,10 @@ public class CharacterSelectPlayersController : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+
+        Common1 = GameObject.Find("Player1_common");
+        Common2 = GameObject.Find("Player2_common");
+
         charNum_1 = charNum_1 % charNumMAX;
         arrow1.transform.position = new Vector3(characters[charNum_1].transform.position.x, 760, 0);
         player1_Icon.GetComponent<Image>().sprite = player_Icons[charNum_1];
@@ -82,7 +90,7 @@ public class CharacterSelectPlayersController : MonoBehaviour
         if (arrow1 != null)
         {
             player1_Icon.GetComponent<Image>().sprite = player_Icons[charNum_1];
-            arrow1.transform.position = new Vector3(characters[charNum_1].transform.position.x, 760, 0);
+            arrow1.transform.position = new Vector3(characters[charNum_1].transform.position.x, 540, 0);//760>540
         }
 
         if (Input.GetKeyDown(KeyCode.E) && !player1PCharacter && !isPlayerSelection)
@@ -97,12 +105,12 @@ public class CharacterSelectPlayersController : MonoBehaviour
 
         if (player1PCharacter)
         {
-            characters[charNum_1].GetComponent<Image>().color = new Color(255.0f / 255.0f, 8 / 255.0f, 0 / 255.0f, 255 / 255.0f);
+            //characters[charNum_1].GetComponent<Image>().color = new Color(255.0f / 255.0f, 8 / 255.0f, 0 / 255.0f, 255 / 255.0f);
             characters[charNum_1].GetComponent<Image>().sprite = playerCharacterAffirmations[charNum_1];
         } //選択した表示
         else
         {
-            characters[charNum_1].GetComponent<Image>().color = new Color(255.0f / 255.0f, 8 / 255.0f, 0 / 255.0f, 130 / 255.0f);
+            //characters[charNum_1].GetComponent<Image>().color = new Color(255.0f / 255.0f, 8 / 255.0f, 0 / 255.0f, 130 / 255.0f);
             characters[charNum_1].GetComponent<Image>().sprite = playerCharacterAffirmations[charNum_1];
         }
     }
@@ -139,7 +147,7 @@ public class CharacterSelectPlayersController : MonoBehaviour
         charNum_2 = charNum_2 % charNumMAX;
         if (arrow2 != null)
         {
-            arrow2.transform.position = new Vector3(characters[charNum_2].transform.position.x, 760, 0);
+            arrow2.transform.position = new Vector3(characters[charNum_2].transform.position.x, 540, 0);//760>540
             player2_Icon.GetComponent<Image>().sprite = player_Icons[charNum_2];
         }
 
@@ -155,10 +163,12 @@ public class CharacterSelectPlayersController : MonoBehaviour
         }
         if (player2PCharacter) {
             characters[charNum_2].GetComponent<Image>().sprite = playerCharacterAffirmations[charNum_2];
-            characters[charNum_2].GetComponent<Image>().color = new Color(0 / 255.0f, 62 / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f); }
+            //characters[charNum_2].GetComponent<Image>().color = new Color(0 / 255.0f, 62 / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f); 
+        }
         else {
             characters[charNum_2].GetComponent<Image>().sprite = playerCharacterAffirmations[charNum_2];
-            characters[charNum_2].GetComponent<Image>().color = new Color(0 / 255.0f, 62 / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f); }
+            //characters[charNum_2].GetComponent<Image>().color = new Color(0 / 255.0f, 62 / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f); 
+        }
     }
     //誰か先に選択おしたか
 
@@ -194,6 +204,9 @@ public class CharacterSelectPlayersController : MonoBehaviour
     //選択されてなかったキャラクター消す
     private void CharactersGradientColour()
     {
+
+        Common1.gameObject.SetActive(false);
+        Common2.gameObject.SetActive(false);
         //  Debug.Log("CharactersGradientColour");
         for (int charactersSprite = 0; charactersSprite < 6; charactersSprite++)
         {
