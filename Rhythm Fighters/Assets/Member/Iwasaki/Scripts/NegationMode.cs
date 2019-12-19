@@ -41,6 +41,7 @@ public class NegationMode : MonoBehaviour
         else
         {
             check = false;
+            Debug.Log("通常モード");
         }
     }
     //キャラとどの攻撃同士なのかチェック
@@ -64,15 +65,23 @@ public class NegationMode : MonoBehaviour
     {
         p1Num -= 1;
         SetBar();
+        if(NotesController.negation1PFlag == false || NotesController.negation2PFlag == false)
+        {
+            FinNegationMode();
+        }
     }
     //ゲージ減算
     public void Decrease2PGauge()
     {
         p2Num -= 1;
         SetBar();
+        if (NotesController.negation1PFlag == false || NotesController.negation2PFlag == false)
+        {
+            FinNegationMode();
+        }
     }
     //miss判定等起きた時に呼べ 打消し終了
-    public void FinNegationMode()
+    private void FinNegationMode()
     {
         GameController.modeType = GameController.ModeType.normalMode;
         negationBerL.enabled = false;

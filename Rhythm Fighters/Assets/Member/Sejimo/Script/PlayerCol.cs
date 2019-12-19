@@ -7,11 +7,15 @@ public class PlayerCol : MonoBehaviour
     private Animator animator;
     private Vector3 moveAfter;
     private Vector3 moveBeforePos;
+    
+    private BoxCollider2D boxCollider2D;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        boxCollider2D = GetComponent<BoxCollider2D>();
+        boxCollider2D.isTrigger = true;
     }
 
     // Update is called once per frame

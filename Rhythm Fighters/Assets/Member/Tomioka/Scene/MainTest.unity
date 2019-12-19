@@ -1235,10 +1235,10 @@ MonoBehaviour:
   negationMode: {fileID: 1008321461}
   player1: {fileID: 1240546586}
   player2: {fileID: 2021840595}
-  rhythmButton: {fileID: 1634307624}
-  buttonSprite:
-  - {fileID: 21300000, guid: 9bd188ea5d7012a448b4e13929c02332, type: 3}
+  buton: {fileID: 1634307624}
+  buttonImage:
   - {fileID: 21300000, guid: d1c6d6a8adac1b342967c640a44c1ca8, type: 3}
+  - {fileID: 21300000, guid: 9bd188ea5d7012a448b4e13929c02332, type: 3}
   soundManager: {fileID: 1639084308}
 --- !u!4 &1008321460
 Transform:
@@ -1875,7 +1875,7 @@ GameObject:
   - component: {fileID: 1634307625}
   - component: {fileID: 1634307624}
   m_Layer: 5
-  m_Name: RhythmButton
+  m_Name: ButtonImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2472,11 +2472,6 @@ PrefabInstance:
       propertyPath: player2
       value: 
       objectReference: {fileID: 1104412484}
-    - target: {fileID: 8134195264264536980, guid: 9082436be83301c49b3986ab31a3af15,
-        type: 3}
-      propertyPath: negationMode
-      value: 
-      objectReference: {fileID: 1008321461}
     - target: {fileID: 8134195264264536983, guid: 9082436be83301c49b3986ab31a3af15,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2577,27 +2572,8 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: b75eea74864448742aaf349fd55414cb, type: 2}
-    - target: {fileID: 7909985085705603797, guid: 9082436be83301c49b3986ab31a3af15,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5195999576821547790, guid: 9082436be83301c49b3986ab31a3af15,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2938642863165354874, guid: 9082436be83301c49b3986ab31a3af15,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8134195262302499230, guid: 9082436be83301c49b3986ab31a3af15,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8134195264264537003, guid: 9082436be83301c49b3986ab31a3af15, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9082436be83301c49b3986ab31a3af15, type: 3}
 --- !u!1001 &8269037824052261586
 PrefabInstance:
@@ -2626,15 +2602,10 @@ PrefabInstance:
       propertyPath: player1
       value: 
       objectReference: {fileID: 860304972}
-    - target: {fileID: 8269037822030488577, guid: 2340071ec1f86594eb9a3f92bebf4e32,
-        type: 3}
-      propertyPath: negationMode
-      value: 
-      objectReference: {fileID: 1008321461}
     - target: {fileID: 154232243324364692, guid: 2340071ec1f86594eb9a3f92bebf4e32,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 154232243324364692, guid: 2340071ec1f86594eb9a3f92bebf4e32,
         type: 3}
@@ -2736,26 +2707,5 @@ PrefabInstance:
       propertyPath: m_BodyType
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5225921110631035472, guid: 2340071ec1f86594eb9a3f92bebf4e32,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6613787246749199486, guid: 2340071ec1f86594eb9a3f92bebf4e32,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 476921531721039282, guid: 2340071ec1f86594eb9a3f92bebf4e32,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3462993381542721569, guid: 2340071ec1f86594eb9a3f92bebf4e32,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2046094442384078114, guid: 2340071ec1f86594eb9a3f92bebf4e32, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2340071ec1f86594eb9a3f92bebf4e32, type: 3}

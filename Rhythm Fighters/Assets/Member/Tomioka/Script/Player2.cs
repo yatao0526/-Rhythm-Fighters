@@ -70,8 +70,8 @@ public class Player2 : MonoBehaviour
                         negationButton2P = true;
                         break;
                     case false:
+                        Debug.Log("打消し終わり");
                         GameController.modeType = GameController.ModeType.normalMode;
-                        negationMode.FinNegationMode();
                         break;
                 }
             }

@@ -6,7 +6,7 @@ public class NegationManager : MonoBehaviour
 {
     private int Negation1P = 0;
     private int Negation2P = 0;
-
+    
     private void Update()
     {
         Negation1P = Player1.player1ActionNumber;
@@ -15,11 +15,10 @@ public class NegationManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag != "Player1" && col.tag != "Player2")
+        if(col.tag != "Player1" && col.tag != "Player2")
         {
-            Debug.Log(col.tag);
             GameController.modeType = GameController.ModeType.negationMode;
-            Debug.Log("うちけしモード");
+            Debug.Log("うちけいそ");
         }
     }
 }

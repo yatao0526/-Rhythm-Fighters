@@ -45,9 +45,9 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private Player2 player2;
     [SerializeField]
-    private Image rhythmButton;
+    private Image buton;
     [SerializeField]
-    private Sprite[] buttonSprite;
+    private Sprite[] buttonImage;
 
     private NoteObjectPool poolL, poolR;        //objectpool参照
     
@@ -128,10 +128,10 @@ public class GameController : MonoBehaviour
         switch (NotesController.judge)
         {
             case true:
-                rhythmButton.sprite = buttonSprite[1];
+                buton.sprite = buttonImage[0];
                 break;
             case false:
-                rhythmButton.sprite = buttonSprite[0];
+                buton.sprite = buttonImage[1];
                 break;
         }
         //打消しモードデバック
