@@ -26,7 +26,7 @@ public class Title : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.anyKey)
         {
             // ロード画面UI表示
             loadingUI.SetActive(true);
@@ -46,7 +46,8 @@ public class Title : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         // シーンの読み込み
-        async = SceneManager.LoadSceneAsync("CharacterSelectPlayersController");
+        //async = SceneManager.LoadSceneAsync("CharacterSelectPlayersController");
+        async = SceneManager.LoadSceneAsync("MainTest");
 
         // 読み込みが終わるまで進捗状況をスライダーの値に反映させる
         while (!async.isDone)
