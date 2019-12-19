@@ -15,7 +15,7 @@ public class NegationManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag != "Player1" && col.tag != "Player2")
+        if (col.tag != "Player1" || col.tag != "Player2")
         {
             Debug.Log(col.tag);
             GameController.modeType = GameController.ModeType.negationMode;

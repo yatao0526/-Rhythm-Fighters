@@ -2472,6 +2472,11 @@ PrefabInstance:
       propertyPath: player2
       value: 
       objectReference: {fileID: 1104412484}
+    - target: {fileID: 8134195264264536980, guid: 9082436be83301c49b3986ab31a3af15,
+        type: 3}
+      propertyPath: negationMode
+      value: 
+      objectReference: {fileID: 1008321461}
     - target: {fileID: 8134195264264536983, guid: 9082436be83301c49b3986ab31a3af15,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2622,6 +2627,11 @@ PrefabInstance:
       propertyPath: player1
       value: 
       objectReference: {fileID: 860304972}
+    - target: {fileID: 8269037822030488577, guid: 2340071ec1f86594eb9a3f92bebf4e32,
+        type: 3}
+      propertyPath: negationMode
+      value: 
+      objectReference: {fileID: 1008321461}
     - target: {fileID: 154232243324364692, guid: 2340071ec1f86594eb9a3f92bebf4e32,
         type: 3}
       propertyPath: m_LocalPosition.x
