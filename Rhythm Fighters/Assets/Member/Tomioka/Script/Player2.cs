@@ -238,6 +238,7 @@ public class Player2 : MonoBehaviour
                 animator.SetTrigger("Trigger_S2");
                 playercol.S2Col();
                 Debug.Log("スキル2");
+                player2ActionNumber = 1;
                 break;
 
             case 9:

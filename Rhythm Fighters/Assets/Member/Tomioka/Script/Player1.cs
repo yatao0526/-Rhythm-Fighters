@@ -25,7 +25,7 @@ public class Player1 : MonoBehaviour
 
     [SerializeField]
     private PlayerCol playercol;
-    
+
     public static int player1ActionNumber = 1;
     private int player1BackNumber = 0;
 
@@ -255,6 +255,7 @@ public class Player1 : MonoBehaviour
                 Debug.Log("スキル2");
                 animator.SetTrigger("Trigger_S2");
                 playercol.S2Col();
+                player1ActionNumber = 1;
                 break;
 
             case 9:
