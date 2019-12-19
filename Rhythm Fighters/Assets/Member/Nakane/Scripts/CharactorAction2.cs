@@ -8,12 +8,6 @@ public class CharactorAction2 : MonoBehaviour
 
     // 一回の左右移動で動く距離
     public float moveSpeed = 2.0f;
-
-    void Start()
-    {
-
-    }
-
     void Update()
     {
         // キャラクター移動用

@@ -43,13 +43,13 @@ public class NegationMode : MonoBehaviour
             check = false;
         }
     }
-    //
+    //キャラとどの攻撃同士なのかチェック
     public void GetNum()
     {
         p1Num = GetRevocatioNum(Chara.SUZUKI, Attack.HeavyPunch);
         p2Num = GetRevocatioNum(Chara.SUZUKI, Attack.Comand1);
     }
-    //
+    //打消し突入時打消しゲージset
     public void SetBar()
     {
         float p1gaugelange = revocationGaugeDic[p1Num];
@@ -65,6 +65,7 @@ public class NegationMode : MonoBehaviour
         p1Num -= 1;
         SetBar();
     }
+    //ゲージ減算
     public void Decrease2PGauge()
     {
         p2Num -= 1;
@@ -114,7 +115,6 @@ public class NegationMode : MonoBehaviour
             case "Gigant":
                 nokezoriNum = 5;
                 break;
-
         }
         return nokezoriNum;
     }

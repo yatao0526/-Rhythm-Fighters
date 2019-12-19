@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class FadeIn : MonoBehaviour
 {
-
     // フェードインのおおよその秒数
     [SerializeField]
     private float fadeinTime;
@@ -29,10 +28,5 @@ public class FadeIn : MonoBehaviour
 
             yield return new WaitForSeconds(fadeinTime);
         }
-    }
-
-    void Update()
-    {
-        
     }
 }

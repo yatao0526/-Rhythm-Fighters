@@ -25,8 +25,7 @@ public class Player1 : MonoBehaviour
 
     [SerializeField]
     private PlayerCol playercol;
-
-    [HideInInspector]
+    
     public static int player1ActionNumber = 1;
     private int player1BackNumber = 0;
 
@@ -73,6 +72,7 @@ public class Player1 : MonoBehaviour
                         break;
                     case false:
                         GameController.modeType = GameController.ModeType.normalMode;
+                        negationMode.FinNegationMode();
                         break;
                 }
             }

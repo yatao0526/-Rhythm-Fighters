@@ -22,6 +22,7 @@ public enum Attack
 
 public class GameController : MonoBehaviour
 {
+    //ゲームモード管理
     public enum ModeType
     {
         normalMode,
@@ -29,40 +30,33 @@ public class GameController : MonoBehaviour
     }
     public static ModeType modeType = ModeType.normalMode;
 
-    //判定
     [SerializeField]
-    private GameObject[] judge;
-    //Notes(Prefab)入れてる
+    private GameObject[] judge;                 //判定
     [SerializeField]
-    private GameObject[] Notes;
-    //生成する秒
+    private GameObject[] Notes;                 //Notes(Prefab)入れてる
     [SerializeField]
-    private float timeOut;
-    //確認用のテキスト
+    private float timeOut;                      //生成する秒
     [SerializeField]
-    private Text text;
-    //objectpool参照
-    private NoteObjectPool poolL, poolR;
+    private Text text;                          //確認用のテキスト
     [SerializeField]
     private NegationMode negationMode;
-    //判定用タイム
-    private float judgeTime;
-    //判定補助タイマー（BGM開始時間指定用）
-    private float audioTime;
-    //test用、soundManager
-    public GameObject soundManager;
-    //test用、BGMか流しているかどうかの判断
-    private static bool soundPlaying = false;
+    [SerializeField]
+    private Player1 player1;
+    [SerializeField]
+    private Player2 player2;
+    [SerializeField]
+    private Image image, image2;
+
+    private NoteObjectPool poolL, poolR;        //objectpool参照
+    
+    private float judgeTime;                    //判定用タイム
+    private float audioTime;                    //判定補助タイマー（BGM開始時間指定用）
     private float time = 0;
 
-    [SerializeField]
-    Player1 player1;
-    [SerializeField]
-    Player2 player2;
+    private static bool soundPlaying = false;   //test用、BGMか流しているかどうかの判断
 
-    [SerializeField]
-    private Image image,image2;
-
+    public GameObject soundManager;             //test用、soundManager
+    
     private void Awake()
     {
         poolL = GetComponent<NoteObjectPool>();
@@ -75,7 +69,8 @@ public class GameController : MonoBehaviour
         Debug.Log(modeType);
         MoveTime();
         //テスト用テキスト
-        if ((Input.GetKeyDown(KeyCode.Space)) || (Input.GetKeyDown(KeyCode.A)) || (Input.GetKeyDown(KeyCode.D)) || (Input.GetKeyDown(KeyCode.LeftArrow)) || (Input.GetKeyDown(KeyCode.RightArrow)))
+        if ((Input.GetKeyDown(KeyCode.Space)) || (Input.GetKeyDown(KeyCode.A)) || 
+            (Input.GetKeyDown(KeyCode.D)) || (Input.GetKeyDown(KeyCode.LeftArrow)) || (Input.GetKeyDown(KeyCode.RightArrow)))
         {
             switch (NotesController.judge)
             {
@@ -149,12 +144,6 @@ public class GameController : MonoBehaviour
         if (soundManager.GetComponent<AudioSource>().time - time < 0)
         {
             judgeTime = (time % 0.75f + soundManager.GetComponent<AudioSource>().time);
-            //Debug用
-            //Debug.Log("loop");
-            //Debug.Log("time = " + time);
-            //Debug.Log("time%0.75 = " + (time%0.75f));
-            //Debug.Log(soundManager.GetComponent<AudioSource>().time);
-            //Debug.Log("judgeTime = " + judgeTime);
         }
         //真ん中になる時、判定を出す
         if (NotesController.getActive)
@@ -203,4 +192,3 @@ public class GameController : MonoBehaviour
         }
     }
 }
-

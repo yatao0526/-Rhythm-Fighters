@@ -25,8 +25,7 @@ public class Player2 : MonoBehaviour
 
     [SerializeField]
     private PlayerCol playercol;
-
-    [HideInInspector]
+    
     public static int player2ActionNumber;
     private int player2BackNumber = 0;
 
@@ -51,7 +50,6 @@ public class Player2 : MonoBehaviour
         {
             SetTargetPosition();
             DebugSetTargetPosition();
-
         }
         Move();
     }
@@ -73,6 +71,7 @@ public class Player2 : MonoBehaviour
                         break;
                     case false:
                         GameController.modeType = GameController.ModeType.normalMode;
+                        negationMode.FinNegationMode();
                         break;
                 }
             }
@@ -111,7 +110,6 @@ public class Player2 : MonoBehaviour
             {
                 player2ActionNumber = 8;
             }
-
         }
         else
         {
@@ -120,7 +118,6 @@ public class Player2 : MonoBehaviour
                 player2ActionNumber = 1;
                 player2BackNumber = 0;
             }
-
         }
     }
 

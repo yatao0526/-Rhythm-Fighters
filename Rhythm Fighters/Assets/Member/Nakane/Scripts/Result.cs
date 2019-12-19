@@ -46,7 +46,6 @@ public class Result : MonoBehaviour
             {
                 Invoke("MoveTitle", 1.0f);
             }
-            
         }
 
         if(player2HP <= 0)
@@ -57,7 +56,6 @@ public class Result : MonoBehaviour
             {
                 Invoke("MoveTitle", 1.0f);
             }
-
         }
     }
 
@@ -65,5 +63,4 @@ public class Result : MonoBehaviour
     {
         SceneManager.LoadScene("Title");
     }
-
 }

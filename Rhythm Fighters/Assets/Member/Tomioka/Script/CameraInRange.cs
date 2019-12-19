@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraInRange : MonoBehaviour
 {
     [SerializeField]
-    Renderer targetRenderer;
+    private Renderer targetRenderer;
 
     void Start()
     {

@@ -13,7 +13,7 @@ public class BackgroundScropt : MonoBehaviour
     }
     private void GradientColourMove()
     {
-        if (isGradientColourMove && GetComponent<Image>().color.a <1)
+        if (isGradientColourMove && GetComponent<Image>().color.a < 1)
         {
             this.GetComponent<Image>().color = new Color(this.GetComponent<Image>().color.r, this.GetComponent<Image>().color.b, this.GetComponent<Image>().color.g, this.GetComponent<Image>().color.a + (gradientColourMoveSpeet * Time.deltaTime));
             if (GetComponent<Image>().color.a <= 0)
@@ -22,4 +22,4 @@ public class BackgroundScropt : MonoBehaviour
             }
         }
     }
-    }
+}

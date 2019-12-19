@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class Title : MonoBehaviour
 {
-
     // 非同期動作で使用するAsyncOperation
     private AsyncOperation async;
     // シーンロード中に表示するUI画面
@@ -31,16 +30,12 @@ public class Title : MonoBehaviour
         {
             // ロード画面UI表示
             loadingUI.SetActive(true);
-
             // 背景非表示
             backGround.SetActive(false);
-
             // コルーチン開始
             StartCoroutine("LoadingScreen");
-
             // Invokeを呼び出さないようにする
             CancelInvoke();
-
             // 一定時間後、再びInvokeを呼び出す
             //Invoke("MoveMovie", 10.0f);
         }
@@ -60,7 +55,6 @@ public class Title : MonoBehaviour
             slider.value = progressVal;
             yield return null;
         }
-
     }
 
     public void MoveMovie()

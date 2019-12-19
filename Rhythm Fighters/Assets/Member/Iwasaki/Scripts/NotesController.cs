@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class NotesController : MonoBehaviour
 {
+    //どちら側からノーツが流れるか分けるよう
     private enum ThisNote
     {
         RtoLNote,
         LtoRNote,
     }
-
     [SerializeField]
     private ThisNote thisNote;
-
+    //transformをループさせるために位置データ保管
     private Vector3 pos;
-
+    //あたり判定等
     private Rigidbody2D rb2d;
-
+    //通常モード用判定bool
     public static bool judge = false;
     //行動用bool
     public static bool getActive = false;
@@ -35,6 +35,7 @@ public class NotesController : MonoBehaviour
     {
         NoteMove();
     }
+    //
     private void NoteMove()
     {
         switch (thisNote)

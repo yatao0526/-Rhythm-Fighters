@@ -6,11 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class Movie : MonoBehaviour
 {
-    void Start()
-    {
-       
-    }
-
     void Update()
     {
         if (Input.GetMouseButton(0))
@@ -22,8 +17,6 @@ public class Movie : MonoBehaviour
     public void SceneMove()
     {
         // 左クリックでTitleへ遷移
-        SceneManager.LoadScene("Title");
-        
+        SceneManager.LoadScene("Title");       
     }
-
 }
