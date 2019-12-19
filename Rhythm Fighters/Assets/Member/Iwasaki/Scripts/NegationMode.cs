@@ -64,16 +64,18 @@ public class NegationMode : MonoBehaviour
     {
         p1Num -= 1;
         SetBar();
-        if(p1Num == 0)
-        {
-            GameController.modeType = GameController.ModeType.normalMode;
-        }
-        Debug.Log(p1Num);
     }
     public void Decrease2PGauge()
     {
         p2Num -= 1;
         SetBar();
+    }
+    //miss判定等起きた時に呼べ 打消し終了
+    public void FinNegationMode()
+    {
+        GameController.modeType = GameController.ModeType.normalMode;
+        negationBerL.enabled = false;
+        negationBerR.enabled = false;
     }
     //
     private int GetRevocatioNum(Chara chara, Attack attack)
