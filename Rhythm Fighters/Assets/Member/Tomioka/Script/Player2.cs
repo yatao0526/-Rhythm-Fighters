@@ -33,6 +33,11 @@ public class Player2 : MonoBehaviour
     [SerializeField]
     private GameObject player1;
 
+    [SerializeField]
+    private NegationMode negationMode;
+
+    public static bool negationButton2P = false;
+
     void Start()
     {
         moveAfter = this.transform.position;
@@ -54,6 +59,24 @@ public class Player2 : MonoBehaviour
     //プレイヤーの操作番号
     private void SetTargetPosition()
     {
+        if (GameController.modeType == GameController.ModeType.negationMode)
+        {
+            //弱攻撃
+            if (Input.GetButtonDown("2PBatu") || Input.GetButtonDown("2PMaru"))
+            {
+                switch (NotesController.negation2PFlag)
+                {
+                    case true:
+                        animator.SetTrigger("Trigger_ Negate");
+                        negationMode.Decrease1PGauge();
+                        negationButton2P = true;
+                        break;
+                    case false:
+                        GameController.modeType = GameController.ModeType.normalMode;
+                        break;
+                }
+            }
+        }
         moveBeforePos = moveAfter;
         if (NotesController.judge)
         {

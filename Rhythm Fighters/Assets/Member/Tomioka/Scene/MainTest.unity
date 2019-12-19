@@ -1305,7 +1305,7 @@ MonoBehaviour:
   Notes:
   - {fileID: 2361506975921137865, guid: 58fd2bce921a72a41bd07937e5085596, type: 3}
   - {fileID: 1700000162357697457, guid: 8f939ceca4c52dd4c86618654913f3bc, type: 3}
-  timeOut: 0.55
+  timeOut: 0.75
   text: {fileID: 1838891660}
   negationMode: {fileID: 1008321461}
   soundManager: {fileID: 1639084308}
@@ -2533,7 +2533,7 @@ PrefabInstance:
     - target: {fileID: 8134195264264536977, guid: 9082436be83301c49b3986ab31a3af15,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8134195264264536980, guid: 9082436be83301c49b3986ab31a3af15,
         type: 3}
@@ -2663,7 +2663,7 @@ PrefabInstance:
     - target: {fileID: 154232243324364690, guid: 2340071ec1f86594eb9a3f92bebf4e32,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8269037822030488577, guid: 2340071ec1f86594eb9a3f92bebf4e32,
         type: 3}

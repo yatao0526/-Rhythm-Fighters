@@ -162,6 +162,22 @@ public class GameController : MonoBehaviour
             player1.Move1PAction();
             player2.Move2PAction();
 
+            if (Player1.negationButton1P)
+            {
+                Player1.negationButton1P = false;
+            }
+            else
+            {
+                GameController.modeType = GameController.ModeType.normalMode;
+            }
+            if (Player2.negationButton2P)
+            {
+                Player2.negationButton2P = false;
+            }
+            else
+            {
+                GameController.modeType = GameController.ModeType.normalMode;
+            }
             Debug.Log("判定");
             //Debug.Log(audioTime);
             NotesController.getActive = false;
