@@ -45,7 +45,9 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private Player2 player2;
     [SerializeField]
-    private Image image, image2;
+    private Image buton;
+    [SerializeField]
+    private Sprite[] buttonImage;
 
     private NoteObjectPool poolL, poolR;        //objectpool参照
     
@@ -126,12 +128,10 @@ public class GameController : MonoBehaviour
         switch (NotesController.judge)
         {
             case true:
-                image.enabled = true;
-                image2.enabled = false;
+                buton.sprite = buttonImage[0];
                 break;
             case false:
-                image.enabled = false;
-                image2.enabled = true;
+                buton.sprite = buttonImage[1];
                 break;
         }
         //打消しモードデバック
