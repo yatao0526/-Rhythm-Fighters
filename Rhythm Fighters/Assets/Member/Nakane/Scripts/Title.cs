@@ -26,6 +26,10 @@ public class Title : MonoBehaviour
 
     void Update()
     {
+        InputGet();
+    }
+    private void InputGet()
+    {
         if (Input.anyKey)
         {
             // ロード画面UI表示
@@ -58,7 +62,7 @@ public class Title : MonoBehaviour
         }
     }
 
-    public void MoveMovie()
+    private void MoveMovie()
     {
         // Movieシーンへ遷移
         SceneManager.LoadScene("Movie");

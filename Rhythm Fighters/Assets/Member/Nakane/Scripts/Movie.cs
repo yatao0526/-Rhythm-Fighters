@@ -8,7 +8,11 @@ public class Movie : MonoBehaviour
 {
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        InputGet();
+    }
+    private void InputGet()
+    {
+        if (Input.anyKey)
         {
             Invoke("SceneMove", 1.0f);
         }

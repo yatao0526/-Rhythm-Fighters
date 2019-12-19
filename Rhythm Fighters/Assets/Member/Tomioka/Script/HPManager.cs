@@ -20,32 +20,21 @@ public class HPManager : MonoBehaviour
     public static float player1HP = 1000;
     public static float player2HP = 1000;
 
-    private bool fightNow = true;
-
-    void Start()
-    {
-    }
-
+    public static bool clearCheck = true;
     void Update()
     {
-        //10キーの1を押すと1PのHPが減る
-        if (fightNow == true && Input.GetKeyDown(KeyCode.Keypad1))
-        {
-            player1HP -= damage;
-        }
-
-        //10キーの2を押すと2PのHPが減る
-        if (fightNow == true && Input.GetKeyDown(KeyCode.Keypad2))
-        {
-            player2HP -= damage;
-        }
-
         //どちらかのプレイヤーのHPが0になったらKOを表示
         if (player1HP <= 0 || player2HP <= 0)
         {
-            fightNow = false;
+            if(player1HP < player2HP)
+            {
+                clearCheck = false;
+            }
+            if (player1HP > player2HP)
+            {
+                clearCheck = true;
+            }
         }
-
         HP();
     }
 
@@ -55,5 +44,4 @@ public class HPManager : MonoBehaviour
         HP1PBar.fillAmount = player1HP / playerMaxHP;
         HP2PBar.fillAmount = player2HP / playerMaxHP;
     }
-
 }
