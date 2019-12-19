@@ -13,8 +13,7 @@ public class Movie : MonoBehaviour
             Invoke("SceneMove", 1.0f);
         }
     }
-
-    public void SceneMove()
+    private void SceneMove()
     {
         // 左クリックでTitleへ遷移
         SceneManager.LoadScene("Title");       
