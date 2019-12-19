@@ -51,7 +51,10 @@ public class Player2 : MonoBehaviour
             SetTargetPosition();
             DebugSetTargetPosition();
         }
-        Move();
+        if (player2BackNumber == 0)
+        {
+            Move();
+        }
     }
 
     //プレイヤーの操作番号
@@ -79,11 +82,11 @@ public class Player2 : MonoBehaviour
         moveBeforePos = moveAfter;
         if (NotesController.judge)
         {
-            if (Input.GetAxis("2PLeftRight") > 0.5f && this.transform.position.x < maxMove.x)
+            if (Input.GetAxis("2PLeftRight") > 0.5f && this.transform.position.x < maxMove.x && player2BackNumber ==0)
             {
                 player2ActionNumber = 2;
             }
-            if (Input.GetAxis("2PLeftRight") < -0.5f && this.transform.position.x > minMove.x)
+            if (Input.GetAxis("2PLeftRight") < -0.5f && this.transform.position.x > minMove.x && player2BackNumber == 0)
             {
                 player2ActionNumber = 3;
             }
@@ -101,12 +104,12 @@ public class Player2 : MonoBehaviour
                 player2ActionNumber = 5;
             }
             //スキル1
-            if (player2BackNumber == 1 && Input.GetButtonDown("2PMaru"))
+            if (player2BackNumber == 1 && Input.GetButtonDown("2PMaru") && Input.GetAxis("2PLeftRight") != 0f)
             {
                 player2ActionNumber = 7;
             }
             //スキル2
-            if (player2BackNumber == 1 && Input.GetButtonDown("2PBatu"))
+            if (player2BackNumber == 1 && Input.GetButtonDown("2PBatu") && Input.GetAxis("2PLeftRight") != 0f)
             {
                 player2ActionNumber = 8;
             }
