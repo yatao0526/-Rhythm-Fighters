@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Member/Nakane/Scenes/Movie.unity
     guid: 6b9a60c4ab313584fb7d4ab8be396c5f
+  - enabled: 1
+    path: Assets/Scenes/Result.unity
+    guid: e6d75d6e546fa3b40af28fa8ed2543d5
   m_configObjects: {}

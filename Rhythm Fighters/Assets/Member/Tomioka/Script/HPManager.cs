@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HPManager : MonoBehaviour
 {
@@ -21,6 +22,13 @@ public class HPManager : MonoBehaviour
     public static float player2HP = 1000;
 
     public static bool clearCheck = true;
+
+    private void Start()
+    {
+        player1HP = 1000;
+        player2HP = 1000;
+    }
+
     void Update()
     {
         //どちらかのプレイヤーのHPが0になったらKOを表示
@@ -34,6 +42,7 @@ public class HPManager : MonoBehaviour
             {
                 clearCheck = true;
             }
+            SceneManager.LoadScene("Result");
         }
         HP();
     }
