@@ -50,6 +50,7 @@ public class Player1 : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(player1BackNumber);
         Player1Way();
         if (this.transform.position == moveAfter)
         {
@@ -128,7 +129,7 @@ public class Player1 : MonoBehaviour
         {
             if (Input.GetAxis("LeftRight") != 0 || Input.GetAxis("Down") != 0 || Input.GetButtonDown("Maru") || Input.GetButtonDown("Batu"))
             {
-                player1ActionNumber = 0;
+                player1ActionNumber = 1;
                 player1BackNumber = 0;
             }
         }
@@ -201,7 +202,7 @@ public class Player1 : MonoBehaviour
         }
         else if (NotesController.judge == false)
         {
-            if (Input.GetKeyDown(KeyCode.A) || (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)))
+            if (Input.GetKeyDown(KeyCode.A) || (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.K)))
             {
                 Debug.Log("データ初期化");
                 player1ActionNumber = 1;
