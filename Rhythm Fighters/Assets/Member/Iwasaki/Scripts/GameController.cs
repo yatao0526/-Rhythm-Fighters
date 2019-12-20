@@ -68,7 +68,7 @@ public class GameController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Debug.Log(modeType);
+        //Debug.Log(modeType);
         MoveTime();
         //テスト用テキスト
         if ((Input.GetKeyDown(KeyCode.Space)) || (Input.GetKeyDown(KeyCode.A)) || 
@@ -93,37 +93,6 @@ public class GameController : MonoBehaviour
                     break;
             }
         }
-        //if(GameController.modeType == GameController.ModeType.negationMode)
-        //{
-        //    //打消し中ようのデバック
-        //    if (Input.GetKeyDown(KeyCode.J))
-        //    {
-        //        switch (NotesController.negation1PFlag)
-        //        {
-        //            case true:
-        //                text.text = "打消し中OK";
-        //                negationMode.Decrease1PGauge();
-        //                break;
-        //            case false:
-        //                text.text = "打消し中NG";
-        //                break;
-        //        }
-        //    }
-        //    //打消し中ようのデバック
-        //    if (Input.GetKeyDown(KeyCode.K))
-        //    {
-        //        switch (NotesController.negation2PFlag)
-        //        {
-        //            case true:
-        //                text.text = "打消し中OK";
-        //                negationMode.Decrease2PGauge();
-        //                break;
-        //            case false:
-        //                text.text = "打消し中NG";
-        //                break;
-        //        }
-        //    }
-        //}
         //ボタン押す目あす
         switch (NotesController.judge)
         {
@@ -167,7 +136,7 @@ public class GameController : MonoBehaviour
             {
                 GameController.modeType = GameController.ModeType.normalMode;
             }
-            Debug.Log("判定");
+            //Debug.Log("判定");
             //Debug.Log(audioTime);
             NotesController.getActive = false;
         }

@@ -10,9 +10,10 @@ public class NegationMode : MonoBehaviour
     public static int p1Num;
     public static int p2Num;
     private string nokezori;
-
-    private Chara chara1P = Chara.SUZUKI, chara2P = Chara.SUZUKI;
-    private Attack attack1P,attack2P;
+    [HideInInspector]
+    public Chara chara1P = Chara.SUZUKI, chara2P = Chara.SUZUKI;
+    [HideInInspector]
+    public Attack attack1P,attack2P;
 
     [SerializeField]
     private SpriteFillBar negationBerR;
@@ -45,11 +46,13 @@ public class NegationMode : MonoBehaviour
             check = false;
             negationBerL.gameObject.SetActive(false);
             negationBerR.gameObject.SetActive(false);
-            Debug.Log("通常モード");
+            //Debug.Log("通常モード");
         }
+        Debug.Log(attack1P);
+        Debug.Log(attack2P);
     }
     //キャラ、攻撃によってenum変える
-    public void NagationChar(int char1PNum, int char2PNum)
+    public void NagationChar1P(int char1PNum)
     {
         switch(char1PNum)
         {
@@ -72,7 +75,10 @@ public class NegationMode : MonoBehaviour
                 chara1P = Chara.YOKOYAMA;
                 break;
         }
-        switch(char2PNum)
+    }
+    public void NegationChar2P(int char2PNum)
+    {
+        switch (char2PNum)
         {
             case 0:
                 chara2P = Chara.LUO;
@@ -94,7 +100,7 @@ public class NegationMode : MonoBehaviour
                 break;
         }
     }
-    public void NagationATK(int charATK1P, int charATK2P)
+    public void Nagation1PATK(int charATK1P)
     {
         switch(charATK1P)
         {
@@ -111,6 +117,9 @@ public class NegationMode : MonoBehaviour
                 attack1P = Attack.LightPunch;
                 break;
         }
+    }
+    public void Negation2PATK(int charATK2P)
+    {
         switch (charATK2P)
         {
             case 0:
@@ -130,8 +139,8 @@ public class NegationMode : MonoBehaviour
     //キャラとどの攻撃同士なのかチェック
     public void GetNum()
     {
-        p1Num = GetRevocatioNum(Chara.SUZUKI, Attack.HeavyPunch);
-        p2Num = GetRevocatioNum(Chara.SUZUKI, Attack.Comand1);
+        p1Num = GetRevocatioNum(Chara.SUZUKI, attack1P);
+        p2Num = GetRevocatioNum(Chara.SUZUKI, attack2P);
         negationBerL.gameObject.SetActive(true);
         negationBerR.gameObject.SetActive(true);
     }

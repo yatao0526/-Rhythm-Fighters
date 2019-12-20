@@ -50,7 +50,7 @@ public class Player1 : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(player1BackNumber);
+        //Debug.Log(player1BackNumber);
         Player1Way();
         if (this.transform.position == moveAfter)
         {
@@ -151,7 +151,7 @@ public class Player1 : MonoBehaviour
                         negationButton1P = true;
                         break;
                     case false:
-                        Debug.Log("打消し終わり");
+                        //Debug.Log("打消し終わり");
                         GameController.modeType = GameController.ModeType.normalMode;
                         break;
                 }
@@ -162,7 +162,7 @@ public class Player1 : MonoBehaviour
 
         if (NotesController.judge)
         {
-            Debug.Log("行動可能");
+            //Debug.Log("行動可能");
             //左移動
             if (Input.GetKeyDown(KeyCode.D) && this.transform.position.x < maxMove.x && player1BackNumber == 0)
             {

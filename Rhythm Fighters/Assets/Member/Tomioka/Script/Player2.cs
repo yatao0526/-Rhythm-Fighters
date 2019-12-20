@@ -162,7 +162,7 @@ public class Player2 : MonoBehaviour
 
         if (NotesController.judge)
         {
-            Debug.Log("行動可能");
+            //Debug.Log("行動可能");
             //左移動
             if (Input.GetKeyDown(KeyCode.RightArrow) && this.transform.position.x < maxMove.x && player2BackNumber == 0)
             {
@@ -180,7 +180,7 @@ public class Player2 : MonoBehaviour
                 player2BackNumber = 1;
             }
             //弱攻撃
-            if (player2BackNumber == 0 && Input.GetKeyDown(KeyCode.Keypad1))
+            if (player2BackNumber == 0 && Input.GetKeyDown(KeyCode.M))
             {
                 player2ActionNumber = 4;
             }
