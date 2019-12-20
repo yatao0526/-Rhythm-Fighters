@@ -296,18 +296,6 @@ public class Player1 : MonoBehaviour
                 player1BackNumber = 0;
                 player1ActionNumber = 1;
                 break;
-
-            case 9:
-                break;
-
-            case 10:
-                break;
-
-            case 11:
-                break;
-
-            default:
-                break;
         }
     }
 }
