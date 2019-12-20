@@ -11,6 +11,9 @@ public class NegationMode : MonoBehaviour
     public static int p2Num;
     private string nokezori;
 
+    private Chara chara = Chara.SUZUKI;
+    private Attack attack;
+
     [SerializeField]
     private SpriteFillBar negationBerR;
     [SerializeField]
@@ -18,6 +21,7 @@ public class NegationMode : MonoBehaviour
     [SerializeField]
     private ChractorData[] chractorData;
     private Dictionary<int, float> revocationGaugeDic = new Dictionary<int, float>()
+    
     {
         {0,0.0f },
         {1,0.1f },
@@ -26,7 +30,6 @@ public class NegationMode : MonoBehaviour
         {4,0.7f },
         {5,1.0f },
     };
-
     private void Update()
     {
         if (GameController.modeType == GameController.ModeType.negationMode)
@@ -41,7 +44,52 @@ public class NegationMode : MonoBehaviour
         else
         {
             check = false;
+            negationBerL.gameObject.SetActive(false);
+            negationBerR.gameObject.SetActive(false);
             Debug.Log("通常モード");
+        }
+    }
+    //キャラ、攻撃によってenum変える
+    public void NagationChar(int charNum)
+    {
+        switch(charNum)
+        {
+            case 0:
+                chara = Chara.LUO;
+                break;
+            case 1:
+                chara = Chara.MIYAZAWA;
+                break;
+            case 2:
+                chara = Chara.NEGISHI;
+                break;
+            case 3:
+                chara = Chara.NITSUMA;
+                break;
+            case 4:
+                chara = Chara.SUZUKI; 
+                break;
+            case 5:
+                chara = Chara.YOKOYAMA;
+                break;
+        }
+    }
+    public void NagationATK(int charATK)
+    {
+        switch(charATK)
+        {
+            case 0:
+                attack = Attack.Comand1;
+                break;
+            case 1:
+                attack = Attack.Comand2;
+                break;
+            case 2:
+                attack = Attack.HeavyPunch;
+                break;
+            case 3:
+                attack = Attack.LightPunch;
+                break;
         }
     }
     //キャラとどの攻撃同士なのかチェック
@@ -49,6 +97,8 @@ public class NegationMode : MonoBehaviour
     {
         p1Num = GetRevocatioNum(Chara.SUZUKI, Attack.HeavyPunch);
         p2Num = GetRevocatioNum(Chara.SUZUKI, Attack.Comand1);
+        negationBerL.gameObject.SetActive(true);
+        negationBerR.gameObject.SetActive(true);
     }
     //打消し突入時打消しゲージset
     public void SetBar()
@@ -83,9 +133,7 @@ public class NegationMode : MonoBehaviour
     //miss判定等起きた時に呼べ 打消し終了
     private void FinNegationMode()
     {
-        GameController.modeType = GameController.ModeType.normalMode;
-        negationBerL.enabled = false;
-        negationBerR.enabled = false;
+
     }
     //
     private int GetRevocatioNum(Chara chara, Attack attack)
