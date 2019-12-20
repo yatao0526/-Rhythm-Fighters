@@ -135,31 +135,48 @@ public class Player2 : MonoBehaviour
         if (NotesController.judge)
         {
             //左移動
-            if (Input.GetKeyDown(KeyCode.RightArrow) && this.transform.position.x < maxMove.x)
+            if (Input.GetKeyDown(KeyCode.RightArrow) && this.transform.position.x < maxMove.x && player2BackNumber == 0)
             {
-                moveAfter = transform.position + moveX;
-                animator.SetTrigger("Trigger_r");
+                player2ActionNumber = 2;
             }
             //右移動
-            if (Input.GetKeyDown(KeyCode.LeftArrow) && transform.position.x > minMove.x)
+            if (Input.GetKeyDown(KeyCode.LeftArrow) && transform.position.x > minMove.x && player2BackNumber == 0)
             {
-                moveAfter = transform.position - moveX;
-                animator.SetTrigger("Trigger_l");
+                player2ActionNumber = 3;
             }
+            //構え
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                animator.SetTrigger("Trigger_LP");
-                playercolLP.LPCol();
+                player2ActionNumber = 6;
+                player2BackNumber = 1;
             }
-            if (Input.GetKeyDown(KeyCode.Return))
+            //弱攻撃
+            if (player2BackNumber == 0 && Input.GetKeyDown(KeyCode.Keypad1))
             {
-                animator.SetTrigger("Trigger_HP");
-                playercolHP.HPCol();
+                player2ActionNumber = 4;
             }
-            if (Input.GetKeyDown(KeyCode.P))
+            //強攻撃
+            if (player2BackNumber == 0 && Input.GetKeyDown(KeyCode.Keypad2))
             {
-                animator.SetTrigger("Trigger_S2");
-                playercolSkill2.S2Col();
+                player2ActionNumber = 5;
+            }
+            //スキル1
+            if ((player2BackNumber == 1 && Input.GetKeyDown(KeyCode.Keypad1)) && ((Input.GetKeyDown(KeyCode.RightArrow)) || (Input.GetKeyDown(KeyCode.LeftArrow))))
+            {
+                player2ActionNumber = 7;
+            }
+            //スキル2
+            if ((player2BackNumber == 1 && Input.GetKey(KeyCode.Keypad2)) && ((Input.GetKey(KeyCode.RightArrow)) || (Input.GetKey(KeyCode.LeftArrow))))
+            {
+                player2ActionNumber = 8;
+            }
+            else if (NotesController.judge == false)
+            {
+                if (!Input.GetKeyDown(KeyCode.LeftArrow) || (!Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha2)))
+                {
+                    //player2ActionNumber = 0;
+                    player2BackNumber = 0;
+                }
             }
         }
     }

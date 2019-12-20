@@ -137,42 +137,74 @@ public class Player1 : MonoBehaviour
     //デバッグ用
     private void DebugSetTargetPosition()
     {
+        if (GameController.modeType == GameController.ModeType.negationMode)
+        {
+            //弱攻撃
+            if (Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.K))
+            {
+                switch (NotesController.negation1PFlag)
+                {
+                    case true:
+                        animator.SetTrigger("Trigger_ Negate");
+                        negationMode.Decrease1PGauge();
+                        negationButton1P = true;
+                        break;
+                    case false:
+                        Debug.Log("打消し終わり");
+                        GameController.modeType = GameController.ModeType.normalMode;
+                        break;
+                }
+            }
+        }
+
         moveBeforePos = moveAfter;
         if (NotesController.judge)
         {
             Debug.Log("行動可能");
             //左移動
-            if (Input.GetKeyDown(KeyCode.D) && this.transform.position.x < maxMove.x)
+            if (Input.GetKeyDown(KeyCode.D) && this.transform.position.x < maxMove.x && player1BackNumber == 0)
             {
-                moveAfter = transform.position + moveX;
-                animator.SetTrigger("Trigger_r");
+                player1ActionNumber = 2;
             }
             //右移動
-            if (Input.GetKeyDown(KeyCode.A) && transform.position.x > minMove.x)
+            if (Input.GetKeyDown(KeyCode.A) && transform.position.x > minMove.x && player1BackNumber == 0)
             {
-                moveAfter = transform.position - moveX;
-                animator.SetTrigger("Trigger_l");
+                player1ActionNumber = 3;
             }
-
-            if (Input.GetKeyDown(KeyCode.Z))
+            //構え
+            if (Input.GetKeyDown(KeyCode.S))
             {
-                animator.SetTrigger("Trigger_LP");
-                playercolLP.LPCol();
+                player1ActionNumber = 6;
+                player1BackNumber = 1;
             }
-            if (Input.GetKeyDown(KeyCode.X))
+            //弱攻撃
+            if (player1BackNumber == 0 && Input.GetKeyDown(KeyCode.J))
             {
-                animator.SetTrigger("Trigger_HP");
-                playercolHP.HPCol();
+                player1ActionNumber = 4;
             }
-            if (Input.GetKeyDown(KeyCode.C))
+            //強攻撃
+            if (player1BackNumber == 0 && Input.GetKeyDown(KeyCode.K))
             {
-                animator.SetTrigger("Trigger_S2");
-                playercolSkill2.S2Col();
+                player1ActionNumber = 5;
+            }
+            //スキル1
+            if ((player1BackNumber == 1 && Input.GetKeyDown(KeyCode.J)) && ((Input.GetKeyDown(KeyCode.A)) || (Input.GetKeyDown(KeyCode.D))))
+            {
+                player1ActionNumber = 7;
+            }
+            //スキル2
+            if ((player1BackNumber == 1 && Input.GetKeyDown(KeyCode.K)) && ((Input.GetKeyDown(KeyCode.A)) || (Input.GetKeyDown(KeyCode.D))))
+            {
+                player1ActionNumber = 8;
             }
         }
-        else
+        else if (NotesController.judge == false)
         {
-
+            if (! Input.GetKeyDown(KeyCode.A) || (!Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)))
+            {
+                //player1ActionNumber = 0;
+                player1BackNumber = 0;
+            }
         }
     }
 
