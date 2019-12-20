@@ -11,8 +11,8 @@ public class NegationMode : MonoBehaviour
     public static int p2Num;
     private string nokezori;
 
-    private Chara chara = Chara.SUZUKI;
-    private Attack attack;
+    private Chara chara1P = Chara.SUZUKI, chara2P = Chara.SUZUKI;
+    private Attack attack1P,attack2P;
 
     [SerializeField]
     private SpriteFillBar negationBerR;
@@ -21,7 +21,6 @@ public class NegationMode : MonoBehaviour
     [SerializeField]
     private ChractorData[] chractorData;
     private Dictionary<int, float> revocationGaugeDic = new Dictionary<int, float>()
-    
     {
         {0,0.0f },
         {1,0.1f },
@@ -50,45 +49,81 @@ public class NegationMode : MonoBehaviour
         }
     }
     //キャラ、攻撃によってenum変える
-    public void NagationChar(int charNum)
+    public void NagationChar(int char1PNum, int char2PNum)
     {
-        switch(charNum)
+        switch(char1PNum)
         {
             case 0:
-                chara = Chara.LUO;
+                chara1P = Chara.LUO;
                 break;
             case 1:
-                chara = Chara.MIYAZAWA;
+                chara1P = Chara.MIYAZAWA;
                 break;
             case 2:
-                chara = Chara.NEGISHI;
+                chara1P = Chara.NEGISHI;
                 break;
             case 3:
-                chara = Chara.NITSUMA;
+                chara1P = Chara.NITSUMA;
                 break;
             case 4:
-                chara = Chara.SUZUKI; 
+                chara1P = Chara.SUZUKI; 
                 break;
             case 5:
-                chara = Chara.YOKOYAMA;
+                chara1P = Chara.YOKOYAMA;
+                break;
+        }
+        switch(char2PNum)
+        {
+            case 0:
+                chara2P = Chara.LUO;
+                break;
+            case 1:
+                chara2P = Chara.MIYAZAWA;
+                break;
+            case 2:
+                chara2P = Chara.NEGISHI;
+                break;
+            case 3:
+                chara2P = Chara.NITSUMA;
+                break;
+            case 4:
+                chara2P = Chara.SUZUKI;
+                break;
+            case 5:
+                chara2P = Chara.YOKOYAMA;
                 break;
         }
     }
-    public void NagationATK(int charATK)
+    public void NagationATK(int charATK1P, int charATK2P)
     {
-        switch(charATK)
+        switch(charATK1P)
         {
             case 0:
-                attack = Attack.Comand1;
+                attack1P = Attack.Comand1;
                 break;
             case 1:
-                attack = Attack.Comand2;
+                attack1P = Attack.Comand2;
                 break;
             case 2:
-                attack = Attack.HeavyPunch;
+                attack1P = Attack.HeavyPunch;
                 break;
             case 3:
-                attack = Attack.LightPunch;
+                attack1P = Attack.LightPunch;
+                break;
+        }
+        switch (charATK2P)
+        {
+            case 0:
+                attack2P = Attack.Comand1;
+                break;
+            case 1:
+                attack2P = Attack.Comand2;
+                break;
+            case 2:
+                attack2P = Attack.HeavyPunch;
+                break;
+            case 3:
+                attack2P = Attack.LightPunch;
                 break;
         }
     }
