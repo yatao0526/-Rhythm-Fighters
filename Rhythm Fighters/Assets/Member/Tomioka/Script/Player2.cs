@@ -50,10 +50,11 @@ public class Player2 : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(player2BackNumber);
         Player2Way();
         if (this.transform.position == moveAfter)
         {
-            SetTargetPosition();
+            //SetTargetPosition();
             DebugSetTargetPosition();
         }
         if (player2BackNumber == 0)
@@ -104,12 +105,12 @@ public class Player2 : MonoBehaviour
                 player2BackNumber = 1;
             }
             //弱攻撃
-            if (Input.GetButtonDown("2PMaru"))
+            if (player2BackNumber == 0 && Input.GetButtonDown("2PMaru"))
             {
                 player2ActionNumber = 4;
             }
             //強攻撃
-            if (Input.GetButtonDown("2PBatu"))
+            if (player2BackNumber == 0 && Input.GetButtonDown("2PBatu"))
             {
                 player2ActionNumber = 5;
             }
@@ -124,9 +125,9 @@ public class Player2 : MonoBehaviour
                 player2ActionNumber = 8;
             }
         }
-        else
+        else if(NotesController.judge == false)
         {
-            if (Input.GetAxis("2PDown") == 0)
+            if (Input.GetAxis("2PLeftRight") != 0 || Input.GetAxis("2PDown") != 0 || Input.GetButtonDown("2PMaru") || Input.GetButtonDown("2PBatu"))
             {
                 player2ActionNumber = 1;
                 player2BackNumber = 0;
@@ -290,9 +291,9 @@ public class Player2 : MonoBehaviour
 
             //スキル2
             case 8:
+                Debug.Log("スキル2");
                 animator.SetTrigger("Trigger_S2");
                 playercolSkill2.S2Col();
-                Debug.Log("スキル2");
                 player2BackNumber = 0;
                 player2ActionNumber = 1;
                 break;
