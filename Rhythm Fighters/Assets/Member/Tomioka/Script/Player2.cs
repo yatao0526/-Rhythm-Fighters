@@ -43,6 +43,7 @@ public class Player2 : MonoBehaviour
 
     void Start()
     {
+        player2ActionNumber = 1;
         moveAfter = this.transform.position;
         animator = GetComponent<Animator>();
     }
@@ -86,23 +87,28 @@ public class Player2 : MonoBehaviour
         moveBeforePos = moveAfter;
         if (NotesController.judge)
         {
-            if (Input.GetAxis("2PLeftRight") > 0.5f && this.transform.position.x < maxMove.x && player2BackNumber ==0)
+            //左移動
+            if (Input.GetAxis("2PLeftRight") > 0.5f && this.transform.position.x < maxMove.x && player2BackNumber == 0)
             {
                 player2ActionNumber = 2;
             }
+            //右移動
             if (Input.GetAxis("2PLeftRight") < -0.5f && this.transform.position.x > minMove.x && player2BackNumber == 0)
             {
                 player2ActionNumber = 3;
             }
+            //構え
             if (Input.GetAxis("2PDown") < -0.5f)
             {
                 player2ActionNumber = 6;
                 player2BackNumber = 1;
             }
+            //弱攻撃
             if (Input.GetButtonDown("2PMaru"))
             {
                 player2ActionNumber = 4;
             }
+            //強攻撃
             if (Input.GetButtonDown("2PBatu"))
             {
                 player2ActionNumber = 5;
@@ -131,9 +137,31 @@ public class Player2 : MonoBehaviour
     //デバッグ用
     private void DebugSetTargetPosition()
     {
+        if (GameController.modeType == GameController.ModeType.negationMode)
+        {
+            //弱攻撃
+            if (Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.K))
+            {
+                switch (NotesController.negation2PFlag)
+                {
+                    case true:
+                        animator.SetTrigger("Trigger_ Negate");
+                        negationMode.Decrease2PGauge();
+                        negationButton2P = true;
+                        break;
+                    case false:
+                        Debug.Log("打消し終わり");
+                        GameController.modeType = GameController.ModeType.normalMode;
+                        break;
+                }
+            }
+        }
+
         moveBeforePos = moveAfter;
+
         if (NotesController.judge)
         {
+            Debug.Log("行動可能");
             //左移動
             if (Input.GetKeyDown(KeyCode.RightArrow) && this.transform.position.x < maxMove.x && player2BackNumber == 0)
             {
@@ -172,9 +200,10 @@ public class Player2 : MonoBehaviour
             }
             else if (NotesController.judge == false)
             {
-                if (!Input.GetKeyDown(KeyCode.LeftArrow) || (!Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha2)))
+                if (Input.GetKeyDown(KeyCode.LeftArrow) || (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha2)))
                 {
-                    //player2ActionNumber = 0;
+                    Debug.Log("データ初期化");
+                    player2ActionNumber = 1;
                     player2BackNumber = 0;
                 }
             }
@@ -185,11 +214,13 @@ public class Player2 : MonoBehaviour
     private void Move()
     {
         transform.position = Vector3.MoveTowards(transform.position, moveAfter, stepTime * 10 * Time.deltaTime);
+        Player2Way();
     }
 
     //プレイヤーの向き変更
     private void Player2Way()
     {
+        float x = this.transform.position.x;
         if (this.transform.position.x < player1.transform.position.x)
         {
             way2P = 0;
@@ -262,6 +293,7 @@ public class Player2 : MonoBehaviour
                 animator.SetTrigger("Trigger_S2");
                 playercolSkill2.S2Col();
                 Debug.Log("スキル2");
+                player2BackNumber = 0;
                 player2ActionNumber = 1;
                 break;
         }

@@ -158,6 +158,7 @@ public class Player1 : MonoBehaviour
         }
 
         moveBeforePos = moveAfter;
+
         if (NotesController.judge)
         {
             Debug.Log("行動可能");
@@ -181,32 +182,29 @@ public class Player1 : MonoBehaviour
             if (player1BackNumber == 0 && Input.GetKeyDown(KeyCode.J))
             {
                 player1ActionNumber = 4;
-                Debug.Log(player1ActionNumber);
             }
             //強攻撃
             if (player1BackNumber == 0 && Input.GetKeyDown(KeyCode.K))
             {
                 player1ActionNumber = 5;
-                Debug.Log(player1ActionNumber);
             }
             //スキル1
             if ((player1BackNumber == 1 && Input.GetKeyDown(KeyCode.J)) && ((Input.GetKeyDown(KeyCode.A)) || (Input.GetKeyDown(KeyCode.D))))
             {
                 player1ActionNumber = 7;
-                Debug.Log(player1ActionNumber);
             }
             //スキル2
             if ((player1BackNumber == 1 && Input.GetKeyDown(KeyCode.K)) && ((Input.GetKeyDown(KeyCode.A)) || (Input.GetKeyDown(KeyCode.D))))
             {
                 player1ActionNumber = 8;
-                Debug.Log(player1ActionNumber);
             }
         }
         else if (NotesController.judge == false)
         {
-            if (! Input.GetKeyDown(KeyCode.A) || (!Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)))
+            if (Input.GetKeyDown(KeyCode.A) || (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)))
             {
-                //player1ActionNumber = 0;
+                Debug.Log("データ初期化");
+                player1ActionNumber = 1;
                 player1BackNumber = 0;
             }
         }
@@ -234,21 +232,18 @@ public class Player1 : MonoBehaviour
         this.transform.rotation = new Quaternion(0f, way1P, 0f, 1f);
     }
 
-
     //アクションナンバーの数によって1Pの行動をする
     public void Move1PAction()
     {
         //Debug.Log(player1ActionNumber);
         switch (player1ActionNumber)
         {
-            //ミス
             case 0:
                 animator.SetTrigger("Trigger_Miss");
                 Debug.Log("ミス");
                 player1ActionNumber = 1;
                 break;
 
-            //立ちのポーズ
             case 1:
                 //animator.SetTrigger("Trigger_Stand");
                 break;
@@ -298,7 +293,20 @@ public class Player1 : MonoBehaviour
                 Debug.Log("スキル2");
                 animator.SetTrigger("Trigger_S2");
                 playercolSkill2.S2Col();
+                player1BackNumber = 0;
                 player1ActionNumber = 1;
+                break;
+
+            case 9:
+                break;
+
+            case 10:
+                break;
+
+            case 11:
+                break;
+
+            default:
                 break;
         }
     }
