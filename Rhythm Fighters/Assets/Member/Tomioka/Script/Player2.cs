@@ -264,18 +264,6 @@ public class Player2 : MonoBehaviour
                 Debug.Log("スキル2");
                 player2ActionNumber = 1;
                 break;
-
-            case 9:
-                break;
-
-            case 10:
-                break;
-
-            case 11:
-                break;
-
-            default:
-                break;
         }
     }
 }

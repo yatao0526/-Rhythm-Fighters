@@ -21,7 +21,7 @@ public class Title : MonoBehaviour
     void Start()
     {
         // 一定時間後MoveMovie関数実行
-        Invoke("MoveMovie", 7.0f);
+        //Invoke("MoveMovie", 7.0f);
     }
 
     void Update()

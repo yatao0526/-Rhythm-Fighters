@@ -115,27 +115,13 @@ public class NegationMode : MonoBehaviour
     {
         p1Num -= 1;
         SetBar();
-        if(NotesController.negation1PFlag == false || NotesController.negation2PFlag == false)
-        {
-            FinNegationMode();
-        }
     }
     //ゲージ減算
     public void Decrease2PGauge()
     {
         p2Num -= 1;
         SetBar();
-        if (NotesController.negation1PFlag == false || NotesController.negation2PFlag == false)
-        {
-            FinNegationMode();
-        }
     }
-    //miss判定等起きた時に呼べ 打消し終了
-    private void FinNegationMode()
-    {
-
-    }
-    //
     private int GetRevocatioNum(Chara chara, Attack attack)
     {
         ChractorData data = chractorData[(int)chara];

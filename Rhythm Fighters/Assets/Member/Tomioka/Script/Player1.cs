@@ -181,21 +181,25 @@ public class Player1 : MonoBehaviour
             if (player1BackNumber == 0 && Input.GetKeyDown(KeyCode.J))
             {
                 player1ActionNumber = 4;
+                Debug.Log(player1ActionNumber);
             }
             //強攻撃
             if (player1BackNumber == 0 && Input.GetKeyDown(KeyCode.K))
             {
                 player1ActionNumber = 5;
+                Debug.Log(player1ActionNumber);
             }
             //スキル1
             if ((player1BackNumber == 1 && Input.GetKeyDown(KeyCode.J)) && ((Input.GetKeyDown(KeyCode.A)) || (Input.GetKeyDown(KeyCode.D))))
             {
                 player1ActionNumber = 7;
+                Debug.Log(player1ActionNumber);
             }
             //スキル2
             if ((player1BackNumber == 1 && Input.GetKeyDown(KeyCode.K)) && ((Input.GetKeyDown(KeyCode.A)) || (Input.GetKeyDown(KeyCode.D))))
             {
                 player1ActionNumber = 8;
+                Debug.Log(player1ActionNumber);
             }
         }
         else if (NotesController.judge == false)
@@ -295,20 +299,6 @@ public class Player1 : MonoBehaviour
                 animator.SetTrigger("Trigger_S2");
                 playercolSkill2.S2Col();
                 player1ActionNumber = 1;
-                break;
-
-            case 9:
-
-
-                break;
-
-            case 10:
-                break;
-
-            case 11:
-                break;
-
-            default:
                 break;
         }
     }
