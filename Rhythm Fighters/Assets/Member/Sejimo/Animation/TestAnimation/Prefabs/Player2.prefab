@@ -31,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 154232243324364690}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 4.2999997, y: -1, z: 73.047646}
+  m_LocalPosition: {x: 4, y: -1, z: 73.047646}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children:
   - {fileID: 8803989027165103988}
@@ -105,7 +105,9 @@ MonoBehaviour:
   minMove: {x: -5.5, y: 0, z: 0}
   maxMove: {x: 5.5, y: 0, z: 0}
   stepTime: 2
-  playercol: {fileID: 0}
+  playercolLP: {fileID: 5670518173135782331}
+  playercolHP: {fileID: 3764941867508653656}
+  playercolSkill2: {fileID: 9030017692847688917}
   player1: {fileID: 0}
   negationMode: {fileID: 0}
 --- !u!114 &5303903441317747930
@@ -213,8 +215,8 @@ GameObject:
   - component: {fileID: 5225921110631035472}
   - component: {fileID: 348396318242895525}
   - component: {fileID: 8937578024491055167}
-  - component: {fileID: 926533676812940440}
   - component: {fileID: 4157550652299720939}
+  - component: {fileID: 9030017692847688917}
   m_Layer: 0
   m_Name: Player_Skill2Col
   m_TagString: Skill2
@@ -296,18 +298,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &926533676812940440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1494595820794436006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd34825052c77a04f9480b1cd614ef4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4157550652299720939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,6 +308,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4352a6f9a8a11e540bc13fbd1883d994, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9030017692847688917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1494595820794436006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eeebac54dd2e314dbaa6516d31dd6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2889890704132724858
@@ -451,8 +453,8 @@ GameObject:
   - component: {fileID: 476921531721039282}
   - component: {fileID: 6653334290926087704}
   - component: {fileID: 1339211573339742233}
-  - component: {fileID: 7746658636832548986}
   - component: {fileID: 4365957881182251207}
+  - component: {fileID: 3764941867508653656}
   m_Layer: 0
   m_Name: Player_HCol
   m_TagString: HeavyPunch
@@ -534,18 +536,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7746658636832548986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4019174485343771862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd34825052c77a04f9480b1cd614ef4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4365957881182251207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -556,6 +546,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4352a6f9a8a11e540bc13fbd1883d994, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3764941867508653656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4019174485343771862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c35af48bd08e4d48bf55593aa8de220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6890697866481139913

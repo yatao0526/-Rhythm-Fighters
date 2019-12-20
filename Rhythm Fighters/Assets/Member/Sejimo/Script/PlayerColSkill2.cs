@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Playercol : MonoBehaviour
+public class PlayerColSkill2 : MonoBehaviour
 {
     private Animator animator;
     private Vector3 moveAfter;
@@ -45,15 +45,15 @@ public class Playercol : MonoBehaviour
     //    }
     //}
 
-    public void LPCol()
-    {
-        animator.SetTrigger("Trigger_LP_Col");
-    }
+    //public void LPCol()
+    //{
+    //    animator.SetTrigger("Trigger_LP_Col");
+    //}
 
-    public void HPCol()
-    {
-        animator.SetTrigger("Trigger_HP_Col");
-    }
+    //public void HPCol()
+    //{
+    //    animator.SetTrigger("Trigger_HP_Col");
+    //}
     public void S2Col()
     {
         animator.SetTrigger("Trigger_S2_Col");

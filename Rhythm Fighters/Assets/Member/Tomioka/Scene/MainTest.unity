@@ -322,9 +322,9 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &392112619 stripped
+--- !u!114 &356415273 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8134195262302499231, guid: 9082436be83301c49b3986ab31a3af15,
+  m_CorrespondingSourceObject: {fileID: 7980985524679044485, guid: 9082436be83301c49b3986ab31a3af15,
     type: 3}
   m_PrefabInstance: {fileID: 8134195264266218698}
   m_PrefabAsset: {fileID: 0}
@@ -2466,7 +2466,7 @@ PrefabInstance:
         type: 3}
       propertyPath: playercol
       value: 
-      objectReference: {fileID: 392112619}
+      objectReference: {fileID: 356415273}
     - target: {fileID: 8134195264264536980, guid: 9082436be83301c49b3986ab31a3af15,
         type: 3}
       propertyPath: player2
@@ -2541,6 +2541,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: LightPunch
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134195262302499226, guid: 9082436be83301c49b3986ab31a3af15,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8134195262302499227, guid: 9082436be83301c49b3986ab31a3af15,
         type: 3}

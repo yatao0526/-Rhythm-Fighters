@@ -24,7 +24,11 @@ public class Player1 : MonoBehaviour
     private Vector3 moveBeforePos;
 
     [SerializeField]
-    private PlayerCol playercol;
+    private PlayerColLP playercolLP;
+    [SerializeField]
+    private PlayerColHP playercolHP;
+    [SerializeField]
+    private PlayerColSkill2 playercolSkill2;
 
     public static int player1ActionNumber = 1;
     private int player1BackNumber = 0;
@@ -153,17 +157,17 @@ public class Player1 : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Z))
             {
                 animator.SetTrigger("Trigger_LP");
-                playercol.LPCol();
+                playercolLP.LPCol();
             }
             if (Input.GetKeyDown(KeyCode.X))
             {
                 animator.SetTrigger("Trigger_HP");
-                playercol.HPCol();
+                playercolHP.HPCol();
             }
             if (Input.GetKeyDown(KeyCode.C))
             {
                 animator.SetTrigger("Trigger_S2");
-                playercol.S2Col();
+                playercolSkill2.S2Col();
             }
         }
         else
@@ -230,14 +234,14 @@ public class Player1 : MonoBehaviour
             //弱攻撃
             case 4:
                 animator.SetTrigger("Trigger_LP");
-                playercol.LPCol();
+                playercolLP.LPCol();
                 player1ActionNumber = 1;
                 break;
 
             //強攻撃
             case 5:
                 animator.SetTrigger("Trigger_HP");
-                playercol.HPCol();
+                playercolHP.HPCol();
                 player1ActionNumber = 1;
                 break;
 
@@ -257,7 +261,7 @@ public class Player1 : MonoBehaviour
             case 8:
                 Debug.Log("スキル2");
                 animator.SetTrigger("Trigger_S2");
-                playercol.S2Col();
+                playercolSkill2.S2Col();
                 player1ActionNumber = 1;
                 break;
 
