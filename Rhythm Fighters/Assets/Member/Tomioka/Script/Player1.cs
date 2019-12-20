@@ -54,7 +54,7 @@ public class Player1 : MonoBehaviour
         Player1Way();
         if (this.transform.position == moveAfter)
         {
-            SetTargetPosition();
+            //SetTargetPosition();
             DebugSetTargetPosition();
         }
         if (player1BackNumber == 0)
@@ -199,11 +199,11 @@ public class Player1 : MonoBehaviour
             {
                 player1ActionNumber = 8;
             }
-            //構えをした後に何も押さなかった時、構え処理をなくす
-            if (!Input.GetKeyDown(KeyCode.A) && (!Input.GetKeyDown(KeyCode.D) && (!Input.GetKeyDown(KeyCode.J) && (!Input.GetKeyDown(KeyCode.K)))))
-            {
-                player1BackNumber = 0;
-            }
+            ////構えをした後に何も押さなかった時、構え処理をなくす
+            //if (player1BackNumber == 0 && !Input.GetKeyDown(KeyCode.A) && (!Input.GetKeyDown(KeyCode.D) && (!Input.GetKeyDown(KeyCode.J) && (!Input.GetKeyDown(KeyCode.K)))))
+            //{
+            //    player1BackNumber = 0;
+            //}
         }
         else if (NotesController.judge == false)
         {
