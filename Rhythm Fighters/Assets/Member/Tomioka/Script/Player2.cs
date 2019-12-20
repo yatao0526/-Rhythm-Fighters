@@ -125,11 +125,11 @@ public class Player2 : MonoBehaviour
                 player2ActionNumber = 8;
             }
         }
-        else if(NotesController.judge == false)
+        else if (NotesController.judge == false)
         {
             if (Input.GetAxis("2PLeftRight") != 0 || Input.GetAxis("2PDown") != 0 || Input.GetButtonDown("2PMaru") || Input.GetButtonDown("2PBatu"))
             {
-                player2ActionNumber = 1;
+                player2ActionNumber = 0;
                 player2BackNumber = 0;
             }
         }
@@ -199,14 +199,19 @@ public class Player2 : MonoBehaviour
             {
                 player2ActionNumber = 8;
             }
-            else if (NotesController.judge == false)
+            //構えをした後に何も押さなかった時、構え処理をなくす
+            //if (!Input.GetKeyDown(KeyCode.RightArrow) && (!Input.GetKeyDown(KeyCode.LeftArrow) && (!Input.GetKeyDown(KeyCode.Keypad1) && (!Input.GetKeyDown(KeyCode.Keypad2)))))
+            //{
+            //    player2BackNumber = 0;
+            //}
+        }
+        else if (NotesController.judge == false)
+        {
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha2)))
             {
-                if (Input.GetKeyDown(KeyCode.LeftArrow) || (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha2)))
-                {
-                    Debug.Log("データ初期化");
-                    player2ActionNumber = 1;
-                    player2BackNumber = 0;
-                }
+                Debug.Log("データ初期化");
+                player2ActionNumber = 0;
+                player2BackNumber = 0;
             }
         }
     }
