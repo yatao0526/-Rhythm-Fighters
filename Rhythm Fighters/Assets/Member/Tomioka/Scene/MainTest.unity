@@ -2046,6 +2046,7 @@ GameObject:
   - component: {fileID: 1634307623}
   - component: {fileID: 1634307625}
   - component: {fileID: 1634307624}
+  - component: {fileID: 1634307626}
   m_Layer: 5
   m_Name: ButtonImage
   m_TagString: Untagged
@@ -2109,6 +2110,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1634307622}
   m_CullTransparentMesh: 0
+--- !u!223 &1634307626
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634307622}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 2
+  m_TargetDisplay: 0
 --- !u!1 &1639084308
 GameObject:
   m_ObjectHideFlags: 0
@@ -2634,25 +2656,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8134195264264536980, guid: 9082436be83301c49b3986ab31a3af15,
-        type: 3}
-      propertyPath: playercol
-      value: 
-      objectReference: {fileID: 356415273}
-    - target: {fileID: 8134195264264536980, guid: 9082436be83301c49b3986ab31a3af15,
-        type: 3}
-      propertyPath: player2
-      value: 
-      objectReference: {fileID: 1104412484}
-    - target: {fileID: 8134195264264536980, guid: 9082436be83301c49b3986ab31a3af15,
-        type: 3}
-      propertyPath: negationMode
-      value: 
-      objectReference: {fileID: 1008321461}
     - target: {fileID: 8134195264264536983, guid: 9082436be83301c49b3986ab31a3af15,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -324
+      value: -42
       objectReference: {fileID: 0}
     - target: {fileID: 8134195264264536983, guid: 9082436be83301c49b3986ab31a3af15,
         type: 3}
@@ -2719,6 +2726,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 108
       objectReference: {fileID: 0}
+    - target: {fileID: 8134195264264536980, guid: 9082436be83301c49b3986ab31a3af15,
+        type: 3}
+      propertyPath: playercol
+      value: 
+      objectReference: {fileID: 356415273}
+    - target: {fileID: 8134195264264536980, guid: 9082436be83301c49b3986ab31a3af15,
+        type: 3}
+      propertyPath: player2
+      value: 
+      objectReference: {fileID: 1104412484}
+    - target: {fileID: 8134195264264536980, guid: 9082436be83301c49b3986ab31a3af15,
+        type: 3}
+      propertyPath: negationMode
+      value: 
+      objectReference: {fileID: 1008321461}
     - target: {fileID: 8134195264264537000, guid: 9082436be83301c49b3986ab31a3af15,
         type: 3}
       propertyPath: m_Enabled
@@ -2789,21 +2811,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8269037822030488577, guid: 2340071ec1f86594eb9a3f92bebf4e32,
-        type: 3}
-      propertyPath: playercol
-      value: 
-      objectReference: {fileID: 1025679450}
-    - target: {fileID: 8269037822030488577, guid: 2340071ec1f86594eb9a3f92bebf4e32,
-        type: 3}
-      propertyPath: player1
-      value: 
-      objectReference: {fileID: 860304972}
-    - target: {fileID: 8269037822030488577, guid: 2340071ec1f86594eb9a3f92bebf4e32,
-        type: 3}
-      propertyPath: negationMode
-      value: 
-      objectReference: {fileID: 1008321461}
     - target: {fileID: 154232243324364692, guid: 2340071ec1f86594eb9a3f92bebf4e32,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2874,6 +2881,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 108
       objectReference: {fileID: 0}
+    - target: {fileID: 8269037822030488577, guid: 2340071ec1f86594eb9a3f92bebf4e32,
+        type: 3}
+      propertyPath: playercol
+      value: 
+      objectReference: {fileID: 1025679450}
+    - target: {fileID: 8269037822030488577, guid: 2340071ec1f86594eb9a3f92bebf4e32,
+        type: 3}
+      propertyPath: player1
+      value: 
+      objectReference: {fileID: 860304972}
+    - target: {fileID: 8269037822030488577, guid: 2340071ec1f86594eb9a3f92bebf4e32,
+        type: 3}
+      propertyPath: negationMode
+      value: 
+      objectReference: {fileID: 1008321461}
     - target: {fileID: 8803989027165103988, guid: 2340071ec1f86594eb9a3f92bebf4e32,
         type: 3}
       propertyPath: m_LocalPosition.x
