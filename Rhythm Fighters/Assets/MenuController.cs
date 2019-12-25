@@ -71,6 +71,21 @@ public class MenuController : MonoBehaviour
                 menuNum--;
                 Debug.Log(menuNum);
             }
+            if (Input.GetKeyDown(KeyCode.Alpha0))
+            {
+                switch (menuNum)
+                {
+                    case 0:
+                        menuActive = false;
+                        break;
+                    case 1:
+                        SceneManager.LoadScene("Titele");
+                        break;
+                    case 2:
+                        SceneManager.LoadScene("");
+                        break;
+                }
+            }
 
             switch (menuNum)
             {
@@ -78,6 +93,9 @@ public class MenuController : MonoBehaviour
                     cursor.transform.position = tmp[0];
                     break;
                 case 1:
+                    cursor.transform.position = tmp[1];
+                    break;
+                case 2:
                     cursor.transform.position = tmp[1];
                     break;
             }

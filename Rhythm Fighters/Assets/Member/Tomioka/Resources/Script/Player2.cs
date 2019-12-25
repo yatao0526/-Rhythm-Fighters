@@ -199,6 +199,17 @@ public class Player2 : MonoBehaviour
             {
                 player2ActionNumber = 8;
             }
+            //コンボ弱から強
+            if (player2ActionNumber == 4 && player2BackNumber == 0 && Input.GetKey(KeyCode.Keypad2))
+            {
+                player2ActionNumber = 5;
+            }
+            //コンボ強から構え
+            if (player2ActionNumber == 5 && player2BackNumber == 0 && Input.GetKey(KeyCode.DownArrow))
+            {
+                player2ActionNumber = 6;
+                player2BackNumber = 1;
+            }
             //構えをした後に何も押さなかった時、構え処理をなくす
             //if (!Input.GetKeyDown(KeyCode.RightArrow) && (!Input.GetKeyDown(KeyCode.LeftArrow) && (!Input.GetKeyDown(KeyCode.Keypad1) && (!Input.GetKeyDown(KeyCode.Keypad2)))))
             //{
