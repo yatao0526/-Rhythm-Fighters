@@ -103,12 +103,6 @@ public class GameController : MonoBehaviour
                 buton.sprite = buttonImage[1];
                 break;
         }
-        //打消しモードデバック
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            modeType = ModeType.negationMode;
-            //Debug.Log("打消し");
-        }
         //AudioSourceがloop時発生するズレ修正
         if (soundManager.GetComponent<AudioSource>().time - time < 0)
         {

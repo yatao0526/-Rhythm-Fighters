@@ -36,6 +36,8 @@ public class NegationMode : MonoBehaviour
         {
             if (check == false)
             {
+                Nagation1PATK();
+                Negation2PATK();
                 GetNum();
                 SetBar();
                 check = true;
@@ -48,11 +50,9 @@ public class NegationMode : MonoBehaviour
             negationBerR.gameObject.SetActive(false);
             //Debug.Log("通常モード");
         }
-        Debug.Log(attack1P);
-        Debug.Log(attack2P);
     }
     //キャラ、攻撃によってenum変える
-    public void NagationChar1P(int char1PNum)
+    public void NegationChar1P(int char1PNum)
     {
         switch(char1PNum)
         {
@@ -75,6 +75,7 @@ public class NegationMode : MonoBehaviour
                 chara1P = Chara.YOKOYAMA;
                 break;
         }
+        Debug.Log(char1PNum);
     }
     public void NegationChar2P(int char2PNum)
     {
@@ -99,10 +100,11 @@ public class NegationMode : MonoBehaviour
                 chara2P = Chara.YOKOYAMA;
                 break;
         }
+        Debug.Log(char2PNum);
     }
-    public void Nagation1PATK(int charATK1P)
+    private void Nagation1PATK()
     {
-        switch(charATK1P)
+        switch(NegationManager.attackNum1P)
         {
             case 0:
                 attack1P = Attack.Comand1;
@@ -117,10 +119,11 @@ public class NegationMode : MonoBehaviour
                 attack1P = Attack.LightPunch;
                 break;
         }
+        Debug.Log(attack1P);
     }
-    public void Negation2PATK(int charATK2P)
+    private void Negation2PATK()
     {
-        switch (charATK2P)
+        switch (NegationManager.attackNum2P)
         {
             case 0:
                 attack2P = Attack.Comand1;
@@ -135,6 +138,7 @@ public class NegationMode : MonoBehaviour
                 attack2P = Attack.LightPunch;
                 break;
         }
+        Debug.Log(attack2P);
     }
     //キャラとどの攻撃同士なのかチェック
     public void GetNum()

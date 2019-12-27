@@ -12,7 +12,10 @@ public class NegationManager : MonoBehaviour
 
     [SerializeField]
     private NegationMode negationMode;
-    
+
+    public static int attackNum1P = 0;
+    public static int attackNum2P = 0;
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         Negation();
@@ -27,33 +30,38 @@ public class NegationManager : MonoBehaviour
 
     private void Negation()
     {
-        if (Player1.player1ActionNumber > 1)
-        {
+        //if (Player1.player1ActionNumber > 1)
+        //{
             negation1P = Player1.player1ActionNumber;
 
             switch (negation1P)
             {
                 case 4:
                     negationStr1P = "弱攻撃";
-                    negationMode.Nagation1PATK(3);
+                    attackNum1P = 3;
+                    Debug.Log(attackNum1P);
                     break;
                 case 5:
                     negationStr1P = "強攻撃";
-                    negationMode.Nagation1PATK(2);
+                    attackNum1P = 2;
+                    Debug.Log(attackNum1P);
                     break;
                 case 7:
                     negationStr1P = "スキル1";
-                    negationMode.Nagation1PATK(1);
+                    attackNum1P = 0;
+                    Debug.Log(attackNum1P);
                     break;
                 case 8:
                     negationStr1P = "スキル2";
-                    negationMode.Nagation1PATK(0);
+                    attackNum1P = 1;
+                    Debug.Log(attackNum1P);
                     break;
                 default:
                     Debug.Log("何かがおかしい1");
                     break;
             }
-        }
+            Debug.Log(negation1P);
+        //}
 
         if (Player2.player2ActionNumber > 1)
         {
@@ -62,19 +70,23 @@ public class NegationManager : MonoBehaviour
             {
                 case 4:
                     negationStr2P = "弱攻撃";
-                    negationMode.Negation2PATK(3);
+                    attackNum2P = 3;
+                    Debug.Log(attackNum2P);
                     break;
                 case 5:
                     negationStr2P = "強攻撃";
-                    negationMode.Negation2PATK(2);
+                    attackNum2P = 2;
+                    Debug.Log(attackNum2P);
                     break;
                 case 7:
                     negationStr2P = "スキル1";
-                    negationMode.Negation2PATK(1);
+                    attackNum2P = 0;
+                    Debug.Log(attackNum2P);
                     break;
                 case 8:
                     negationStr2P = "スキル2";
-                    negationMode.Negation2PATK(0);
+                    attackNum2P = 1;
+                    Debug.Log(attackNum2P);
                     break;
                 default:
                     Debug.Log("何かがおかしい1");
