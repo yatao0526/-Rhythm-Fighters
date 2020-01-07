@@ -30,6 +30,7 @@ public class EffectScript : MonoBehaviour
     public void S2Fx()
     {
         animator.SetTrigger("S2_Fx");
+        Debug.Log("aaa");
     }
 
     public void PoseFx()
