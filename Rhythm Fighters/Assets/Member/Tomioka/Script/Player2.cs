@@ -50,7 +50,7 @@ public class Player2 : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(player2BackNumber);
+        //Debug.Log(player2BackNumber);
         Player2Way();
         if (this.transform.position == moveAfter)
         {

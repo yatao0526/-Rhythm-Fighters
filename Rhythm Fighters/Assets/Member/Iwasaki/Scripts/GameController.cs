@@ -167,7 +167,9 @@ public class GameController : MonoBehaviour
             {
                 GameController.modeType = GameController.ModeType.normalMode;
             }
-            Debug.Log("判定");
+            //Debug.Log("判定");
+			//player rigidity
+			player1.RigidityCalc();
             //Debug.Log(audioTime);
             NotesController.getActive = false;
         }

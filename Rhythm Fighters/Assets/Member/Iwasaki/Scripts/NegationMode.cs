@@ -45,7 +45,7 @@ public class NegationMode : MonoBehaviour
             check = false;
             negationBerL.gameObject.SetActive(false);
             negationBerR.gameObject.SetActive(false);
-            Debug.Log("通常モード");
+            //Debug.Log("通常モード");
         }
     }
     //キャラ、攻撃によってenum変える

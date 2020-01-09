@@ -31,7 +31,26 @@ public class Player1 : MonoBehaviour
     private PlayerColSkill2 playercolSkill2;
 
     public static int player1ActionNumber = 1;
+	private int player1RigidityTime = 0;//硬直カウント変数
     private int player1BackNumber = 0;
+	//状態記録
+	//stand				0(00000)
+	//moveback			0(00000)
+	//movefront			0(00000)
+	//lightpunch		23(10111)
+	//heavypunch		21(10101)
+	//skill(one&two)	17(10001)
+	//poss				8(01000)
+	//hitsmall			1(00001)
+	//hitnormal			1(00001)
+	//hitbig			1(00001)
+	//miss				1(00001)
+	//fight				17(10001)
+	//1桁　移動、攻撃可能（1不可）
+	//2桁　強攻撃キャンセル可能（1可）
+	//3桁　構えキャンセル可能（1可）
+	//4桁　構え中（1構え中0未構え）
+	//5桁　miss可能（1不可）
 
     [SerializeField]
     private GameObject player2;
@@ -51,13 +70,14 @@ public class Player1 : MonoBehaviour
     void Update()
     {
         Debug.Log(player1BackNumber);
+        Debug.Log(player1BackNumber%16 >= 8);
         Player1Way();
         if (this.transform.position == moveAfter)
         {
             //SetTargetPosition();
             DebugSetTargetPosition();
         }
-        if (player1BackNumber == 0)
+        if (player1BackNumber%2 == 0)
         {
             Move();
         }
@@ -86,51 +106,57 @@ public class Player1 : MonoBehaviour
             }
         }
         moveBeforePos = moveAfter;
-        if (NotesController.judge)
-        {
-            //左移動
-            if (Input.GetAxis("LeftRight") > 0.5f && this.transform.position.x < maxMove.x && player1BackNumber == 0)
-            {
-                player1ActionNumber = 2;
-            }
-            //右移動
-            if (Input.GetAxis("LeftRight") < -0.5f && this.transform.position.x > minMove.x && player1BackNumber == 0)
-            {
-                player1ActionNumber = 3;
-            }
-            //構え
-            if (Input.GetAxis("Down") < -0.5f)
-            {
-                player1ActionNumber = 6;
-                player1BackNumber = 1;
-            }
-            //弱攻撃
-            if (player1BackNumber == 0 && Input.GetButtonDown("Maru"))
-            {
-                player1ActionNumber = 4;
-            }
-            //強攻撃
-            if (player1BackNumber == 0 && Input.GetButtonDown("Batu"))
-            {
-                player1ActionNumber = 5;
-            }
-            //スキル1
-            if (player1BackNumber == 1 && Input.GetButtonDown("Maru") && Input.GetAxis("LeftRight") != 0f)
-            {
-                player1ActionNumber = 7;
-            }
-            //スキル2
-            if (player1BackNumber == 1 && Input.GetButtonDown("Batu") && Input.GetAxis("LeftRight") != 0f)
-            {
-                player1ActionNumber = 8;
-            }
-        }
-        else if (NotesController.judge == false)
+		if (player1BackNumber%32 < 16 && NotesController.judge == false)
         {
             if (Input.GetAxis("LeftRight") != 0 || Input.GetAxis("Down") != 0 || Input.GetButtonDown("Maru") || Input.GetButtonDown("Batu"))
             {
                 player1ActionNumber = 1;
-                player1BackNumber = 0;
+                player1BackNumber = 1;
+            }
+        }
+        else if (NotesController.judge)
+        {
+            //左移動
+            if (player1BackNumber%2 == 0 && Input.GetAxis("LeftRight") > 0.5f && this.transform.position.x < maxMove.x)
+            {
+                player1ActionNumber = 2;
+				player1BackNumber = 0;
+            }
+            //右移動
+            if (player1BackNumber%2 == 0 && Input.GetAxis("LeftRight") < -0.5f && this.transform.position.x > minMove.x)
+            {
+                player1ActionNumber = 3;
+				player1BackNumber = 0;
+            }
+            //構え
+            if (player1BackNumber%2 == 0 && Input.GetAxis("Down") < -0.5f)
+            {
+                player1ActionNumber = 6;
+                player1BackNumber = 8;
+            }
+            //弱攻撃
+            if (player1BackNumber%2 == 0 && Input.GetButtonDown("Maru"))
+            {
+                player1ActionNumber = 4;
+				player1BackNumber = 23;
+            }
+            //強攻撃
+            if ((player1BackNumber%2 == 0||player1BackNumber%4 >= 2) && Input.GetButtonDown("Batu"))
+            {
+                player1ActionNumber = 5;
+				player1BackNumber = 21;
+            }
+            //スキル1
+            if (player1BackNumber%16 >= 8 && Input.GetButtonDown("Maru") && Input.GetAxis("LeftRight") != 0f)
+            {
+                player1ActionNumber = 7;
+				player1BackNumber = 17;
+            }
+            //スキル2
+            if (player1BackNumber%16 >= 8 && Input.GetButtonDown("Batu") && Input.GetAxis("LeftRight") != 0f)
+            {
+                player1ActionNumber = 8;
+				player1BackNumber = 17;
             }
         }
     }
@@ -159,60 +185,66 @@ public class Player1 : MonoBehaviour
         }
 
         moveBeforePos = moveAfter;
-
-        if (NotesController.judge)
+		if ((player1BackNumber%32 < 16 || player1RigidityTime == 0 ) && NotesController.judge == false)
         {
-            Debug.Log("行動可能");
-            //左移動
-            if (Input.GetKeyDown(KeyCode.D) && this.transform.position.x < maxMove.x && player1BackNumber == 0)
+            if (Input.GetKeyDown(KeyCode.A) || (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.K)))
             {
-                player1ActionNumber = 2;
-            }
-            //右移動
-            if (Input.GetKeyDown(KeyCode.A) && transform.position.x > minMove.x && player1BackNumber == 0)
-            {
-                player1ActionNumber = 3;
-            }
-            //構え
-            if (Input.GetKeyDown(KeyCode.S))
-            {
-                player1ActionNumber = 6;
+                Debug.Log("データ初期化");
+                player1ActionNumber = 0;
                 player1BackNumber = 1;
             }
+        }
+        else if (NotesController.judge)
+        {
+            Debug.Log("行動可能1");
             //弱攻撃
-            if (player1BackNumber == 0 && Input.GetKeyDown(KeyCode.J))
+            if ((player1BackNumber%2 == 0 || player1RigidityTime == 0 ) && Input.GetKeyDown(KeyCode.J))
             {
                 player1ActionNumber = 4;
+                player1BackNumber = 23;
             }
             //強攻撃
-            if (player1BackNumber == 0 && Input.GetKeyDown(KeyCode.K))
+            if (((player1BackNumber%2 == 0||player1BackNumber%4 >= 2) || player1RigidityTime == 0 ) && Input.GetKeyDown(KeyCode.K))
             {
                 player1ActionNumber = 5;
+                player1BackNumber = 21;
+            }
+            //左移動
+            if ((player1BackNumber%2 == 0 || player1RigidityTime == 0 ) && Input.GetKeyDown(KeyCode.D) && this.transform.position.x < maxMove.x)// && player1BackNumber == 0)
+            {
+                player1ActionNumber = 2;
+                player1BackNumber = 0;
+            }
+            //右移動
+            if ((player1BackNumber%2 == 0 || player1RigidityTime == 0 ) && Input.GetKeyDown(KeyCode.A) && transform.position.x > minMove.x)// && player1BackNumber == 0)
+            {
+                player1ActionNumber = 3;
+                player1BackNumber = 0;
+            }
+            //構え
+            if ((player1BackNumber%2 == 0 || player1RigidityTime == 0 ) && Input.GetKeyDown(KeyCode.S))
+            {
+                player1ActionNumber = 6;
+                player1BackNumber = 8;
             }
             //スキル1
-            if ((player1BackNumber == 1 && Input.GetKeyDown(KeyCode.J)) && ((Input.GetKeyDown(KeyCode.A)) || (Input.GetKeyDown(KeyCode.D))))
+            if (((player1BackNumber%16 >= 8 || player1RigidityTime == 0 ) && Input.GetKeyDown(KeyCode.J)) && ((Input.GetKeyDown(KeyCode.A)) || (Input.GetKeyDown(KeyCode.D))))
             {
                 player1ActionNumber = 7;
+                player1BackNumber = 17;
             }
             //スキル2
-            if ((player1BackNumber == 1 && Input.GetKeyDown(KeyCode.K)) && ((Input.GetKeyDown(KeyCode.A)) || (Input.GetKeyDown(KeyCode.D))))
+            //if (((player1BackNumber%16 >= 8 || player1RigidityTime == 0 ) && Input.GetKeyDown(KeyCode.K)) && ((Input.GetKeyDown(KeyCode.A)) || (Input.GetKeyDown(KeyCode.D))))
+            if (player1BackNumber%16 >= 8 && Input.GetKeyDown(KeyCode.K))
             {
                 player1ActionNumber = 8;
+                player1BackNumber = 17;
             }
             ////構えをした後に何も押さなかった時、構え処理をなくす
             //if (player1BackNumber == 0 && !Input.GetKeyDown(KeyCode.A) && (!Input.GetKeyDown(KeyCode.D) && (!Input.GetKeyDown(KeyCode.J) && (!Input.GetKeyDown(KeyCode.K)))))
             //{
             //    player1BackNumber = 0;
             //}
-        }
-        else if (NotesController.judge == false)
-        {
-            if (Input.GetKeyDown(KeyCode.A) || (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.K)))
-            {
-                Debug.Log("データ初期化");
-                player1ActionNumber = 0;
-                player1BackNumber = 0;
-            }
         }
     }
 
@@ -256,16 +288,16 @@ public class Player1 : MonoBehaviour
 
             //右に移動
             case 2:
-                moveAfter = transform.position + moveX;
-                animator.SetTrigger("Trigger_r");
                 player1ActionNumber = 1;
+                animator.SetTrigger("Trigger_r");
+                moveAfter = transform.position + moveX;
                 break;
 
             //左に移動
             case 3:
-                moveAfter = transform.position - moveX;
-                animator.SetTrigger("Trigger_l");
                 player1ActionNumber = 1;
+                animator.SetTrigger("Trigger_l");
+                moveAfter = transform.position - moveX;
                 break;
 
             //弱攻撃
@@ -273,6 +305,7 @@ public class Player1 : MonoBehaviour
                 animator.SetTrigger("Trigger_LP");
                 playercolLP.LPCol();
                 player1ActionNumber = 1;
+				player1RigidityTime = 1;
                 break;
 
             //強攻撃
@@ -280,6 +313,7 @@ public class Player1 : MonoBehaviour
                 animator.SetTrigger("Trigger_HP");
                 playercolHP.HPCol();
                 player1ActionNumber = 1;
+				player1RigidityTime = 3;
                 break;
 
             //構え
@@ -287,6 +321,7 @@ public class Player1 : MonoBehaviour
                 animator.SetTrigger("Trigger_Pose");
                 Debug.Log("構え");
                 player1ActionNumber = 1;
+				player1RigidityTime = 0;
                 break;
 
             //スキル1
@@ -299,9 +334,17 @@ public class Player1 : MonoBehaviour
                 Debug.Log("スキル2");
                 animator.SetTrigger("Trigger_S2");
                 playercolSkill2.S2Col();
-                player1BackNumber = 0;
                 player1ActionNumber = 1;
+				player1RigidityTime = 5;
                 break;
         }
     }
+	
+	public void RigidityCalc(){
+		if(player1RigidityTime > 0)
+			player1RigidityTime -= 1;
+		else if(player1RigidityTime < 0)
+			player1RigidityTime = 0;
+		//Debug.Log("p1Rigid is :" + player1RigidityTime);
+	}
 }
