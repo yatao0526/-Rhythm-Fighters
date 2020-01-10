@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player2 : MonoBehaviour
+public class Player1 : MonoBehaviour
 {
     private Animator animator;
 
@@ -17,7 +17,7 @@ public class Player2 : MonoBehaviour
     [SerializeField]
     private float stepTime;
 
-    private float way2P = 0;
+    private float way1P = 0;
 
     //移動後と移動前の場所
     private Vector3 moveAfter;
@@ -30,34 +30,48 @@ public class Player2 : MonoBehaviour
     [SerializeField]
     private PlayerColSkill2 playercolSkill2;
 
-    public static int player2ActionNumber;
-    private int player2BackNumber = 0;
+    public static int player1ActionNumber = 1;
+    private int player1BackNumber = 0;
 
     [SerializeField]
-    private GameObject player1;
+    private GameObject player2;
 
     [SerializeField]
     private NegationMode negationMode;
 
-    public static bool negationButton2P = false;
+    public static bool negationButton1P = false;
+
+
+    private enum Player1StateType
+    {
+        stand,
+        move,
+        lightpunch,
+        heavypunch,
+        skill2,
+        pose,
+        miss,
+        knockBack
+    }
 
     void Start()
     {
-        player2ActionNumber = 1;
+        player1ActionNumber = 1;
         moveAfter = this.transform.position;
         animator = GetComponent<Animator>();
     }
 
     void Update()
     {
-        //Debug.Log(player2BackNumber);
-        Player2Way();
+        Debug.Log(player1BackNumber);
+        Debug.Log(player1ActionNumber);
+        Player1Way();
         if (this.transform.position == moveAfter)
         {
             //SetTargetPosition();
             DebugSetTargetPosition();
         }
-        if (player2BackNumber == 0)
+        if (player1BackNumber == 0)
         {
             Move();
         }
@@ -69,14 +83,14 @@ public class Player2 : MonoBehaviour
         if (GameController.modeType == GameController.ModeType.negationMode)
         {
             //弱攻撃
-            if (Input.GetButtonDown("2PBatu") || Input.GetButtonDown("2PMaru"))
+            if (Input.GetButtonDown("Batu") || Input.GetButtonDown("Maru"))
             {
-                switch (NotesController.negation2PFlag)
+                switch (NotesController.negation1PFlag)
                 {
                     case true:
                         animator.SetTrigger("Trigger_ Negate");
                         negationMode.Decrease1PGauge();
-                        negationButton2P = true;
+                        negationButton1P = true;
                         break;
                     case false:
                         Debug.Log("打消し終わり");
@@ -89,48 +103,48 @@ public class Player2 : MonoBehaviour
         if (NotesController.judge)
         {
             //左移動
-            if (Input.GetAxis("2PLeftRight") > 0.5f && this.transform.position.x < maxMove.x && player2BackNumber == 0)
+            if (Input.GetAxis("LeftRight") > 0.5f && this.transform.position.x < maxMove.x && player1BackNumber == 0)
             {
-                player2ActionNumber = 2;
+                player1ActionNumber = 2;
             }
             //右移動
-            if (Input.GetAxis("2PLeftRight") < -0.5f && this.transform.position.x > minMove.x && player2BackNumber == 0)
+            if (Input.GetAxis("LeftRight") < -0.5f && this.transform.position.x > minMove.x && player1BackNumber == 0)
             {
-                player2ActionNumber = 3;
+                player1ActionNumber = 3;
             }
             //構え
-            if (Input.GetAxis("2PDown") < -0.5f)
+            if (Input.GetAxis("Down") < -0.5f)
             {
-                player2ActionNumber = 6;
-                player2BackNumber = 1;
+                player1ActionNumber = 6;
+                player1BackNumber = 1;
             }
             //弱攻撃
-            if (player2BackNumber == 0 && Input.GetButtonDown("2PMaru"))
+            if (player1BackNumber == 0 && Input.GetButtonDown("Maru"))
             {
-                player2ActionNumber = 4;
+                player1ActionNumber = 4;
             }
             //強攻撃
-            if (player2BackNumber == 0 && Input.GetButtonDown("2PBatu"))
+            if (player1BackNumber == 0 && Input.GetButtonDown("Batu"))
             {
-                player2ActionNumber = 5;
+                player1ActionNumber = 5;
             }
             //スキル1
-            if (player2BackNumber == 1 && Input.GetButtonDown("2PMaru") && Input.GetAxis("2PLeftRight") != 0f)
+            if (player1BackNumber == 1 && Input.GetButtonDown("Maru") && Input.GetAxis("LeftRight") != 0f)
             {
-                player2ActionNumber = 7;
+                player1ActionNumber = 7;
             }
             //スキル2
-            if (player2BackNumber == 1 && Input.GetButtonDown("2PBatu") && Input.GetAxis("2PLeftRight") != 0f)
+            if (player1BackNumber == 1 && Input.GetButtonDown("Batu") && Input.GetAxis("LeftRight") != 0f)
             {
-                player2ActionNumber = 8;
+                player1ActionNumber = 8;
             }
         }
         else if (NotesController.judge == false)
         {
-            if (Input.GetAxis("2PLeftRight") != 0 || Input.GetAxis("2PDown") != 0 || Input.GetButtonDown("2PMaru") || Input.GetButtonDown("2PBatu"))
+            if (Input.GetAxis("LeftRight") != 0 || Input.GetAxis("Down") != 0 || Input.GetButtonDown("Maru") || Input.GetButtonDown("Batu"))
             {
-                player2ActionNumber = 0;
-                player2BackNumber = 0;
+                player1ActionNumber = 1;
+                player1BackNumber = 0;
             }
         }
     }
@@ -143,12 +157,12 @@ public class Player2 : MonoBehaviour
             //弱攻撃
             if (Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.K))
             {
-                switch (NotesController.negation2PFlag)
+                switch (NotesController.negation1PFlag)
                 {
                     case true:
                         animator.SetTrigger("Trigger_ Negate");
-                        negationMode.Decrease2PGauge();
-                        negationButton2P = true;
+                        negationMode.Decrease1PGauge();
+                        negationButton1P = true;
                         break;
                     case false:
                         Debug.Log("打消し終わり");
@@ -162,56 +176,67 @@ public class Player2 : MonoBehaviour
 
         if (NotesController.judge)
         {
-            //Debug.Log("行動可能");
+            Debug.Log("行動可能");
             //左移動
-            if (Input.GetKeyDown(KeyCode.RightArrow) && this.transform.position.x < maxMove.x && player2BackNumber == 0)
+            if (Input.GetKeyDown(KeyCode.D) && this.transform.position.x < maxMove.x && player1BackNumber == 0)
             {
-                player2ActionNumber = 2;
+                player1ActionNumber = 2;
             }
             //右移動
-            if (Input.GetKeyDown(KeyCode.LeftArrow) && transform.position.x > minMove.x && player2BackNumber == 0)
+            if (Input.GetKeyDown(KeyCode.A) && transform.position.x > minMove.x && player1BackNumber == 0)
             {
-                player2ActionNumber = 3;
+                player1ActionNumber = 3;
             }
             //構え
-            if (Input.GetKeyDown(KeyCode.DownArrow))
+            if (Input.GetKeyDown(KeyCode.S))
             {
-                player2ActionNumber = 6;
-                player2BackNumber = 1;
+                player1ActionNumber = 6;
+                player1BackNumber = 1;
             }
             //弱攻撃
-            if (player2BackNumber == 0 && Input.GetKeyDown(KeyCode.M))
+            if (player1BackNumber == 0 && Input.GetKeyDown(KeyCode.J))
             {
-                player2ActionNumber = 4;
+                player1ActionNumber = 4;
             }
             //強攻撃
-            if (player2BackNumber == 0 && Input.GetKeyDown(KeyCode.Keypad2))
+            if (player1BackNumber == 0 && Input.GetKeyDown(KeyCode.K))
             {
-                player2ActionNumber = 5;
+                player1ActionNumber = 5;
             }
             //スキル1
-            if ((player2BackNumber == 1 && Input.GetKeyDown(KeyCode.Keypad1)) && ((Input.GetKeyDown(KeyCode.RightArrow)) || (Input.GetKeyDown(KeyCode.LeftArrow))))
+            if ((player1BackNumber == 1 && Input.GetKeyDown(KeyCode.J)) && ((Input.GetKeyDown(KeyCode.A)) || (Input.GetKeyDown(KeyCode.D))))
             {
-                player2ActionNumber = 7;
+                player1ActionNumber = 7;
             }
             //スキル2
-            if ((player2BackNumber == 1 && Input.GetKey(KeyCode.Keypad2)) && ((Input.GetKey(KeyCode.RightArrow)) || (Input.GetKey(KeyCode.LeftArrow))))
+            if ((player1BackNumber == 1 && Input.GetKeyDown(KeyCode.K)) && ((Input.GetKeyDown(KeyCode.A)) || (Input.GetKeyDown(KeyCode.D))))
             {
-                player2ActionNumber = 8;
+                player1ActionNumber = 8;
             }
-            //構えをした後に何も押さなかった時、構え処理をなくす
-            //if (!Input.GetKeyDown(KeyCode.RightArrow) && (!Input.GetKeyDown(KeyCode.LeftArrow) && (!Input.GetKeyDown(KeyCode.Keypad1) && (!Input.GetKeyDown(KeyCode.Keypad2)))))
+            //コンボ弱から強
+            if (player1ActionNumber == 4 && player1BackNumber == 0 && Input.GetKey(KeyCode.J))
+            {
+                player1ActionNumber = 5;
+            }
+            //コンボ強から構え
+            if (player1ActionNumber == 5 && player1BackNumber == 0 && Input.GetKey(KeyCode.S))
+            {
+                player1ActionNumber = 6;
+                player1BackNumber = 1;
+            }
+            ////構えをした後に何も押さなかった時、構え処理をなくす
+            //if (player1BackNumber == 0 && !Input.GetKeyDown(KeyCode.A) && (!Input.GetKeyDown(KeyCode.D) && (!Input.GetKeyDown(KeyCode.J) && (!Input.GetKeyDown(KeyCode.K)))))
             //{
-            //    player2BackNumber = 0;
+            //    player1BackNumber = 0;
             //}
         }
         else if (NotesController.judge == false)
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow) || (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha2)))
+            if (Input.GetKeyDown(KeyCode.A) || (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.K)))
             {
                 Debug.Log("データ初期化");
-                player2ActionNumber = 0;
-                player2BackNumber = 0;
+                player1ActionNumber = 0;
+                player1BackNumber = 0;
             }
         }
     }
@@ -220,73 +245,73 @@ public class Player2 : MonoBehaviour
     private void Move()
     {
         transform.position = Vector3.MoveTowards(transform.position, moveAfter, stepTime * 10 * Time.deltaTime);
-        Player2Way();
+        Player1Way();
     }
 
     //プレイヤーの向き変更
-    private void Player2Way()
+    private void Player1Way()
     {
         float x = this.transform.position.x;
-        if (this.transform.position.x < player1.transform.position.x)
+        if (x < player2.transform.position.x)
         {
-            way2P = 0;
+            way1P = 0;
         }
-        else if (player1.transform.position.x < this.transform.position.x)
+        else if (player2.transform.position.x < x)
         {
-            way2P = 180;
+            way1P = 180;
         }
-        this.transform.rotation = new Quaternion(0f, way2P, 0f, 1f);
+        this.transform.rotation = new Quaternion(0f, way1P, 0f, 1f);
     }
 
-    //アクションナンバーの数によって2Pの行動をする
-    public void Move2PAction()
+    //アクションナンバーの数によって1Pの行動をする
+    public void Move1PAction()
     {
-        //Debug.Log(player2ActionNumber);
-        switch (player2ActionNumber)
+        //Debug.Log(player1ActionNumber);
+        switch (player1ActionNumber)
         {
             case 0:
                 animator.SetTrigger("Trigger_Miss");
                 Debug.Log("ミス");
-                player2ActionNumber = 1;
+                player1ActionNumber = 1;
                 break;
 
             case 1:
-                //animator.SetTrigger("Trigger_Pause");
+                //animator.SetTrigger("Trigger_Stand");
                 break;
 
             //右に移動
             case 2:
                 moveAfter = transform.position + moveX;
                 animator.SetTrigger("Trigger_r");
-                player2ActionNumber = 1;
+                player1ActionNumber = 1;
                 break;
 
             //左に移動
             case 3:
                 moveAfter = transform.position - moveX;
                 animator.SetTrigger("Trigger_l");
-                player2ActionNumber = 1;
+                player1ActionNumber = 1;
                 break;
 
             //弱攻撃
             case 4:
                 animator.SetTrigger("Trigger_LP");
                 playercolLP.LPCol();
-                player2ActionNumber = 1;
+                player1ActionNumber = 1;
                 break;
 
             //強攻撃
             case 5:
                 animator.SetTrigger("Trigger_HP");
                 playercolHP.HPCol();
-                player2ActionNumber = 1;
+                player1ActionNumber = 1;
                 break;
 
             //構え
             case 6:
                 animator.SetTrigger("Trigger_Pose");
                 Debug.Log("構え");
-                player2ActionNumber = 1;
+                player1ActionNumber = 1;
                 break;
 
             //スキル1
@@ -299,8 +324,8 @@ public class Player2 : MonoBehaviour
                 Debug.Log("スキル2");
                 animator.SetTrigger("Trigger_S2");
                 playercolSkill2.S2Col();
-                player2BackNumber = 0;
-                player2ActionNumber = 1;
+                player1BackNumber = 0;
+                player1ActionNumber = 1;
                 break;
         }
     }

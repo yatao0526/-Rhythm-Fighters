@@ -14,13 +14,12 @@ public class PSConTest : MonoBehaviour
         PSConDebug();
     }
 
+    ///summary
+    ///InputManagerのボタン内はjoystick 2 と入れないと反応しないから
+    ///1Pと2Pにも入れることを、忘れないようにすること
+    ///summary
     private void PSConDebug()
     {
-        ///summary
-        ///InputManagerのボタン内はjoystick 2 と入れないと反応しないから
-        ///1Pと2Pにも入れることを、忘れないようにすること
-        ///summary
-
         //1P
         #region
 
@@ -42,7 +41,7 @@ public class PSConTest : MonoBehaviour
         }
         #endregion
 
-        //1Pのコントローラーの下
+        //1Pのコントローラーの上下
         #region
         if (Input.GetAxis("Down") < -0.5f && neutralDownPosition == true)
         {
@@ -55,7 +54,7 @@ public class PSConTest : MonoBehaviour
         }
         #endregion
 
-        //1Pの〇×△□のボタン
+        //1Pの〇×△□のボタンとオプションボタン
         #region
         if (Input.GetButtonDown("Maru"))
         {
@@ -73,16 +72,18 @@ public class PSConTest : MonoBehaviour
         {
             Debug.Log("1P □");
         }
+        if (Input.GetButtonDown("Option"))
+        {
+            Debug.Log("1P オプション");
+        }
         #endregion
 
         #endregion
 
-
-        ///summary
-        ///InputManagerのボタン内はjoystick 2 と入れないと反応しないから
-        ///1Pと2Pにも入れることを、忘れないようにすること
-        ///summary
         //2P
+        #region
+
+        //2Pのコントローラーの左右
         #region
         if (Input.GetAxis("2PLeftRight") > 0.5f && neutral2PLRPosition == true)
         {
@@ -94,11 +95,15 @@ public class PSConTest : MonoBehaviour
             Debug.Log("2P 左");
             neutral2PLRPosition = false;
         }
+        //2Pのコントローラーの下
         if (Input.GetAxis("2PLeftRight") == 0.0f)
         {
             neutral2PLRPosition = true;
         }
+        #endregion
 
+        //2Pのコントローラーの上下
+        #region
         if (Input.GetAxis("2PDown") < -0.5f && neutral2PDownPosition == true)
         {
             Debug.Log("2P 下");
@@ -108,9 +113,10 @@ public class PSConTest : MonoBehaviour
         {
             neutral2PDownPosition = true;
         }
+        #endregion
 
 
-        //2Pの〇×△□のボタン
+        //2Pの〇×△□のボタンとオプションボタン
         #region
         if (Input.GetButtonDown("2PMaru"))
         {
@@ -127,6 +133,10 @@ public class PSConTest : MonoBehaviour
         if (Input.GetButtonDown("2PSikaku"))
         {
             Debug.Log("2P □");
+        }
+        if (Input.GetButtonDown("2POption"))
+        {
+            Debug.Log("2P オプション");
         }
         #endregion
 
