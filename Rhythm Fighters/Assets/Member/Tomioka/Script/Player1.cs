@@ -129,6 +129,7 @@ public class Player1 : MonoBehaviour
                 animator.SetTrigger("Trigger_HP");
                 playercol.HPCol();
                 effectscript.HpFx();
+                Debug.Log("bbb");
 
             }
             if (Input.GetKeyDown(KeyCode.C))

@@ -24,7 +24,7 @@ public class EffectScript : MonoBehaviour
 
     public void HpFx()
     {
-        animator.SetTrigger("HP_Fx_Down");
+        animator.SetTrigger("HP_Fx_Up");
     }
 
     public void S2Fx()
