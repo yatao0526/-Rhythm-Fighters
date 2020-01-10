@@ -21,7 +21,8 @@ public class MainResult : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.anyKey)
+        //オプションキー
+        if(Input.GetKeyDown(KeyCode.Joystick1Button9) || Input.GetKeyDown(KeyCode.Space))
         {
             SceneManager.LoadScene("Title");
         }
