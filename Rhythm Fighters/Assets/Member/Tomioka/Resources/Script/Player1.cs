@@ -29,6 +29,8 @@ public class Player1 : MonoBehaviour
     private PlayerColHP playercolHP;
     [SerializeField]
     private PlayerColSkill2 playercolSkill2;
+    [SerializeField]
+    private EffectScript effectscript;
 
     public static int player1ActionNumber = 1;
     private int player1BackNumber = 0;
