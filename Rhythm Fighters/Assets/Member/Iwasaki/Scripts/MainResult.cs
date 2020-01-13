@@ -22,7 +22,7 @@ public class MainResult : MonoBehaviour
     private void Update()
     {
         //オプションキー
-        if(Input.GetKeyDown(KeyCode.Joystick1Button9) || Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Option") || Input.GetKeyDown(KeyCode.Space))
         {
             SceneManager.LoadScene("Title");
         }
