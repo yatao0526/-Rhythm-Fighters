@@ -41,6 +41,22 @@ public class Player2 : MonoBehaviour
 
     public static bool negationButton2P = false;
 
+    private enum Player2StateType
+    {
+        stand,
+        leftMove,
+        rightMove,
+        lightPunch,
+        heavyPunch,
+        skill1,
+        skill2,
+        pose,
+        miss,
+        knockBack
+    }
+
+    private Player2StateType p2StateType = Player2StateType.stand;
+
     void Start()
     {
         player2ActionNumber = 1;
@@ -91,46 +107,45 @@ public class Player2 : MonoBehaviour
             //左移動
             if (Input.GetAxis("2PLeftRight") > 0.5f && this.transform.position.x < maxMove.x && player2BackNumber == 0)
             {
-                player2ActionNumber = 2;
+                p2StateType = Player2StateType.leftMove;
             }
             //右移動
             if (Input.GetAxis("2PLeftRight") < -0.5f && this.transform.position.x > minMove.x && player2BackNumber == 0)
             {
-                player2ActionNumber = 3;
+                p2StateType = Player2StateType.rightMove;
             }
             //構え
             if (Input.GetAxis("2PDown") < -0.5f)
             {
-                player2ActionNumber = 6;
+                p2StateType = Player2StateType.pose;
                 player2BackNumber = 1;
             }
             //弱攻撃
             if (player2BackNumber == 0 && Input.GetButtonDown("2PMaru"))
             {
-                player2ActionNumber = 4;
+                p2StateType = Player2StateType.lightPunch;
             }
             //強攻撃
             if (player2BackNumber == 0 && Input.GetButtonDown("2PBatu"))
             {
-                player2ActionNumber = 5;
+                p2StateType = Player2StateType.heavyPunch;
             }
             //スキル1
             if (player2BackNumber == 1 && Input.GetButtonDown("2PMaru") && Input.GetAxis("2PLeftRight") != 0f)
             {
-                player2ActionNumber = 7;
+                p2StateType = Player2StateType.skill1;
             }
             //スキル2
             if (player2BackNumber == 1 && Input.GetButtonDown("2PBatu") && Input.GetAxis("2PLeftRight") != 0f)
             {
-                player2ActionNumber = 8;
+                p2StateType = Player2StateType.skill2;
             }
         }
         else if (NotesController.judge == false)
         {
             if (Input.GetAxis("2PLeftRight") != 0 || Input.GetAxis("2PDown") != 0 || Input.GetButtonDown("2PMaru") || Input.GetButtonDown("2PBatu"))
             {
-                player2ActionNumber = 0;
-                player2BackNumber = 0;
+                p2StateType = Player2StateType.miss;
             }
         }
     }
@@ -166,48 +181,48 @@ public class Player2 : MonoBehaviour
             //左移動
             if (Input.GetKeyDown(KeyCode.RightArrow) && this.transform.position.x < maxMove.x && player2BackNumber == 0)
             {
-                player2ActionNumber = 2;
+                p2StateType = Player2StateType.leftMove;
             }
             //右移動
             if (Input.GetKeyDown(KeyCode.LeftArrow) && transform.position.x > minMove.x && player2BackNumber == 0)
             {
-                player2ActionNumber = 3;
+                p2StateType = Player2StateType.rightMove;
             }
             //構え
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                player2ActionNumber = 6;
+                p2StateType = Player2StateType.leftMove;
                 player2BackNumber = 1;
             }
             //弱攻撃
-            if (player2BackNumber == 0 && Input.GetKeyDown(KeyCode.M))
+            if (p2StateType == Player2StateType.stand && Input.GetKeyDown(KeyCode.M))
             {
-                player2ActionNumber = 4;
+                p2StateType = Player2StateType.lightPunch;
             }
             //強攻撃
-            if (player2BackNumber == 0 && Input.GetKeyDown(KeyCode.Keypad2))
+            if (p2StateType == Player2StateType.stand && Input.GetKeyDown(KeyCode.Keypad2))
             {
-                player2ActionNumber = 5;
+                p2StateType = Player2StateType.heavyPunch;
             }
             //スキル1
             if ((player2BackNumber == 1 && Input.GetKeyDown(KeyCode.Keypad1)) && ((Input.GetKeyDown(KeyCode.RightArrow)) || (Input.GetKeyDown(KeyCode.LeftArrow))))
             {
-                player2ActionNumber = 7;
+                p2StateType = Player2StateType.skill1;
             }
             //スキル2
             if ((player2BackNumber == 1 && Input.GetKey(KeyCode.Keypad2)) && ((Input.GetKey(KeyCode.RightArrow)) || (Input.GetKey(KeyCode.LeftArrow))))
             {
-                player2ActionNumber = 8;
+                p2StateType = Player2StateType.skill2;
             }
             //コンボ弱から強
             if (player2ActionNumber == 4 && player2BackNumber == 0 && Input.GetKey(KeyCode.Keypad2))
             {
-                player2ActionNumber = 5;
+                p2StateType = Player2StateType.heavyPunch;
             }
             //コンボ強から構え
             if (player2ActionNumber == 5 && player2BackNumber == 0 && Input.GetKey(KeyCode.DownArrow))
             {
-                player2ActionNumber = 6;
+                p2StateType = Player2StateType.pose;
                 player2BackNumber = 1;
             }
             //構えをした後に何も押さなかった時、構え処理をなくす

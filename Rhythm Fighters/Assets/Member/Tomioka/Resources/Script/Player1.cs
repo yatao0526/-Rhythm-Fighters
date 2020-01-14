@@ -182,48 +182,48 @@ public class Player1 : MonoBehaviour
             //左移動
             if (Input.GetKeyDown(KeyCode.D) && this.transform.position.x < maxMove.x && player1BackNumber == 0)
             {
-                player1ActionNumber = 2;
+                p1StateType = Player1StateType.leftMove;
             }
             //右移動
             if (Input.GetKeyDown(KeyCode.A) && transform.position.x > minMove.x && player1BackNumber == 0)
             {
-                player1ActionNumber = 3;
+                p1StateType = Player1StateType.rightMove;
             }
             //構え
             if (Input.GetKeyDown(KeyCode.S))
             {
-                player1ActionNumber = 6;
+                p1StateType = Player1StateType.pose;
                 player1BackNumber = 1;
             }
             //弱攻撃
             if (player1BackNumber == 0 && Input.GetKeyDown(KeyCode.J))
             {
-                player1ActionNumber = 4;
+                p1StateType = Player1StateType.lightPunch;
             }
             //強攻撃
             if (player1BackNumber == 0 && Input.GetKeyDown(KeyCode.K))
             {
-                player1ActionNumber = 5;
+                p1StateType = Player1StateType.heavyPunch;
             }
             //スキル1
             if ((player1BackNumber == 1 && Input.GetKeyDown(KeyCode.J)) && ((Input.GetKeyDown(KeyCode.A)) || (Input.GetKeyDown(KeyCode.D))))
             {
-                player1ActionNumber = 7;
+                p1StateType = Player1StateType.skill1;
             }
             //スキル2
             if ((player1BackNumber == 1 && Input.GetKeyDown(KeyCode.K)) && ((Input.GetKeyDown(KeyCode.A)) || (Input.GetKeyDown(KeyCode.D))))
             {
-                player1ActionNumber = 8;
+                p1StateType = Player1StateType.skill2;
             }
             //コンボ弱から強
             if (player1ActionNumber == 4 && player1BackNumber == 0 && Input.GetKey(KeyCode.J))
             {
-                player1ActionNumber = 5;
+                p1StateType = Player1StateType.heavyPunch;
             }
             //コンボ強から構え
             if (player1ActionNumber == 5 && player1BackNumber == 0 && Input.GetKey(KeyCode.S))
             {
-                player1ActionNumber = 6;
+                p1StateType = Player1StateType.pose;
                 player1BackNumber = 1;
             }
             ////構えをした後に何も押さなかった時、構え処理をなくす
