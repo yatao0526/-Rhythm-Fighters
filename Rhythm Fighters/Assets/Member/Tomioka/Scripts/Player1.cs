@@ -43,18 +43,21 @@ public class Player1 : MonoBehaviour
 
     public static bool negationButton1P = false;
 
-
     private enum Player1StateType
     {
         stand,
-        move,
-        lightpunch,
-        heavypunch,
+        leftMove,
+        rightMove,
+        lightPunch,
+        heavyPunch,
+        skill1,
         skill2,
         pose,
         miss,
         knockBack
     }
+
+    private Player1StateType p1StateType = Player1StateType.stand;
 
     void Start()
     {
@@ -107,46 +110,45 @@ public class Player1 : MonoBehaviour
             //左移動
             if (Input.GetAxis("LeftRight") > 0.5f && this.transform.position.x < maxMove.x && player1BackNumber == 0)
             {
-                player1ActionNumber = 2;
+                p1StateType = Player1StateType.leftMove;
             }
             //右移動
             if (Input.GetAxis("LeftRight") < -0.5f && this.transform.position.x > minMove.x && player1BackNumber == 0)
             {
-                player1ActionNumber = 3;
+                p1StateType = Player1StateType.rightMove;
             }
             //構え
             if (Input.GetAxis("Down") < -0.5f)
             {
-                player1ActionNumber = 6;
+                p1StateType = Player1StateType.pose;
                 player1BackNumber = 1;
             }
             //弱攻撃
-            if (player1BackNumber == 0 && Input.GetButtonDown("Maru"))
+            if (p1StateType == Player1StateType.stand && Input.GetButtonDown("Maru"))
             {
-                player1ActionNumber = 4;
+                p1StateType = Player1StateType.lightPunch;
             }
             //強攻撃
-            if (player1BackNumber == 0 && Input.GetButtonDown("Batu"))
+            if (p1StateType == Player1StateType.stand && Input.GetButtonDown("Batu"))
             {
-                player1ActionNumber = 5;
+                p1StateType = Player1StateType.heavyPunch;
             }
             //スキル1
             if (player1BackNumber == 1 && Input.GetButtonDown("Maru") && Input.GetAxis("LeftRight") != 0f)
             {
-                player1ActionNumber = 7;
+                p1StateType = Player1StateType.skill1;
             }
             //スキル2
             if (player1BackNumber == 1 && Input.GetButtonDown("Batu") && Input.GetAxis("LeftRight") != 0f)
             {
-                player1ActionNumber = 8;
+                p1StateType = Player1StateType.skill2;
             }
         }
         else if (NotesController.judge == false)
         {
             if (Input.GetAxis("LeftRight") != 0 || Input.GetAxis("Down") != 0 || Input.GetButtonDown("Maru") || Input.GetButtonDown("Batu"))
             {
-                player1ActionNumber = 1;
-                player1BackNumber = 0;
+                p1StateType = Player1StateType.miss;
             }
         }
     }
@@ -182,48 +184,48 @@ public class Player1 : MonoBehaviour
             //左移動
             if (Input.GetKeyDown(KeyCode.D) && this.transform.position.x < maxMove.x && player1BackNumber == 0)
             {
-                player1ActionNumber = 2;
+                p1StateType = Player1StateType.leftMove;
             }
             //右移動
             if (Input.GetKeyDown(KeyCode.A) && transform.position.x > minMove.x && player1BackNumber == 0)
             {
-                player1ActionNumber = 3;
+                p1StateType = Player1StateType.rightMove;
             }
             //構え
             if (Input.GetKeyDown(KeyCode.S))
             {
-                player1ActionNumber = 6;
+                p1StateType = Player1StateType.pose;
                 player1BackNumber = 1;
             }
             //弱攻撃
             if (player1BackNumber == 0 && Input.GetKeyDown(KeyCode.J))
             {
-                player1ActionNumber = 4;
+                p1StateType = Player1StateType.lightPunch;
             }
             //強攻撃
             if (player1BackNumber == 0 && Input.GetKeyDown(KeyCode.K))
             {
-                player1ActionNumber = 5;
+                p1StateType = Player1StateType.heavyPunch;
             }
             //スキル1
             if ((player1BackNumber == 1 && Input.GetKeyDown(KeyCode.J)) && ((Input.GetKeyDown(KeyCode.A)) || (Input.GetKeyDown(KeyCode.D))))
             {
-                player1ActionNumber = 7;
+                p1StateType = Player1StateType.skill1;
             }
             //スキル2
             if ((player1BackNumber == 1 && Input.GetKeyDown(KeyCode.K)) && ((Input.GetKeyDown(KeyCode.A)) || (Input.GetKeyDown(KeyCode.D))))
             {
-                player1ActionNumber = 8;
+                p1StateType = Player1StateType.skill2;
             }
             //コンボ弱から強
             if (player1ActionNumber == 4 && player1BackNumber == 0 && Input.GetKey(KeyCode.J))
             {
-                player1ActionNumber = 5;
+                p1StateType = Player1StateType.heavyPunch;
             }
             //コンボ強から構え
             if (player1ActionNumber == 5 && player1BackNumber == 0 && Input.GetKey(KeyCode.S))
             {
-                player1ActionNumber = 6;
+                p1StateType = Player1StateType.pose;
                 player1BackNumber = 1;
             }
             ////構えをした後に何も押さなかった時、構え処理をなくす
@@ -269,60 +271,61 @@ public class Player1 : MonoBehaviour
     public void Move1PAction()
     {
         //Debug.Log(player1ActionNumber);
-        switch (player1ActionNumber)
+        switch (p1StateType)
         {
-            case 0:
+            case Player1StateType.miss:
                 animator.SetTrigger("Trigger_Miss");
                 Debug.Log("ミス");
+                //ここでAnimetionEnd();を呼んでその中でp1StateTypeをstandに戻す
                 player1ActionNumber = 1;
                 break;
 
-            case 1:
+            case Player1StateType.stand:
                 //animator.SetTrigger("Trigger_Stand");
                 break;
 
             //右に移動
-            case 2:
+            case Player1StateType.rightMove:
                 moveAfter = transform.position + moveX;
                 animator.SetTrigger("Trigger_r");
                 player1ActionNumber = 1;
                 break;
 
             //左に移動
-            case 3:
+            case Player1StateType.leftMove:
                 moveAfter = transform.position - moveX;
                 animator.SetTrigger("Trigger_l");
                 player1ActionNumber = 1;
                 break;
 
             //弱攻撃
-            case 4:
+            case Player1StateType.lightPunch:
                 animator.SetTrigger("Trigger_LP");
                 playercolLP.LPCol();
                 player1ActionNumber = 1;
                 break;
 
             //強攻撃
-            case 5:
+            case Player1StateType.heavyPunch:
                 animator.SetTrigger("Trigger_HP");
                 playercolHP.HPCol();
                 player1ActionNumber = 1;
                 break;
 
             //構え
-            case 6:
+            case Player1StateType.pose:
                 animator.SetTrigger("Trigger_Pose");
                 Debug.Log("構え");
                 player1ActionNumber = 1;
                 break;
 
             //スキル1
-            case 7:
+            case Player1StateType.skill1:
                 Debug.Log("スキル1");
                 break;
 
             //スキル2
-            case 8:
+            case Player1StateType.skill2:
                 Debug.Log("スキル2");
                 animator.SetTrigger("Trigger_S2");
                 playercolSkill2.S2Col();
@@ -330,5 +333,11 @@ public class Player1 : MonoBehaviour
                 player1ActionNumber = 1;
                 break;
         }
+    }
+
+    private void AnimetionEnd()
+    {
+
+
     }
 }
