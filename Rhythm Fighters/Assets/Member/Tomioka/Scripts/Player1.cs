@@ -54,7 +54,9 @@ public class Player1 : MonoBehaviour
         skill2,
         pose,
         miss,
-        knockBack
+        knockBack1,
+        knockBack2,
+        knockBack3
     }
 
     private Player1StateType p1StateType = Player1StateType.stand;
@@ -337,5 +339,10 @@ public class Player1 : MonoBehaviour
     private void AnimetionEnd1P()
     {
         p1StateType = Player1StateType.stand;
+    }
+
+    private void KnockBack1P()
+    {
+
     }
 }
