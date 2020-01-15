@@ -267,13 +267,12 @@ public class Player2 : MonoBehaviour
     //アクションナンバーの数によって2Pの行動をする
     public void Move2PAction()
     {
-        //Debug.Log(player2ActionNumber);
         switch (player2ActionNumber)
         {
             case 0:
                 animator.SetTrigger("Trigger_Miss");
                 Debug.Log("ミス");
-                player2ActionNumber = 1;
+                AnimetionEnd2P();
                 break;
 
             case 1:
@@ -284,35 +283,35 @@ public class Player2 : MonoBehaviour
             case 2:
                 moveAfter = transform.position + moveX;
                 animator.SetTrigger("Trigger_r");
-                player2ActionNumber = 1;
+                AnimetionEnd2P();
                 break;
 
             //左に移動
             case 3:
                 moveAfter = transform.position - moveX;
                 animator.SetTrigger("Trigger_l");
-                player2ActionNumber = 1;
+                AnimetionEnd2P();
                 break;
 
             //弱攻撃
             case 4:
                 animator.SetTrigger("Trigger_LP");
                 playercolLP.LPCol();
-                player2ActionNumber = 1;
+                AnimetionEnd2P();
                 break;
 
             //強攻撃
             case 5:
                 animator.SetTrigger("Trigger_HP");
                 playercolHP.HPCol();
-                player2ActionNumber = 1;
+                AnimetionEnd2P();
                 break;
 
             //構え
             case 6:
                 animator.SetTrigger("Trigger_Pose");
                 Debug.Log("構え");
-                player2ActionNumber = 1;
+                AnimetionEnd2P();
                 break;
 
             //スキル1
@@ -326,8 +325,14 @@ public class Player2 : MonoBehaviour
                 animator.SetTrigger("Trigger_S2");
                 playercolSkill2.S2Col();
                 player2BackNumber = 0;
-                player2ActionNumber = 1;
+                AnimetionEnd2P();
                 break;
         }
+
+    }
+
+    private void AnimetionEnd2P()
+    {
+        p2StateType = Player2StateType.stand;
     }
 }

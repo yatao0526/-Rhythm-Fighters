@@ -69,7 +69,7 @@ public class Player1 : MonoBehaviour
     void Update()
     {
         Debug.Log(player1BackNumber);
-        Debug.Log(player1ActionNumber);
+        Debug.Log("P1は" + p1StateType + "です");
         Player1Way();
         if (this.transform.position == moveAfter)
         {
@@ -182,12 +182,12 @@ public class Player1 : MonoBehaviour
         {
             Debug.Log("行動可能");
             //左移動
-            if (Input.GetKeyDown(KeyCode.D) && this.transform.position.x < maxMove.x && player1BackNumber == 0)
+            if (Input.GetKeyDown(KeyCode.A) && this.transform.position.x < maxMove.x && player1BackNumber == 0)
             {
                 p1StateType = Player1StateType.leftMove;
             }
             //右移動
-            if (Input.GetKeyDown(KeyCode.A) && transform.position.x > minMove.x && player1BackNumber == 0)
+            if (Input.GetKeyDown(KeyCode.D) && transform.position.x > minMove.x && player1BackNumber == 0)
             {
                 p1StateType = Player1StateType.rightMove;
             }
@@ -239,8 +239,7 @@ public class Player1 : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.A) || (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.K)))
             {
                 Debug.Log("データ初期化");
-                player1ActionNumber = 0;
-                player1BackNumber = 0;
+                p1StateType = Player1StateType.stand;
             }
         }
     }
@@ -276,8 +275,8 @@ public class Player1 : MonoBehaviour
             case Player1StateType.miss:
                 animator.SetTrigger("Trigger_Miss");
                 Debug.Log("ミス");
-                //ここでAnimetionEnd();を呼んでその中でp1StateTypeをstandに戻す
-                player1ActionNumber = 1;
+                //ここでAnimetionEnd1P();を呼んでその中でp1StateTypeをstandに戻す
+                AnimetionEnd1P();
                 break;
 
             case Player1StateType.stand:
@@ -288,35 +287,35 @@ public class Player1 : MonoBehaviour
             case Player1StateType.rightMove:
                 moveAfter = transform.position + moveX;
                 animator.SetTrigger("Trigger_r");
-                player1ActionNumber = 1;
+                AnimetionEnd1P();
                 break;
 
             //左に移動
             case Player1StateType.leftMove:
                 moveAfter = transform.position - moveX;
                 animator.SetTrigger("Trigger_l");
-                player1ActionNumber = 1;
+                AnimetionEnd1P();
                 break;
 
             //弱攻撃
             case Player1StateType.lightPunch:
                 animator.SetTrigger("Trigger_LP");
                 playercolLP.LPCol();
-                player1ActionNumber = 1;
+                AnimetionEnd1P();
                 break;
 
             //強攻撃
             case Player1StateType.heavyPunch:
                 animator.SetTrigger("Trigger_HP");
                 playercolHP.HPCol();
-                player1ActionNumber = 1;
+                AnimetionEnd1P();
                 break;
 
             //構え
             case Player1StateType.pose:
                 animator.SetTrigger("Trigger_Pose");
                 Debug.Log("構え");
-                player1ActionNumber = 1;
+                AnimetionEnd1P();
                 break;
 
             //スキル1
@@ -330,14 +329,13 @@ public class Player1 : MonoBehaviour
                 animator.SetTrigger("Trigger_S2");
                 playercolSkill2.S2Col();
                 player1BackNumber = 0;
-                player1ActionNumber = 1;
+                AnimetionEnd1P();
                 break;
         }
     }
 
-    private void AnimetionEnd()
+    private void AnimetionEnd1P()
     {
-
-
+        p1StateType = Player1StateType.stand;
     }
 }
