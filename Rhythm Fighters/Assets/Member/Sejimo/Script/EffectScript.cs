@@ -33,6 +33,12 @@ public class EffectScript : MonoBehaviour
         Debug.Log("aaa");
     }
 
+    public void LpFx()
+    {
+        animator.SetTrigger("LP_Fx");
+        Debug.Log("LP_Fx");
+    }
+
     public void PoseFx()
     {
         animator.SetTrigger("Pose_Fx");

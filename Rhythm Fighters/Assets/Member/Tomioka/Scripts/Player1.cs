@@ -303,6 +303,8 @@ public class Player1 : MonoBehaviour
                 animator.SetTrigger("Trigger_LP");
                 playercolLP.LPCol();
                 player1ActionNumber = 1;
+                effectscript.LpFx();
+                Debug.Log("Lp");
                 break;
 
             //強攻撃
@@ -310,6 +312,7 @@ public class Player1 : MonoBehaviour
                 animator.SetTrigger("Trigger_HP");
                 playercolHP.HPCol();
                 player1ActionNumber = 1;
+                effectscript.HpFx();
                 break;
 
             //構え
@@ -317,6 +320,7 @@ public class Player1 : MonoBehaviour
                 animator.SetTrigger("Trigger_Pose");
                 Debug.Log("構え");
                 player1ActionNumber = 1;
+                effectscript.PoseFx();
                 break;
 
             //スキル1
@@ -331,6 +335,7 @@ public class Player1 : MonoBehaviour
                 playercolSkill2.S2Col();
                 player1BackNumber = 0;
                 player1ActionNumber = 1;
+                effectscript.S2Fx();
                 break;
         }
     }
