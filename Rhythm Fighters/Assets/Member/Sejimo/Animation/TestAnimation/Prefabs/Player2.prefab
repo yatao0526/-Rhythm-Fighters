@@ -105,8 +105,10 @@ MonoBehaviour:
   minMove: {x: -5.5, y: 0, z: 0}
   maxMove: {x: 5.5, y: 0, z: 0}
   stepTime: 2
-  playercol: {fileID: 0}
-  effectscript: {fileID: 0}
+  playercolLP: {fileID: 5670518173135782331}
+  effectscript: {fileID: 2045371007480105722}
+  player1: {fileID: 0}
+  negationMode: {fileID: 0}
 --- !u!111 &154232243324364694
 Animation:
   m_ObjectHideFlags: 0
