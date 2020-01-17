@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7909985085705603797}
   - component: {fileID: 8304138269163010559}
   - component: {fileID: 8213281242901728078}
-  - component: {fileID: 5331025920834059477}
+  - component: {fileID: 5879559298377094173}
   m_Layer: 0
   m_Name: Player_HCol
   m_TagString: HeavyPunch
@@ -94,7 +94,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5331025920834059477
+--- !u!114 &5879559298377094173
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 160842231813483711}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd34825052c77a04f9480b1cd614ef4f, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bcac4e204deb264f88e7bb6fc4024ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &799850433473262981
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 5195999576821547790}
   - component: {fileID: 6073959228015440451}
   - component: {fileID: 120618465121544658}
-  - component: {fileID: 5973705337649606575}
+  - component: {fileID: 4111766740874320569}
   m_Layer: 0
   m_Name: Player_Skill2Col
   m_TagString: Skill2
@@ -200,7 +200,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5973705337649606575
+--- !u!114 &4111766740874320569
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 799850433473262981}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd34825052c77a04f9480b1cd614ef4f, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bcac4e204deb264f88e7bb6fc4024ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3165178332233565160
@@ -333,7 +333,6 @@ GameObject:
   - component: {fileID: 2938642863165354874}
   - component: {fileID: 8906728516102616982}
   - component: {fileID: 2936970860319866862}
-  - component: {fileID: 7980985524679044485}
   m_Layer: 0
   m_Name: Player_Skill1Col
   m_TagString: Skill1
@@ -415,18 +414,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7980985524679044485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7245055770899959673}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd34825052c77a04f9480b1cd614ef4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8134195262302499226
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,7 +426,7 @@ GameObject:
   - component: {fileID: 8134195262302499230}
   - component: {fileID: 8134195262302499225}
   - component: {fileID: 8134195262302499224}
-  - component: {fileID: 8134195262302499231}
+  - component: {fileID: 9102344271093114060}
   m_Layer: 0
   m_Name: Player_LCol
   m_TagString: LightPunch
@@ -521,7 +508,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8134195262302499231
+--- !u!114 &9102344271093114060
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -530,7 +517,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8134195262302499226}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd34825052c77a04f9480b1cd614ef4f, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bcac4e204deb264f88e7bb6fc4024ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8134195264264536977
@@ -639,8 +626,10 @@ MonoBehaviour:
   minMove: {x: -5, y: 0, z: 0}
   maxMove: {x: 5, y: 0, z: 0}
   stepTime: 2
-  playercol: {fileID: 0}
-  effectscript: {fileID: 0}
+  playercol: {fileID: 9102344271093114060}
+  effectscript: {fileID: 6363405099850264631}
+  player2: {fileID: 0}
+  negationMode: {fileID: 0}
 --- !u!111 &8134195264264536981
 Animation:
   m_ObjectHideFlags: 0
