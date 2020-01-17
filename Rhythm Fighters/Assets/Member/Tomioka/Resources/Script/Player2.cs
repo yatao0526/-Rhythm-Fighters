@@ -220,7 +220,7 @@ public class Player2 : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.LeftArrow) || (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha2)))
             {
-                Debug.Log("データ初期化");
+                //Debug.Log("データ初期化");
                 player2ActionNumber = 0;
                 player2BackNumber = 0;
             }
@@ -257,7 +257,7 @@ public class Player2 : MonoBehaviour
         {
             case 0:
                 animator.SetTrigger("Trigger_Miss");
-                Debug.Log("ミス");
+                //Debug.Log("ミス");
                 player2ActionNumber = 1;
                 break;
 

@@ -63,8 +63,8 @@ public class Player1 : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(player1BackNumber);
-        Debug.Log(player1ActionNumber);
+        //Debug.Log(player1BackNumber);
+        //Debug.Log(player1ActionNumber);
         Player1Way();
         if (this.transform.position == moveAfter)
         {

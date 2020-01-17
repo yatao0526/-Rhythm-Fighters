@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class NegationManager : MonoBehaviour
 {
+    [SerializeField]
+    private NegationMode negationMode;
+    
+    public GameObject negationSprite;
+
     private int negation1P = 0;
     private int negation2P = 0;
 
     private string negationStr1P;
     private string negationStr2P;
-
-    [SerializeField]
-    private NegationMode negationMode;
 
     public static int attackNum1P = 0;
     public static int attackNum2P = 0;
@@ -21,6 +23,8 @@ public class NegationManager : MonoBehaviour
         Negation();
         if (col.tag != "Player1" && col.tag != "Player2")
         {
+            //打消しの画像
+            negationSprite.SetActive(true);
             GameController.modeType = GameController.ModeType.negationMode;
             //Debug.Log("1Pは" + negationStr1P);
             //Debug.Log("2Pは" + negationStr2P);
