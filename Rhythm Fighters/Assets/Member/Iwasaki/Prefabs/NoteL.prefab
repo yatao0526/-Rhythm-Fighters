@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8212348722139298102}
   m_Layer: 0
   m_Name: NoteL
-  m_TagString: Untagged
+  m_TagString: Note
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,7 +95,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisNote: 1
-  negationMode: {fileID: 0}
 --- !u!50 &3751650615345084503
 Rigidbody2D:
   serializedVersion: 4

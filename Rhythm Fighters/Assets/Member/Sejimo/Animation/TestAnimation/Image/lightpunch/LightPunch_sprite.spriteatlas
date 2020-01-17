@@ -30,22 +30,22 @@ SpriteAtlas:
       enableTightPacking: 1
     variantMultiplier: 1
     packables:
-    - {fileID: 2800000, guid: 51bb8221edeeb97458581dbcdb32830e, type: 3}
-    - {fileID: 2800000, guid: f56d794989d01874f81166892ccc80a9, type: 3}
-    - {fileID: 2800000, guid: 78ee96e608e09b44fa928e26e9f156f6, type: 3}
-    - {fileID: 2800000, guid: 33efc81ee63f1c547b64fddda42e2ca8, type: 3}
-    totalSpriteSurfaceArea: 8294400
+    - {fileID: 2800000, guid: 179d45c923cb3234ea1e24499fca8fb8, type: 3}
+    - {fileID: 2800000, guid: 459a1c1460ccc3c498b2d88175345289, type: 3}
+    - {fileID: 2800000, guid: 1c93a5bdce6bc234fad20a1327566632, type: 3}
+    - {fileID: 2800000, guid: f40ef73b91c70174799297588cfd4041, type: 3}
+    totalSpriteSurfaceArea: 1048576
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 21300000, guid: 51bb8221edeeb97458581dbcdb32830e, type: 3}
-  - {fileID: 21300000, guid: 78ee96e608e09b44fa928e26e9f156f6, type: 3}
-  - {fileID: 21300000, guid: f56d794989d01874f81166892ccc80a9, type: 3}
-  - {fileID: 21300000, guid: 33efc81ee63f1c547b64fddda42e2ca8, type: 3}
+  - {fileID: 21300000, guid: 459a1c1460ccc3c498b2d88175345289, type: 3}
+  - {fileID: 21300000, guid: 179d45c923cb3234ea1e24499fca8fb8, type: 3}
+  - {fileID: 21300000, guid: f40ef73b91c70174799297588cfd4041, type: 3}
+  - {fileID: 21300000, guid: 1c93a5bdce6bc234fad20a1327566632, type: 3}
   m_PackedSpriteNamesToIndex:
-  - 0lightpunch_01
-  - 0lightpunch_03
-  - 0lightpunch_02
-  - 0lightpunch_04
+  - lightpunch2
+  - lightpunch1
+  - lightpunch4
+  - lightpunch3
   m_Tag: LightPunch_sprite
   m_IsVariant: 0

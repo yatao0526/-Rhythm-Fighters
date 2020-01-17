@@ -10,6 +10,7 @@ TagManager:
   - HeavyPunch
   - Skill1
   - Skill2
+  - Note
   layers:
   - Default
   - TransparentFX

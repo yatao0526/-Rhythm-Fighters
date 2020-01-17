@@ -105,8 +105,10 @@ MonoBehaviour:
   minMove: {x: -5.5, y: 0, z: 0}
   maxMove: {x: 5.5, y: 0, z: 0}
   stepTime: 2
-  playercol: {fileID: 0}
+  playercol: {fileID: 6918831948401351312}
   effectscript: {fileID: 0}
+  player1: {fileID: 0}
+  negationMode: {fileID: 0}
 --- !u!111 &154232243324364694
 Animation:
   m_ObjectHideFlags: 0
@@ -191,7 +193,7 @@ GameObject:
   - component: {fileID: 5225921110631035472}
   - component: {fileID: 348396318242895525}
   - component: {fileID: 8937578024491055167}
-  - component: {fileID: 926533676812940440}
+  - component: {fileID: 8222732195989138628}
   m_Layer: 0
   m_Name: Player_Skill2Col
   m_TagString: Skill2
@@ -273,7 +275,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &926533676812940440
+--- !u!114 &8222732195989138628
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -282,7 +284,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1494595820794436006}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd34825052c77a04f9480b1cd614ef4f, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bcac4e204deb264f88e7bb6fc4024ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2889890704132724858
@@ -297,7 +299,7 @@ GameObject:
   - component: {fileID: 6613787246749199486}
   - component: {fileID: 4162492327793815723}
   - component: {fileID: 9117480119303771438}
-  - component: {fileID: 3832842270355502745}
+  - component: {fileID: 4003554015787623889}
   m_Layer: 0
   m_Name: Player_Skill1Col
   m_TagString: Skill1
@@ -379,7 +381,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3832842270355502745
+--- !u!114 &4003554015787623889
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -388,7 +390,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2889890704132724858}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd34825052c77a04f9480b1cd614ef4f, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bcac4e204deb264f88e7bb6fc4024ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4019174485343771862
@@ -403,7 +405,7 @@ GameObject:
   - component: {fileID: 476921531721039282}
   - component: {fileID: 6653334290926087704}
   - component: {fileID: 1339211573339742233}
-  - component: {fileID: 7746658636832548986}
+  - component: {fileID: 7056788157958274756}
   m_Layer: 0
   m_Name: Player_HCol
   m_TagString: HeavyPunch
@@ -485,7 +487,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7746658636832548986
+--- !u!114 &7056788157958274756
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -494,7 +496,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4019174485343771862}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd34825052c77a04f9480b1cd614ef4f, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bcac4e204deb264f88e7bb6fc4024ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4708762862996210565
@@ -588,7 +590,7 @@ GameObject:
   - component: {fileID: 3462993381542721569}
   - component: {fileID: 8408033894297090273}
   - component: {fileID: 3599369984555532545}
-  - component: {fileID: 5670518173135782331}
+  - component: {fileID: 6918831948401351312}
   m_Layer: 0
   m_Name: Player_LCol
   m_TagString: LightPunch
@@ -670,7 +672,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5670518173135782331
+--- !u!114 &6918831948401351312
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -679,6 +681,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6890697866481139913}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd34825052c77a04f9480b1cd614ef4f, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bcac4e204deb264f88e7bb6fc4024ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
