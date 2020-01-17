@@ -43,7 +43,7 @@ public class NegationMode : MonoBehaviour
     {
         Debug.Log(countNum);
         //打消しモード突入
-        if (check == false && GameController.modeType == GameController.ModeType.negationMode)
+        if (GameController.modeType == GameController.ModeType.negationMode)
         {
             negationObject.SetActive(true);
             countNum = 1;
@@ -63,11 +63,11 @@ public class NegationMode : MonoBehaviour
                     Debug.Log("打消し2拍目");
                     break;
             }
-            check = true;
+
         }
         else　//通常モード
         {
-            check = false;
+            //check = false;
             negationBerL.gameObject.SetActive(false);
             negationBerR.gameObject.SetActive(false);
             negationObject.SetActive(false);
@@ -166,8 +166,8 @@ public class NegationMode : MonoBehaviour
     //キャラとどの攻撃同士なのかチェック
     public void GetNum()
     {
-        p1Num = GetRevocatioNum(Chara.SUZUKI, attack1P);
-        p2Num = GetRevocatioNum(Chara.SUZUKI, attack2P);
+        p1Num = GetRevocatioNum(Chara.SUZUKI, attack1P = Attack.HeavyPunch);
+        p2Num = GetRevocatioNum(Chara.SUZUKI, attack2P = Attack.LightPunch);
         negationBerL.gameObject.SetActive(true);
         negationBerR.gameObject.SetActive(true);
     }

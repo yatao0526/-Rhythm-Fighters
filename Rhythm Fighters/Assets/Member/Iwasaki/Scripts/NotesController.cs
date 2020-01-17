@@ -83,13 +83,16 @@ public class NotesController : MonoBehaviour
         }
         else
         {
-            if (col.gameObject.name == "RevocationGaugeR")
+            if(NegationMode.countNum >= 2)
             {
-                negation2PFlag = true;
-            }
-            if (col.gameObject.name == "RevocationGaugeL")
-            {
-                negation1PFlag = true;
+                if (col.gameObject.name == "RevocationGaugeR")
+                {
+                    negation2PFlag = true;
+                }
+                if (col.gameObject.name == "RevocationGaugeL")
+                {
+                    negation1PFlag = true;
+                }
             }
         }
     }
@@ -114,15 +117,16 @@ public class NotesController : MonoBehaviour
         }
         else
         {
-            if (other.gameObject.name == "RevocationGaugeR")
+            if(NegationMode.countNum >= 2)
             {
-                NegationMode.countNum += 1;
-                negation2PFlag = false;
-            }
-            if (other.gameObject.name == "RevocationGaugeL")
-            {
-                NegationMode.countNum += 1;
-                negation1PFlag = false;
+                if (other.gameObject.name == "RevocationGaugeR")
+                {
+                    negation2PFlag = false;
+                }
+                if (other.gameObject.name == "RevocationGaugeL")
+                {
+                    negation1PFlag = false;
+                }
             }
         }
     }
