@@ -16,12 +16,12 @@ public class NegationManager : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         Negation();
-        if (col.tag != "Player1" && col.tag != "Player2")
+        if (col.tag != "Player1" && col.tag != "Player2" &&col.tag != "Note")
         {
             GameController.modeType = GameController.ModeType.negationMode;
             //Debug.Log("1Pは" + negationStr1P);
             //Debug.Log("2Pは" + negationStr2P);
-            //Debug.Log("うちけいそ");
+            Debug.Log("うちけいそ");
         }
     }
 

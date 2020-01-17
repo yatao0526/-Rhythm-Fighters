@@ -2670,11 +2670,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8134195262302499231, guid: 9082436be83301c49b3986ab31a3af15,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8134195264264536983, guid: 9082436be83301c49b3986ab31a3af15,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2770,6 +2765,11 @@ PrefabInstance:
       propertyPath: playercolLP
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8134195262302499231, guid: 9082436be83301c49b3986ab31a3af15,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8134195264264537000, guid: 9082436be83301c49b3986ab31a3af15,
         type: 3}
       propertyPath: m_Enabled
@@ -2856,6 +2856,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 7b3b4d5e98dff1949a494fcfb2eba6ac,
         type: 3}
+    - target: {fileID: 5711830631417451703, guid: 9082436be83301c49b3986ab31a3af15,
+        type: 3}
+      propertyPath: negationMode
+      value: 
+      objectReference: {fileID: 1008321461}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9082436be83301c49b3986ab31a3af15, type: 3}
 --- !u!1001 &8269037824052261586
@@ -3031,6 +3036,11 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 5.12
       objectReference: {fileID: 0}
+    - target: {fileID: 5634785382807728264, guid: 2340071ec1f86594eb9a3f92bebf4e32,
+        type: 3}
+      propertyPath: negationMode
+      value: 
+      objectReference: {fileID: 1008321461}
     m_RemovedComponents:
     - {fileID: 154232243324364712, guid: 2340071ec1f86594eb9a3f92bebf4e32, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2340071ec1f86594eb9a3f92bebf4e32, type: 3}

@@ -14,7 +14,6 @@ public class Player2AttackManager : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         Debug.Log(col.name);
-
         switch (col.tag)
         {
             case "LightPunch":
