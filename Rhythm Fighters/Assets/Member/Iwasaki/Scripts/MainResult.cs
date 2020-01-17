@@ -21,7 +21,8 @@ public class MainResult : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.anyKey)
+        //オプションキー
+        if (Input.GetButtonDown("Option") || Input.GetKeyDown(KeyCode.Space))
         {
             SceneManager.LoadScene("Title");
         }

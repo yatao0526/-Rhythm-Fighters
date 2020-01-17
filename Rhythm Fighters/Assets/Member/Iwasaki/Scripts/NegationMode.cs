@@ -6,14 +6,17 @@ public class NegationMode : MonoBehaviour
 {
     //打消しモードに入ったときにbool値をもらう
     public static bool check = false;
-    
+
     public static int p1Num;
     public static int p2Num;
+    public static int countNum = 0;
+
     private string nokezori;
+
     [HideInInspector]
     public Chara chara1P = Chara.SUZUKI, chara2P = Chara.SUZUKI;
     [HideInInspector]
-    public Attack attack1P,attack2P;
+    public Attack attack1P, attack2P;
 
     [SerializeField]
     private SpriteFillBar negationBerR;
@@ -32,29 +35,41 @@ public class NegationMode : MonoBehaviour
     };
     private void Update()
     {
-        if (GameController.modeType == GameController.ModeType.negationMode)
+        //打消しモード突入
+        if (check == false && GameController.modeType == GameController.ModeType.negationMode)
         {
-            if (check == false)
+            switch (countNum)
             {
-                Nagation1PATK();
-                Negation2PATK();
-                GetNum();
-                SetBar();
-                check = true;
+                //打消し入った状態
+                case 0:
+                    Debug.Log("打消しはいったよ。処理開始");
+                    break;
+                //打消し1拍目
+                case 1:
+                    Debug.Log("打消し1拍目");
+                    Nagation1PATK();
+                    Negation2PATK();
+                    GetNum();
+                    SetBar();
+                    break;
+                //打消し2拍目
+                case 2:
+                    Debug.Log("打消し2拍目");
+                    break;
             }
+            check = true;
         }
-        else
+        else　//通常モード
         {
             check = false;
             negationBerL.gameObject.SetActive(false);
             negationBerR.gameObject.SetActive(false);
-            //Debug.Log("通常モード");
         }
     }
     //キャラ、攻撃によってenum変える
     public void NegationChar1P(int char1PNum)
     {
-        switch(char1PNum)
+        switch (char1PNum)
         {
             case 0:
                 chara1P = Chara.LUO;
@@ -69,7 +84,7 @@ public class NegationMode : MonoBehaviour
                 chara1P = Chara.NITSUMA;
                 break;
             case 4:
-                chara1P = Chara.SUZUKI; 
+                chara1P = Chara.SUZUKI;
                 break;
             case 5:
                 chara1P = Chara.YOKOYAMA;
@@ -104,7 +119,7 @@ public class NegationMode : MonoBehaviour
     }
     private void Nagation1PATK()
     {
-        switch(NegationManager.attackNum1P)
+        switch (NegationManager.attackNum1P)
         {
             case 0:
                 attack1P = Attack.Comand1;
