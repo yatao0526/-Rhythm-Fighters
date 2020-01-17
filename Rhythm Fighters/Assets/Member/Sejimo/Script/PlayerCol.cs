@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Playercol : MonoBehaviour
+public class PlayerCol : MonoBehaviour
 {
     private Animator animator;
     private Vector3 moveAfter;

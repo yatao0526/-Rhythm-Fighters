@@ -25,7 +25,7 @@ public class Player1 : MonoBehaviour
 
     //当たり判定用
     [SerializeField]
-    private PlayerColLP playercolLP;
+    private PlayerCol playercol;
     [SerializeField]
     private EffectScript effectscript;
 
@@ -257,7 +257,7 @@ public class Player1 : MonoBehaviour
             //弱攻撃
             case Player1StateType.lightPunch:
                 animator.SetTrigger("Trigger_LP");
-                playercolLP.LPCol();
+                playercol.LPCol();
                 Debug.Log("弱攻撃呼ばれた");
                 AnimetionEnd1P();
                 break;
@@ -265,7 +265,7 @@ public class Player1 : MonoBehaviour
             //強攻撃
             case Player1StateType.heavyPunch:
                 animator.SetTrigger("Trigger_HP");
-                playercolLP.HPCol();
+                playercol.HPCol();
                 Debug.Log("強攻撃呼ばれた");
                 AnimetionEnd1P();
                 break;
@@ -286,7 +286,7 @@ public class Player1 : MonoBehaviour
             case Player1StateType.skill2:
                 Debug.Log("スキル2");
                 animator.SetTrigger("Trigger_S2");
-                playercolLP.S2Col();
+                playercol.S2Col();
                 AnimetionEnd1P();
                 break;
         }
