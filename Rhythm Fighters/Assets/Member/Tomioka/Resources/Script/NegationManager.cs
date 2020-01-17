@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class NegationManager : MonoBehaviour
 {
-    [SerializeField]
-    private NegationMode negationMode;
-    
-    private int negation1P = 0;
-    private int negation2P = 0;
-
     private string negationStr1P;
     private string negationStr2P;
+
+    [SerializeField]
+    private NegationMode negationMode;
 
     public static int attackNum1P = 0;
     public static int attackNum2P = 0;
@@ -19,78 +16,73 @@ public class NegationManager : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         Negation();
-        if (col.tag != "Player1" && col.tag != "Player2")
+        if (col.tag != "Player1" && col.tag != "Player2" && col.tag != "Note")
         {
-            negationMode.negationObject.SetActive(true);
             GameController.modeType = GameController.ModeType.negationMode;
-            //Debug.Log("うちけいそ");
+            //Debug.Log("1Pは" + negationStr1P);
+            //Debug.Log("2Pは" + negationStr2P);
+            Debug.Log("うちけいそ");
         }
     }
 
     private void Negation()
     {
-        //if (Player1.player1ActionNumber > 1)
-        //{
-            negation1P = Player1.player1ActionNumber;
+        Debug.Log(Player1.p1StateType);
 
-            switch (negation1P)
-            {
-                case 4:
-                    negationStr1P = "弱攻撃";
-                    attackNum1P = 3;
-                    Debug.Log(attackNum1P);
-                    break;
-                case 5:
-                    negationStr1P = "強攻撃";
-                    attackNum1P = 2;
-                    Debug.Log(attackNum1P);
-                    break;
-                case 7:
-                    negationStr1P = "スキル1";
-                    attackNum1P = 0;
-                    Debug.Log(attackNum1P);
-                    break;
-                case 8:
-                    negationStr1P = "スキル2";
-                    attackNum1P = 1;
-                    Debug.Log(attackNum1P);
-                    break;
-                default:
-                    Debug.Log("何かがおかしい1");
-                    break;
-            }
-            Debug.Log(negation1P);
-        //}
-
-        if (Player2.player2ActionNumber > 1)
+        switch (Player1.p1StateType)
         {
-            negation2P = Player2.player2ActionNumber;
-            switch (negation2P)
-            {
-                case 4:
-                    negationStr2P = "弱攻撃";
-                    attackNum2P = 3;
-                    Debug.Log(attackNum2P);
-                    break;
-                case 5:
-                    negationStr2P = "強攻撃";
-                    attackNum2P = 2;
-                    Debug.Log(attackNum2P);
-                    break;
-                case 7:
-                    negationStr2P = "スキル1";
-                    attackNum2P = 0;
-                    Debug.Log(attackNum2P);
-                    break;
-                case 8:
-                    negationStr2P = "スキル2";
-                    attackNum2P = 1;
-                    Debug.Log(attackNum2P);
-                    break;
-                default:
-                    Debug.Log("何かがおかしい1");
-                    break;
-            }
+            case Player1.Player1StateType.lightPunch:
+                negationStr1P = "弱攻撃";
+                attackNum1P = 3;
+                Debug.Log(attackNum1P);
+                break;
+            case Player1.Player1StateType.heavyPunch:
+                negationStr1P = "強攻撃";
+                attackNum1P = 2;
+                Debug.Log(attackNum1P);
+                break;
+            case Player1.Player1StateType.skill1:
+                negationStr1P = "スキル1";
+                attackNum1P = 0;
+                Debug.Log(attackNum1P);
+                break;
+            case Player1.Player1StateType.skill2:
+                negationStr1P = "スキル2";
+                attackNum1P = 1;
+                Debug.Log(attackNum1P);
+                break;
+            default:
+                Debug.Log("何かがおかしい1");
+                break;
+        }
+
+        Debug.Log(Player2.p2StateType);
+
+        switch (Player2.p2StateType)
+        {
+            case Player2.Player2StateType.lightPunch:
+                negationStr2P = "弱攻撃";
+                attackNum2P = 3;
+                Debug.Log(attackNum2P);
+                break;
+            case Player2.Player2StateType.heavyPunch:
+                negationStr2P = "強攻撃";
+                attackNum2P = 2;
+                Debug.Log(attackNum2P);
+                break;
+            case Player2.Player2StateType.skill1:
+                negationStr2P = "スキル1";
+                attackNum2P = 0;
+                Debug.Log(attackNum2P);
+                break;
+            case Player2.Player2StateType.skill2:
+                negationStr2P = "スキル2";
+                attackNum2P = 1;
+                Debug.Log(attackNum2P);
+                break;
+            default:
+                Debug.Log("何かがおかしい1");
+                break;
         }
     }
 }
