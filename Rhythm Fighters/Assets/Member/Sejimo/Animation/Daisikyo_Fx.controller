@@ -326,7 +326,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Miss_Fx
-  m_Speed: 1
+  m_Speed: 1.3333334
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101235059730765230}
@@ -353,7 +353,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: HP_Fx_Up
-  m_Speed: 1
+  m_Speed: 1.3333334
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101741989487855648}
@@ -380,7 +380,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: New State
-  m_Speed: 1
+  m_Speed: 1.3333334
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101913285596354810}
@@ -410,7 +410,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Pose_Fx
-  m_Speed: 1
+  m_Speed: 1.3333334
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101735139180535706}
@@ -438,7 +438,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: S2_Fx
-  m_Speed: 1
+  m_Speed: 1.3333334
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101900076295392480}
@@ -465,7 +465,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: LP_Fx
-  m_Speed: 1
+  m_Speed: 1.3333334
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101104769110957086}
