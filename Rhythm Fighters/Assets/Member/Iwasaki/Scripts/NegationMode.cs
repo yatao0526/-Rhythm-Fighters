@@ -11,6 +11,8 @@ public class NegationMode : MonoBehaviour
     public static int p2Num;
     public static int countNum = 0;
 
+    public GameObject negationObject;
+
     private string nokezori;
 
     [HideInInspector]
@@ -35,17 +37,21 @@ public class NegationMode : MonoBehaviour
     };
     private void Update()
     {
+        NegationProcessing();
+    }
+    private void NegationProcessing()
+    {
+        Debug.Log(countNum);
         //打消しモード突入
         if (check == false && GameController.modeType == GameController.ModeType.negationMode)
         {
+            negationObject.SetActive(true);
+            countNum = 1;
             switch (countNum)
             {
-                //打消し入った状態
-                case 0:
-                    Debug.Log("打消しはいったよ。処理開始");
-                    break;
                 //打消し1拍目
                 case 1:
+                    Debug.Log("打消しはいったよ。処理開始");
                     Debug.Log("打消し1拍目");
                     Nagation1PATK();
                     Negation2PATK();
@@ -64,6 +70,8 @@ public class NegationMode : MonoBehaviour
             check = false;
             negationBerL.gameObject.SetActive(false);
             negationBerR.gameObject.SetActive(false);
+            negationObject.SetActive(false);
+            countNum = 0;
         }
     }
     //キャラ、攻撃によってenum変える

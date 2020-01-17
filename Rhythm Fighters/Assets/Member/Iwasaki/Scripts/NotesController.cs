@@ -116,10 +116,12 @@ public class NotesController : MonoBehaviour
         {
             if (other.gameObject.name == "RevocationGaugeR")
             {
+                NegationMode.countNum += 1;
                 negation2PFlag = false;
             }
             if (other.gameObject.name == "RevocationGaugeL")
             {
+                NegationMode.countNum += 1;
                 negation1PFlag = false;
             }
         }

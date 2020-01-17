@@ -1266,6 +1266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4d64202adb54904b8d85a50ec7effc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  negationObject: {fileID: 2068715664}
   chara1P: 1
   chara2P: 1
   attack1P: 0
@@ -2487,7 +2488,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &2068715665
 SpriteRenderer:
   m_ObjectHideFlags: 0

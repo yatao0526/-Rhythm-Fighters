@@ -68,7 +68,6 @@ public class GameController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        //Debug.Log(modeType);
         MoveTime();
         //テスト用テキスト
         if ((Input.GetKeyDown(KeyCode.Space)) || (Input.GetKeyDown(KeyCode.A)) || 
@@ -142,6 +141,10 @@ public class GameController : MonoBehaviour
         }
         //ズレ修正用
         time = soundManager.GetComponent<AudioSource>().time;
+        if(Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            modeType = ModeType.negationMode;
+        }
     }
     private void MoveTime()
     {
