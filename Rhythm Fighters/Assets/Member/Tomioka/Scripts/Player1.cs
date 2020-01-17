@@ -51,7 +51,9 @@ public class Player1 : MonoBehaviour
         miss,
         knockBack1,
         knockBack2,
-        knockBack3
+        knockBack3,
+        negationSuccess,
+        negationFalse
     }
 
     public static Player1StateType p1StateType = Player1StateType.stand;
@@ -102,10 +104,12 @@ public class Player1 : MonoBehaviour
     //プレイヤーの操作番号
     private void SetTargetPosition()
     {
+        //ここは打消しモードのみで判定される
         NegationFunction();
 
         moveBeforePos = moveAfter;
 
+        //ここは通常モードのみで判定される
         if (NotesController.judge)
         {
             //stand中はこっちのみ
@@ -232,7 +236,7 @@ public class Player1 : MonoBehaviour
         {
             case Player1StateType.miss:
                 animator.SetTrigger("Trigger_Miss");
-                Debug.Log("ミス");
+                Debug.Log("1Pはミス");
                 AnimetionEnd1P();
                 break;
 
@@ -289,6 +293,23 @@ public class Player1 : MonoBehaviour
                 playercol.S2Col();
                 AnimetionEnd1P();
                 break;
+
+            //打消しモードで成功
+            case Player1StateType.negationSuccess:
+                Debug.Log("1P打消し成功");
+                animator.SetTrigger("Trigger_ Negate");
+                negationMode.Decrease1PGauge();
+                negationButton1P = true;
+                AnimetionEnd1P();
+                break;
+
+            //打消しモードで失敗
+            case Player1StateType.negationFalse:
+                Debug.Log("1P打消し失敗");
+                GameController.modeType = GameController.ModeType.normalMode;
+                AnimetionEnd1P();
+                break;
+
         }
     }
 
@@ -303,25 +324,27 @@ public class Player1 : MonoBehaviour
 
     }
 
-    //打消しモード
+    //打消しモードないでのプレイヤーの挙動
     private void NegationFunction()
     {
         if (GameController.modeType == GameController.ModeType.negationMode)
         {
-            //弱攻撃
-            if (Input.GetButtonDown("Batu") || Input.GetButtonDown("Maru"))
+            //打消しモード中に複数回押せないように
+            if ((p1StateType != Player1StateType.negationSuccess && p1StateType != Player1StateType.negationFalse)
+                && (Input.GetButtonDown("Batu") || Input.GetButtonDown("Maru")))
             {
+                //negation1PFlagは長さが変わるゲージに入っているか
                 switch (NotesController.negation1PFlag)
                 {
                     case true:
-                        animator.SetTrigger("Trigger_ Negate");
-                        negationMode.Decrease1PGauge();
-                        negationButton1P = true;
+                        //打消しモード中の攻撃
+                        p1StateType = Player1StateType.negationSuccess;
                         break;
+
                     case false:
-                        Debug.Log("打消し終わり");
-                        GameController.modeType = GameController.ModeType.normalMode;
+                        p1StateType = Player1StateType.negationFalse;
                         break;
+
                 }
             }
         }

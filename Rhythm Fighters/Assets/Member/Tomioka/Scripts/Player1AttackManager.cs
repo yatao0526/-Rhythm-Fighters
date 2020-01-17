@@ -19,19 +19,19 @@ public class Player1AttackManager : MonoBehaviour
             case "LightPunch":
                 Debug.Log("2Pの弱攻撃が当たった");
                 animator.SetTrigger("Trigger_knock1");
-                HPManager.player1HP -= 100;
+                //HPManager.player1HP -= 100;
                 break;
 
             case "HeavyPunch":
                 Debug.Log("2Pの強攻撃が当たった");
                 this.animator.SetTrigger("Trigger_knock2");
-                HPManager.player1HP -= 100;
+                //HPManager.player1HP -= 100;
                 break;
 
             case "Skill2":
                 Debug.Log("2Pのスキル2が当たった");
                 this.animator.SetTrigger("Trigger_knock3");
-                HPManager.player1HP -= 100;
+                //HPManager.player1HP -= 100;
                 break;
         }
     }

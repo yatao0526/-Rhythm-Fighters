@@ -51,7 +51,9 @@ public class Player2 : MonoBehaviour
         miss,
         knockBack1,
         knockBack2,
-        knockBack3
+        knockBack3,
+        negationSuccess,
+        negationFalse
     }
 
     public static Player2StateType p2StateType = Player2StateType.stand;
@@ -232,7 +234,7 @@ public class Player2 : MonoBehaviour
         {
             case Player2StateType.miss:
                 animator.SetTrigger("Trigger_Miss");
-                Debug.Log("ミス");
+                Debug.Log("2Pはミス");
                 AnimetionEnd2P();
                 break;
 
@@ -290,6 +292,22 @@ public class Player2 : MonoBehaviour
                 playercol.S2Col();
                 AnimetionEnd2P();
                 break;
+
+            //打消しモードで成功
+            case Player2StateType.negationSuccess:
+                Debug.Log("2P打消し成功");
+                animator.SetTrigger("Trigger_ Negate");
+                negationMode.Decrease1PGauge();
+                negationButton2P = true;
+                AnimetionEnd2P();
+                break;
+
+            //打消しモードで失敗
+            case Player2StateType.negationFalse:
+                Debug.Log("2P打消し失敗");
+                GameController.modeType = GameController.ModeType.normalMode;
+                AnimetionEnd2P();
+                break;
         }
 
     }
@@ -311,7 +329,9 @@ public class Player2 : MonoBehaviour
         if (GameController.modeType == GameController.ModeType.negationMode)
         {
             //弱攻撃
-            if (Input.GetButtonDown("2PBatu") || Input.GetButtonDown("2PMaru"))
+            if ((p2StateType != Player2StateType.negationSuccess && p2StateType != Player2StateType.negationFalse)
+                && (Input.GetButtonDown("2PBatu") || Input.GetButtonDown("2PMaru")))
+
             {
                 switch (NotesController.negation2PFlag)
                 {
