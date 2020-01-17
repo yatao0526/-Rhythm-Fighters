@@ -236,6 +236,7 @@ public class Player1 : MonoBehaviour
         {
             case Player1StateType.miss:
                 animator.SetTrigger("Trigger_Miss");
+                effectscript.MissFX();
                 Debug.Log("1Pはミス");
                 AnimetionEnd1P();
                 break;
@@ -262,6 +263,7 @@ public class Player1 : MonoBehaviour
             case Player1StateType.lightPunch:
                 animator.SetTrigger("Trigger_LP");
                 playercol.LPCol();
+                effectscript.LpFx();
                 Debug.Log("弱攻撃呼ばれた");
                 AnimetionEnd1P();
                 break;
@@ -270,6 +272,7 @@ public class Player1 : MonoBehaviour
             case Player1StateType.heavyPunch:
                 animator.SetTrigger("Trigger_HP");
                 playercol.HPCol();
+                effectscript.HpFx();
                 Debug.Log("強攻撃呼ばれた");
                 AnimetionEnd1P();
                 break;
@@ -277,6 +280,7 @@ public class Player1 : MonoBehaviour
             //構え
             case Player1StateType.pose:
                 animator.SetTrigger("Trigger_Pose");
+                effectscript.PoseFx();
                 Debug.Log("構え");
                 break;
 
@@ -291,6 +295,7 @@ public class Player1 : MonoBehaviour
                 Debug.Log("スキル2");
                 animator.SetTrigger("Trigger_S2");
                 playercol.S2Col();
+                effectscript.S2Fx();
                 AnimetionEnd1P();
                 break;
 
