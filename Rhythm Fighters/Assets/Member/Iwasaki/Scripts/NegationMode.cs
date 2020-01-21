@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NegationMode : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class NegationMode : MonoBehaviour
     public static int p2Num;
     public static int countNum = 0;
 
-    public GameObject negationObject;
+    public Image negationObject;
 
     private string nokezori;
 
@@ -45,7 +46,7 @@ public class NegationMode : MonoBehaviour
         //打消しモード突入
         if (GameController.modeType == GameController.ModeType.negationMode)
         {
-            negationObject.SetActive(true);
+            negationObject.enabled=true;
             countNum = 1;
             switch (countNum)
             {
@@ -70,7 +71,7 @@ public class NegationMode : MonoBehaviour
             //check = false;
             negationBerL.gameObject.SetActive(false);
             negationBerR.gameObject.SetActive(false);
-            negationObject.SetActive(false);
+            negationObject.enabled=false;
             countNum = 0;
         }
     }
