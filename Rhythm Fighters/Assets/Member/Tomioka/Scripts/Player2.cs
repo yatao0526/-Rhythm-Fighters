@@ -308,6 +308,24 @@ public class Player2 : MonoBehaviour
                 GameController.modeType = GameController.ModeType.normalMode;
                 AnimetionEnd2P();
                 break;
+
+            //ノックバック1
+            case Player2StateType.knockBack1:
+                animator.SetTrigger("Trigger_knock1 ");
+                AnimetionEnd2P();
+                break;
+
+            //ノックバック2
+            case Player2StateType.knockBack2:
+                animator.SetTrigger("Trigger_knock2");
+                AnimetionEnd2P();
+                break;
+
+            //ノックバック3
+            case Player2StateType.knockBack3:
+                animator.SetTrigger("Trigger_knock3");
+                AnimetionEnd2P();
+                break;
         }
 
     }

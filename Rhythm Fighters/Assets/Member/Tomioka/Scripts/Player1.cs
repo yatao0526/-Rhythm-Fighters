@@ -69,11 +69,11 @@ public class Player1 : MonoBehaviour
     {
         Debug.Log("P1は" + p1StateType + "です");
         Player1Way();
-        if (this.transform.position == moveAfter)
-        {
-            SetTargetPosition();
-            DebugSetTargetPosition();
-        }
+        //if (this.transform.position == moveAfter)
+        //{
+        SetTargetPosition();
+        DebugSetTargetPosition();
+        //}
         if (p1StateType == Player1StateType.stand)
         {
             Move();
@@ -315,6 +315,24 @@ public class Player1 : MonoBehaviour
                 AnimetionEnd1P();
                 break;
 
+            //ノックバック1
+            case Player1StateType.knockBack1:
+                animator.SetTrigger("Trigger_knock1 ");
+                AnimetionEnd1P();
+                break;
+
+            //ノックバック2
+            case Player1StateType.knockBack2:
+                animator.SetTrigger("Trigger_knock2");
+                AnimetionEnd1P();
+                break;
+
+            //ノックバック3
+            case Player1StateType.knockBack3:
+                animator.SetTrigger("Trigger_knock3");
+                AnimetionEnd1P();
+                break;
+
         }
     }
 
@@ -323,6 +341,16 @@ public class Player1 : MonoBehaviour
     {
         p1StateType = Player1StateType.stand;
     }
+
+    //IEnumerator AttackAnimationFlow()
+    //{
+    //    Debug.Log("構え中");
+    //    animator.Play("Trigger_Pose");
+
+    //    //ステートの反映に1フレームいる
+    //    yield return null;
+    //    yield return new WaitForAnimation(animator, 0);
+    //}
 
     private void KnockBack1P()
     {
