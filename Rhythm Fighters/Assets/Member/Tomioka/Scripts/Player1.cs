@@ -13,11 +13,13 @@ public class Player1 : MonoBehaviour
     [SerializeField]
     private Vector3 minMove, maxMove;
 
-    // 移動時間
+    //移動時間
     [SerializeField]
     private float stepTime;
 
+    //プレイヤーの向き
     private float way1P = 0;
+    private bool wayRight1P;
 
     //移動後と移動前の場所
     private Vector3 moveAfter;
@@ -69,11 +71,11 @@ public class Player1 : MonoBehaviour
     {
         Debug.Log("P1は" + p1StateType + "です");
         Player1Way();
-        //if (this.transform.position == moveAfter)
-        //{
-        SetTargetPosition();
-        DebugSetTargetPosition();
-        //}
+        if (this.transform.position == moveAfter)
+        {
+            SetTargetPosition();
+            DebugSetTargetPosition();
+        }
         if (p1StateType == Player1StateType.stand)
         {
             Move();
@@ -90,13 +92,17 @@ public class Player1 : MonoBehaviour
     private void Player1Way()
     {
         float x = this.transform.position.x;
+        //右向き
         if (x < player2.transform.position.x)
         {
             way1P = 0;
+            wayRight1P = true;
         }
+        //左向き
         else if (player2.transform.position.x < x)
         {
             way1P = 180;
+            wayRight1P = false;
         }
         this.transform.rotation = new Quaternion(0f, way1P, 0f, 1f);
     }
@@ -116,12 +122,12 @@ public class Player1 : MonoBehaviour
             if (p1StateType == Player1StateType.stand)
             {
                 //左移動
-                if (Input.GetAxis("LeftRight") > 0.5f && this.transform.position.x < maxMove.x)
+                if (Input.GetAxis("LeftRight") > 0.5f && minMove.x < this.transform.position.x)
                 {
                     p1StateType = Player1StateType.leftMove;
                 }
                 //右移動
-                if (Input.GetAxis("LeftRight") < -0.5f && this.transform.position.x > minMove.x)
+                if (Input.GetAxis("LeftRight") < -0.5f && this.transform.position.x < maxMove.x)
                 {
                     p1StateType = Player1StateType.rightMove;
                 }
@@ -179,12 +185,12 @@ public class Player1 : MonoBehaviour
             if (p1StateType == Player1StateType.stand)
             {
                 //左移動
-                if (Input.GetKeyDown(KeyCode.A) && this.transform.position.x < maxMove.x)
+                if (Input.GetKeyDown(KeyCode.A) && minMove.x < this.transform.position.x)
                 {
                     p1StateType = Player1StateType.leftMove;
                 }
                 //右移動
-                if (Input.GetKeyDown(KeyCode.D) && this.transform.position.x > minMove.x)
+                if (Input.GetKeyDown(KeyCode.D) && this.transform.position.x < maxMove.x)
                 {
                     p1StateType = Player1StateType.rightMove;
                 }
@@ -318,18 +324,21 @@ public class Player1 : MonoBehaviour
             //ノックバック1
             case Player1StateType.knockBack1:
                 animator.SetTrigger("Trigger_knock1 ");
+                KnockBack1P();
                 AnimetionEnd1P();
                 break;
 
             //ノックバック2
             case Player1StateType.knockBack2:
                 animator.SetTrigger("Trigger_knock2");
+                KnockBack1P();
                 AnimetionEnd1P();
                 break;
 
             //ノックバック3
             case Player1StateType.knockBack3:
                 animator.SetTrigger("Trigger_knock3");
+                KnockBack1P();
                 AnimetionEnd1P();
                 break;
 
@@ -342,19 +351,21 @@ public class Player1 : MonoBehaviour
         p1StateType = Player1StateType.stand;
     }
 
-    //IEnumerator AttackAnimationFlow()
-    //{
-    //    Debug.Log("構え中");
-    //    animator.Play("Trigger_Pose");
-
-    //    //ステートの反映に1フレームいる
-    //    yield return null;
-    //    yield return new WaitForAnimation(animator, 0);
-    //}
-
+    //攻撃受けた時の下がる挙動
     private void KnockBack1P()
     {
-
+        //右向き
+        if (wayRight1P == true && minMove.x < this.transform.position.x)
+        {
+            moveAfter = transform.position - moveX;
+            Debug.Log("1Pは左に下がる");
+        }
+        //左向き
+        if (wayRight1P == false && this.transform.position.x < maxMove.x)
+        {
+            moveAfter = transform.position + moveX;
+            Debug.Log("1Pは右に下がる");
+        }
     }
 
     //打消しモードないでのプレイヤーの挙動

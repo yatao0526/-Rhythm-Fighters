@@ -13,11 +13,13 @@ public class Player2 : MonoBehaviour
     [SerializeField]
     private Vector3 minMove, maxMove;
 
-    // 移動時間
+    //移動時間
     [SerializeField]
     private float stepTime;
 
+    //プレイヤーの向き
     private float way2P = 0;
+    private bool wayLeft2P;
 
     //移動後と移動前の場所
     private Vector3 moveAfter;
@@ -69,11 +71,11 @@ public class Player2 : MonoBehaviour
     {
         Debug.Log("P2は" + p2StateType + "です");
         Player2Way();
-        if (this.transform.position == moveAfter)
-        {
+        //if (this.transform.position == moveAfter)
+        //{
             SetTargetPosition();
             DebugSetTargetPosition();
-        }
+        //}
         if (p2StateType == Player2StateType.stand)
         {
             Move();
@@ -90,13 +92,17 @@ public class Player2 : MonoBehaviour
     private void Player2Way()
     {
         float x = this.transform.position.x;
-        if (this.transform.position.x < player1.transform.position.x)
+        //右向き
+        if (x < player1.transform.position.x)
         {
             way2P = 0;
+            wayLeft2P = false;
         }
+        //左向き
         else if (player1.transform.position.x < this.transform.position.x)
         {
             way2P = 180;
+            wayLeft2P = true;
         }
         this.transform.rotation = new Quaternion(0f, way2P, 0f, 1f);
     }
@@ -114,12 +120,12 @@ public class Player2 : MonoBehaviour
             if (p2StateType == Player2StateType.stand)
             {
                 //左移動
-                if (Input.GetAxis("2PLeftRight") > 0.5f && this.transform.position.x < maxMove.x)
+                if (Input.GetAxis("2PLeftRight") > 0.5f && minMove.x < this.transform.position.x)
                 {
                     p2StateType = Player2StateType.leftMove;
                 }
                 //右移動
-                if (Input.GetAxis("2PLeftRight") < -0.5f && this.transform.position.x > minMove.x)
+                if (Input.GetAxis("2PLeftRight") < -0.5f && this.transform.position.x < maxMove.x)
                 {
                     p2StateType = Player2StateType.rightMove;
                 }
@@ -177,12 +183,12 @@ public class Player2 : MonoBehaviour
             if (p2StateType == Player2StateType.stand)
             {
                 //左移動
-                if (Input.GetKeyDown(KeyCode.LeftArrow) && this.transform.position.x < maxMove.x)
+                if (Input.GetKeyDown(KeyCode.LeftArrow) && minMove.x < this.transform.position.x)
                 {
                     p2StateType = Player2StateType.leftMove;
                 }
                 //右移動
-                if (Input.GetKeyDown(KeyCode.RightArrow) && this.transform.position.x > minMove.x)
+                if (Input.GetKeyDown(KeyCode.RightArrow) && this.transform.position.x < maxMove.x)
                 {
                     p2StateType = Player2StateType.rightMove;
                 }
@@ -336,9 +342,21 @@ public class Player2 : MonoBehaviour
         p2StateType = Player2StateType.stand;
     }
 
+    //攻撃受けた時の下がる挙動
     private void KnockBack2P()
     {
-
+        //右向き
+        if (wayLeft2P == false && minMove.x < this.transform.position.x)
+        {
+            moveAfter = transform.position - moveX;
+            Debug.Log("2Pは左に下がる");
+        }
+        //左向き
+        if (wayLeft2P == true && this.transform.position.x < maxMove.x)
+        {
+            moveAfter = transform.position + moveX;
+            Debug.Log("2Pは右に下がる");
+        }
     }
 
     //打消しモード
