@@ -318,18 +318,21 @@ public class Player2 : MonoBehaviour
             //ノックバック1
             case Player2StateType.knockBack1:
                 animator.SetTrigger("Trigger_knock1 ");
+                KnockBack2P();
                 AnimetionEnd2P();
                 break;
 
             //ノックバック2
             case Player2StateType.knockBack2:
                 animator.SetTrigger("Trigger_knock2");
+                KnockBack2P();
                 AnimetionEnd2P();
                 break;
 
             //ノックバック3
             case Player2StateType.knockBack3:
                 animator.SetTrigger("Trigger_knock3");
+                KnockBack2P();
                 AnimetionEnd2P();
                 break;
         }
