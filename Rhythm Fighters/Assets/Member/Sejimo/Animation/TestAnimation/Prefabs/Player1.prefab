@@ -41,7 +41,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160842231813483711}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -147,7 +147,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 799850433473262981}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -362,7 +362,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7245055770899959673}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -468,7 +468,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8134195262302499226}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -544,9 +544,9 @@ GameObject:
   - component: {fileID: 8134195264264536983}
   - component: {fileID: 8134195264264536982}
   - component: {fileID: 8134195264264536980}
+  - component: {fileID: 1029316521915715640}
   - component: {fileID: 8134195264264536981}
   - component: {fileID: 8134195264264537002}
-  - component: {fileID: 8134195264264537003}
   - component: {fileID: 8134195264264537000}
   m_Layer: 0
   m_Name: Player1
@@ -643,6 +643,18 @@ MonoBehaviour:
   effectscript: {fileID: 0}
   player2: {fileID: 0}
   negationMode: {fileID: 0}
+--- !u!114 &1029316521915715640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8134195264264536977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da26f5ab709a533448c78609856a8dcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!111 &8134195264264536981
 Animation:
   m_ObjectHideFlags: 0
@@ -677,18 +689,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8134195264264537003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8134195264264536977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da26f5ab709a533448c78609856a8dcb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &8134195264264537000
 BoxCollider2D:
   m_ObjectHideFlags: 0
