@@ -17,6 +17,8 @@ public class Player1 : MonoBehaviour
     [SerializeField]
     private float stepTime;
 
+    private int poseCount = 0;
+
     //プレイヤーの向き
     private float way1P = 0;
     private bool wayRight1P;
@@ -287,6 +289,7 @@ public class Player1 : MonoBehaviour
             case Player1StateType.pose:
                 animator.SetTrigger("Trigger_Pose");
                 effectscript.PoseFx();
+                Pose1P();
                 Debug.Log("構え");
                 break;
 
@@ -323,7 +326,7 @@ public class Player1 : MonoBehaviour
 
             //ノックバック1
             case Player1StateType.knockBack1:
-                animator.SetTrigger("Trigger_knock1 ");
+                animator.SetTrigger("Trigger_knock1");
                 KnockBack1P();
                 AnimetionEnd1P();
                 break;
@@ -349,6 +352,15 @@ public class Player1 : MonoBehaviour
     private void AnimetionEnd1P()
     {
         p1StateType = Player1StateType.stand;
+    }
+
+    private void Pose1P()
+    {
+        poseCount++;
+        if (poseCount % 2 == 0)
+        {
+            AnimetionEnd1P();
+        }
     }
 
     //攻撃受けた時の下がる挙動

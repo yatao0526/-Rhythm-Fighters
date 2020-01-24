@@ -21,6 +21,8 @@ public class Player2 : MonoBehaviour
     private float way2P = 0;
     private bool wayLeft2P;
 
+    private int poseCount = 0;
+
     //移動後と移動前の場所
     private Vector3 moveAfter;
     private Vector3 moveBeforePos;
@@ -282,7 +284,7 @@ public class Player2 : MonoBehaviour
             case Player2StateType.pose:
                 animator.SetTrigger("Trigger_Pose");
                 Debug.Log("構え");
-                AnimetionEnd2P();
+                Pose2P();
                 break;
 
             //スキル1
@@ -343,6 +345,15 @@ public class Player2 : MonoBehaviour
     private void AnimetionEnd2P()
     {
         p2StateType = Player2StateType.stand;
+    }
+
+    private void Pose2P()
+    {
+        poseCount++;
+        if (poseCount % 2 == 0)
+        {
+            AnimetionEnd2P();
+        }
     }
 
     //攻撃受けた時の下がる挙動
