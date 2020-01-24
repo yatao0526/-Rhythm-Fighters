@@ -449,7 +449,7 @@ MonoBehaviour:
   maxMove: {x: 5.5, y: 0, z: 0}
   stepTime: 2
   playercol: {fileID: 5130144251982593201}
-  effectscript: {fileID: 0}
+  effectscript: {fileID: 8164901929413176929}
   player1: {fileID: 0}
   negationMode: {fileID: 0}
 --- !u!114 &9211456089613546053
