@@ -171,7 +171,6 @@ public class CharacterSelectPlayersController : MonoBehaviour
         }
     }
     //誰か先に選択おしたか
-
     private void PlayerSelectionMove()
     {
 
@@ -334,14 +333,7 @@ public class CharacterSelectPlayersController : MonoBehaviour
         //データを他のスクリプト出す処理
     }
 }
-
-
 //キャラクター　
 //顔向き
 //ステージイメージ表す；
 //選択開始
-
-
-
-
-
