@@ -208,6 +208,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 79989070}
   m_CullTransparentMesh: 0
+--- !u!114 &171679994 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 880999975077702932, guid: a22cda4c4fc713d48b904be897d205eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1671151980}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bcac4e204deb264f88e7bb6fc4024ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &303369974
 GameObject:
   m_ObjectHideFlags: 0
@@ -623,8 +635,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6193797408772358688, guid: 093bb28f8ae8ae2499d01040de20c2b1,
+        type: 3}
+      propertyPath: player1
+      value: 
+      objectReference: {fileID: 1451528071}
+    - target: {fileID: 6193797408772358688, guid: 093bb28f8ae8ae2499d01040de20c2b1,
+        type: 3}
+      propertyPath: negationMode
+      value: 
+      objectReference: {fileID: 1008321461}
+    - target: {fileID: 276346436527859496, guid: 093bb28f8ae8ae2499d01040de20c2b1,
+        type: 3}
+      propertyPath: negationMode
+      value: 
+      objectReference: {fileID: 1008321461}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 093bb28f8ae8ae2499d01040de20c2b1, type: 3}
+--- !u!1 &649983759 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2672532970224189875, guid: 093bb28f8ae8ae2499d01040de20c2b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 590903798}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &649983765 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6193797408772358688, guid: 093bb28f8ae8ae2499d01040de20c2b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 590903798}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649983759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a54dfd4fc9528ab4f84579c849ce2b2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &692300882
 GameObject:
   m_ObjectHideFlags: 0
@@ -1263,8 +1308,8 @@ MonoBehaviour:
   timeOut: 0.75
   text: {fileID: 1838891660}
   negationMode: {fileID: 1008321461}
-  player1: {fileID: 0}
-  player2: {fileID: 0}
+  player1: {fileID: 1451528078}
+  player2: {fileID: 649983765}
   buton: {fileID: 1634307624}
   buttonImage:
   - {fileID: 21300000, guid: d1c6d6a8adac1b342967c640a44c1ca8, type: 3}
@@ -1711,6 +1756,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8e5f99bd6b40d34fbaf6489ba4f081a, type: 3}
+--- !u!1 &1451528071 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 553289230974430833, guid: a22cda4c4fc713d48b904be897d205eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1671151980}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1451528078 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 553289230974430836, guid: a22cda4c4fc713d48b904be897d205eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1671151980}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451528071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aded754690164484489fbc35ce9f5a0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1469736750
 GameObject:
   m_ObjectHideFlags: 0
@@ -2157,6 +2220,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 553289230974430836, guid: a22cda4c4fc713d48b904be897d205eb,
+        type: 3}
+      propertyPath: player2
+      value: 
+      objectReference: {fileID: 649983759}
+    - target: {fileID: 553289230974430836, guid: a22cda4c4fc713d48b904be897d205eb,
+        type: 3}
+      propertyPath: negationMode
+      value: 
+      objectReference: {fileID: 1008321461}
+    - target: {fileID: 553289230974430836, guid: a22cda4c4fc713d48b904be897d205eb,
+        type: 3}
+      propertyPath: playercol
+      value: 
+      objectReference: {fileID: 171679994}
+    - target: {fileID: 7134426411411357758, guid: a22cda4c4fc713d48b904be897d205eb,
+        type: 3}
+      propertyPath: negationMode
+      value: 
+      objectReference: {fileID: 1008321461}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a22cda4c4fc713d48b904be897d205eb, type: 3}
 --- !u!1 &1738660833
