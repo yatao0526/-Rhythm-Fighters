@@ -350,7 +350,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4886441187341783158}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3, y: -1, z: 73.047646}
+  m_LocalPosition: {x: -3, y: -1, z: 70}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4886441186619548284}
@@ -422,8 +422,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveX: {x: 2, y: 0, z: 0}
-  minMove: {x: -5, y: 0, z: 0}
-  maxMove: {x: 5, y: 0, z: 0}
+  minMove: {x: -12, y: 0, z: 0}
+  maxMove: {x: 12, y: 0, z: 0}
   stepTime: 2
   playercol: {fileID: 5207424569651860243}
   effectscript: {fileID: 7745360236013462480}
