@@ -6,39 +6,38 @@ using UnityEngine.SceneManagement;
 
 public class CharacterSelectPlayersController : MonoBehaviour
 {
+    GameObject Common1;
+    GameObject Common2;
+
+
 
     // charNum_1　   charNum_2プレイヤーが選択しているキャラクター, stageNum選択するステージ
-    [SerializeField]
-    private int charNum_1 = 0, charNum_2 = 5, charNumMAX = 6, stageMoves = 0, stageNumMAX = 3;
+    [SerializeField] private int charNum_1 = 0, charNum_2 = 5, charNumMAX = 6, stageMoves = 0, stageNumMAX = 3;
     public int stageNum = 1;
-    [SerializeField]
-    private float gradientColourMoveSpeet = 0.5f;
+    [SerializeField] private float gradientColourMoveSpeet = 0.5f;
     //キャラクター達
-    [SerializeField]
-    private GameObject[] characters = new GameObject[6];
-    [SerializeField]
-    private GameObject[] backgroundGameObjects = new GameObject[3];
+    [SerializeField] private GameObject[] characters = new GameObject[6];
+    [SerializeField] private GameObject[] backgroundGameObjects = new GameObject[3];
     //今だれか何か選択してる　赤い 青い//Backgroundは背景,
-    [SerializeField]
-    private GameObject arrow1, arrow2, Background;
+    [SerializeField] private GameObject arrow1, arrow2, Background;
     //player1PCharacter　player2PCharacter　　キャラクターの選択が終わったか　isPlayer1　プレイヤー１先に選択終わったか　isStageController今ステージの選択すべきか
-    [SerializeField]
-    private bool player1PCharacter = false, player2PCharacter = false, isPlayerSelection = false, isPlayer1 = false, isStageController = false;
+    [SerializeField] private bool player1PCharacter = false, player2PCharacter = false, isPlayerSelection = false, isPlayer1 = false, isStageController = false;
     //選択したキャラクター
     //プレイヤーのアイコン　赤い　青い
-    [SerializeField]
-    private GameObject player1_Icon, player2_Icon;
+    [SerializeField] private GameObject player1_Icon, player2_Icon;
     // [SerializeField] private Image player1_Icon, player2_Icon;
     //キャラクター画像//背景画像
     //　選択できる　キャラクターと背景の画像
-    [SerializeField]
-    private Sprite[] player_Icons = new Sprite[6], playerCharacterAffirmations = new Sprite[6], playerCharacters = new Sprite[6], Backgrounds = new Sprite[3];
+    [SerializeField] private Sprite[] player_Icons = new Sprite[6], playerCharacterAffirmations = new Sprite[6], playerCharacters = new Sprite[6], Backgrounds = new Sprite[3];
     //選択の結果
-    [SerializeField]
-    private string player1PCharacterName, player2PCharacterName, stageName;
+    [SerializeField] private string player1PCharacterName, player2PCharacterName, stageName;
     // Start is called before the first frame update
     private void Start()
     {
+
+        Common1 = GameObject.Find("Player1_common");
+        Common2 = GameObject.Find("Player2_common");
+
         charNum_1 = charNum_1 % charNumMAX;
         arrow1.transform.position = new Vector3(characters[charNum_1].transform.position.x, 760, 0);
         player1_Icon.GetComponent<Image>().sprite = player_Icons[charNum_1];
@@ -91,7 +90,7 @@ public class CharacterSelectPlayersController : MonoBehaviour
         if (arrow1 != null)
         {
             player1_Icon.GetComponent<Image>().sprite = player_Icons[charNum_1];
-            arrow1.transform.position = new Vector3(characters[charNum_1].transform.position.x, 760, 0);
+            arrow1.transform.position = new Vector3(characters[charNum_1].transform.position.x, 540, 0);//760>540
         }
 
         if (Input.GetKeyDown(KeyCode.E) && !player1PCharacter && !isPlayerSelection)
@@ -106,12 +105,12 @@ public class CharacterSelectPlayersController : MonoBehaviour
 
         if (player1PCharacter)
         {
-            characters[charNum_1].GetComponent<Image>().color = new Color(255.0f / 255.0f, 8 / 255.0f, 0 / 255.0f, 255 / 255.0f);
+            //characters[charNum_1].GetComponent<Image>().color = new Color(255.0f / 255.0f, 8 / 255.0f, 0 / 255.0f, 255 / 255.0f);
             characters[charNum_1].GetComponent<Image>().sprite = playerCharacterAffirmations[charNum_1];
         } //選択した表示
         else
         {
-            characters[charNum_1].GetComponent<Image>().color = new Color(255.0f / 255.0f, 8 / 255.0f, 0 / 255.0f, 130 / 255.0f);
+            //characters[charNum_1].GetComponent<Image>().color = new Color(255.0f / 255.0f, 8 / 255.0f, 0 / 255.0f, 130 / 255.0f);
             characters[charNum_1].GetComponent<Image>().sprite = playerCharacterAffirmations[charNum_1];
         }
     }
@@ -131,6 +130,7 @@ public class CharacterSelectPlayersController : MonoBehaviour
             {
                 charNum_2 = charNumMAX - 1;
             }
+            
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow) && !player2PCharacter && !isPlayerSelection)
         {
@@ -142,11 +142,12 @@ public class CharacterSelectPlayersController : MonoBehaviour
             {
                 charNum_2++;
             }
+
         }
         charNum_2 = charNum_2 % charNumMAX;
         if (arrow2 != null)
         {
-            arrow2.transform.position = new Vector3(characters[charNum_2].transform.position.x, 760, 0);
+            arrow2.transform.position = new Vector3(characters[charNum_2].transform.position.x, 540, 0);//760>540
             player2_Icon.GetComponent<Image>().sprite = player_Icons[charNum_2];
         }
 
@@ -160,23 +161,23 @@ public class CharacterSelectPlayersController : MonoBehaviour
         {
             player2PCharacter = false;
         }
-        if (player2PCharacter)
-        {
+        if (player2PCharacter) {
             characters[charNum_2].GetComponent<Image>().sprite = playerCharacterAffirmations[charNum_2];
-            characters[charNum_2].GetComponent<Image>().color = new Color(0 / 255.0f, 62 / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f);
+            //characters[charNum_2].GetComponent<Image>().color = new Color(0 / 255.0f, 62 / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f); 
         }
-        else
-        {
+        else {
             characters[charNum_2].GetComponent<Image>().sprite = playerCharacterAffirmations[charNum_2];
-            characters[charNum_2].GetComponent<Image>().color = new Color(0 / 255.0f, 62 / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f);
+            //characters[charNum_2].GetComponent<Image>().color = new Color(0 / 255.0f, 62 / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f); 
         }
     }
     //誰か先に選択おしたか
 
     private void PlayerSelectionMove()
     {
+
         if (!player2PCharacter || !player1PCharacter)
         {
+
             if (player1PCharacter)
             {
                 isPlayer1 = true;
@@ -185,6 +186,7 @@ public class CharacterSelectPlayersController : MonoBehaviour
             {
                 isPlayer1 = false;
             }
+
         }
         PlayerSelection();
     }
@@ -202,6 +204,9 @@ public class CharacterSelectPlayersController : MonoBehaviour
     //選択されてなかったキャラクター消す
     private void CharactersGradientColour()
     {
+
+        Common1.gameObject.SetActive(false);
+        Common2.gameObject.SetActive(false);
         //  Debug.Log("CharactersGradientColour");
         for (int charactersSprite = 0; charactersSprite < 6; charactersSprite++)
         {
@@ -221,7 +226,8 @@ public class CharacterSelectPlayersController : MonoBehaviour
             player1_Icon.GetComponent<ImageGradientColour>().isGradientColourMove = true;
             player2_Icon.GetComponent<ImageGradientColour>().gradientColourMoveSpeet = gradientColourMoveSpeet - 0.1f;
             player2_Icon.GetComponent<ImageGradientColour>().isGradientColourMove = true;
-            
+
+
             CardsPosXMove();
         }
     }//選択されたキャラクター各場所に転移
@@ -254,6 +260,7 @@ public class CharacterSelectPlayersController : MonoBehaviour
     //ステージ選択入力
     private void PlayersStageController()
     {
+
         if (isStageController && isPlayer1)
         {
             if (Input.GetKeyDown(KeyCode.A))
@@ -328,7 +335,13 @@ public class CharacterSelectPlayersController : MonoBehaviour
     }
 }
 
+
 //キャラクター　
 //顔向き
 //ステージイメージ表す；
 //選択開始
+
+
+
+
+
