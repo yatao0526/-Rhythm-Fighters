@@ -2,8 +2,8 @@ Main Camera のProjectionを　Perspective に変更
 Field of View を初期１０　最大１８に
 
 Playerの初期位置は-2と２（X軸）
-position(z)=40
-最大－１０に引くことが出来る（一マスは２）
+position(z)=70
+最大－１2に引くことが出来る（一マスは２）
 
 sky_domeの詳細設定
 Position Z=200
