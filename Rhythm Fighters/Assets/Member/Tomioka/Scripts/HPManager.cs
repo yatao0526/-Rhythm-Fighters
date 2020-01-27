@@ -42,7 +42,7 @@ public class HPManager : MonoBehaviour
             {
                 clearCheck = true;
             }
-            SceneManager.LoadScene("Result");
+            Invoke("ResultSceneMove",2.0f);
         }
         HP();
     }
@@ -52,5 +52,10 @@ public class HPManager : MonoBehaviour
     {
         HP1PBar.fillAmount = player1HP / playerMaxHP;
         HP2PBar.fillAmount = player2HP / playerMaxHP;
+    }
+
+    private void ResultSceneMove()
+    {
+        SceneManager.LoadScene("Result");
     }
 }

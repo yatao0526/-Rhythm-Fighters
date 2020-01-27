@@ -43,7 +43,7 @@ BoxCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.25438428, y: 0.050877094}
@@ -137,7 +137,7 @@ BoxCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.25438428, y: 0.050877094}
@@ -435,9 +435,9 @@ MonoBehaviour:
   minMove: {x: -12, y: 0, z: 0}
   maxMove: {x: 12, y: 0, z: 0}
   stepTime: 2
-  playercolLP: {fileID: 0}
-  playercolHP: {fileID: 0}
-  playercolS2: {fileID: 0}
+  playercolLP: {fileID: 5841535074087467796}
+  playercolHP: {fileID: 3890658270909131991}
+  playercolS2: {fileID: 1983065860059027373}
   effectscript: {fileID: 8164901929413176929}
   player1: {fileID: 0}
   negationMode: {fileID: 0}
@@ -570,7 +570,7 @@ BoxCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.25438428, y: 0.050877094}
@@ -834,7 +834,7 @@ BoxCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.25438428, y: 0.050877094}
