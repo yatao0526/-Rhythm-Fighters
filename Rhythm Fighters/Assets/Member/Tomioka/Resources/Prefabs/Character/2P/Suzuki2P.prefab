@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 9006543458307377759}
   - component: {fileID: 2229681265668871818}
   - component: {fileID: 6463373720234799887}
-  - component: {fileID: 1205333925730518000}
   m_Layer: 0
   m_Name: Player_Skill1Col
   m_TagString: Skill1
@@ -94,18 +93,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1205333925730518000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1094299613616275035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bcac4e204deb264f88e7bb6fc4024ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1221520162734455543
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,7 +105,7 @@ GameObject:
   - component: {fileID: 2426053031738907539}
   - component: {fileID: 8890153711128152121}
   - component: {fileID: 3864258008095180344}
-  - component: {fileID: 5105939083061893349}
+  - component: {fileID: 3890658270909131991}
   m_Layer: 0
   m_Name: Player_HCol
   m_TagString: HeavyPunch
@@ -200,7 +187,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5105939083061893349
+--- !u!114 &3890658270909131991
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -209,7 +196,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1221520162734455543}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bcac4e204deb264f88e7bb6fc4024ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c35af48bd08e4d48bf55593aa8de220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1346776659779164952
@@ -448,7 +435,9 @@ MonoBehaviour:
   minMove: {x: -12, y: 0, z: 0}
   maxMove: {x: 12, y: 0, z: 0}
   stepTime: 2
-  playercol: {fileID: 5130144251982593201}
+  playercolLP: {fileID: 0}
+  playercolHP: {fileID: 0}
+  playercolS2: {fileID: 0}
   effectscript: {fileID: 8164901929413176929}
   player1: {fileID: 0}
   negationMode: {fileID: 0}
@@ -549,7 +538,7 @@ GameObject:
   - component: {fileID: 8048913796826764401}
   - component: {fileID: 2585223832299294852}
   - component: {fileID: 6574666289507819038}
-  - component: {fileID: 6136238768440511205}
+  - component: {fileID: 1983065860059027373}
   m_Layer: 0
   m_Name: Player_Skill2Col
   m_TagString: Skill2
@@ -631,7 +620,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6136238768440511205
+--- !u!114 &1983065860059027373
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -640,7 +629,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3713377327015886727}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bcac4e204deb264f88e7bb6fc4024ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 1eeebac54dd2e314dbaa6516d31dd6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6193797407494643118
@@ -813,7 +802,7 @@ GameObject:
   - component: {fileID: 1673731412820811264}
   - component: {fileID: 6024155749523693248}
   - component: {fileID: 1641219109299152672}
-  - component: {fileID: 5130144251982593201}
+  - component: {fileID: 5841535074087467796}
   m_Layer: 0
   m_Name: Player_LCol
   m_TagString: LightPunch
@@ -895,7 +884,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5130144251982593201
+--- !u!114 &5841535074087467796
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -904,6 +893,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8689100407435142888}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bcac4e204deb264f88e7bb6fc4024ca, type: 3}
+  m_Script: {fileID: 11500000, guid: fd34825052c77a04f9480b1cd614ef4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

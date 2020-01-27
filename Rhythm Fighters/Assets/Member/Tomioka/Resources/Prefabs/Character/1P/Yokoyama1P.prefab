@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6843147782801430834}
   - component: {fileID: 4615185635564546584}
   - component: {fileID: 4812440239009568937}
-  - component: {fileID: 5207424569651860243}
+  - component: {fileID: 8592263973995606397}
   m_Layer: 0
   m_Name: Player_HCol
   m_TagString: HeavyPunch
@@ -94,7 +94,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5207424569651860243
+--- !u!114 &8592263973995606397
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3533419190618750808}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bcac4e204deb264f88e7bb6fc4024ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c35af48bd08e4d48bf55593aa8de220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4047597638556771938
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 8874819385306910953}
   - component: {fileID: 7456094685307576740}
   - component: {fileID: 3647584723453311541}
-  - component: {fileID: 3756483161094362169}
+  - component: {fileID: 2068595359538824973}
   m_Layer: 0
   m_Name: Player_Skill2Col
   m_TagString: Skill2
@@ -200,7 +200,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3756483161094362169
+--- !u!114 &2068595359538824973
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4047597638556771938}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bcac4e204deb264f88e7bb6fc4024ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 1eeebac54dd2e314dbaa6516d31dd6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4886441186619548285
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 4886441186619548281}
   - component: {fileID: 4886441186619548286}
   - component: {fileID: 4886441186619548287}
-  - component: {fileID: 616865246048410011}
+  - component: {fileID: 2889791978545165098}
   m_Layer: 0
   m_Name: Player_LCol
   m_TagString: LightPunch
@@ -306,7 +306,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &616865246048410011
+--- !u!114 &2889791978545165098
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -315,7 +315,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4886441186619548285}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bcac4e204deb264f88e7bb6fc4024ca, type: 3}
+  m_Script: {fileID: 11500000, guid: fd34825052c77a04f9480b1cd614ef4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4886441187341783158
@@ -425,7 +425,9 @@ MonoBehaviour:
   minMove: {x: -12, y: 0, z: 0}
   maxMove: {x: 12, y: 0, z: 0}
   stepTime: 2
-  playercol: {fileID: 5207424569651860243}
+  playercolLP: {fileID: 0}
+  playercolHP: {fileID: 0}
+  playercolS2: {fileID: 0}
   effectscript: {fileID: 7745360236013462480}
   player2: {fileID: 0}
   negationMode: {fileID: 0}
@@ -547,7 +549,6 @@ GameObject:
   - component: {fileID: 2016063684845658269}
   - component: {fileID: 5235814196534060145}
   - component: {fileID: 2013214929652722697}
-  - component: {fileID: 2160740031843648916}
   m_Layer: 0
   m_Name: Player_Skill1Col
   m_TagString: Skill1
@@ -629,18 +630,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2160740031843648916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6321308910487444638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bcac4e204deb264f88e7bb6fc4024ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &9079182296314690950
 GameObject:
   m_ObjectHideFlags: 0

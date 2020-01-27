@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4068587146913372719}
   - component: {fileID: 7115053708015651205}
   - component: {fileID: 3205734158513702788}
-  - component: {fileID: 6847270921498220889}
+  - component: {fileID: 520312683885102242}
   m_Layer: 0
   m_Name: Player_HCol
   m_TagString: HeavyPunch
@@ -94,7 +94,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6847270921498220889
+--- !u!114 &520312683885102242
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 661503619462396747}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bcac4e204deb264f88e7bb6fc4024ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c35af48bd08e4d48bf55593aa8de220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &823351863341472420
@@ -246,7 +246,6 @@ GameObject:
   - component: {fileID: 7286894130846026723}
   - component: {fileID: 517068814907217718}
   - component: {fileID: 4642947555079221939}
-  - component: {fileID: 677687038934663756}
   m_Layer: 0
   m_Name: Player_Skill1Col
   m_TagString: Skill1
@@ -328,18 +327,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &677687038934663756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1653436410272858087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bcac4e204deb264f88e7bb6fc4024ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3050349914320420411
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,7 +339,7 @@ GameObject:
   - component: {fileID: 8534013846181565901}
   - component: {fileID: 4196540613268705592}
   - component: {fileID: 4818988160722280354}
-  - component: {fileID: 5545576778809199449}
+  - component: {fileID: 7925521056553029415}
   m_Layer: 0
   m_Name: Player_Skill2Col
   m_TagString: Skill2
@@ -434,7 +421,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5545576778809199449
+--- !u!114 &7925521056553029415
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -443,7 +430,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3050349914320420411}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bcac4e204deb264f88e7bb6fc4024ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 1eeebac54dd2e314dbaa6516d31dd6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4380641823514214415
@@ -552,7 +539,9 @@ MonoBehaviour:
   minMove: {x: -12, y: 0, z: 0}
   maxMove: {x: 12, y: 0, z: 0}
   stepTime: 2
-  playercol: {fileID: 6839977247007079693}
+  playercolLP: {fileID: 206004011298008223}
+  playercolHP: {fileID: 520312683885102242}
+  playercolS2: {fileID: 7925521056553029415}
   effectscript: {fileID: 7535114948094046173}
   player1: {fileID: 0}
   negationMode: {fileID: 0}
@@ -653,7 +642,7 @@ GameObject:
   - component: {fileID: 1074070916757692348}
   - component: {fileID: 5352402436584628092}
   - component: {fileID: 1088564895884551836}
-  - component: {fileID: 6839977247007079693}
+  - component: {fileID: 206004011298008223}
   m_Layer: 0
   m_Name: Player_LCol
   m_TagString: LightPunch
@@ -735,7 +724,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6839977247007079693
+--- !u!114 &206004011298008223
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -744,6 +733,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7009983508956112724}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bcac4e204deb264f88e7bb6fc4024ca, type: 3}
+  m_Script: {fileID: 11500000, guid: fd34825052c77a04f9480b1cd614ef4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
