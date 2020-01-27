@@ -66,6 +66,7 @@ public class Player2 : MonoBehaviour
     }
 
     public static Player2StateType p2StateType = Player2StateType.stand;
+    public static Player2StateType p2BeforeState = Player2StateType.stand;
 
     void Start()
     {
@@ -355,6 +356,7 @@ public class Player2 : MonoBehaviour
     //プレイヤーの状態を立ちに戻す
     private void AnimetionEnd2P()
     {
+        p2BeforeState = p2StateType;
         p2StateType = Player2StateType.stand;
     }
 
