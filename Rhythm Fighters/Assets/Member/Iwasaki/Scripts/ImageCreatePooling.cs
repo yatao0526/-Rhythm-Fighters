@@ -18,7 +18,7 @@ public class ImageCreatePooling : MonoBehaviour
         for(int i = 0; i < maxCount; i++)
         {
             var newImg = CreateNewImageL();
-            newImg.enabled = false;
+            newImg.gameObject.SetActive(false);
             noteImagePoolL.Add(newImg);
         }
     }
@@ -26,14 +26,14 @@ public class ImageCreatePooling : MonoBehaviour
     {
         foreach(var img in noteImagePoolL)
         {
-            if(img.enabled == false)
+            if(img.gameObject.activeSelf == false)
             {
-                img.enabled = true;
+                img.gameObject.SetActive(true);
                 return img;
             }
         }
         var newImg = CreateNewImageL();
-        newImg.enabled = true;
+        gameObject.SetActive(true);
         noteImagePoolL.Add(newImg);
         return newImg;
     }
@@ -52,7 +52,7 @@ public class ImageCreatePooling : MonoBehaviour
         for (int i = 0; i < maxCount; i++)
         {
             var newImg = CreateNewImageR();
-            newImg.enabled = false;
+            newImg.gameObject.SetActive(false);
             noteImagePoolR.Add(newImg);
         }
     }
@@ -60,14 +60,14 @@ public class ImageCreatePooling : MonoBehaviour
     {
         foreach (var img in noteImagePoolL)
         {
-            if (img.enabled == false)
+            if (img.gameObject.activeSelf == false)
             {
-                img.enabled = true;
+                img.gameObject.SetActive(true);
                 return img;
             }
         }
         var newImg = CreateNewImageR();
-        newImg.enabled = true;
+        gameObject.SetActive(true);
         noteImagePoolL.Add(newImg);
         return newImg;
     }

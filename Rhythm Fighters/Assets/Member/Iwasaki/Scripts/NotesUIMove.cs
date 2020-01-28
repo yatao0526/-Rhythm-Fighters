@@ -11,7 +11,7 @@ public class NotesUIMove : MonoBehaviour
     }
     [SerializeField]
     private ThisUI thisUI;
-    private Vector3 vec3;
+    private Vector2 posR, posL;
     private Rigidbody2D rb2d;
     private RectTransform rectTransform;
 
@@ -19,6 +19,8 @@ public class NotesUIMove : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         rectTransform = this.GetComponent<RectTransform>();
+        posR = rectTransform.anchoredPosition;
+        posL = rectTransform.anchoredPosition;
     }
     private void Update()
     {
@@ -26,23 +28,24 @@ public class NotesUIMove : MonoBehaviour
     }
     void NoteUIMove()
     {
-        switch(thisUI)
+        switch (thisUI)
         {
             case ThisUI.RtoLNoteUI:
-                Vector2 posR = rectTransform.anchoredPosition;
-                posR.x -= transform.right.x * 10 * Time.deltaTime;
-                if (posR.x >= 0)
+                Debug.Log("case内呼ばれてる");
+                posR.x -= rectTransform.right.x * 10 * Time.deltaTime;
+                if (posR.x <= 0)
                 {
-                    this.transform.position = posR;
+                    Debug.Log("if内呼ばれてる");
+                    this.rectTransform.position = posR;
                     this.gameObject.SetActive(false);
                 }
                 break;
             case ThisUI.LtoRNoteUI:
-                Vector2 posL = rectTransform.anchoredPosition;
-                posL.x += transform.right.x * 10 * Time.deltaTime;
-                this.transform.position += transform.right * 10 * Time.deltaTime;
-                if (posL.x <= 0)
+                Debug.Log("case内呼ばれてる");
+                posL.x += rectTransform.right.x * 10 * Time.deltaTime;
+                if (posL.x >= 0)
                 {
+                    Debug.Log("if内呼ばれてる");
                     this.transform.position = posL;
                     this.gameObject.SetActive(false);
                 }

@@ -47,8 +47,7 @@ public class NotesController : MonoBehaviour
                 if (this.gameObject.transform.position.x <= -1)
                 {
                     this.transform.position = pos;
-
-                    this.gameObject.SetActive(false);
+                    //this.gameObject.SetActive(false);
                 }
                 break;
             //左から流れるノーツの処理
@@ -58,7 +57,7 @@ public class NotesController : MonoBehaviour
                 if (this.gameObject.transform.position.x >= 1)
                 {
                     this.transform.position = pos;
-                    this.gameObject.SetActive(false);
+                    //this.gameObject.SetActive(false);
                 }
                 break;
         }
