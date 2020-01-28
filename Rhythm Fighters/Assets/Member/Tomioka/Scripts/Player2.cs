@@ -332,7 +332,7 @@ public class Player2 : MonoBehaviour
 
             //ノックバック1
             case Player2StateType.knockBack1:
-                animator.SetTrigger("Trigger_knock1 ");
+                animator.SetTrigger("Trigger_knock1");
                 KnockBack2P();
                 AnimetionEnd2P();
                 break;

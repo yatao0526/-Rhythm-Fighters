@@ -16,8 +16,11 @@ public class NegationManager : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         Negation();
-        if (col.tag != "Player1" && col.tag != "Player2" && col.tag != "Note")
+        //if (col.tag != "Player1" && col.tag != "Player2" && col.tag != "Note")
+        //{
+        if (col.tag == "LightPunch" || col.tag == "HeavyPunch" || col.tag == "Skill2")
         {
+            Debug.Log(col.tag);
             GameController.modeType = GameController.ModeType.negationMode;
             Debug.Log("1Pは" + negationStr1P + "で打消し開始");
             Debug.Log("2Pは" + negationStr2P + "で打消し開始");
