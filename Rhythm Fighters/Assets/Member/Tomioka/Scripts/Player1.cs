@@ -17,6 +17,8 @@ public class Player1 : MonoBehaviour
     [SerializeField]
     private float stepTime;
 
+    private int poseCount = 0;
+
     //プレイヤーの向き
     private float way1P = 0;
     private bool wayRight1P;
@@ -27,7 +29,12 @@ public class Player1 : MonoBehaviour
 
     //当たり判定用
     [SerializeField]
-    private PlayerCol playercol;
+    private PlayerColLP playercolLP;
+    [SerializeField]
+    private PlayerColHP playercolHP;
+    [SerializeField]
+    private PlayerColSkill2 playercolS2;
+
     [SerializeField]
     private EffectScript effectscript;
 
@@ -59,6 +66,7 @@ public class Player1 : MonoBehaviour
     }
 
     public static Player1StateType p1StateType = Player1StateType.stand;
+    public static Player1StateType p1BeforeState = Player1StateType.stand;
 
     void Start()
     {
@@ -268,7 +276,7 @@ public class Player1 : MonoBehaviour
             //弱攻撃
             case Player1StateType.lightPunch:
                 animator.SetTrigger("Trigger_LP");
-                playercol.LPCol();
+                playercolLP.LPCol();
                 effectscript.LpFx();
                 Debug.Log("弱攻撃呼ばれた");
                 AnimetionEnd1P();
@@ -277,7 +285,7 @@ public class Player1 : MonoBehaviour
             //強攻撃
             case Player1StateType.heavyPunch:
                 animator.SetTrigger("Trigger_HP");
-                playercol.HPCol();
+                playercolHP.HPCol();
                 effectscript.HpFx();
                 Debug.Log("強攻撃呼ばれた");
                 AnimetionEnd1P();
@@ -287,6 +295,7 @@ public class Player1 : MonoBehaviour
             case Player1StateType.pose:
                 animator.SetTrigger("Trigger_Pose");
                 effectscript.PoseFx();
+                Pose1P();
                 Debug.Log("構え");
                 break;
 
@@ -300,7 +309,7 @@ public class Player1 : MonoBehaviour
             case Player1StateType.skill2:
                 Debug.Log("スキル2");
                 animator.SetTrigger("Trigger_S2");
-                playercol.S2Col();
+                playercolS2.S2Col();
                 effectscript.S2Fx();
                 AnimetionEnd1P();
                 break;
@@ -323,7 +332,7 @@ public class Player1 : MonoBehaviour
 
             //ノックバック1
             case Player1StateType.knockBack1:
-                animator.SetTrigger("Trigger_knock1 ");
+                animator.SetTrigger("Trigger_knock1");
                 KnockBack1P();
                 AnimetionEnd1P();
                 break;
@@ -341,14 +350,23 @@ public class Player1 : MonoBehaviour
                 KnockBack1P();
                 AnimetionEnd1P();
                 break;
-
         }
     }
 
     //プレイヤーの状態を立ちに戻す
     private void AnimetionEnd1P()
     {
+        p1BeforeState = p1StateType;
         p1StateType = Player1StateType.stand;
+    }
+
+    private void Pose1P()
+    {
+        poseCount++;
+        if (poseCount % 2 == 0)
+        {
+            AnimetionEnd1P();
+        }
     }
 
     //攻撃受けた時の下がる挙動

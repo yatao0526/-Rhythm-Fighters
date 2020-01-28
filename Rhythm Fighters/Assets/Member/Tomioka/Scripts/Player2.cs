@@ -21,13 +21,20 @@ public class Player2 : MonoBehaviour
     private float way2P = 0;
     private bool wayLeft2P;
 
+    private int poseCount = 0;
+
     //移動後と移動前の場所
     private Vector3 moveAfter;
     private Vector3 moveBeforePos;
 
     //当たり判定用
     [SerializeField]
-    private PlayerCol playercol;
+    private PlayerColLP playercolLP;
+    [SerializeField]
+    private PlayerColHP playercolHP;
+    [SerializeField]
+    private PlayerColSkill2 playercolS2;
+
     [SerializeField]
     private EffectScript effectscript;
 
@@ -59,6 +66,7 @@ public class Player2 : MonoBehaviour
     }
 
     public static Player2StateType p2StateType = Player2StateType.stand;
+    public static Player2StateType p2BeforeState = Player2StateType.stand;
 
     void Start()
     {
@@ -73,8 +81,8 @@ public class Player2 : MonoBehaviour
         Player2Way();
         //if (this.transform.position == moveAfter)
         //{
-            SetTargetPosition();
-            DebugSetTargetPosition();
+        SetTargetPosition();
+        DebugSetTargetPosition();
         //}
         if (p2StateType == Player2StateType.stand)
         {
@@ -110,10 +118,12 @@ public class Player2 : MonoBehaviour
     //プレイヤーの操作番号
     private void SetTargetPosition()
     {
+        //ここは打消しモードのみで判定される
         NegationFunction();
 
         moveBeforePos = moveAfter;
 
+        //ここは通常モードのみで判定される
         if (NotesController.judge)
         {
             //stand中はこっちのみ
@@ -160,12 +170,12 @@ public class Player2 : MonoBehaviour
                     p2StateType = Player2StateType.skill2;
                 }
             }
-            else if (NotesController.judge == false)
+        }
+        else if (NotesController.judge == false)
+        {
+            if (Input.GetAxis("2PLeftRight") != 0 || Input.GetAxis("2PDown") != 0 || Input.GetButtonDown("2PMaru") || Input.GetButtonDown("2PBatu"))
             {
-                if (Input.GetAxis("2PLeftRight") != 0 || Input.GetAxis("2PDown") != 0 || Input.GetButtonDown("2PMaru") || Input.GetButtonDown("2PBatu"))
-                {
-                    p2StateType = Player2StateType.miss;
-                }
+                p2StateType = Player2StateType.miss;
             }
         }
     }
@@ -223,23 +233,24 @@ public class Player2 : MonoBehaviour
                     p2StateType = Player2StateType.skill2;
                 }
             }
-            else if (NotesController.judge == false)
+        }
+        else if (NotesController.judge == false)
+        {
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.Keypad1) || Input.GetKeyDown(KeyCode.Keypad2))
             {
-                if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.K))
-                {
-                    p2StateType = Player2StateType.miss;
-                }
+                p2StateType = Player2StateType.miss;
             }
         }
     }
 
-    //アクションナンバーの数によって2Pの行動をする
+    //2Pの状態にあった行動をする
     public void Move2PAction()
     {
         switch (p2StateType)
         {
             case Player2StateType.miss:
                 animator.SetTrigger("Trigger_Miss");
+                effectscript.MissFX();
                 Debug.Log("2Pはミス");
                 AnimetionEnd2P();
                 break;
@@ -265,7 +276,8 @@ public class Player2 : MonoBehaviour
             //弱攻撃
             case Player2StateType.lightPunch:
                 animator.SetTrigger("Trigger_LP");
-                playercol.LPCol();
+                playercolLP.LPCol();
+                effectscript.LpFx();
                 Debug.Log("弱攻撃呼ばれた");
                 AnimetionEnd2P();
                 break;
@@ -273,7 +285,8 @@ public class Player2 : MonoBehaviour
             //強攻撃
             case Player2StateType.heavyPunch:
                 animator.SetTrigger("Trigger_HP");
-                playercol.HPCol();
+                playercolHP.HPCol();
+                effectscript.HpFx();
                 Debug.Log("強攻撃呼ばれた");
                 AnimetionEnd2P();
                 break;
@@ -281,8 +294,9 @@ public class Player2 : MonoBehaviour
             //構え
             case Player2StateType.pose:
                 animator.SetTrigger("Trigger_Pose");
+                effectscript.PoseFx();
                 Debug.Log("構え");
-                AnimetionEnd2P();
+                Pose2P();
                 break;
 
             //スキル1
@@ -295,7 +309,8 @@ public class Player2 : MonoBehaviour
             case Player2StateType.skill2:
                 Debug.Log("スキル2");
                 animator.SetTrigger("Trigger_S2");
-                playercol.S2Col();
+                playercolS2.S2Col();
+                effectscript.S2Fx();
                 AnimetionEnd2P();
                 break;
 
@@ -317,7 +332,7 @@ public class Player2 : MonoBehaviour
 
             //ノックバック1
             case Player2StateType.knockBack1:
-                animator.SetTrigger("Trigger_knock1 ");
+                animator.SetTrigger("Trigger_knock1");
                 KnockBack2P();
                 AnimetionEnd2P();
                 break;
@@ -336,13 +351,22 @@ public class Player2 : MonoBehaviour
                 AnimetionEnd2P();
                 break;
         }
-
     }
 
     //プレイヤーの状態を立ちに戻す
     private void AnimetionEnd2P()
     {
+        p2BeforeState = p2StateType;
         p2StateType = Player2StateType.stand;
+    }
+
+    private void Pose2P()
+    {
+        poseCount++;
+        if (poseCount % 2 == 0)
+        {
+            AnimetionEnd2P();
+        }
     }
 
     //攻撃受けた時の下がる挙動

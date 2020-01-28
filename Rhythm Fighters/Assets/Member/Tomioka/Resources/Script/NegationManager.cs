@@ -16,20 +16,23 @@ public class NegationManager : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         Negation();
-        if (col.tag != "Player1" && col.tag != "Player2" && col.tag != "Note")
+        //if (col.tag != "Player1" && col.tag != "Player2" && col.tag != "Note")
+        //{
+        if (col.tag == "LightPunch" || col.tag == "HeavyPunch" || col.tag == "Skill2")
         {
+            Debug.Log(col.tag);
             GameController.modeType = GameController.ModeType.negationMode;
-            //Debug.Log("1Pは" + negationStr1P);
-            //Debug.Log("2Pは" + negationStr2P);
+            Debug.Log("1Pは" + negationStr1P + "で打消し開始");
+            Debug.Log("2Pは" + negationStr2P + "で打消し開始");
             Debug.Log("うちけいそ");
         }
     }
 
     private void Negation()
     {
-        Debug.Log(Player1.p1StateType);
+        Debug.Log(Player1.p1BeforeState);
 
-        switch (Player1.p1StateType)
+        switch (Player1.p1BeforeState)
         {
             case Player1.Player1StateType.lightPunch:
                 negationStr1P = "弱攻撃";
@@ -56,9 +59,9 @@ public class NegationManager : MonoBehaviour
                 break;
         }
 
-        Debug.Log(Player2.p2StateType);
+        Debug.Log(Player2.p2BeforeState);
 
-        switch (Player2.p2StateType)
+        switch (Player2.p2BeforeState)
         {
             case Player2.Player2StateType.lightPunch:
                 negationStr2P = "弱攻撃";
