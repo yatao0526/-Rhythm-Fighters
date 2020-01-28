@@ -35,6 +35,8 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private GameObject[] Notes;                 //Notes(Prefab)入れてる
     [SerializeField]
+    private Image[] notesUI;
+    [SerializeField]
     private float timeOut;                      //生成する秒
     [SerializeField]
     private Text text;                          //確認用のテキスト
@@ -50,6 +52,7 @@ public class GameController : MonoBehaviour
     private Sprite[] buttonImage;
 
     private NoteObjectPool poolL, poolR;        //objectpool参照
+    private ImageCreatePooling poolUIL, poolUIR;
     
     private float judgeTime;                    //判定用タイム
     private float audioTime;                    //判定補助タイマー（BGM開始時間指定用）
@@ -63,8 +66,12 @@ public class GameController : MonoBehaviour
     {
         poolL = GetComponent<NoteObjectPool>();
         poolR = GetComponent<NoteObjectPool>();
-        poolL.CreatePoolL(Notes[0], 10);
-        poolR.CreatePoolR(Notes[1], 10);
+        poolL.CreatePoolL(Notes[0], 5);
+        poolR.CreatePoolR(Notes[1], 5);
+        poolUIL = GetComponent<ImageCreatePooling>();
+        poolUIR = GetComponent<ImageCreatePooling>();
+        poolUIL.CreatePoolL(notesUI[0], 5);
+        poolUIR.CreatePoolR(notesUI[1], 5);
     }
     private void FixedUpdate()
     {
@@ -141,10 +148,6 @@ public class GameController : MonoBehaviour
         }
         //ズレ修正用
         time = soundManager.GetComponent<AudioSource>().time;
-        if(Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            modeType = ModeType.negationMode;
-        }
     }
     private void MoveTime()
     {
