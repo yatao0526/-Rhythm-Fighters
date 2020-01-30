@@ -46,6 +46,8 @@ public class Player1 : MonoBehaviour
 
     public static bool negationButton1P = false;
 
+    private string myCharName1P;
+
     //プレイヤーの状態
     public enum Player1StateType
     {
@@ -70,6 +72,9 @@ public class Player1 : MonoBehaviour
 
     void Start()
     {
+        myCharName1P = null;
+        CharacterJudge();
+        //Debug.Log("1Pが使ってるのは" + myCharName1P);
         p1StateType = Player1StateType.stand;
         moveAfter = this.transform.position;
         animator = GetComponent<Animator>();
@@ -302,6 +307,10 @@ public class Player1 : MonoBehaviour
             //スキル1
             case Player1StateType.skill1:
                 Debug.Log("スキル1");
+                animator.SetTrigger("Trigger_S1");
+                SkillOne();
+                //playercolS1.S1Col();
+                //effectscript.S1Fx();
                 AnimetionEnd1P();
                 break;
 
@@ -409,6 +418,49 @@ public class Player1 : MonoBehaviour
 
                 }
             }
+        }
+    }
+
+    //自分のキャラを判別
+    private void CharacterJudge()
+    {
+        if (this.gameObject.name == "Suzuki1P" || this.gameObject.name == "Suzuki2P")
+        {
+            myCharName1P = "suzuki";
+        }
+        if (this.gameObject.name == "Yokoyama1P" || this.gameObject.name == "Yokoyama2P")
+        {
+            myCharName1P = "yokoyama";
+        }
+        if (this.gameObject.name == "Niduma1P" || this.gameObject.name == "Niduma2P")
+        {
+            myCharName1P = "niduma";
+        }
+        if (this.gameObject.name == "LUO1P" || this.gameObject.name == "LUO2P")
+        {
+            myCharName1P = "LUO";
+        }
+    }
+
+    private void SkillOne()
+    {
+        switch (myCharName1P)
+        {
+            case "suzuki":
+                moveAfter = transform.position + moveX * 2;
+                break;
+
+            case "yokoyama":
+                animator.SetTrigger("Trigger_S2");
+                playercolS2.S2Col();
+                effectscript.S2Fx();
+                break;
+
+            case "niduma":
+                break;
+
+            case "LUO":
+                break;
         }
     }
 }

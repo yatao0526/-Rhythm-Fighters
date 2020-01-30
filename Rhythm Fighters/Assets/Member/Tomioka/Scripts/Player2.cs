@@ -46,6 +46,8 @@ public class Player2 : MonoBehaviour
 
     public static bool negationButton2P = false;
 
+    private string myCharName2P;
+
     //プレイヤーの状態
     public enum Player2StateType
     {
@@ -70,6 +72,9 @@ public class Player2 : MonoBehaviour
 
     void Start()
     {
+        myCharName2P = null;
+        CharacterJudge();
+        //Debug.Log("2Pが使ってるのは" + myCharName2P);
         p2StateType = Player2StateType.stand;
         moveAfter = this.transform.position;
         animator = GetComponent<Animator>();
@@ -302,6 +307,10 @@ public class Player2 : MonoBehaviour
             //スキル1
             case Player2StateType.skill1:
                 Debug.Log("スキル1");
+                animator.SetTrigger("Trigger_S1");
+                SkillOne();
+                //playercolS1.S1Col();
+                //effectscript.S1Fx();
                 AnimetionEnd2P();
                 break;
 
@@ -409,6 +418,49 @@ public class Player2 : MonoBehaviour
                         break;
                 }
             }
+        }
+    }
+
+    //自分のキャラを判別する
+    private void CharacterJudge()
+    {
+        if (this.gameObject.name == "Suzuki1P" || this.gameObject.name == "Suzuki2P")
+        {
+            myCharName2P = "suzuki";
+        }
+        if (this.gameObject.name == "Yokoyama1P" || this.gameObject.name == "Yokoyama2P")
+        {
+            myCharName2P = "yokoyama";
+        }
+        if (this.gameObject.name == "Niduma1P" || this.gameObject.name == "Niduma2P")
+        {
+            myCharName2P = "niduma";
+        }
+        if (this.gameObject.name == "LUO1P" || this.gameObject.name == "LUO2P")
+        {
+            myCharName2P = "LUO";
+        }
+    }
+
+    private void SkillOne()
+    {
+        switch (myCharName2P)
+        {
+            case "suzuki":
+                moveAfter = transform.position + moveX * 2;
+                break;
+
+            case "yokoyama":
+                animator.SetTrigger("Trigger_S2");
+                playercolS2.S2Col();
+                effectscript.S2Fx();
+                break;
+
+            case "niduma":
+                break;
+
+            case "LUO":
+                break;
         }
     }
 }
