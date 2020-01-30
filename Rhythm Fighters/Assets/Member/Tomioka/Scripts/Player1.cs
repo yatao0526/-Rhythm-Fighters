@@ -46,7 +46,7 @@ public class Player1 : MonoBehaviour
 
     public static bool negationButton1P = false;
 
-    private string myCharName1P;
+    public static string myCharName1P;
 
     //プレイヤーの状態
     public enum Player1StateType
@@ -70,10 +70,14 @@ public class Player1 : MonoBehaviour
     public static Player1StateType p1StateType = Player1StateType.stand;
     public static Player1StateType p1BeforeState = Player1StateType.stand;
 
-    void Start()
+    private void Awake()
     {
         myCharName1P = null;
         CharacterJudge();
+    }
+
+    void Start()
+    {
         //Debug.Log("1Pが使ってるのは" + myCharName1P);
         p1StateType = Player1StateType.stand;
         moveAfter = this.transform.position;
