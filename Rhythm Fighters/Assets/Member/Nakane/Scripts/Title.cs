@@ -76,7 +76,7 @@ public class Title : MonoBehaviour
         int x = Random.Range(0, 3);
         //int x = 2;
         float y;
-        Debug.Log(x);
+        //Debug.Log(x);
         switch (x)
         {
             //2秒

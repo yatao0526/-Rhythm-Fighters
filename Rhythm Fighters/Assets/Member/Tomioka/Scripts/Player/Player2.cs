@@ -408,10 +408,20 @@ public class Player2 : MonoBehaviour
             moveAfter = transform.position + moveX;
             Debug.Log("2Pは右に下がる");
         }
+        //2P画面左端
+        if (wayLeft2P == false && minMove.x == this.transform.position.x)
+        {
+            Debug.Log("1Pは右に下がる");
+        }
+        //2P画面右端
+        if (wayLeft2P == true && this.transform.position.x == maxMove.x)
+        {
+            Debug.Log("1Pは左に下がる");
+        }
     }
 
-    //打消しモード
-    private void NegationFunction()
+        //打消しモード
+        private void NegationFunction()
     {
         if (GameController.modeType == GameController.ModeType.negationMode)
         {

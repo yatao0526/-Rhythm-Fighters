@@ -408,6 +408,16 @@ public class Player1 : MonoBehaviour
             moveAfter = transform.position + moveX;
             Debug.Log("1Pは右に下がる");
         }
+        //1P画面左端
+        if (wayRight1P == true && minMove.x == this.transform.position.x)
+        {
+            Debug.Log("2Pは右に下がる");
+        }
+        //1P画面右端
+        if (wayRight1P == false && this.transform.position.x == maxMove.x)
+        {
+            Debug.Log("2Pは左に下がる");
+        }
     }
 
     //打消しモードないでのプレイヤーの挙動
