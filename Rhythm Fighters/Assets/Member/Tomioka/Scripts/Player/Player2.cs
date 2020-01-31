@@ -152,12 +152,12 @@ public class Player2 : MonoBehaviour
             if (p2StateType == Player2StateType.stand)
             {
                 //左移動
-                if (Input.GetAxis("2PLeftRight") > 0.5f && minMove.x < this.transform.position.x)
+                if (Input.GetAxis("2PLeftRight") < -0.5 && minMove.x < this.transform.position.x)
                 {
                     p2StateType = Player2StateType.leftMove;
                 }
                 //右移動
-                if (Input.GetAxis("2PLeftRight") < -0.5f && this.transform.position.x < maxMove.x)
+                if (Input.GetAxis("2PLeftRight") > 0.5f && this.transform.position.x < maxMove.x)
                 {
                     p2StateType = Player2StateType.rightMove;
                 }

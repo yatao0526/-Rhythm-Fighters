@@ -152,12 +152,12 @@ public class Player1 : MonoBehaviour
             if (p1StateType == Player1StateType.stand)
             {
                 //左移動
-                if (Input.GetAxis("LeftRight") > 0.5f && minMove.x < this.transform.position.x)
+                if (Input.GetAxis("LeftRight") < -0.5f && minMove.x < this.transform.position.x)
                 {
                     p1StateType = Player1StateType.leftMove;
                 }
                 //右移動
-                if (Input.GetAxis("LeftRight") < -0.5f && this.transform.position.x < maxMove.x)
+                if (Input.GetAxis("LeftRight") > 0.5f && this.transform.position.x < maxMove.x)
                 {
                     p1StateType = Player1StateType.rightMove;
                 }
