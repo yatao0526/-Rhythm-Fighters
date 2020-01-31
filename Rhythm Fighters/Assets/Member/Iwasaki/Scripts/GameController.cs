@@ -70,8 +70,8 @@ public class GameController : MonoBehaviour
         poolR.CreatePoolR(Notes[1], 5);
         poolUIL = GetComponent<ImageCreatePooling>();
         poolUIR = GetComponent<ImageCreatePooling>();
-        poolUIL.CreatePoolL(notesUI[0], 5);
-        poolUIR.CreatePoolR(notesUI[1], 5);
+        poolUIL.CreatePoolL(notesUI[0], 2);
+        poolUIR.CreatePoolR(notesUI[1], 2);
     }
     private void FixedUpdate()
     {

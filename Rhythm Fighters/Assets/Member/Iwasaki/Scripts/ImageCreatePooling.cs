@@ -58,7 +58,7 @@ public class ImageCreatePooling : MonoBehaviour
     }
     public Image GetGameImageR()
     {
-        foreach (var img in noteImagePoolL)
+        foreach (var img in noteImagePoolR)
         {
             if (img.gameObject.activeSelf == false)
             {
@@ -68,14 +68,14 @@ public class ImageCreatePooling : MonoBehaviour
         }
         var newImg = CreateNewImageR();
         gameObject.SetActive(true);
-        noteImagePoolL.Add(newImg);
+        noteImagePoolR.Add(newImg);
         return newImg;
     }
     private Image CreateNewImageR()
     {
         var newImg = Instantiate(noteUI);
         newImg.name = noteUI.name + (noteImagePoolR.Count + 1);
-        newImg.transform.SetParent(imageParent.transform);
+        newImg.transform.SetParent(imageParent.transform,false);
         return newImg;
     }
 }
