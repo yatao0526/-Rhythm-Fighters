@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9006543458307377759}
   - component: {fileID: 2229681265668871818}
   - component: {fileID: 6463373720234799887}
+  - component: {fileID: 7262186229843652694}
   m_Layer: 0
   m_Name: Player_Skill1Col
   m_TagString: Skill1
@@ -93,6 +94,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7262186229843652694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094299613616275035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ac2fb8a40c63644a854756df8fe6c68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1221520162734455543
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,8 +461,10 @@ MonoBehaviour:
   minMove: {x: -12, y: 0, z: 0}
   maxMove: {x: 12, y: 0, z: 0}
   stepTime: 2
+  moveNegationPos: {x: 0.5, y: -1, z: 72}
   playercolLP: {fileID: 5841535074087467796}
   playercolHP: {fileID: 3890658270909131991}
+  playercolS1: {fileID: 7262186229843652694}
   playercolS2: {fileID: 1983065860059027373}
   effectscript: {fileID: 8164901929413176929}
   player1: {fileID: 0}

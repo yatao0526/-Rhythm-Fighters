@@ -260,6 +260,8 @@ GameObject:
   - component: {fileID: 7286894130846026723}
   - component: {fileID: 517068814907217718}
   - component: {fileID: 4642947555079221939}
+  - component: {fileID: 5517903627467543134}
+  - component: {fileID: 6644151424346877286}
   m_Layer: 0
   m_Name: Player_Skill1Col
   m_TagString: Skill1
@@ -341,6 +343,31 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5517903627467543134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653436410272858087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ac2fb8a40c63644a854756df8fe6c68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6644151424346877286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653436410272858087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4352a6f9a8a11e540bc13fbd1883d994, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  negationMode: {fileID: 0}
 --- !u!1 &3050349914320420411
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,8 +593,10 @@ MonoBehaviour:
   minMove: {x: -12, y: 0, z: 0}
   maxMove: {x: 12, y: 0, z: 0}
   stepTime: 2
+  moveNegationPos: {x: 0.5, y: -1, z: 72}
   playercolLP: {fileID: 206004011298008223}
   playercolHP: {fileID: 520312683885102242}
+  playercolS1: {fileID: 5517903627467543134}
   playercolS2: {fileID: 7925521056553029415}
   effectscript: {fileID: 7535114948094046173}
   player1: {fileID: 0}
