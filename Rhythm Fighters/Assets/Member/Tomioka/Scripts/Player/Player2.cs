@@ -31,12 +31,14 @@ public class Player2 : MonoBehaviour
     private Vector3 moveNegationPos;
 
     [Space(10)]
-    
+
     //当たり判定用
     [SerializeField]
     private PlayerColLP playercolLP;
     [SerializeField]
     private PlayerColHP playercolHP;
+    [SerializeField]
+    private PlayerColSkill1 playercolS1;
     [SerializeField]
     private PlayerColSkill2 playercolS2;
 
@@ -93,7 +95,7 @@ public class Player2 : MonoBehaviour
     {
         Debug.Log("P2は" + p2StateType + "です");
         Player2Way();
-                SetTargetPosition();
+        SetTargetPosition();
         DebugSetTargetPosition();
 
         if (p2StateType == Player2StateType.stand && GameController.modeType == GameController.ModeType.normalMode)
@@ -464,9 +466,10 @@ public class Player2 : MonoBehaviour
                 break;
 
             case "yokoyama":
-                animator.SetTrigger("Trigger_S2");
-                playercolS2.S2Col();
-                effectscript.S2Fx();
+                Debug.Log("横山のスキル1");
+                animator.SetTrigger("Trigger_S1");
+                playercolS1.S1Col();
+                effectscript.S1Fx();
                 break;
 
             case "niduma":

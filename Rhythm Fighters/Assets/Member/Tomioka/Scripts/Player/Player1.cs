@@ -38,6 +38,8 @@ public class Player1 : MonoBehaviour
     [SerializeField]
     private PlayerColHP playercolHP;
     [SerializeField]
+    private PlayerColSkill1 playercolS1;
+    [SerializeField]
     private PlayerColSkill2 playercolS2;
 
     [SerializeField]
@@ -464,9 +466,10 @@ public class Player1 : MonoBehaviour
                 break;
 
             case "yokoyama":
-                animator.SetTrigger("Trigger_S2");
-                playercolS2.S2Col();
-                effectscript.S2Fx();
+                Debug.Log("横山のスキル1");
+                animator.SetTrigger("Trigger_S1");
+                playercolS1.S1Col();
+                effectscript.S1Fx();
                 break;
 
             case "niduma":

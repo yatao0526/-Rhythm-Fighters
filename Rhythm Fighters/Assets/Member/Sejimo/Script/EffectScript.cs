@@ -14,7 +14,7 @@ public class EffectScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void MissFX()
@@ -25,6 +25,12 @@ public class EffectScript : MonoBehaviour
     public void HpFx()
     {
         animator.SetTrigger("HP_Fx_Up");
+    }
+
+    public void S1Fx()
+    {
+        animator.SetTrigger("S1_Fx");
+        Debug.Log("S1_FX");
     }
 
     public void S2Fx()
