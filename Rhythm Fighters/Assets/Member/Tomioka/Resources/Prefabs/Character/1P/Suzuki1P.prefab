@@ -227,6 +227,7 @@ MonoBehaviour:
   minMove: {x: -12, y: 0, z: 0}
   maxMove: {x: 12, y: 0, z: 0}
   stepTime: 2
+  moveNegationPos: {x: -0.5, y: -1, z: 72}
   playercolLP: {fileID: 6008122341904186083}
   playercolHP: {fileID: 1703023680387971113}
   playercolS2: {fileID: 2312937005430195210}

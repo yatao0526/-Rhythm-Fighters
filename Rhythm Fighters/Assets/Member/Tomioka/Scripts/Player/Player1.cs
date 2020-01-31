@@ -23,9 +23,14 @@ public class Player1 : MonoBehaviour
     private float way1P = 0;
     private bool wayRight1P;
 
-    //移動後と移動前の場所
+    //移動後の場所
     private Vector3 moveAfter;
-    private Vector3 moveBeforePos;
+
+    [Header("Y軸は-1、Z軸は72")]
+    [SerializeField]
+    private Vector3 moveNegationPos;
+
+    [Space(10)]
 
     //当たり判定用
     [SerializeField]
@@ -88,21 +93,29 @@ public class Player1 : MonoBehaviour
     {
         Debug.Log("P1は" + p1StateType + "です");
         Player1Way();
-        if (this.transform.position == moveAfter)
-        {
             SetTargetPosition();
             DebugSetTargetPosition();
-        }
-        if (p1StateType == Player1StateType.stand)
+
+        if (p1StateType == Player1StateType.stand && GameController.modeType == GameController.ModeType.normalMode)
         {
-            Move();
+            NormalModeMove();
+        }
+        if (GameController.modeType == GameController.ModeType.negationMode)
+        {
+            NegationModeMove();
         }
     }
 
     //移動用の関数
-    private void Move()
+    private void NormalModeMove()
     {
         transform.position = Vector3.MoveTowards(transform.position, moveAfter, stepTime * 10 * Time.deltaTime);
+    }
+
+    //打消しに入ったときにここに移動
+    private void NegationModeMove()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, moveNegationPos, stepTime * 10 * Time.deltaTime);
     }
 
     //プレイヤーの向き変更
@@ -129,8 +142,6 @@ public class Player1 : MonoBehaviour
     {
         //ここは打消しモードのみで判定される
         NegationFunction();
-
-        moveBeforePos = moveAfter;
 
         //ここは通常モードのみで判定される
         if (NotesController.judge)
@@ -193,8 +204,6 @@ public class Player1 : MonoBehaviour
     private void DebugSetTargetPosition()
     {
         NegationFunction();
-
-        moveBeforePos = moveAfter;
 
         if (NotesController.judge)
         {

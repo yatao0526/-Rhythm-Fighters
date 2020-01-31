@@ -17,16 +17,21 @@ public class Player2 : MonoBehaviour
     [SerializeField]
     private float stepTime;
 
+    private int poseCount = 0;
+
     //プレイヤーの向き
     private float way2P = 0;
     private bool wayLeft2P;
 
-    private int poseCount = 0;
-
-    //移動後と移動前の場所
+    //移動後の場所
     private Vector3 moveAfter;
-    private Vector3 moveBeforePos;
 
+    [Header("Y軸は-1、Z軸は72")]
+    [SerializeField]
+    private Vector3 moveNegationPos;
+
+    [Space(10)]
+    
     //当たり判定用
     [SerializeField]
     private PlayerColLP playercolLP;
@@ -88,14 +93,16 @@ public class Player2 : MonoBehaviour
     {
         Debug.Log("P2は" + p2StateType + "です");
         Player2Way();
-        //if (this.transform.position == moveAfter)
-        //{
-        SetTargetPosition();
+                SetTargetPosition();
         DebugSetTargetPosition();
-        //}
-        if (p2StateType == Player2StateType.stand)
+
+        if (p2StateType == Player2StateType.stand && GameController.modeType == GameController.ModeType.normalMode)
         {
             Move();
+        }
+        if (GameController.modeType == GameController.ModeType.negationMode)
+        {
+            NegationModeMove();
         }
     }
 
@@ -103,6 +110,12 @@ public class Player2 : MonoBehaviour
     private void Move()
     {
         transform.position = Vector3.MoveTowards(transform.position, moveAfter, stepTime * 10 * Time.deltaTime);
+    }
+
+    //打消しに入ったときにここに移動
+    private void NegationModeMove()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, moveNegationPos, stepTime * 10 * Time.deltaTime);
     }
 
     //プレイヤーの向き変更
@@ -129,8 +142,6 @@ public class Player2 : MonoBehaviour
     {
         //ここは打消しモードのみで判定される
         NegationFunction();
-
-        moveBeforePos = moveAfter;
 
         //ここは通常モードのみで判定される
         if (NotesController.judge)
@@ -193,8 +204,6 @@ public class Player2 : MonoBehaviour
     private void DebugSetTargetPosition()
     {
         NegationFunction();
-
-        moveBeforePos = moveAfter;
 
         if (NotesController.judge)
         {
