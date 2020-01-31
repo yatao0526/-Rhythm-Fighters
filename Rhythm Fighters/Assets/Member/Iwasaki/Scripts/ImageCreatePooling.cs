@@ -75,7 +75,7 @@ public class ImageCreatePooling : MonoBehaviour
     {
         var newImg = Instantiate(noteUI);
         newImg.name = noteUI.name + (noteImagePoolR.Count + 1);
-        newImg.transform.SetParent(imageParent.transform);
+        newImg.transform.SetParent(imageParent.transform,false);
         return newImg;
     }
 }
