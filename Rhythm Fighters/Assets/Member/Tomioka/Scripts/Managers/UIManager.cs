@@ -15,10 +15,12 @@ public class UIManager : MonoBehaviour
     [Space(15)]
 
     [SerializeField]
-    private Image icon1P, icon2P;
+    private Image icon1P;
+    [SerializeField]
+    private Image icon2P;
 
     [Space(15)]
-
+   
     //左右のコマンド表
     [SerializeField]
     private Sprite[] commandPanel1P;

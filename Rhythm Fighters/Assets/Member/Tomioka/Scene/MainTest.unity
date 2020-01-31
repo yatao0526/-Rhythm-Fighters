@@ -237,6 +237,7 @@ Transform:
   m_Children:
   - {fileID: 492567460}
   - {fileID: 579691880}
+  - {fileID: 909787030}
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -476,8 +477,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 491255512}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: -10, z: 0}
-  m_LocalScale: {x: 1, y: 0.6, z: 1}
+  m_LocalPosition: {x: 1.25, y: -10, z: 0}
+  m_LocalScale: {x: 2.5, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
@@ -1187,8 +1188,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 825521635}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5, y: -10, z: 0}
-  m_LocalScale: {x: 1, y: 0.6, z: 1}
+  m_LocalPosition: {x: -1.25, y: -10, z: 0}
+  m_LocalScale: {x: 2.5, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
@@ -1292,6 +1293,73 @@ PrefabInstance:
       objectReference: {fileID: 1008321461}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: deca0015d1c73d94ca7371f19f4219de, type: 3}
+--- !u!1 &909787029
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 909787030}
+  - component: {fileID: 909787031}
+  m_Layer: 0
+  m_Name: UIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &909787030
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909787029}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 303369975}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &909787031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909787029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b9a85372876754ca637d32aa1802d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HPBarIcon1P:
+  - {fileID: 21300000, guid: bc02ba4d94845d74ca18b29d2bdbfd37, type: 3}
+  - {fileID: 21300000, guid: 1b5405213509e8145bbe60fe113230dd, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  HPBarIcon2P:
+  - {fileID: 21300000, guid: bd92bb7651690f54db8f20c318d78250, type: 3}
+  - {fileID: 21300000, guid: 5f85ee587c615e74b875623af2cd3ef4, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  icon1P: {fileID: 1261950559}
+  icon2P: {fileID: 1469736753}
+  commandPanel1P:
+  - {fileID: 21300000, guid: be7a434e029b3b044ab6ca256d6bbd4e, type: 3}
+  - {fileID: 21300000, guid: be2b9eb7da7258f41bcaf73f0a36d86f, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  commandPanel2P:
+  - {fileID: 21300000, guid: 33c2b236c105f294582ff73358528826, type: 3}
+  - {fileID: 21300000, guid: 270dde03caafbd845a8230b75a358636, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  command1P: {fileID: 692300884}
+  command2P: {fileID: 1354101431}
 --- !u!1 &991185774
 GameObject:
   m_ObjectHideFlags: 0
