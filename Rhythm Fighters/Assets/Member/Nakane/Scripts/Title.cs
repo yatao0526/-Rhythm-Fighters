@@ -18,10 +18,13 @@ public class Title : MonoBehaviour
     [SerializeField]
     private GameObject backGround;
 
+    private AudioClip[] titleCollSE;
+
     void Start()
     {
         // 一定時間後MoveMovie関数実行
         //Invoke("MoveMovie", 7.0f);
+        Invoke("TitleCall", 3f);
     }
 
     void Update()
@@ -30,7 +33,7 @@ public class Title : MonoBehaviour
     }
     private void InputGet()
     {
-        if (Input.anyKey)
+        if (Input.GetButtonDown("Maru")|| Input.GetButtonDown("2PMaru"))
         {
             // ロード画面UI表示
             loadingUI.SetActive(true);
@@ -66,5 +69,41 @@ public class Title : MonoBehaviour
     {
         // Movieシーンへ遷移
         SceneManager.LoadScene("Movie");
+    }
+
+    private void TitleCall()
+    {
+        int x = Random.Range(0, 3);
+        //int x = 2;
+        float y;
+        Debug.Log(x);
+        switch (x)
+        {
+            //2秒
+            case 0:
+                SoundManager.Instance.PlaySe(SE.titleCollN);
+                y = 3;
+                Invoke("TitleBGM", y);
+                break;
+
+            //2秒
+            case 1:
+                SoundManager.Instance.PlaySe(SE.titleCollT);
+                y = 3;
+                Invoke("TitleBGM", y);
+                break;
+
+            //4秒
+            case 2:
+                SoundManager.Instance.PlaySe(SE.titleCollY);
+                y = 5;
+                Invoke("TitleBGM", y);
+                break;
+        }
+    }
+
+    private void TitleBGM()
+    {
+        SoundManager.Instance.PlayBgm(BGM.titleBGM);
     }
 }
