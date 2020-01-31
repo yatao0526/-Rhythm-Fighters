@@ -111,7 +111,8 @@ public class Player1 : MonoBehaviour
     //移動用の関数
     private void NormalModeMove()
     {
-        transform.position = Vector3.MoveTowards(transform.position, moveAfter, stepTime * 10 * Time.deltaTime);
+        //transform.position = Vector3.MoveTowards(transform.position, moveAfter, stepTime * 10 * Time.deltaTime);
+        this.transform.position = moveAfter;
     }
 
     //打消しに入ったときにここに移動
