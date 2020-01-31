@@ -420,8 +420,20 @@ public class Player2 : MonoBehaviour
         }
     }
 
-        //打消しモード
-        private void NegationFunction()
+    //相手が画面右端のため自分が左に下がる
+    public void Player1RightEdge()
+    {
+        moveAfter = transform.position + moveX;
+    }
+
+    //相手が画面左端のため自分が右に下がる
+    public void Player1LeftEdge()
+    {
+        moveAfter = transform.position - moveX;
+    }
+
+    //打消しモード
+    private void NegationFunction()
     {
         if (GameController.modeType == GameController.ModeType.negationMode)
         {

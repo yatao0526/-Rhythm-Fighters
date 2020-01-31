@@ -95,8 +95,8 @@ public class Player1 : MonoBehaviour
     {
         Debug.Log("P1は" + p1StateType + "です");
         Player1Way();
-            SetTargetPosition();
-            DebugSetTargetPosition();
+        SetTargetPosition();
+        DebugSetTargetPosition();
 
         if (p1StateType == Player1StateType.stand && GameController.modeType == GameController.ModeType.normalMode)
         {
@@ -418,6 +418,18 @@ public class Player1 : MonoBehaviour
         {
             Debug.Log("2Pは左に下がる");
         }
+    }
+
+    //相手が画面右端のため自分が左に下がる
+    public void Player2RightEdge()
+    {
+        moveAfter = transform.position - moveX;
+    }
+
+    //相手が画面左端のため自分が右に下がる
+    public void Player2LeftEdge()
+    {
+        moveAfter = transform.position - moveX;
     }
 
     //打消しモードないでのプレイヤーの挙動
