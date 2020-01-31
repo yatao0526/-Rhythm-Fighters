@@ -469,6 +469,7 @@ MonoBehaviour:
   moveNegationPos: {x: -0.5, y: -1, z: 72}
   playercolLP: {fileID: 2889791978545165098}
   playercolHP: {fileID: 8592263973995606397}
+  playercolS1: {fileID: 3253334957904700394}
   playercolS2: {fileID: 2068595359538824973}
   effectscript: {fileID: 7745360236013462480}
   player2: {fileID: 0}
@@ -579,6 +580,7 @@ GameObject:
   - component: {fileID: 5235814196534060145}
   - component: {fileID: 2013214929652722697}
   - component: {fileID: 8904762393798678685}
+  - component: {fileID: 3253334957904700394}
   m_Layer: 0
   m_Name: Player_Skill1Col
   m_TagString: Skill1
@@ -673,6 +675,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   negationMode: {fileID: 0}
+--- !u!114 &3253334957904700394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6321308910487444638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ac2fb8a40c63644a854756df8fe6c68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9079182296314690950
 GameObject:
   m_ObjectHideFlags: 0

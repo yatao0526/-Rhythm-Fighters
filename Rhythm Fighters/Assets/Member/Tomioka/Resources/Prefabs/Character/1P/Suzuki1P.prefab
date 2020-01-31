@@ -230,6 +230,7 @@ MonoBehaviour:
   moveNegationPos: {x: -0.5, y: -1, z: 72}
   playercolLP: {fileID: 6008122341904186083}
   playercolHP: {fileID: 1703023680387971113}
+  playercolS1: {fileID: 1514784010354454963}
   playercolS2: {fileID: 2312937005430195210}
   effectscript: {fileID: 3386849684497325527}
   player2: {fileID: 0}
@@ -339,7 +340,7 @@ GameObject:
   - component: {fileID: 6883737721598484122}
   - component: {fileID: 924597488986610294}
   - component: {fileID: 6885420603611369998}
-  - component: {fileID: 7437167688658066621}
+  - component: {fileID: 1514784010354454963}
   m_Layer: 0
   m_Name: Player_Skill1Col
   m_TagString: Skill1
@@ -421,7 +422,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7437167688658066621
+--- !u!114 &1514784010354454963
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -430,10 +431,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1424335087843041945}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4352a6f9a8a11e540bc13fbd1883d994, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ac2fb8a40c63644a854756df8fe6c68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  negationMode: {fileID: 0}
 --- !u!1 &4143929518086013825
 GameObject:
   m_ObjectHideFlags: 0

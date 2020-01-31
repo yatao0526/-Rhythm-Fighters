@@ -23,6 +23,12 @@ public class Player2AttackManager : MonoBehaviour
                     HPManager.player2HP -= 100;
                     break;
 
+                case "Skill1":
+                    Debug.Log("1Pのスキル1が当たった");
+                    Player2.p2StateType = Player2.Player2StateType.knockBack3;
+                    HPManager.player2HP -= 100;
+                    break;
+
                 case "Skill2":
                     Debug.Log("1Pのスキル2が当たった");
                     Player2.p2StateType = Player2.Player2StateType.knockBack3;
