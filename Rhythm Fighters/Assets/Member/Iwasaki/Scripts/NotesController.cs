@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//どちら側からノーツが流れるか分けるよう
+public enum ThisNote
+{
+    RtoLNote,
+    LtoRNote,
+}
+
 public class NotesController : MonoBehaviour
 {
-    //どちら側からノーツが流れるか分けるよう
-    private enum ThisNote
-    {
-        RtoLNote,
-        LtoRNote,
-    }
     [SerializeField]
     private ThisNote thisNote;
     //transformをループさせるために位置データ保管
@@ -26,6 +27,8 @@ public class NotesController : MonoBehaviour
     //ボタン押す目あす
     public static bool pushBottun = false;
 
+    public ThisNote _ThisNote { get => thisNote; set => thisNote = value; }
+    
     private void Start()
     {
         pos = this.transform.position;
@@ -47,7 +50,7 @@ public class NotesController : MonoBehaviour
                 if (this.gameObject.transform.position.x <= -1)
                 {
                     this.transform.position = pos;
-                    //this.gameObject.SetActive(false);
+                    this.gameObject.SetActive(false);
                 }
                 break;
             //左から流れるノーツの処理
@@ -57,7 +60,7 @@ public class NotesController : MonoBehaviour
                 if (this.gameObject.transform.position.x >= 1)
                 {
                     this.transform.position = pos;
-                    //this.gameObject.SetActive(false);
+                    this.gameObject.SetActive(false);
                 }
                 break;
         }
@@ -95,7 +98,6 @@ public class NotesController : MonoBehaviour
             }
         }
     }
-
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.name == "CheckBox_M")
