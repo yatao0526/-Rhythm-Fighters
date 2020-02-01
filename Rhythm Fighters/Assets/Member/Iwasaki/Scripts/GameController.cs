@@ -56,7 +56,6 @@ public class GameController : MonoBehaviour
     
     private float judgeTime;                    //判定用タイム
     private float audioTime;                    //判定補助タイマー（BGM開始時間指定用）
-    private float time = 0;
 
     private static bool soundPlaying = false;   //test用、BGMか流しているかどうかの判断
 
@@ -72,12 +71,14 @@ public class GameController : MonoBehaviour
         poolUIR = GetComponent<ImageCreatePooling>();
         poolUIL.CreatePoolL(notesUI[0], 2);
         poolUIR.CreatePoolR(notesUI[1], 2);
+        //曲変更の時BPMを変更の下準備
+        //timeOut = 60 / BPM;
     }
     private void FixedUpdate()
     {
         MoveTime();
         //テスト用テキスト
-        if ((Input.GetKeyDown(KeyCode.Space)) || (Input.GetKeyDown(KeyCode.A)) || 
+        if ((Input.GetKeyDown(KeyCode.Space)) || (Input.GetKeyDown(KeyCode.A)) ||
             (Input.GetKeyDown(KeyCode.D)) || (Input.GetKeyDown(KeyCode.LeftArrow)) || (Input.GetKeyDown(KeyCode.RightArrow)))
         {
             switch (NotesController.judge)
@@ -109,11 +110,16 @@ public class GameController : MonoBehaviour
                 buton.sprite = buttonImage[1];
                 break;
         }
-        //AudioSourceがloop時発生するズレ修正
-        if (soundManager.GetComponent<AudioSource>().time - time < 0)
+        //曲停止検測し、再度流す
+        if (!soundManager.GetComponent<AudioSource>().isPlaying)
         {
-            judgeTime = (time % 0.75f + soundManager.GetComponent<AudioSource>().time);
+            soundManager.GetComponent<AudioSource>().Play();
         }
+        //AudioSourceがloop時発生するズレ修正
+        //if (soundManager.GetComponent<AudioSource>().time - time < 0)
+        //{
+        //    judgeTime = (time % 0.75f + soundManager.GetComponent<AudioSource>().time);
+        //}
         //真ん中になる時、判定を出す
         if (NotesController.getActive)
         {
@@ -147,7 +153,7 @@ public class GameController : MonoBehaviour
             soundManager.GetComponent<AudioSource>().Play();
         }
         //ズレ修正用
-        time = soundManager.GetComponent<AudioSource>().time;
+        //time = soundManager.GetComponent<AudioSource>().time;
     }
     private void MoveTime()
     {
