@@ -85,6 +85,10 @@ public class Player1 : MonoBehaviour
 
     void Start()
     {
+        /// <summary>
+        /// ここのコメントを消す
+        /// </summary>
+        //player2 = PlayerInfoManager.thisGamePlayer2;
         //Debug.Log("1Pが使ってるのは" + myCharName1P);
         p1StateType = Player1StateType.stand;
         moveAfter = this.transform.position;
