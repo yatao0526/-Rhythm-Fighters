@@ -35,6 +35,7 @@ public class Title : MonoBehaviour
     {
         if (Input.GetButtonDown("Maru")|| Input.GetButtonDown("2PMaru"))
         {
+            //SoundManager.Instance.PlaySe(SE./*ここにSEの名前*/);
             // ロード画面UI表示
             loadingUI.SetActive(true);
             // 背景非表示
@@ -50,7 +51,7 @@ public class Title : MonoBehaviour
 
     IEnumerator LoadingScreen()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.5f);
 
         // シーンの読み込み
         //async = SceneManager.LoadSceneAsync("CharacterSelectPlayersController");
