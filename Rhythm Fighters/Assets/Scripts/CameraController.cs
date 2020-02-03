@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private GameObject PlayerTwo;
 
-    private float AttenRate = 3f; // 減衰比率
+    private float AttenRate = 2.2f; // 減衰比率
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +31,7 @@ public class CameraController : MonoBehaviour
         else
         {
             // Lerp減衰
-            Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, ((Mathf.Abs(PlayerOne.transform.position.x) - 6) / 6 * 8) + 10, Time.deltaTime * AttenRate);
+            Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, ((Mathf.Abs(PlayerTwo.transform.position.x) - 6) / 6 * 8) + 10, Time.deltaTime * AttenRate);
         }
     }
 }
