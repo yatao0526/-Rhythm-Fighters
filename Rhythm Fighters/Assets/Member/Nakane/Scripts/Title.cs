@@ -20,8 +20,13 @@ public class Title : MonoBehaviour
 
     private AudioClip[] titleCollSE;
 
+    private float BGMLength;
+
+    private bool startBGM;
+
     void Start()
     {
+        startBGM = false;
         // 一定時間後MoveMovie関数実行
         //Invoke("MoveMovie", 7.0f);
         Invoke("TitleCall", 3f);
@@ -30,10 +35,11 @@ public class Title : MonoBehaviour
     void Update()
     {
         InputGet();
+        MoveMovie();
     }
     private void InputGet()
     {
-        if (Input.GetButtonDown("Maru")|| Input.GetButtonDown("2PMaru"))
+        if (Input.GetButtonDown("Maru") || Input.GetButtonDown("2PMaru"))
         {
             //SoundManager.Instance.PlaySe(SE./*ここにSEの名前*/);
             // ロード画面UI表示
@@ -68,8 +74,16 @@ public class Title : MonoBehaviour
 
     private void MoveMovie()
     {
-        // Movieシーンへ遷移
-        SceneManager.LoadScene("Movie");
+        if (startBGM)
+        {
+            BGMLength -= Time.deltaTime;
+        }
+        if (BGMLength < 0)
+        {
+            startBGM = false;
+            // Movieシーンへ遷移
+            SceneManager.LoadScene("Movie");
+        }
     }
 
     private void TitleCall()
@@ -105,6 +119,9 @@ public class Title : MonoBehaviour
 
     private void TitleBGM()
     {
-        SoundManager.Instance.PlayBgm(BGM.titleBGM);
+        startBGM = true;
+        SoundManager.Instance.PlaySe(SE.titleBGM);
+        BGMLength = SoundManager.Instance.seSound[0].clip.length + 1;
     }
+
 }

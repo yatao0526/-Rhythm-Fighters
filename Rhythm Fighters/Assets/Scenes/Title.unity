@@ -816,7 +816,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1413049531}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c83a49c3335f9c479d668ed1b910769, type: 3}
   m_Name: 
@@ -1081,31 +1081,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2093611575765374991, guid: 351da7bc62e975c4ab4e86862120e1bb,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
         type: 3}
       propertyPath: seSound.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
         type: 3}
       propertyPath: bgmSound.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
         type: 3}
       propertyPath: seSound.Array.data[0].clip
       value: 
-      objectReference: {fileID: 8300000, guid: b9558a995555a84498ec831c67de9d52, type: 3}
+      objectReference: {fileID: 8300000, guid: fc52891d7add3ff4886abc83c766d7e9, type: 3}
     - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
         type: 3}
       propertyPath: seSound.Array.data[1].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 08a9861d5a4a21a40848e85afb3105cd, type: 3}
+      objectReference: {fileID: 8300000, guid: b9558a995555a84498ec831c67de9d52, type: 3}
     - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
         type: 3}
       propertyPath: seSound.Array.data[2].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 464c186a18998fc42a13d5d521c8d887, type: 3}
+      objectReference: {fileID: 8300000, guid: 08a9861d5a4a21a40848e85afb3105cd, type: 3}
     - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
         type: 3}
       propertyPath: seSound.Array.data[0].volume
@@ -1119,6 +1124,26 @@ PrefabInstance:
     - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
         type: 3}
       propertyPath: seSound.Array.data[2].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
+        type: 3}
+      propertyPath: bgmSound.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: fc52891d7add3ff4886abc83c766d7e9, type: 3}
+    - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
+        type: 3}
+      propertyPath: bgmSound.Array.data[0].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
+        type: 3}
+      propertyPath: seSound.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 464c186a18998fc42a13d5d521c8d887, type: 3}
+    - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
+        type: 3}
+      propertyPath: seSound.Array.data[3].volume
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

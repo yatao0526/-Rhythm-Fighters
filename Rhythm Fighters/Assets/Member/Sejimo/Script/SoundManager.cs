@@ -4,15 +4,14 @@ using UnityEngine;
 
 public enum BGM
 {
-    titleBGM
 }
 
 public enum SE
 {
+    titleBGM,
     titleCollN,
     titleCollT,
     titleCollY
-
 }
 
 [System.Serializable]
