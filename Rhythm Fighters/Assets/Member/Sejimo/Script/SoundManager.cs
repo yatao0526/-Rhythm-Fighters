@@ -4,11 +4,14 @@ using UnityEngine;
 
 public enum BGM
 {
-    
+    titleBGM
 }
 
 public enum SE
 {
+    titleCollN,
+    titleCollT,
+    titleCollY
 
 }
 

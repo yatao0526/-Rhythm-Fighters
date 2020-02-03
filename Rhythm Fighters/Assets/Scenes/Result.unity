@@ -182,7 +182,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Push to Option Button\n         \u30BF\u30A4\u30C8\u30EB\u3078"
+  m_Text: "Push to Option Button\n\u30BF\u30A4\u30C8\u30EB\u3078"
 --- !u!222 &252395339
 CanvasRenderer:
   m_ObjectHideFlags: 0
