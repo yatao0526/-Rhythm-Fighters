@@ -38,8 +38,8 @@ public class UIManager : MonoBehaviour
 
     private void CharacterUIChange()
     {
-        Debug.Log("UI変更時のプレイヤー1は" + Player1.myCharName1P);
-        Debug.Log("UI変更時のプレイヤー2は" + Player2.myCharName2P);
+        //Debug.Log("UI変更時のプレイヤー1は" + Player1.myCharName1P);
+        //Debug.Log("UI変更時のプレイヤー2は" + Player2.myCharName2P);
 
         switch (Player1.myCharName1P)
         {
