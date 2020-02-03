@@ -1453,7 +1453,7 @@ MonoBehaviour:
   notesUI:
   - {fileID: 9047912932050790868, guid: e9b8cfb16f2054543bc08bfd35fcb1c4, type: 3}
   - {fileID: 4908027517097248999, guid: b59a830541027d646ab8bd801aeb1c62, type: 3}
-  timeOut: 0.75
+  timeOut: 0.7
   text: {fileID: 1838891660}
   negationMode: {fileID: 1008321461}
   player1: {fileID: 1451528078}
