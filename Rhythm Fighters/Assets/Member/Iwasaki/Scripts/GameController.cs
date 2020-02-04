@@ -26,7 +26,8 @@ public class GameController : MonoBehaviour
     public enum ModeType
     {
         normalMode,
-        negationMode
+        negationMode,
+        gameEnd
     }
     public static ModeType modeType = ModeType.normalMode;
 
