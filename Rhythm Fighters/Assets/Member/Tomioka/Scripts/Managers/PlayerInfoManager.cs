@@ -9,6 +9,8 @@
 
 //    private void Awake()
 //    {
+//        thisGamePlayer1 = null;
+//        thisGamePlayer2 = null;
 //        CreatePrefab();
 //    }
 
@@ -32,7 +34,8 @@
 //                break;
 
 //            case "Character3":
-
+//                thisGamePlayer1 = (GameObject)Resources.Load("Niduma1P");
+//                Instantiate(thisGamePlayer1, new Vector3(-2.0f, -1.0f, 70.0f), Quaternion.identity);
 //                break;
 
 //            case "Character4":
@@ -53,7 +56,8 @@
 //                break;
 
 //            case "Character3":
-
+//                thisGamePlayer2 = (GameObject)Resources.Load("Niduma2P");
+//                Instantiate(thisGamePlayer2, new Vector3(2.0f, -1.0f, 70.0f), Quaternion.identity);
 //                break;
 
 //            case "Character4":

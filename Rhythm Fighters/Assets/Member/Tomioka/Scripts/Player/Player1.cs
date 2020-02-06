@@ -23,8 +23,10 @@ public class Player1 : MonoBehaviour
     private float way1P = 0;
     private bool wayRight1P;
 
+    private bool SkillR1P;
+
     //移動後の場所
-    private Vector3 moveAfter;
+    private Vector3 moveAfter1P;
 
     [Header("Y軸は-1、Z軸は72")]
     [SerializeField]
@@ -91,7 +93,7 @@ public class Player1 : MonoBehaviour
         //player2 = PlayerInfoManager.thisGamePlayer2;
         //Debug.Log("1Pが使ってるのは" + myCharName1P);
         p1StateType = Player1StateType.stand;
-        moveAfter = this.transform.position;
+        moveAfter1P = this.transform.position;
         animator = GetComponent<Animator>();
     }
 
@@ -115,8 +117,8 @@ public class Player1 : MonoBehaviour
     //移動用の関数
     private void NormalModeMove()
     {
-        //transform.position = Vector3.MoveTowards(transform.position, moveAfter, stepTime * 10 * Time.deltaTime);
-        this.transform.position = moveAfter;
+        //transform.position = Vector3.MoveTowards(transform.position, moveAfter1P, stepTime * 10 * Time.deltaTime);
+        this.transform.position = moveAfter1P;
     }
 
     //打消しに入ったときにここに移動
@@ -186,9 +188,16 @@ public class Player1 : MonoBehaviour
             //構え後はこっち
             if (p1StateType == Player1StateType.pose)
             {
-                //スキル1
-                if (Input.GetButtonDown("Maru") && Input.GetAxis("LeftRight") != 0f)
+                //スキル1右
+                if (Input.GetButtonDown("Maru") && Input.GetAxis("LeftRight") > 0.5f)
                 {
+                    SkillR1P = true;
+                    p1StateType = Player1StateType.skill1;
+                }
+                //スキル1左
+                if (Input.GetButtonDown("Maru") && Input.GetAxis("LeftRight") < -0.5f)
+                {
+                    SkillR1P = false;
                     p1StateType = Player1StateType.skill1;
                 }
                 //スキル2
@@ -247,9 +256,16 @@ public class Player1 : MonoBehaviour
             //構え後はこっち
             if (p1StateType == Player1StateType.pose)
             {
-                //スキル1
-                if (Input.GetKeyDown(KeyCode.J) && (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)))
+                //スキル1右
+                if (Input.GetKeyDown(KeyCode.J) && Input.GetKeyDown(KeyCode.D))
                 {
+                    SkillR1P = true;
+                    p1StateType = Player1StateType.skill1;
+                }
+                //スキル1左
+                if (Input.GetKeyDown(KeyCode.J) && Input.GetKeyDown(KeyCode.A))
+                {
+                    SkillR1P = false;
                     p1StateType = Player1StateType.skill1;
                 }
                 //スキル2
@@ -286,14 +302,14 @@ public class Player1 : MonoBehaviour
 
             //右に移動
             case Player1StateType.rightMove:
-                moveAfter = transform.position + moveX;
+                moveAfter1P = transform.position + moveX;
                 animator.SetTrigger("Trigger_r");
                 AnimetionEnd1P();
                 break;
 
             //左に移動
             case Player1StateType.leftMove:
-                moveAfter = transform.position - moveX;
+                moveAfter1P = transform.position - moveX;
                 animator.SetTrigger("Trigger_l");
                 AnimetionEnd1P();
                 break;
@@ -404,13 +420,13 @@ public class Player1 : MonoBehaviour
         //右向き
         if (wayRight1P == true && minMove.x < this.transform.position.x)
         {
-            moveAfter = transform.position - moveX;
+            moveAfter1P = transform.position - moveX;
             Debug.Log("1Pは左に下がる");
         }
         //左向き
         if (wayRight1P == false && this.transform.position.x < maxMove.x)
         {
-            moveAfter = transform.position + moveX;
+            moveAfter1P = transform.position + moveX;
             Debug.Log("1Pは右に下がる");
         }
         //1P画面左端
@@ -428,13 +444,13 @@ public class Player1 : MonoBehaviour
     //相手が画面右端のため自分が左に下がる
     public void Player2RightEdge()
     {
-        moveAfter = transform.position - moveX;
+        moveAfter1P = transform.position - moveX;
     }
 
     //相手が画面左端のため自分が右に下がる
     public void Player2LeftEdge()
     {
-        moveAfter = transform.position - moveX;
+        moveAfter1P = transform.position - moveX;
     }
 
     //打消しモードないでのプレイヤーの挙動
@@ -489,7 +505,14 @@ public class Player1 : MonoBehaviour
         switch (myCharName1P)
         {
             case "suzuki":
-                moveAfter = transform.position + moveX * 2;
+                if (SkillR1P == true)
+                {
+                    moveAfter1P = transform.position + moveX * 2;
+                }
+                else
+                {
+                    moveAfter1P = transform.position - moveX * 2;
+                }
                 break;
 
             case "yokoyama":
