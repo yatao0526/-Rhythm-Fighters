@@ -50,6 +50,8 @@ public class Player1 : MonoBehaviour
     [SerializeField]
     private GameObject player2;
 
+    private Player2 player2cs;
+
     [SerializeField]
     private NegationMode negationMode;
 
@@ -92,6 +94,7 @@ public class Player1 : MonoBehaviour
         /// </summary>
         //player2 = PlayerInfoManager.thisGamePlayer2;
         //Debug.Log("1Pが使ってるのは" + myCharName1P);
+        player2cs = player2.GetComponent<Player2>();
         p1StateType = Player1StateType.stand;
         moveAfter1P = this.transform.position;
         animator = GetComponent<Animator>();
@@ -436,11 +439,13 @@ public class Player1 : MonoBehaviour
         //1P画面左端
         if (wayRight1P == true && minMove.x == this.transform.position.x)
         {
+            player2cs.Player1LeftEdge();
             Debug.Log("2Pは右に下がる");
         }
         //1P画面右端
         if (wayRight1P == false && this.transform.position.x == maxMove.x)
         {
+            player2cs.Player1RightEdge();
             Debug.Log("2Pは左に下がる");
         }
     }
@@ -454,7 +459,7 @@ public class Player1 : MonoBehaviour
     //相手が画面左端のため自分が右に下がる
     public void Player2LeftEdge()
     {
-        moveAfter1P = transform.position - moveX;
+        moveAfter1P = transform.position + moveX;
     }
 
     //打消しモードないでのプレイヤーの挙動
