@@ -42,7 +42,8 @@ public class HPManager : MonoBehaviour
             {
                 clearCheck = true;
             }
-            Invoke("ResultSceneMove",2.0f);
+            GameController.modeType = GameController.ModeType.gameEnd;
+            //Invoke("ResultSceneMove",2.0f);
         }
         HP();
     }

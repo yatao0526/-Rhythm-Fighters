@@ -112,6 +112,10 @@ public class Player1 : MonoBehaviour
         {
             NegationModeMove();
         }
+        if (GameController.modeType == GameController.ModeType.gameEnd)
+        {
+            ResultAction1P();
+        }
     }
 
     //移動用の関数
@@ -527,6 +531,20 @@ public class Player1 : MonoBehaviour
 
             case "LUO":
                 break;
+        }
+    }
+
+    private void ResultAction1P()
+    {
+        if (HPManager.clearCheck)
+        {
+            //リザルトの勝ちアクション
+            animator.SetTrigger("Trigger_");
+        }
+        else
+        {
+            //リザルトの負けアクション
+            animator.SetTrigger("Trigger_");
         }
     }
 }
