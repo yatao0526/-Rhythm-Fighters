@@ -6,10 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class CharacterSelectPlayersController : MonoBehaviour
 {
-    GameObject Common1;
-    GameObject Common2;
-
-
+    [SerializeField]
+    GameObject Common1, Common2;
 
     // charNum_1　   charNum_2プレイヤーが選択しているキャラクター, stageNum選択するステージ
     [SerializeField]
@@ -39,22 +37,21 @@ public class CharacterSelectPlayersController : MonoBehaviour
     //プレイヤーのアイコン　赤い　青い
     [SerializeField]
     private GameObject player1_Icon, player2_Icon;
-    
+
     // [SerializeField] private Image player1_Icon, player2_Icon;
     //キャラクター画像//背景画像
     //　選択できる　キャラクターと背景の画像
     [SerializeField]
     private Sprite[] player_Icons = new Sprite[6], playerCharacterAffirmations = new Sprite[6], playerCharacters = new Sprite[6], Backgrounds = new Sprite[3];
-    
+
     //選択の結果
-    [SerializeField]
     private string player1PCharacterName, player2PCharacterName, stageName;
 
     private void Start()
     {
         charNum_2 = charNumMAX - 1;
-        Common1 = GameObject.Find("Player1_common");
-        Common2 = GameObject.Find("Player2_common");
+        //Common1 = GameObject.Find("Player1_common");
+        //Common2 = GameObject.Find("Player2_common");
 
         charNum_1 = charNum_1 % charNumMAX;
         arrow1.transform.position = new Vector3(characters[charNum_1].transform.position.x, 760, 0);
@@ -145,6 +142,10 @@ public class CharacterSelectPlayersController : MonoBehaviour
             characters[charNum_2].GetComponent<Image>().color = new Color(255.0f / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f);
             //左へ移動
             charNum_2--;
+            if (charNum_2 % charNumMAX < 0)
+            {
+                charNum_2 = charNumMAX - 1;
+            }
             if (charNum_2 % charNumMAX == charNum_1 % charNumMAX)
             {
                 charNum_2--;

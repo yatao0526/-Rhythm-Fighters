@@ -1175,11 +1175,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf988b7dc5fbc5449e09a0c2621895e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charNum_1: 0
-  charNum_2: 3
+  Common1: {fileID: 1865761387}
+  Common2: {fileID: 1280977889}
   charNumMAX: 4
-  stageMoves: 0
-  stageNumMAX: 3
   stageNum: 1
   gradientColourMoveSpeet: 0.5
   characters:
@@ -1194,11 +1192,6 @@ MonoBehaviour:
   arrow1: {fileID: 76992032}
   arrow2: {fileID: 409355940}
   Background: {fileID: 1476110756}
-  player1PCharacter: 0
-  player2PCharacter: 0
-  isPlayerSelection: 0
-  isPlayer1: 0
-  isStageController: 0
   player1_Icon: {fileID: 210794677}
   player2_Icon: {fileID: 649532695}
   player_Icons:
@@ -1220,9 +1213,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  player1PCharacterName: 
-  player2PCharacterName: 
-  stageName: 
 --- !u!114 &1131390665
 MonoBehaviour:
   m_ObjectHideFlags: 0
