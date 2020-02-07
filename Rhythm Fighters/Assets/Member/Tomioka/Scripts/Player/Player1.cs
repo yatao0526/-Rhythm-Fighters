@@ -48,7 +48,6 @@ public class Player1 : MonoBehaviour
     [SerializeField]
     private EffectScript effectscript;
 
-    [SerializeField]
     private GameObject player2;
 
     private Player2 player2cs;
@@ -90,11 +89,9 @@ public class Player1 : MonoBehaviour
 
     void Start()
     {
-        /// <summary>
-        /// ここのコメントを消す
-        /// </summary>
-        //player2 = PlayerInfoManager.thisGamePlayer2;
-        //Debug.Log("1Pが使ってるのは" + myCharName1P);
+        player2 = PlayerInfoManager.thisGamePlayer2;
+        player2cs = player2.GetComponent<Player2>();
+        Debug.Log("1Pが使ってるのは" + myCharName1P);
         player2cs = player2.GetComponent<Player2>();
         p1StateType = Player1StateType.stand;
         moveAfter1P = this.transform.position;

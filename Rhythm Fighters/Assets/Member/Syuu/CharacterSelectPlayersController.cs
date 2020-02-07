@@ -358,8 +358,8 @@ public class CharacterSelectPlayersController : MonoBehaviour
         Debug.Log("ステージ転移先と選択結果のデータ出し先は分からないので、まだ書いてません");
         //ステージ転移
         // SceneManager.LoadScene("Game");
-         //SceneManager.LoadScene("MainTest");
-         SceneManager.LoadScene("TestSelect");
+        SceneManager.LoadScene("MainTest");
+        //SceneManager.LoadScene("TestSelect");
         //データを他のスクリプト出す処理
     }
 }
