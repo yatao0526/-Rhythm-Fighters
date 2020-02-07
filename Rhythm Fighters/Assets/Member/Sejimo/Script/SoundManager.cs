@@ -109,7 +109,7 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
         BgmRegister();
         SeRegister();
 
-        Debug.Log("LoadBGMCount:" + bgmdic.Count);
-        Debug.Log("LoadSECount:" + sedic.Count);
+        //Debug.Log("LoadBGMCount:" + bgmdic.Count);
+        //Debug.Log("LoadSECount:" + sedic.Count);
     }
 }

@@ -157,3 +157,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
   target: {fileID: 4908027517097248996, guid: b59a830541027d646ab8bd801aeb1c62, type: 3}
+  thisNote: 0
+  noteStartPos: 9
+  UIStartPos: 1000

@@ -7,6 +7,8 @@ public class NegationMode : MonoBehaviour
 {
     //打消しモードに入ったときにbool値をもらう
     public static bool check = false;
+    //打消し入って二拍目になったら判定はじめのフラグ
+    public static bool checkBeat = false;
 
     public static int p1Num;
     public static int p2Num;
@@ -36,6 +38,11 @@ public class NegationMode : MonoBehaviour
         {4,0.7f },
         {5,1.0f },
     };
+    private void Start()
+    {
+        //Debug.Log(chara1P);
+        //Debug.Log(chara2P);
+    }
     private void Update()
     {
         NegationProcessing();
@@ -43,28 +50,25 @@ public class NegationMode : MonoBehaviour
     private void NegationProcessing()
     {
         Debug.Log(countNum);
+        Debug.Log(checkBeat);
         //打消しモード突入
         if (GameController.modeType == GameController.ModeType.negationMode)
         {
             negationObject.enabled=true;
-            countNum = 1;
-            switch (countNum)
+            if(countNum <= 1)
             {
-                //打消し1拍目
-                case 1:
-                    Debug.Log("打消しはいったよ。処理開始");
-                    Debug.Log("打消し1拍目");
-                    Nagation1PATK();
-                    Negation2PATK();
-                    GetNum();
-                    SetBar();
-                    break;
-                //打消し2拍目
-                case 2:
-                    Debug.Log("打消し2拍目");
-                    break;
+                Debug.Log("打消しはいったよ。処理開始");
+                Debug.Log("打消し1拍目");
+                Nagation1PATK();
+                Negation2PATK();
+                GetNum();
+                SetBar();
             }
-
+            else
+            {
+                Debug.Log("打消し2拍目");
+                checkBeat = true;
+            }
         }
         else　//通常モード
         {
@@ -72,6 +76,7 @@ public class NegationMode : MonoBehaviour
             negationBerL.gameObject.SetActive(false);
             negationBerR.gameObject.SetActive(false);
             negationObject.enabled=false;
+            checkBeat = false;
             countNum = 0;
         }
     }

@@ -10,7 +10,10 @@ public class NotesUIMove : MonoBehaviour
     RectTransform target;
     [SerializeField]
     private ThisNote thisNote;
-
+    [SerializeField]
+    private int noteStartPos;
+    [SerializeField]
+    private int UIStartPos;
     private void Start()
     {
         NoteUICanvasSerevtor serector = (NoteUICanvasSerevtor)FindObjectOfType(typeof(NoteUICanvasSerevtor));
@@ -40,10 +43,10 @@ public class NotesUIMove : MonoBehaviour
 
                 //　オブジェクトの割合計算　(現在の位置ー始点）/ (目標点ー始点)
                 Vector2 objLPos;
-                objLPos.x = (transform.position.x - -9) / (1 - -9);
+                objLPos.x = (((transform.position.x - -noteStartPos) / (1 - -noteStartPos)) + 0.25f) % 1;
                 // UI上の位置(目標点ー始点)　* 割合 + 始点
                 Vector2 UIPos;
-                UIPos.x = (0 - -880) * objLPos.x + -880;
+                UIPos.x = (0 - -UIStartPos) * objLPos.x + -UIStartPos;
 
                 Vector2 vector2 = target.anchoredPosition;
                 vector2.x = UIPos.x;
@@ -52,9 +55,9 @@ public class NotesUIMove : MonoBehaviour
             case ThisNote.RtoLNote:
                 Vector2 vecR2 = RectTransformUtility.WorldToScreenPoint(canvas.worldCamera, this.transform.position);
                 Vector2 objRPos;
-                objRPos.x = (transform.position.x - 9) / (-1 - 9);
+                objRPos.x = (((transform.position.x - noteStartPos) / (-1 - noteStartPos)) +0.25f) % 1;
                 Vector2 UIRPos;
-                UIRPos.x = (0 - 880) * objRPos.x + 880;
+                UIRPos.x = (0 - UIStartPos) * objRPos.x + UIStartPos;
                 Vector2 vectorR2 = target.anchoredPosition;
                 vectorR2.x = UIRPos.x;
                 target.anchoredPosition = vectorR2;

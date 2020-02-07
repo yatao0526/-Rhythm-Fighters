@@ -103,8 +103,8 @@ public class Player1 : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(player2cs.moveAfter2P);
-        Debug.Log("P1は" + p1StateType + "です");
+        //Debug.Log(player2cs.moveAfter2P);
+        //Debug.Log("P1は" + p1StateType + "です");
         Player1Way();
         SetTargetPosition();
         DebugSetTargetPosition();
@@ -467,7 +467,7 @@ public class Player1 : MonoBehaviour
     //打消しモードないでのプレイヤーの挙動
     private void NegationFunction()
     {
-        if (GameController.modeType == GameController.ModeType.negationMode)
+        if (GameController.modeType == GameController.ModeType.negationMode　&& NegationMode.checkBeat == true)
         {
             //打消しモード中に複数回押せないように
             if ((p1StateType != Player1StateType.negationSuccess && p1StateType != Player1StateType.negationFalse)

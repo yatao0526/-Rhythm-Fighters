@@ -51,6 +51,8 @@ public class NotesController : MonoBehaviour
                 {
                     this.transform.position = pos;
                     this.gameObject.SetActive(false);
+                    if (GameController.modeType == GameController.ModeType.negationMode) NegationMode.countNum += 1;
+                    if (GameController.modeType == GameController.ModeType.negationMode && NegationMode.countNum >= 2) GameController.modeType = GameController.ModeType.normalMode;
                 }
                 break;
             //左から流れるノーツの処理

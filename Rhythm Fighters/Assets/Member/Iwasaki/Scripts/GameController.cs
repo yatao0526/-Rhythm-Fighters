@@ -77,6 +77,7 @@ public class GameController : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        Debug.Log(modeType);
         MoveTime();
         //テスト用テキスト
         if ((Input.GetKeyDown(KeyCode.Space)) || (Input.GetKeyDown(KeyCode.A)) ||
@@ -133,7 +134,10 @@ public class GameController : MonoBehaviour
             }
             else
             {
-                GameController.modeType = GameController.ModeType.normalMode;
+                if(NegationMode.countNum >= 2)
+                {
+                    GameController.modeType = GameController.ModeType.normalMode;
+                }
             }
             if (Player2.negationButton2P)
             {
@@ -141,7 +145,10 @@ public class GameController : MonoBehaviour
             }
             else
             {
-                GameController.modeType = GameController.ModeType.normalMode;
+                if (NegationMode.countNum >= 2)
+                {
+                    GameController.modeType = GameController.ModeType.normalMode;
+                }
             }
             //Debug.Log("判定");
             //Debug.Log(audioTime);

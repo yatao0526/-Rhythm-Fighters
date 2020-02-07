@@ -16,8 +16,6 @@ public class NegationManager : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         Negation();
-        //if (col.tag != "Player1" && col.tag != "Player2" && col.tag != "Note")
-        //{
         if (col.tag == "LightPunch" || col.tag == "HeavyPunch" || col.tag == "Skill2")
         {
             Debug.Log(col.tag);

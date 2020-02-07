@@ -1281,6 +1281,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4380641823514214415, guid: deca0015d1c73d94ca7371f19f4219de,
+        type: 3}
+      propertyPath: m_Name
+      value: Yokoyama2P
+      objectReference: {fileID: 0}
     - target: {fileID: 862559111716784227, guid: deca0015d1c73d94ca7371f19f4219de,
         type: 3}
       propertyPath: negationMode
@@ -1345,11 +1350,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4380641823514214415, guid: deca0015d1c73d94ca7371f19f4219de,
-        type: 3}
-      propertyPath: m_Name
-      value: Yokoyama2P
       objectReference: {fileID: 0}
     - target: {fileID: 5488020947622413212, guid: deca0015d1c73d94ca7371f19f4219de,
         type: 3}

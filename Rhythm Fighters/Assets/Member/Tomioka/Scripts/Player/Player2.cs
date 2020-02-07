@@ -103,8 +103,8 @@ public class Player2 : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(player1cs.moveAfter1P);
-        Debug.Log("P2は" + p2StateType + "です");
+        //Debug.Log(player1cs.moveAfter1P);
+        //Debug.Log("P2は" + p2StateType + "です");
         Player2Way();
         SetTargetPosition();
         DebugSetTargetPosition();
@@ -301,7 +301,7 @@ public class Player2 : MonoBehaviour
             case Player2StateType.miss:
                 animator.SetTrigger("Trigger_Miss");
                 effectscript.MissFX();
-                Debug.Log("2Pはミス");
+                //Debug.Log("2Pはミス");
                 AnimetionEnd2P();
                 break;
 

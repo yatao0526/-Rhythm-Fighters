@@ -158,3 +158,5 @@ MonoBehaviour:
   canvas: {fileID: 0}
   target: {fileID: 9047912932050790856, guid: e9b8cfb16f2054543bc08bfd35fcb1c4, type: 3}
   thisNote: 1
+  noteStartPos: 9
+  UIStartPos: 1000

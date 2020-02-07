@@ -6,7 +6,7 @@ public class Player1AttackManager : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log(col.name);
+        //Debug.Log(col.name);
         if (GameController.modeType == GameController.ModeType.normalMode)
         {
             switch (col.tag)
