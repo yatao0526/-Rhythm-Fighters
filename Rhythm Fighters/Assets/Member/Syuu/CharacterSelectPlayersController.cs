@@ -91,6 +91,11 @@ public class CharacterSelectPlayersController : MonoBehaviour
             {
                 charNum_1--;
             }
+            if (charNum_1 % charNumMAX < 0)
+            {
+                // Debug.Log("  if (charNum_1 % charNumMAX <0)" + charNum_1);
+                charNum_1 = charNumMAX - 1;
+            }
         }
         else if (Input.GetKeyDown(KeyCode.D) && !player1PCharacter && !isPlayerSelection)
         {
