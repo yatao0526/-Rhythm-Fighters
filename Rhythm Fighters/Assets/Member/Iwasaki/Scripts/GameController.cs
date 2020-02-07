@@ -43,10 +43,12 @@ public class GameController : MonoBehaviour
     private Text text;                          //確認用のテキスト
     [SerializeField]
     private NegationMode negationMode;
+
     [SerializeField]
     private Player1 player1;
     [SerializeField]
     private Player2 player2;
+
     [SerializeField]
     private Image buton;
     [SerializeField]
@@ -54,14 +56,14 @@ public class GameController : MonoBehaviour
 
     private NoteObjectPool poolL, poolR;        //objectpool参照
     private ImageCreatePooling poolUIL, poolUIR;
-    
+
     private float judgeTime;                    //判定用タイム
     private float audioTime;                    //判定補助タイマー（BGM開始時間指定用）
 
     private static bool soundPlaying = false;   //test用、BGMか流しているかどうかの判断
 
     public GameObject soundManager;             //test用、soundManager
-    
+
     private void Awake()
     {
         poolL = GetComponent<NoteObjectPool>();
@@ -75,6 +77,13 @@ public class GameController : MonoBehaviour
         //曲変更の時BPMを変更の下準備
         //timeOut = 60 / BPM;
     }
+
+    private void Start()
+    {
+        player1 = PlayerInfoManager.thisGamePlayer1.GetComponent<Player1>();
+        player2 = PlayerInfoManager.thisGamePlayer2.GetComponent<Player2>();
+    }
+
     private void FixedUpdate()
     {
         Debug.Log(modeType);

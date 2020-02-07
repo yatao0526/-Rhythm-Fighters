@@ -14,6 +14,9 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayerOne = PlayerInfoManager.thisGamePlayer1;
+        PlayerTwo = PlayerInfoManager.thisGamePlayer2;
+        Debug.Log(PlayerOne);
     }
 
     // Update is called once per frame

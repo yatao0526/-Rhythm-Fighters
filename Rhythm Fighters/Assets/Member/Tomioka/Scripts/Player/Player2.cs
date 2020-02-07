@@ -48,7 +48,7 @@ public class Player2 : MonoBehaviour
     [SerializeField]
     private EffectScript effectscript;
 
-    [SerializeField]
+    //[SerializeField]
     private GameObject player1;
 
     private Player1 player1cs;
@@ -90,11 +90,8 @@ public class Player2 : MonoBehaviour
 
     void Start()
     {
+        player1 = PlayerInfoManager.thisGamePlayer1;
         player1cs = player1.GetComponent<Player1>();
-        /// <summary>
-        /// ここのコメントを消す
-        /// </summary>
-        //player1 = PlayerInfoManager.thisGamePlayer1;
         //Debug.Log("2Pが使ってるのは" + myCharName2P);
         p2StateType = Player2StateType.stand;
         moveAfter2P = this.transform.position;
@@ -494,11 +491,11 @@ public class Player2 : MonoBehaviour
     //自分のキャラを判別する
     private void CharacterJudge()
     {
-        if (this.gameObject.name == "Suzuki1P" || this.gameObject.name == "Suzuki2P")
+        if (this.gameObject.name == "Suzuki1P(Clone)" || this.gameObject.name == "Suzuki2P(Clone)")
         {
             myCharName2P = "suzuki";
         }
-        if (this.gameObject.name == "Yokoyama1P" || this.gameObject.name == "Yokoyama2P")
+        if (this.gameObject.name == "Yokoyama1P(Clone)" || this.gameObject.name == "Yokoyama2P(Clone)")
         {
             myCharName2P = "yokoyama";
         }

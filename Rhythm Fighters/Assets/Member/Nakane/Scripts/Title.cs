@@ -61,7 +61,8 @@ public class Title : MonoBehaviour
 
         // シーンの読み込み
         //async = SceneManager.LoadSceneAsync("CharacterSelectPlayersController");
-        async = SceneManager.LoadSceneAsync("MainTest");
+        //async = SceneManager.LoadSceneAsync("MainTest");
+        async = SceneManager.LoadSceneAsync("CharacterSelectPlayersController");
 
         // 読み込みが終わるまで進捗状況をスライダーの値に反映させる
         while (!async.isDone)
