@@ -26,7 +26,8 @@ public class Player1 : MonoBehaviour
     private bool SkillR1P;
 
     //移動後の場所
-    private Vector3 moveAfter1P;
+    [HideInInspector]
+    public Vector3 moveAfter1P;
 
     [Header("Y軸は-1、Z軸は72")]
     [SerializeField]
@@ -102,6 +103,7 @@ public class Player1 : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(player2cs.moveAfter2P);
         Debug.Log("P1は" + p1StateType + "です");
         Player1Way();
         SetTargetPosition();
@@ -166,12 +168,12 @@ public class Player1 : MonoBehaviour
             if (p1StateType == Player1StateType.stand)
             {
                 //左移動
-                if (Input.GetAxis("LeftRight") < -0.5f && minMove.x < this.transform.position.x)
+                if (Input.GetAxis("LeftRight") < -0.5f && minMove.x < this.transform.position.x && this.transform.position - moveX != player2cs.moveAfter2P)
                 {
                     p1StateType = Player1StateType.leftMove;
                 }
                 //右移動
-                if (Input.GetAxis("LeftRight") > 0.5f && this.transform.position.x < maxMove.x)
+                if (Input.GetAxis("LeftRight") > 0.5f && this.transform.position.x < maxMove.x && this.transform.position + moveX != player2cs.moveAfter2P)
                 {
                     p1StateType = Player1StateType.rightMove;
                 }
@@ -234,12 +236,12 @@ public class Player1 : MonoBehaviour
             if (p1StateType == Player1StateType.stand)
             {
                 //左移動
-                if (Input.GetKeyDown(KeyCode.A) && minMove.x < this.transform.position.x)
+                if (Input.GetKeyDown(KeyCode.A) && minMove.x < this.transform.position.x && this.transform.position - moveX != player2cs.moveAfter2P)
                 {
                     p1StateType = Player1StateType.leftMove;
                 }
                 //右移動
-                if (Input.GetKeyDown(KeyCode.D) && this.transform.position.x < maxMove.x)
+                if (Input.GetKeyDown(KeyCode.D) && this.transform.position.x < maxMove.x && this.transform.position + moveX != player2cs.moveAfter2P)
                 {
                     p1StateType = Player1StateType.rightMove;
                 }
@@ -425,13 +427,13 @@ public class Player1 : MonoBehaviour
     private void KnockBack1P()
     {
         //右向き
-        if (wayRight1P == true && minMove.x < this.transform.position.x)
+        if (wayRight1P == true && minMove.x < this.transform.position.x && this.transform.position + moveX != player2cs.moveAfter2P)
         {
             moveAfter1P = transform.position - moveX;
             Debug.Log("1Pは左に下がる");
         }
         //左向き
-        if (wayRight1P == false && this.transform.position.x < maxMove.x)
+        if (wayRight1P == false && this.transform.position.x < maxMove.x && this.transform.position - moveX != player2cs.moveAfter2P)
         {
             moveAfter1P = transform.position + moveX;
             Debug.Log("1Pは右に下がる");

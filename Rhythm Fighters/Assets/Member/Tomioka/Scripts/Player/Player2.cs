@@ -26,6 +26,7 @@ public class Player2 : MonoBehaviour
     private bool SkillR2P;
 
     //移動後の場所
+    [HideInInspector]
     public Vector3 moveAfter2P;
 
     [Header("Y軸は-1、Z軸は72")]
@@ -102,6 +103,7 @@ public class Player2 : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(player1cs.moveAfter1P);
         Debug.Log("P2は" + p2StateType + "です");
         Player2Way();
         SetTargetPosition();
@@ -166,12 +168,12 @@ public class Player2 : MonoBehaviour
             if (p2StateType == Player2StateType.stand)
             {
                 //左移動
-                if (Input.GetAxis("2PLeftRight") < -0.5 && minMove.x < this.transform.position.x)
+                if (Input.GetAxis("2PLeftRight") < -0.5 && minMove.x < this.transform.position.x && this.transform.position - moveX != player1cs.moveAfter1P)
                 {
                     p2StateType = Player2StateType.leftMove;
                 }
                 //右移動
-                if (Input.GetAxis("2PLeftRight") > 0.5f && this.transform.position.x < maxMove.x)
+                if (Input.GetAxis("2PLeftRight") > 0.5f && this.transform.position.x < maxMove.x && this.transform.position + moveX != player1cs.moveAfter1P)
                 {
                     p2StateType = Player2StateType.rightMove;
                 }
@@ -234,12 +236,12 @@ public class Player2 : MonoBehaviour
             if (p2StateType == Player2StateType.stand)
             {
                 //左移動
-                if (Input.GetKeyDown(KeyCode.LeftArrow) && minMove.x < this.transform.position.x)
+                if (Input.GetKeyDown(KeyCode.LeftArrow) && minMove.x < this.transform.position.x && this.transform.position - moveX != player1cs.moveAfter1P)
                 {
                     p2StateType = Player2StateType.leftMove;
                 }
                 //右移動
-                if (Input.GetKeyDown(KeyCode.RightArrow) && this.transform.position.x < maxMove.x)
+                if (Input.GetKeyDown(KeyCode.RightArrow) && this.transform.position.x < maxMove.x && this.transform.position + moveX != player1cs.moveAfter1P)
                 {
                     p2StateType = Player2StateType.rightMove;
                 }

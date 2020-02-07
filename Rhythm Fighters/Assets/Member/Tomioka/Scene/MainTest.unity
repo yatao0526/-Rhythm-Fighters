@@ -1281,11 +1281,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4380641823514214415, guid: deca0015d1c73d94ca7371f19f4219de,
+    - target: {fileID: 862559111716784227, guid: deca0015d1c73d94ca7371f19f4219de,
         type: 3}
-      propertyPath: m_Name
-      value: Yokoyama2P
-      objectReference: {fileID: 0}
+      propertyPath: negationMode
+      value: 
+      objectReference: {fileID: 1008321461}
+    - target: {fileID: 2210082748927251629, guid: deca0015d1c73d94ca7371f19f4219de,
+        type: 3}
+      propertyPath: negationMode
+      value: 
+      objectReference: {fileID: 1008321461}
     - target: {fileID: 4380641823514214409, guid: deca0015d1c73d94ca7371f19f4219de,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1341,6 +1346,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4380641823514214415, guid: deca0015d1c73d94ca7371f19f4219de,
+        type: 3}
+      propertyPath: m_Name
+      value: Yokoyama2P
+      objectReference: {fileID: 0}
     - target: {fileID: 5488020947622413212, guid: deca0015d1c73d94ca7371f19f4219de,
         type: 3}
       propertyPath: player1
@@ -1351,22 +1361,12 @@ PrefabInstance:
       propertyPath: negationMode
       value: 
       objectReference: {fileID: 1008321461}
-    - target: {fileID: 1875841098954532500, guid: deca0015d1c73d94ca7371f19f4219de,
-        type: 3}
-      propertyPath: negationMode
-      value: 
-      objectReference: {fileID: 1008321461}
-    - target: {fileID: 2210082748927251629, guid: deca0015d1c73d94ca7371f19f4219de,
-        type: 3}
-      propertyPath: negationMode
-      value: 
-      objectReference: {fileID: 1008321461}
-    - target: {fileID: 862559111716784227, guid: deca0015d1c73d94ca7371f19f4219de,
-        type: 3}
-      propertyPath: negationMode
-      value: 
-      objectReference: {fileID: 1008321461}
     - target: {fileID: 5775203483631116855, guid: deca0015d1c73d94ca7371f19f4219de,
+        type: 3}
+      propertyPath: negationMode
+      value: 
+      objectReference: {fileID: 1008321461}
+    - target: {fileID: 1875841098954532500, guid: deca0015d1c73d94ca7371f19f4219de,
         type: 3}
       propertyPath: negationMode
       value: 
@@ -2701,7 +2701,7 @@ PrefabInstance:
     - target: {fileID: 553289230974430839, guid: a22cda4c4fc713d48b904be897d205eb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 72
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 553289230974430839, guid: a22cda4c4fc713d48b904be897d205eb,
         type: 3}
@@ -2743,12 +2743,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7134426411411357758, guid: a22cda4c4fc713d48b904be897d205eb,
-        type: 3}
-      propertyPath: negationMode
-      value: 
-      objectReference: {fileID: 1008321461}
-    - target: {fileID: 7020840994368615074, guid: a22cda4c4fc713d48b904be897d205eb,
+    - target: {fileID: 5182530093050771100, guid: a22cda4c4fc713d48b904be897d205eb,
         type: 3}
       propertyPath: negationMode
       value: 
@@ -2758,7 +2753,12 @@ PrefabInstance:
       propertyPath: negationMode
       value: 
       objectReference: {fileID: 1008321461}
-    - target: {fileID: 5182530093050771100, guid: a22cda4c4fc713d48b904be897d205eb,
+    - target: {fileID: 7020840994368615074, guid: a22cda4c4fc713d48b904be897d205eb,
+        type: 3}
+      propertyPath: negationMode
+      value: 
+      objectReference: {fileID: 1008321461}
+    - target: {fileID: 7134426411411357758, guid: a22cda4c4fc713d48b904be897d205eb,
         type: 3}
       propertyPath: negationMode
       value: 
