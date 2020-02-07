@@ -43,10 +43,12 @@ public class GameController : MonoBehaviour
     private Text text;                          //確認用のテキスト
     [SerializeField]
     private NegationMode negationMode;
-    [SerializeField]
+
+    //[SerializeField]
     private Player1 player1;
-    [SerializeField]
+    //[SerializeField]
     private Player2 player2;
+
     [SerializeField]
     private Image buton;
     [SerializeField]
@@ -62,8 +64,10 @@ public class GameController : MonoBehaviour
 
     public GameObject soundManager;             //test用、soundManager
     
-    private void Awake()
+    private void Start()
     {
+        player1 = PlayerInfoManager.thisGamePlayer1.GetComponent<Player1>();
+        player2 = PlayerInfoManager.thisGamePlayer2.GetComponent<Player2>();
         poolL = GetComponent<NoteObjectPool>();
         poolR = GetComponent<NoteObjectPool>();
         poolL.CreatePoolL(Notes[0], 5);

@@ -493,11 +493,11 @@ public class Player1 : MonoBehaviour
     //自分のキャラを判別
     private void CharacterJudge()
     {
-        if (this.gameObject.name == "Suzuki1P" || this.gameObject.name == "Suzuki2P")
+        if (this.gameObject.name == "Suzuki1P(Clone)" || this.gameObject.name == "Suzuki2P(Clone)")
         {
             myCharName1P = "suzuki";
         }
-        if (this.gameObject.name == "Yokoyama1P" || this.gameObject.name == "Yokoyama2P")
+        if (this.gameObject.name == "Yokoyama1P(Clone)" || this.gameObject.name == "Yokoyama2P(Clone)")
         {
             myCharName1P = "yokoyama";
         }
