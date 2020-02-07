@@ -74,7 +74,7 @@ public class CharacterSelectPlayersController : MonoBehaviour
     }
     private void Player1Move()
     {
-        if (Input.GetKeyDown(KeyCode.A) && !player1PCharacter && !isPlayerSelection)
+        if ((Input.GetKeyDown(KeyCode.A) && !player1PCharacter && !isPlayerSelection) || (Input.GetAxis("LeftRight") < -0.5 && !player1PCharacter && !isPlayerSelection))
         {
             // player1_Icon.GetComponent<Image>().sprite = player_Icons[charNum_1];
             characters[charNum_1].GetComponent<Image>().sprite = playerCharacters[charNum_1];
@@ -96,7 +96,7 @@ public class CharacterSelectPlayersController : MonoBehaviour
                 charNum_1 = charNumMAX - 1;
             }
         }
-        else if (Input.GetKeyDown(KeyCode.D) && !player1PCharacter && !isPlayerSelection)
+        else if ((Input.GetKeyDown(KeyCode.D) && !player1PCharacter && !isPlayerSelection) || (Input.GetAxis("LeftRight") > 0.5f && !player1PCharacter && !isPlayerSelection))
         {
             characters[charNum_1].GetComponent<Image>().sprite = playerCharacters[charNum_1];
             characters[charNum_1].GetComponent<Image>().color = new Color(255.0f / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f);
@@ -115,12 +115,14 @@ public class CharacterSelectPlayersController : MonoBehaviour
             arrow1.transform.position = new Vector3(characters[charNum_1].transform.position.x, 540, 0);//760>540
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && !player1PCharacter && !isPlayerSelection)
+        if ((Input.GetKeyDown(KeyCode.E) && !player1PCharacter && !isPlayerSelection) || (Input.GetButtonDown("Maru") && !player1PCharacter && !isPlayerSelection))
         {
             player1PCharacter = true;
             PlayerSelectionMove();
-        } //選択するまだ選択直し処理
-        else if (Input.GetKeyDown(KeyCode.E) && player1PCharacter && !isPlayerSelection)
+        }
+
+        //選択するまだ選択直し処理
+        else if ((Input.GetKeyDown(KeyCode.E) && player1PCharacter && !isPlayerSelection) || (Input.GetButtonDown("Maru") && player1PCharacter && !isPlayerSelection))
         {
             player1PCharacter = false;
         }
@@ -138,7 +140,7 @@ public class CharacterSelectPlayersController : MonoBehaviour
     }
     private void Player2Move()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && !player2PCharacter && !isPlayerSelection)
+        if ((Input.GetKeyDown(KeyCode.LeftArrow) && !player2PCharacter && !isPlayerSelection) || (Input.GetAxis("2PLeftRight") < -0.5 && !player2PCharacter && !isPlayerSelection))
         {
             characters[charNum_2].GetComponent<Image>().sprite = playerCharacters[charNum_2];
             characters[charNum_2].GetComponent<Image>().color = new Color(255.0f / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f);
@@ -158,7 +160,7 @@ public class CharacterSelectPlayersController : MonoBehaviour
             }
 
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow) && !player2PCharacter && !isPlayerSelection)
+        else if ((Input.GetKeyDown(KeyCode.RightArrow) && !player2PCharacter && !isPlayerSelection) || (Input.GetAxis("2PLeftRight") > 0.5f && !player2PCharacter && !isPlayerSelection))
         {
             characters[charNum_2].GetComponent<Image>().sprite = playerCharacters[charNum_2];
             characters[charNum_2].GetComponent<Image>().color = new Color(255.0f / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f);
@@ -178,12 +180,12 @@ public class CharacterSelectPlayersController : MonoBehaviour
         }
 
         // player2_Icon.sprite = player_Icons[charNum_2];
-        if (Input.GetKeyDown(KeyCode.Space) && !player2PCharacter && !isPlayerSelection)
+        if ((Input.GetKeyDown(KeyCode.Space) && !player2PCharacter && !isPlayerSelection) || (Input.GetButtonDown("2PMaru") && !player2PCharacter && !isPlayerSelection))
         {
             player2PCharacter = true;
             PlayerSelectionMove();
         }
-        else if (Input.GetKeyDown(KeyCode.Space) && player2PCharacter && !isPlayerSelection)
+        else if ((Input.GetKeyDown(KeyCode.Space) && player2PCharacter && !isPlayerSelection) || (Input.GetButtonDown("2PMaru") && player2PCharacter && !isPlayerSelection))
         {
             player2PCharacter = false;
         }
@@ -290,7 +292,7 @@ public class CharacterSelectPlayersController : MonoBehaviour
 
         if (isStageController && isPlayer1)
         {
-            if (Input.GetKeyDown(KeyCode.A))
+            if ((Input.GetKeyDown(KeyCode.A)) || (Input.GetAxis("LeftRight") < -0.5))
             {
                 backgroundGameObjects[stageNum].GetComponent<Image>().color = new Color(255.0f / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f);
                 stageNum--;
@@ -300,13 +302,13 @@ public class CharacterSelectPlayersController : MonoBehaviour
                 }
                 Background.GetComponent<BackgroundMoveScript>().speedTime = 1.0f;
             }
-            else if (Input.GetKeyDown(KeyCode.D))
+            else if ((Input.GetKeyDown(KeyCode.D)) || (Input.GetAxis("LeftRight") > 0.5f))
             {
                 backgroundGameObjects[stageNum].GetComponent<Image>().color = new Color(255.0f / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f);
                 stageNum++;
                 Background.GetComponent<BackgroundMoveScript>().speedTime = 1.0f;
             }
-            else if (Input.GetKeyDown(KeyCode.E))
+            else if ((Input.GetKeyDown(KeyCode.E)) || (Input.GetButtonDown("Maru")))
             {
                 CharacterSelectPlayersControllerEnd();
             }
@@ -317,7 +319,7 @@ public class CharacterSelectPlayersController : MonoBehaviour
         }
         else if (isStageController && !isPlayer1)
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            if ((Input.GetKeyDown(KeyCode.LeftArrow)) || (Input.GetAxis("2PLeftRight") < -0.5))
             {
                 backgroundGameObjects[stageNum].GetComponent<Image>().color = new Color(255.0f / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f);
                 stageNum--;
@@ -327,13 +329,13 @@ public class CharacterSelectPlayersController : MonoBehaviour
                 }
                 Background.GetComponent<BackgroundMoveScript>().speedTime = 1.0f;
             }
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            else if ((Input.GetKeyDown(KeyCode.RightArrow)) || (Input.GetAxis("2PLeftRight") > 0.5f))
             {
                 backgroundGameObjects[stageNum].GetComponent<Image>().color = new Color(255.0f / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f);
                 stageNum++;
                 Background.GetComponent<BackgroundMoveScript>().speedTime = 1.0f;
             }
-            else if (Input.GetKeyDown(KeyCode.Space))
+            else if (Input.GetKeyDown(KeyCode.Space) || (Input.GetButtonDown("2PMaru")))
             {
                 CharacterSelectPlayersControllerEnd();
             }
