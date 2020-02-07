@@ -44,9 +44,9 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private NegationMode negationMode;
 
-    //[SerializeField]
+    [SerializeField]
     private Player1 player1;
-    //[SerializeField]
+    [SerializeField]
     private Player2 player2;
 
     [SerializeField]
