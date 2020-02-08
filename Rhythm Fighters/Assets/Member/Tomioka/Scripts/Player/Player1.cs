@@ -424,13 +424,13 @@ public class Player1 : MonoBehaviour
     private void KnockBack1P()
     {
         //右向き
-        if (wayRight1P == true && minMove.x < this.transform.position.x && this.transform.position + moveX != player2cs.moveAfter2P)
+        if (wayRight1P == true && minMove.x < this.transform.position.x)
         {
             moveAfter1P = transform.position - moveX;
             Debug.Log("1Pは左に下がる");
         }
         //左向き
-        if (wayRight1P == false && this.transform.position.x < maxMove.x && this.transform.position - moveX != player2cs.moveAfter2P)
+        if (wayRight1P == false && this.transform.position.x < maxMove.x)
         {
             moveAfter1P = transform.position + moveX;
             Debug.Log("1Pは右に下がる");

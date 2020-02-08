@@ -1389,24 +1389,24 @@ MonoBehaviour:
   HPBarIcon1P:
   - {fileID: 21300000, guid: bc02ba4d94845d74ca18b29d2bdbfd37, type: 3}
   - {fileID: 21300000, guid: 1b5405213509e8145bbe60fe113230dd, type: 3}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 9e3ca06309bcbe447a3084357842f70d, type: 3}
   - {fileID: 0}
   HPBarIcon2P:
   - {fileID: 21300000, guid: bd92bb7651690f54db8f20c318d78250, type: 3}
   - {fileID: 21300000, guid: 5f85ee587c615e74b875623af2cd3ef4, type: 3}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 33d62aeac21f0c04c88125958d9f8f27, type: 3}
   - {fileID: 0}
   icon1P: {fileID: 1261950559}
   icon2P: {fileID: 1469736753}
   commandPanel1P:
   - {fileID: 21300000, guid: be7a434e029b3b044ab6ca256d6bbd4e, type: 3}
   - {fileID: 21300000, guid: be2b9eb7da7258f41bcaf73f0a36d86f, type: 3}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: e4d15958503ceb94490a5a020bd5cdae, type: 3}
   - {fileID: 0}
   commandPanel2P:
   - {fileID: 21300000, guid: 33c2b236c105f294582ff73358528826, type: 3}
   - {fileID: 21300000, guid: 270dde03caafbd845a8230b75a358636, type: 3}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: dd9c58ee289d78640b7ddb320e5d878b, type: 3}
   - {fileID: 0}
   command1P: {fileID: 692300884}
   command2P: {fileID: 1354101431}
