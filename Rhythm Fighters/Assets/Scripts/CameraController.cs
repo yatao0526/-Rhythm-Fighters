@@ -17,6 +17,7 @@ public class CameraController : MonoBehaviour
         PlayerOne = PlayerInfoManager.thisGamePlayer1;
         PlayerTwo = PlayerInfoManager.thisGamePlayer2;
         Debug.Log(PlayerOne);
+        Debug.Log(PlayerTwo);
     }
 
     // Update is called once per frame

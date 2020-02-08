@@ -24,7 +24,7 @@ public class MainResult : MonoBehaviour
         if (GameController.modeType == GameController.ModeType.gameEnd)
         {
             //オプションキー
-            if (Input.GetButtonDown("Option") || Input.GetButtonDown("Option") || Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetButtonDown("Option") || Input.GetButtonDown("2POption") || Input.GetKeyDown(KeyCode.Space))
             {
                 SceneManager.LoadScene("Title");
             }

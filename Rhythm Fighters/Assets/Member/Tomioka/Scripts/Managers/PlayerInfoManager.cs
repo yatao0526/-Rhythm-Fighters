@@ -42,7 +42,8 @@ public class PlayerInfoManager : MonoBehaviour
                 break;
 
             case "Character4":
-
+                thisGamePlayer1 = (GameObject)Resources.Load("LUO1P");
+                Instantiate(thisGamePlayer1, new Vector3(-2.0f, -1.0f, 70.0f), Quaternion.identity);
                 thisGamePlayer1 = GameObject.Find("LUO1P(Clone)");
                 break;
         }
@@ -68,7 +69,8 @@ public class PlayerInfoManager : MonoBehaviour
                 break;
 
             case "Character4":
-
+                thisGamePlayer2 = (GameObject)Resources.Load("LUO2P");
+                Instantiate(thisGamePlayer2, new Vector3(2.0f, -1.0f, 70.0f), Quaternion.identity);
                 thisGamePlayer2 = GameObject.Find("LUO2P(Clone)");
                 break;
         }
