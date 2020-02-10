@@ -118,7 +118,7 @@ public class CharacterSelectPlayersController : MonoBehaviour
         {
             player1_Icon.GetComponent<Image>().sprite = player_Icons[charNum_1];
             Common1.sprite = playerCommons[charNum_1];
-            arrow1.transform.position = new Vector3(characters[charNum_1].transform.position.x, 540, 0);//760>540
+            arrow1.transform.position = new Vector3(characters[charNum_1].transform.position.x, 580, 0);//760>580
         }
 
         if ((Input.GetKeyDown(KeyCode.E) && !player1PCharacter && !isPlayerSelection) || (Input.GetButtonDown("Maru") && !player1PCharacter && !isPlayerSelection))
@@ -181,7 +181,7 @@ public class CharacterSelectPlayersController : MonoBehaviour
         charNum_2 = charNum_2 % charNumMAX;
         if (arrow2 != null)
         {
-            arrow2.transform.position = new Vector3(characters[charNum_2].transform.position.x, 540, 0);//760>540
+            arrow2.transform.position = new Vector3(characters[charNum_2].transform.position.x, 580, 0);//760>580
             player2_Icon.GetComponent<Image>().sprite = player_Icons[charNum_2];
             Common2.sprite = playerCommons[charNum_2];
         }

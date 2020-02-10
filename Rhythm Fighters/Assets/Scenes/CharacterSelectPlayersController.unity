@@ -751,8 +751,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -603.00006, y: -300}
-  m_SizeDelta: {x: 200, y: 300}
+  m_AnchoredPosition: {x: -848, y: -338}
+  m_SizeDelta: {x: 264, y: 447}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &540872654
 MonoBehaviour:
@@ -980,8 +980,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 147, y: -300}
-  m_SizeDelta: {x: 200, y: 300}
+  m_AnchoredPosition: {x: 415, y: -338}
+  m_SizeDelta: {x: 264, y: 447}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &859234989
 MonoBehaviour:
@@ -1003,7 +1003,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 8b742cae84064b445805d4f06367e7f2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 44d8b2dafd728e34c838a6efb9f184de, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1073,8 +1073,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -353, y: -300}
-  m_SizeDelta: {x: 200, y: 300}
+  m_AnchoredPosition: {x: -427, y: -338}
+  m_SizeDelta: {x: 264, y: 447}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1084085317
 MonoBehaviour:
@@ -1211,17 +1211,17 @@ MonoBehaviour:
   - {fileID: 21300000, guid: cec55a675c96c16479c7849b5debb73a, type: 3}
   - {fileID: 21300000, guid: 27786b5ce9a912041a46429da853c569, type: 3}
   - {fileID: 21300000, guid: 458e3646b5c471040aaf144d37d07160, type: 3}
-  - {fileID: 21300000, guid: b850aeabe7c075f4492ec901cf5a23d3, type: 3}
+  - {fileID: 21300000, guid: daab4407c520f3842909574eed6e9ad0, type: 3}
   playerCharacterAffirmations:
   - {fileID: 21300000, guid: f2ffcba04f1e94f4a92082702beda7b6, type: 3}
   - {fileID: 21300000, guid: c9b615bb323e4464dad643d4e7099bd5, type: 3}
   - {fileID: 21300000, guid: f98bac2e571fd1e419070d6782b2ee92, type: 3}
-  - {fileID: 21300000, guid: f2ffcba04f1e94f4a92082702beda7b6, type: 3}
+  - {fileID: 21300000, guid: fd2cce1d218e3de4c858afe43c1608a9, type: 3}
   playerCharacters:
   - {fileID: 21300000, guid: 8b742cae84064b445805d4f06367e7f2, type: 3}
   - {fileID: 21300000, guid: 8dd8262d8c9ca5446a3825f0d0ebb45c, type: 3}
   - {fileID: 21300000, guid: 39119344c59f4004ebed39e0c29105b0, type: 3}
-  - {fileID: 21300000, guid: 8b742cae84064b445805d4f06367e7f2, type: 3}
+  - {fileID: 21300000, guid: 44d8b2dafd728e34c838a6efb9f184de, type: 3}
   Backgrounds:
   - {fileID: 0}
   - {fileID: 0}
@@ -1387,8 +1387,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -103, y: -300}
-  m_SizeDelta: {x: 200, y: 300}
+  m_AnchoredPosition: {x: -15, y: -338}
+  m_SizeDelta: {x: 264, y: 447}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1186058638
 MonoBehaviour:
