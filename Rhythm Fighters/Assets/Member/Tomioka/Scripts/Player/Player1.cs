@@ -464,7 +464,7 @@ public class Player1 : MonoBehaviour
     //打消しモードないでのプレイヤーの挙動
     private void NegationFunction()
     {
-        if (GameController.modeType == GameController.ModeType.negationMode　&& NegationMode.checkBeat == true)
+        if (GameController.modeType == GameController.ModeType.negationMode && NegationMode.checkBeat == true)
         {
             //打消しモード中に複数回押せないように
             if ((p1StateType != Player1StateType.negationSuccess && p1StateType != Player1StateType.negationFalse)
@@ -531,9 +531,17 @@ public class Player1 : MonoBehaviour
                 break;
 
             case "niduma":
+                Debug.Log("新妻のスキル1");
+                animator.SetTrigger("Trigger_S1");
+                playercolS1.S1Col();
+                effectscript.S1Fx();
                 break;
 
             case "LUO":
+                Debug.Log("ラのスキル1");
+                animator.SetTrigger("Trigger_S1");
+                playercolS1.S1Col();
+                effectscript.S1Fx();
                 break;
         }
     }

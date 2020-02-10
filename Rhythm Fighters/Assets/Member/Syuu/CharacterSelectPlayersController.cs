@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class CharacterSelectPlayersController : MonoBehaviour
 {
     [SerializeField]
-    GameObject Common1, Common2;
+    private Image Common1, Common2;
 
     // charNum_1　   charNum_2プレイヤーが選択しているキャラクター, stageNum選択するステージ
     [SerializeField]
@@ -44,6 +44,9 @@ public class CharacterSelectPlayersController : MonoBehaviour
     [SerializeField]
     private Sprite[] player_Icons = new Sprite[6], playerCharacterAffirmations = new Sprite[6], playerCharacters = new Sprite[6], Backgrounds = new Sprite[3];
 
+    [SerializeField]
+    private Sprite[] playerCommons;
+
     //選択の結果
     public static string player1PCharacterName, player2PCharacterName;
 
@@ -58,10 +61,12 @@ public class CharacterSelectPlayersController : MonoBehaviour
         charNum_1 = charNum_1 % charNumMAX;
         arrow1.transform.position = new Vector3(characters[charNum_1].transform.position.x, 760, 0);
         player1_Icon.GetComponent<Image>().sprite = player_Icons[charNum_1];
+        Common1.sprite = playerCommons[charNum_1];
 
         charNum_2 = charNum_2 % charNumMAX;
         arrow2.transform.position = new Vector3(characters[charNum_2].transform.position.x, 760, 0);
         player2_Icon.GetComponent<Image>().sprite = player_Icons[charNum_2];
+        Common2.sprite = playerCommons[charNum_2];
         //  player2_Icon.sprite = player_Icons[charNum_2];
 
     }
@@ -112,6 +117,7 @@ public class CharacterSelectPlayersController : MonoBehaviour
         if (arrow1 != null)
         {
             player1_Icon.GetComponent<Image>().sprite = player_Icons[charNum_1];
+            Common1.sprite = playerCommons[charNum_1];
             arrow1.transform.position = new Vector3(characters[charNum_1].transform.position.x, 540, 0);//760>540
         }
 
@@ -177,6 +183,7 @@ public class CharacterSelectPlayersController : MonoBehaviour
         {
             arrow2.transform.position = new Vector3(characters[charNum_2].transform.position.x, 540, 0);//760>540
             player2_Icon.GetComponent<Image>().sprite = player_Icons[charNum_2];
+            Common2.sprite = playerCommons[charNum_2];
         }
 
         // player2_Icon.sprite = player_Icons[charNum_2];

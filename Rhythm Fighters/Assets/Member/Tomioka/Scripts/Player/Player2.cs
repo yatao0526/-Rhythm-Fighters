@@ -452,7 +452,6 @@ public class Player2 : MonoBehaviour
     //相手が画面右端のため自分が左に下がる
     public void Player1RightEdge()
     {
-        Debug.Log("呼ばれてるのに動かない");
         moveAfter2P = transform.position - moveX;
     }
 
@@ -532,9 +531,17 @@ public class Player2 : MonoBehaviour
                 break;
 
             case "niduma":
+                Debug.Log("新妻のスキル1");
+                animator.SetTrigger("Trigger_S1");
+                playercolS1.S1Col();
+                effectscript.S1Fx();
                 break;
 
             case "LUO":
+                Debug.Log("ラのスキル1");
+                animator.SetTrigger("Trigger_S1");
+                playercolS1.S1Col();
+                effectscript.S1Fx();
                 break;
         }
     }
