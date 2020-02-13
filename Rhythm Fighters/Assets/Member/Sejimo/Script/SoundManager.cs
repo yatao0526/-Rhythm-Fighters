@@ -32,7 +32,8 @@ public enum SE
     LUOBatuAttack,
 
     //リザルトで使うもの
-
+    result1,
+    result2,
 }
 
 [System.Serializable]
