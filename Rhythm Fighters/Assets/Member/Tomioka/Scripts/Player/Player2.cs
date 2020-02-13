@@ -551,12 +551,12 @@ public class Player2 : MonoBehaviour
         if (HPManager.clearCheck)
         {
             //リザルトの負けアクション
-            animator.SetTrigger("Trigger_");
+            animator.SetTrigger("Trigger_Lose");
         }
         else
         {
             //リザルトの勝ちアクション
-            animator.SetTrigger("Trigger_");
+            animator.SetTrigger("Trigger_Win");
         }
     }
 }

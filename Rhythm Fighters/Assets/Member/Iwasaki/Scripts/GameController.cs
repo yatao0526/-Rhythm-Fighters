@@ -66,6 +66,7 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
+        modeType = ModeType.normalMode;
         poolL = GetComponent<NoteObjectPool>();
         poolR = GetComponent<NoteObjectPool>();
         poolL.CreatePoolL(Notes[0], 5);

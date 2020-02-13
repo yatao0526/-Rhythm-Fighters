@@ -23,7 +23,7 @@ public class HPManager : MonoBehaviour
 
     public static bool clearCheck = true;
 
-    private void Start()
+    private void Awake()
     {
         player1HP = 1000;
         player2HP = 1000;
