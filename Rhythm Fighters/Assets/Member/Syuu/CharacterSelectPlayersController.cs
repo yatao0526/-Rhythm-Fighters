@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class CharacterSelectPlayersController : MonoBehaviour
 {
+    private bool PS1Con = true;
+    private bool PS2Con = true;
+
     [SerializeField]
     private Image Common1, Common2;
 
@@ -73,6 +76,7 @@ public class CharacterSelectPlayersController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        PSConBool();
         Player1Move();
         Player2Move();
         DebugPlayer1Move();
@@ -80,10 +84,23 @@ public class CharacterSelectPlayersController : MonoBehaviour
         PlayersStageController();
     }
 
+    private void PSConBool()
+    {
+        if (Input.GetAxis("LeftRight") == 0.0f)
+        {
+            PS1Con = true;
+        }
+        if (Input.GetAxis("2PLeftRight") == 0.0f)
+        {
+            PS2Con = true;
+        }
+    }
+
     private void Player1Move()
     {
-        if (Input.GetAxis("LeftRight") < -0.5 && !player1PCharacter && !isPlayerSelection)
+        if (Input.GetAxis("LeftRight") < -0.5 && !player1PCharacter && !isPlayerSelection && PS1Con)
         {
+            PS1Con = false;
             SoundManager.Instance.PlaySe(SE.pinMove);
             // player1_Icon.GetComponent<Image>().sprite = player_Icons[charNum_1];
             characters[charNum_1].GetComponent<Image>().sprite = playerCharacters[charNum_1];
@@ -105,8 +122,9 @@ public class CharacterSelectPlayersController : MonoBehaviour
                 charNum_1 = charNumMAX - 1;
             }
         }
-        else if (Input.GetAxis("LeftRight") > 0.5f && !player1PCharacter && !isPlayerSelection)
+        else if (Input.GetAxis("LeftRight") > 0.5f && !player1PCharacter && !isPlayerSelection && PS1Con)
         {
+            PS1Con = false;
             SoundManager.Instance.PlaySe(SE.pinMove);
             characters[charNum_1].GetComponent<Image>().sprite = playerCharacters[charNum_1];
             characters[charNum_1].GetComponent<Image>().color = new Color(255.0f / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f);
@@ -153,8 +171,9 @@ public class CharacterSelectPlayersController : MonoBehaviour
 
     private void Player2Move()
     {
-        if (Input.GetAxis("2PLeftRight") < -0.5 && !player2PCharacter && !isPlayerSelection)
+        if (Input.GetAxis("2PLeftRight") < -0.5 && !player2PCharacter && !isPlayerSelection && PS2Con)
         {
+            PS2Con = false;
             SoundManager.Instance.PlaySe(SE.pinMove);
             characters[charNum_2].GetComponent<Image>().sprite = playerCharacters[charNum_2];
             characters[charNum_2].GetComponent<Image>().color = new Color(255.0f / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f);
@@ -174,8 +193,9 @@ public class CharacterSelectPlayersController : MonoBehaviour
             }
 
         }
-        else if (Input.GetAxis("2PLeftRight") > 0.5f && !player2PCharacter && !isPlayerSelection)
+        else if (Input.GetAxis("2PLeftRight") > 0.5f && !player2PCharacter && !isPlayerSelection && PS2Con)
         {
+            PS2Con = false;
             SoundManager.Instance.PlaySe(SE.pinMove);
             characters[charNum_2].GetComponent<Image>().sprite = playerCharacters[charNum_2];
             characters[charNum_2].GetComponent<Image>().color = new Color(255.0f / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f);
