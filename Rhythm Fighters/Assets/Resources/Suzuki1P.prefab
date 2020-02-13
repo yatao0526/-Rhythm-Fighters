@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 553289230824250489}
   - component: {fileID: 553289230824250488}
   - component: {fileID: 6008122341904186083}
-  - component: {fileID: 7020840994368615074}
   m_Layer: 0
   m_Name: Player_LCol
   m_TagString: LightPunch
@@ -107,19 +106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd34825052c77a04f9480b1cd614ef4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7020840994368615074
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 553289230824250490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4352a6f9a8a11e540bc13fbd1883d994, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  negationMode: {fileID: 0}
 --- !u!1 &553289230974430833
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,13 +213,13 @@ MonoBehaviour:
   minMove: {x: -12, y: 0, z: 0}
   maxMove: {x: 12, y: 0, z: 0}
   stepTime: 2
+  moveAfter1P: {x: 0, y: 0, z: 0}
   moveNegationPos: {x: -0.5, y: -1, z: 72}
   playercolLP: {fileID: 6008122341904186083}
   playercolHP: {fileID: 1703023680387971113}
   playercolS1: {fileID: 1514784010354454963}
   playercolS2: {fileID: 2312937005430195210}
   effectscript: {fileID: 3386849684497325527}
-  player2: {fileID: 0}
   negationMode: {fileID: 0}
 --- !u!114 &8720946957593001432
 MonoBehaviour:
@@ -654,7 +640,6 @@ GameObject:
   - component: {fileID: 320286788139652127}
   - component: {fileID: 483210241054992046}
   - component: {fileID: 1703023680387971113}
-  - component: {fileID: 5290879132833246340}
   m_Layer: 0
   m_Name: Player_HCol
   m_TagString: HeavyPunch
@@ -748,19 +733,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c35af48bd08e4d48bf55593aa8de220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5290879132833246340
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8463591675371913567}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4352a6f9a8a11e540bc13fbd1883d994, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  negationMode: {fileID: 0}
 --- !u!1 &8959481938217605221
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,7 +746,6 @@ GameObject:
   - component: {fileID: 2523374090512785315}
   - component: {fileID: 8566795627030938674}
   - component: {fileID: 2312937005430195210}
-  - component: {fileID: 5182530093050771100}
   m_Layer: 0
   m_Name: Player_Skill2Col
   m_TagString: Skill2
@@ -868,16 +839,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eeebac54dd2e314dbaa6516d31dd6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5182530093050771100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8959481938217605221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4352a6f9a8a11e540bc13fbd1883d994, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  negationMode: {fileID: 0}

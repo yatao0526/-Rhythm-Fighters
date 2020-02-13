@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4615185635564546584}
   - component: {fileID: 4812440239009568937}
   - component: {fileID: 8592263973995606397}
-  - component: {fileID: 7682529499821877546}
   m_Layer: 0
   m_Name: Player_HCol
   m_TagString: HeavyPunch
@@ -107,19 +106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c35af48bd08e4d48bf55593aa8de220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7682529499821877546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3533419190618750808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4352a6f9a8a11e540bc13fbd1883d994, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  negationMode: {fileID: 0}
 --- !u!1 &4047597638556771938
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,7 +119,6 @@ GameObject:
   - component: {fileID: 7456094685307576740}
   - component: {fileID: 3647584723453311541}
   - component: {fileID: 2068595359538824973}
-  - component: {fileID: 4586457562384215805}
   m_Layer: 0
   m_Name: Player_Skill2Col
   m_TagString: Skill2
@@ -227,19 +212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eeebac54dd2e314dbaa6516d31dd6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4586457562384215805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4047597638556771938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4352a6f9a8a11e540bc13fbd1883d994, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  negationMode: {fileID: 0}
 --- !u!1 &4886441186619548285
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,7 +225,6 @@ GameObject:
   - component: {fileID: 4886441186619548286}
   - component: {fileID: 4886441186619548287}
   - component: {fileID: 2889791978545165098}
-  - component: {fileID: 9136120201593043369}
   m_Layer: 0
   m_Name: Player_LCol
   m_TagString: LightPunch
@@ -347,19 +318,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd34825052c77a04f9480b1cd614ef4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &9136120201593043369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4886441186619548285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4352a6f9a8a11e540bc13fbd1883d994, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  negationMode: {fileID: 0}
 --- !u!1 &4886441187341783158
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,7 +537,6 @@ GameObject:
   - component: {fileID: 2016063684845658269}
   - component: {fileID: 5235814196534060145}
   - component: {fileID: 2013214929652722697}
-  - component: {fileID: 8904762393798678685}
   - component: {fileID: 3253334957904700394}
   m_Layer: 0
   m_Name: Player_Skill1Col
@@ -662,19 +619,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8904762393798678685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6321308910487444638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4352a6f9a8a11e540bc13fbd1883d994, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  negationMode: {fileID: 0}
 --- !u!114 &3253334957904700394
 MonoBehaviour:
   m_ObjectHideFlags: 0
