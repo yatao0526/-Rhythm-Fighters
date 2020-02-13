@@ -1089,7 +1089,7 @@ PrefabInstance:
     - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
         type: 3}
       propertyPath: seSound.Array.size
-      value: 4
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
         type: 3}
@@ -1144,6 +1144,136 @@ PrefabInstance:
     - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
         type: 3}
       propertyPath: seSound.Array.data[3].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
+        type: 3}
+      propertyPath: seSound.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 26e74837c26449645ba5090ff9c2cbd5, type: 3}
+    - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
+        type: 3}
+      propertyPath: seSound.Array.data[4].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
+        type: 3}
+      propertyPath: seSound.Array.data[5].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: cc778e2c516c8084cab94cd2bc0ceb83, type: 3}
+    - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
+        type: 3}
+      propertyPath: seSound.Array.data[5].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
+        type: 3}
+      propertyPath: seSound.Array.data[6].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: bbed3407b46aedf46963f95276af1038, type: 3}
+    - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
+        type: 3}
+      propertyPath: seSound.Array.data[6].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
+        type: 3}
+      propertyPath: seSound.Array.data[7].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4cb1fc82cf4e5014181a43587257bac5, type: 3}
+    - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
+        type: 3}
+      propertyPath: seSound.Array.data[7].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
+        type: 3}
+      propertyPath: seSound.Array.data[8].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: a6ae8fc3773dd124e9ed055ad48bab10, type: 3}
+    - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
+        type: 3}
+      propertyPath: seSound.Array.data[8].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
+        type: 3}
+      propertyPath: seSound.Array.data[9].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: f6040731a861fb8459829ac8f2325f3b, type: 3}
+    - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
+        type: 3}
+      propertyPath: seSound.Array.data[9].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
+        type: 3}
+      propertyPath: seSound.Array.data[10].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9d0c0f8f99b0d09408d413068b32f5d3, type: 3}
+    - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
+        type: 3}
+      propertyPath: seSound.Array.data[10].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
+        type: 3}
+      propertyPath: seSound.Array.data[11].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0d2204f9bd0760d4db7c3466b5131ad4, type: 3}
+    - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
+        type: 3}
+      propertyPath: seSound.Array.data[11].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
+        type: 3}
+      propertyPath: seSound.Array.data[12].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8f5344371da9e6d4b93cef020a364b22, type: 3}
+    - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
+        type: 3}
+      propertyPath: seSound.Array.data[12].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
+        type: 3}
+      propertyPath: seSound.Array.data[13].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 45f66fe783037d44d8d2f11054c14cd1, type: 3}
+    - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
+        type: 3}
+      propertyPath: seSound.Array.data[13].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
+        type: 3}
+      propertyPath: seSound.Array.data[14].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 071d33717e7534f4f80475967bd334b3, type: 3}
+    - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
+        type: 3}
+      propertyPath: seSound.Array.data[14].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
+        type: 3}
+      propertyPath: seSound.Array.data[15].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: b7fc602b17d6d1648b341bd9d542fd0c, type: 3}
+    - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
+        type: 3}
+      propertyPath: seSound.Array.data[15].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
+        type: 3}
+      propertyPath: seSound.Array.data[16].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 295cf8efdbc1d914cb8f93bcf0726d93, type: 3}
+    - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
+        type: 3}
+      propertyPath: seSound.Array.data[16].volume
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

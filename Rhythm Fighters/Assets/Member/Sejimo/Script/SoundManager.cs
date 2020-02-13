@@ -8,14 +8,30 @@ public enum BGM
 
 public enum SE
 {
+    //タイトルで使うもの
     titleBGM,
     titleCollN,
     titleCollT,
     titleCollY,
     titleSE,
+
+    //キャラ選択で使うもの
     pinMove,
     charSelect,
+    
+    //戦闘で使うもの
+    YandNLP,
+    YandNHP,
+    SuzukiLP,
+    SuzukiHP,
+    SuzukiS1,
+    SuzukiS2,
+    YS1,
+    YS2,
+    LUOMaruAttack,
+    LUOBatuAttack,
 
+    //リザルトで使うもの
 
 }
 

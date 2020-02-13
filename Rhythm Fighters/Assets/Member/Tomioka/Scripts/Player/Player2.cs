@@ -516,10 +516,12 @@ public class Player2 : MonoBehaviour
                 if (SkillR2P == true)
                 {
                     moveAfter2P = transform.position + moveX * 2;
+                    SoundManager.Instance.PlaySe(SE.SuzukiS1);
                 }
                 else
                 {
                     moveAfter2P = transform.position - moveX * 2;
+                    SoundManager.Instance.PlaySe(SE.SuzukiS1);
                 }
                 break;
 
