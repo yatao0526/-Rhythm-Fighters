@@ -6,8 +6,26 @@ using UnityEngine.SceneManagement;
 
 public class Movie : MonoBehaviour
 {
+    [SerializeField]
+    private VideoClip PV;
+
+    private double loadTime;
+
+    private void Start()
+    {
+        loadTime = PV.length + 2;
+    }
+
     void Update()
     {
+        loadTime -= Time.deltaTime;
+
+        if (loadTime < 0)
+        {
+            Debug.Log("呼ばれた");
+            SceneManager.LoadScene("Title");
+        }
+
         InputGet();
     }
     private void InputGet()
@@ -20,6 +38,6 @@ public class Movie : MonoBehaviour
     private void SceneMove()
     {
         // 左クリックでTitleへ遷移
-        SceneManager.LoadScene("Title");       
+        SceneManager.LoadScene("Title");
     }
 }

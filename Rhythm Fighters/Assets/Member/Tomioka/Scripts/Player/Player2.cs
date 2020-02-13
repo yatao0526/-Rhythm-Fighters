@@ -112,7 +112,7 @@ public class Player2 : MonoBehaviour
         }
         if (GameController.modeType == GameController.ModeType.negationMode)
         {
-            NegationModeMove();
+            //NegationModeMove();
         }
         if (GameController.modeType == GameController.ModeType.gameEnd)
         {
