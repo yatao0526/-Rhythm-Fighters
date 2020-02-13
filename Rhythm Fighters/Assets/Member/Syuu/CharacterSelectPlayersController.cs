@@ -73,13 +73,16 @@ public class CharacterSelectPlayersController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        Player2Move();
         Player1Move();
+        Player2Move();
+        DebugPlayer1Move();
+        DebugPlayer2Move();
         PlayersStageController();
     }
+
     private void Player1Move()
     {
-        if ((Input.GetKeyDown(KeyCode.A) && !player1PCharacter && !isPlayerSelection) || (Input.GetAxis("LeftRight") < -0.5 && !player1PCharacter && !isPlayerSelection))
+        if (Input.GetAxis("LeftRight") < -0.5 && !player1PCharacter && !isPlayerSelection)
         {
             // player1_Icon.GetComponent<Image>().sprite = player_Icons[charNum_1];
             characters[charNum_1].GetComponent<Image>().sprite = playerCharacters[charNum_1];
@@ -101,7 +104,7 @@ public class CharacterSelectPlayersController : MonoBehaviour
                 charNum_1 = charNumMAX - 1;
             }
         }
-        else if ((Input.GetKeyDown(KeyCode.D) && !player1PCharacter && !isPlayerSelection) || (Input.GetAxis("LeftRight") > 0.5f && !player1PCharacter && !isPlayerSelection))
+        else if (Input.GetAxis("LeftRight") > 0.5f && !player1PCharacter && !isPlayerSelection)
         {
             characters[charNum_1].GetComponent<Image>().sprite = playerCharacters[charNum_1];
             characters[charNum_1].GetComponent<Image>().color = new Color(255.0f / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f);
@@ -121,14 +124,14 @@ public class CharacterSelectPlayersController : MonoBehaviour
             arrow1.transform.position = new Vector3(characters[charNum_1].transform.position.x, 580, 0);//760>580
         }
 
-        if ((Input.GetKeyDown(KeyCode.E) && !player1PCharacter && !isPlayerSelection) || (Input.GetButtonDown("Maru") && !player1PCharacter && !isPlayerSelection))
+        if (Input.GetButtonDown("Maru") && !player1PCharacter && !isPlayerSelection)
         {
             player1PCharacter = true;
             PlayerSelectionMove();
         }
 
         //選択するまだ選択直し処理
-        else if ((Input.GetKeyDown(KeyCode.E) && player1PCharacter && !isPlayerSelection) || (Input.GetButtonDown("Maru") && player1PCharacter && !isPlayerSelection))
+        else if (Input.GetButtonDown("Maru") && player1PCharacter && !isPlayerSelection)
         {
             player1PCharacter = false;
         }
@@ -144,9 +147,10 @@ public class CharacterSelectPlayersController : MonoBehaviour
             characters[charNum_1].GetComponent<Image>().sprite = playerCharacterAffirmations[charNum_1];
         }
     }
+
     private void Player2Move()
     {
-        if ((Input.GetKeyDown(KeyCode.LeftArrow) && !player2PCharacter && !isPlayerSelection) || (Input.GetAxis("2PLeftRight") < -0.5 && !player2PCharacter && !isPlayerSelection))
+        if(Input.GetAxis("2PLeftRight") < -0.5 && !player2PCharacter && !isPlayerSelection)
         {
             characters[charNum_2].GetComponent<Image>().sprite = playerCharacters[charNum_2];
             characters[charNum_2].GetComponent<Image>().color = new Color(255.0f / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f);
@@ -166,7 +170,7 @@ public class CharacterSelectPlayersController : MonoBehaviour
             }
 
         }
-        else if ((Input.GetKeyDown(KeyCode.RightArrow) && !player2PCharacter && !isPlayerSelection) || (Input.GetAxis("2PLeftRight") > 0.5f && !player2PCharacter && !isPlayerSelection))
+        else if (Input.GetAxis("2PLeftRight") > 0.5f && !player2PCharacter && !isPlayerSelection )
         {
             characters[charNum_2].GetComponent<Image>().sprite = playerCharacters[charNum_2];
             characters[charNum_2].GetComponent<Image>().color = new Color(255.0f / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f);
@@ -187,12 +191,12 @@ public class CharacterSelectPlayersController : MonoBehaviour
         }
 
         // player2_Icon.sprite = player_Icons[charNum_2];
-        if ((Input.GetKeyDown(KeyCode.Space) && !player2PCharacter && !isPlayerSelection) || (Input.GetButtonDown("2PMaru") && !player2PCharacter && !isPlayerSelection))
+        if (Input.GetButtonDown("2PMaru") && !player2PCharacter && !isPlayerSelection)
         {
             player2PCharacter = true;
             PlayerSelectionMove();
         }
-        else if ((Input.GetKeyDown(KeyCode.Space) && player2PCharacter && !isPlayerSelection) || (Input.GetButtonDown("2PMaru") && player2PCharacter && !isPlayerSelection))
+        else if (Input.GetButtonDown("2PMaru") && player2PCharacter && !isPlayerSelection)
         {
             player2PCharacter = false;
         }
@@ -207,6 +211,139 @@ public class CharacterSelectPlayersController : MonoBehaviour
             //characters[charNum_2].GetComponent<Image>().color = new Color(0 / 255.0f, 62 / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f); 
         }
     }
+
+    private void DebugPlayer1Move()
+    {
+        if (Input.GetKeyDown(KeyCode.A) && !player1PCharacter && !isPlayerSelection)
+        {
+            // player1_Icon.GetComponent<Image>().sprite = player_Icons[charNum_1];
+            characters[charNum_1].GetComponent<Image>().sprite = playerCharacters[charNum_1];
+            characters[charNum_1].GetComponent<Image>().color = new Color(255.0f / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f);
+            //左へ移動
+            charNum_1--;
+            if (charNum_1 % charNumMAX < 0)
+            {
+                // Debug.Log("  if (charNum_1 % charNumMAX <0)" + charNum_1);
+                charNum_1 = charNumMAX - 1;
+            }
+            if (charNum_1 % charNumMAX == charNum_2 % charNumMAX)
+            {
+                charNum_1--;
+            }
+            if (charNum_1 % charNumMAX < 0)
+            {
+                // Debug.Log("  if (charNum_1 % charNumMAX <0)" + charNum_1);
+                charNum_1 = charNumMAX - 1;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.D) && !player1PCharacter && !isPlayerSelection)
+        {
+            characters[charNum_1].GetComponent<Image>().sprite = playerCharacters[charNum_1];
+            characters[charNum_1].GetComponent<Image>().color = new Color(255.0f / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f);
+            charNum_1++;
+            if (charNum_1 % charNumMAX == charNum_2 % charNumMAX)
+            {
+                charNum_1++;
+            }
+        }
+        charNum_1 = charNum_1 % charNumMAX;
+
+        // player1_Icon.sprite = player_Icons[charNum_1];
+        if (arrow1 != null)
+        {
+            player1_Icon.GetComponent<Image>().sprite = player_Icons[charNum_1];
+            Common1.sprite = playerCommons[charNum_1];
+            arrow1.transform.position = new Vector3(characters[charNum_1].transform.position.x, 580, 0);//760>580
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && !player1PCharacter && !isPlayerSelection)
+        {
+            player1PCharacter = true;
+            PlayerSelectionMove();
+        }
+
+        //選択するまだ選択直し処理
+        else if (Input.GetKeyDown(KeyCode.E) && player1PCharacter && !isPlayerSelection)
+        {
+            player1PCharacter = false;
+        }
+
+        if (player1PCharacter)
+        {
+            //characters[charNum_1].GetComponent<Image>().color = new Color(255.0f / 255.0f, 8 / 255.0f, 0 / 255.0f, 255 / 255.0f);
+            characters[charNum_1].GetComponent<Image>().sprite = playerCharacterAffirmations[charNum_1];
+        } //選択した表示
+        else
+        {
+            //characters[charNum_1].GetComponent<Image>().color = new Color(255.0f / 255.0f, 8 / 255.0f, 0 / 255.0f, 130 / 255.0f);
+            characters[charNum_1].GetComponent<Image>().sprite = playerCharacterAffirmations[charNum_1];
+        }
+    }
+
+    private void DebugPlayer2Move()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && !player2PCharacter && !isPlayerSelection)
+        {
+            characters[charNum_2].GetComponent<Image>().sprite = playerCharacters[charNum_2];
+            characters[charNum_2].GetComponent<Image>().color = new Color(255.0f / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f);
+            //左へ移動
+            charNum_2--;
+            if (charNum_2 % charNumMAX < 0)
+            {
+                charNum_2 = charNumMAX - 1;
+            }
+            if (charNum_2 % charNumMAX == charNum_1 % charNumMAX)
+            {
+                charNum_2--;
+            }
+            if (charNum_2 % charNumMAX < 0)
+            {
+                charNum_2 = charNumMAX - 1;
+            }
+
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow) && !player2PCharacter && !isPlayerSelection)
+        {
+            characters[charNum_2].GetComponent<Image>().sprite = playerCharacters[charNum_2];
+            characters[charNum_2].GetComponent<Image>().color = new Color(255.0f / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f);
+            charNum_2++;
+
+            if (charNum_1 % charNumMAX == charNum_2 % charNumMAX)
+            {
+                charNum_2++;
+            }
+
+        }
+        charNum_2 = charNum_2 % charNumMAX;
+        if (arrow2 != null)
+        {
+            arrow2.transform.position = new Vector3(characters[charNum_2].transform.position.x, 580, 0);//760>580
+            player2_Icon.GetComponent<Image>().sprite = player_Icons[charNum_2];
+            Common2.sprite = playerCommons[charNum_2];
+        }
+
+        // player2_Icon.sprite = player_Icons[charNum_2];
+        if (Input.GetKeyDown(KeyCode.Space) && !player2PCharacter && !isPlayerSelection)
+        {
+            player2PCharacter = true;
+            PlayerSelectionMove();
+        }
+        else if (Input.GetKeyDown(KeyCode.Space) && player2PCharacter && !isPlayerSelection)
+        {
+            player2PCharacter = false;
+        }
+        if (player2PCharacter)
+        {
+            characters[charNum_2].GetComponent<Image>().sprite = playerCharacterAffirmations[charNum_2];
+            //characters[charNum_2].GetComponent<Image>().color = new Color(0 / 255.0f, 62 / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f); 
+        }
+        else
+        {
+            characters[charNum_2].GetComponent<Image>().sprite = playerCharacterAffirmations[charNum_2];
+            //characters[charNum_2].GetComponent<Image>().color = new Color(0 / 255.0f, 62 / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f); 
+        }
+    }
+
     //誰か先に選択おしたか
     private void PlayerSelectionMove()
     {
