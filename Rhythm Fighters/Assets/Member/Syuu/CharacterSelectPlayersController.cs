@@ -84,6 +84,7 @@ public class CharacterSelectPlayersController : MonoBehaviour
     {
         if (Input.GetAxis("LeftRight") < -0.5 && !player1PCharacter && !isPlayerSelection)
         {
+            SoundManager.Instance.PlaySe(SE.pinMove);
             // player1_Icon.GetComponent<Image>().sprite = player_Icons[charNum_1];
             characters[charNum_1].GetComponent<Image>().sprite = playerCharacters[charNum_1];
             characters[charNum_1].GetComponent<Image>().color = new Color(255.0f / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f);
@@ -106,6 +107,7 @@ public class CharacterSelectPlayersController : MonoBehaviour
         }
         else if (Input.GetAxis("LeftRight") > 0.5f && !player1PCharacter && !isPlayerSelection)
         {
+            SoundManager.Instance.PlaySe(SE.pinMove);
             characters[charNum_1].GetComponent<Image>().sprite = playerCharacters[charNum_1];
             characters[charNum_1].GetComponent<Image>().color = new Color(255.0f / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f);
             charNum_1++;
@@ -126,6 +128,7 @@ public class CharacterSelectPlayersController : MonoBehaviour
 
         if (Input.GetButtonDown("Maru") && !player1PCharacter && !isPlayerSelection)
         {
+            SoundManager.Instance.PlaySe(SE.charSelect);
             player1PCharacter = true;
             PlayerSelectionMove();
         }
@@ -150,8 +153,9 @@ public class CharacterSelectPlayersController : MonoBehaviour
 
     private void Player2Move()
     {
-        if(Input.GetAxis("2PLeftRight") < -0.5 && !player2PCharacter && !isPlayerSelection)
+        if (Input.GetAxis("2PLeftRight") < -0.5 && !player2PCharacter && !isPlayerSelection)
         {
+            SoundManager.Instance.PlaySe(SE.pinMove);
             characters[charNum_2].GetComponent<Image>().sprite = playerCharacters[charNum_2];
             characters[charNum_2].GetComponent<Image>().color = new Color(255.0f / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f);
             //左へ移動
@@ -170,8 +174,9 @@ public class CharacterSelectPlayersController : MonoBehaviour
             }
 
         }
-        else if (Input.GetAxis("2PLeftRight") > 0.5f && !player2PCharacter && !isPlayerSelection )
+        else if (Input.GetAxis("2PLeftRight") > 0.5f && !player2PCharacter && !isPlayerSelection)
         {
+            SoundManager.Instance.PlaySe(SE.pinMove);
             characters[charNum_2].GetComponent<Image>().sprite = playerCharacters[charNum_2];
             characters[charNum_2].GetComponent<Image>().color = new Color(255.0f / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f);
             charNum_2++;
@@ -193,6 +198,7 @@ public class CharacterSelectPlayersController : MonoBehaviour
         // player2_Icon.sprite = player_Icons[charNum_2];
         if (Input.GetButtonDown("2PMaru") && !player2PCharacter && !isPlayerSelection)
         {
+            SoundManager.Instance.PlaySe(SE.charSelect);
             player2PCharacter = true;
             PlayerSelectionMove();
         }
@@ -216,6 +222,7 @@ public class CharacterSelectPlayersController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A) && !player1PCharacter && !isPlayerSelection)
         {
+            SoundManager.Instance.PlaySe(SE.pinMove);
             // player1_Icon.GetComponent<Image>().sprite = player_Icons[charNum_1];
             characters[charNum_1].GetComponent<Image>().sprite = playerCharacters[charNum_1];
             characters[charNum_1].GetComponent<Image>().color = new Color(255.0f / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f);
@@ -238,6 +245,7 @@ public class CharacterSelectPlayersController : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.D) && !player1PCharacter && !isPlayerSelection)
         {
+            SoundManager.Instance.PlaySe(SE.pinMove);
             characters[charNum_1].GetComponent<Image>().sprite = playerCharacters[charNum_1];
             characters[charNum_1].GetComponent<Image>().color = new Color(255.0f / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f);
             charNum_1++;
@@ -258,6 +266,7 @@ public class CharacterSelectPlayersController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E) && !player1PCharacter && !isPlayerSelection)
         {
+            SoundManager.Instance.PlaySe(SE.charSelect);
             player1PCharacter = true;
             PlayerSelectionMove();
         }
@@ -284,6 +293,7 @@ public class CharacterSelectPlayersController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow) && !player2PCharacter && !isPlayerSelection)
         {
+            SoundManager.Instance.PlaySe(SE.pinMove);
             characters[charNum_2].GetComponent<Image>().sprite = playerCharacters[charNum_2];
             characters[charNum_2].GetComponent<Image>().color = new Color(255.0f / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f);
             //左へ移動
@@ -304,6 +314,7 @@ public class CharacterSelectPlayersController : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow) && !player2PCharacter && !isPlayerSelection)
         {
+            SoundManager.Instance.PlaySe(SE.pinMove);
             characters[charNum_2].GetComponent<Image>().sprite = playerCharacters[charNum_2];
             characters[charNum_2].GetComponent<Image>().color = new Color(255.0f / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f);
             charNum_2++;
@@ -325,6 +336,7 @@ public class CharacterSelectPlayersController : MonoBehaviour
         // player2_Icon.sprite = player_Icons[charNum_2];
         if (Input.GetKeyDown(KeyCode.Space) && !player2PCharacter && !isPlayerSelection)
         {
+            SoundManager.Instance.PlaySe(SE.charSelect);
             player2PCharacter = true;
             PlayerSelectionMove();
         }

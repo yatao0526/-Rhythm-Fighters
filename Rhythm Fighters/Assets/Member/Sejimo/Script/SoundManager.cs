@@ -11,7 +11,12 @@ public enum SE
     titleBGM,
     titleCollN,
     titleCollT,
-    titleCollY
+    titleCollY,
+    titleSE,
+    pinMove,
+    charSelect,
+
+
 }
 
 [System.Serializable]

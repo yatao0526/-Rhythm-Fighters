@@ -41,7 +41,7 @@ public class Title : MonoBehaviour
     {
         if (Input.GetButtonDown("Maru") || Input.GetButtonDown("2PMaru"))
         {
-            //SoundManager.Instance.PlaySe(SE./*ここにSEの名前*/);
+            SoundManager.Instance.PlaySe(SE.titleSE);
             // ロード画面UI表示
             loadingUI.SetActive(true);
             // 背景非表示
