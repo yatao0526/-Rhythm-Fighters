@@ -25,7 +25,7 @@ public class ResultManager : MonoBehaviour
     {
         resultCanvas.SetActive(false);
         result1Time = SoundManager.Instance.seSound[17].clip.length;
-        result2Time = SoundManager.Instance.seSound[18].clip.length;
+        result2Time = SoundManager.Instance.seSound[18].clip.length / 2;
     }
 
     void Update()
@@ -105,7 +105,7 @@ public class ResultManager : MonoBehaviour
         {
             Debug.Log("呼ばれてる2");
             SoundManager.Instance.PlaySe(SE.result2);
-            result2Time = SoundManager.Instance.seSound[18].clip.length;
+            result2Time = SoundManager.Instance.seSound[18].clip.length / 2;
         }
     }
 }
