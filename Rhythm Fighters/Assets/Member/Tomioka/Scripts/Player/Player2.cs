@@ -90,6 +90,7 @@ public class Player2 : MonoBehaviour
 
     void Start()
     {
+        animator.SetFloat("Speed", 1.7f);
         player1 = PlayerInfoManager.thisGamePlayer1;
         player1cs = player1.GetComponent<Player1>();
         //Debug.Log("2Pが使ってるのは" + myCharName2P);
