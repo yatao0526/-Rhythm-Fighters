@@ -89,7 +89,6 @@ public class Player1 : MonoBehaviour
 
     void Start()
     {
-        animator.SetFloat("Speed", 1.7f);
         player2 = PlayerInfoManager.thisGamePlayer2;
         player2cs = player2.GetComponent<Player2>();
         Debug.Log("1Pが使ってるのは" + myCharName1P);
@@ -97,6 +96,7 @@ public class Player1 : MonoBehaviour
         p1StateType = Player1StateType.stand;
         moveAfter1P = this.transform.position;
         animator = GetComponent<Animator>();
+        animator.SetFloat("Speed", 1.7f);
     }
 
     void Update()
