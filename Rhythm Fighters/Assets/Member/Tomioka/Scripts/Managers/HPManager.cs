@@ -13,9 +13,9 @@ public class HPManager : MonoBehaviour
     //HPの最大値
     private int playerMaxHP = 1000;
 
-    //ダメージ値
-    [SerializeField]
-    private int damage = 100;
+    ////ダメージ値
+    //[SerializeField]
+    //private int damage = 100;
 
     //1Pと2PのHP
     public static float player1HP = 1000;

@@ -1086,6 +1086,11 @@ PrefabInstance:
       propertyPath: Loop
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2093611575765374991, guid: 351da7bc62e975c4ab4e86862120e1bb,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
         type: 3}
       propertyPath: seSound.Array.size
@@ -1094,7 +1099,7 @@ PrefabInstance:
     - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
         type: 3}
       propertyPath: bgmSound.Array.size
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
         type: 3}
@@ -1130,7 +1135,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bgmSound.Array.data[0].clip
       value: 
-      objectReference: {fileID: 8300000, guid: fc52891d7add3ff4886abc83c766d7e9, type: 3}
+      objectReference: {fileID: 8300000, guid: a9a837453b2104b4da8e496c56efd247, type: 3}
     - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
         type: 3}
       propertyPath: bgmSound.Array.data[0].volume
@@ -1294,6 +1299,16 @@ PrefabInstance:
     - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
         type: 3}
       propertyPath: seSound.Array.data[18].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
+        type: 3}
+      propertyPath: bgmSound.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 41a20993f7077ae469c75b1843d276a1, type: 3}
+    - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
+        type: 3}
+      propertyPath: bgmSound.Array.data[1].volume
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

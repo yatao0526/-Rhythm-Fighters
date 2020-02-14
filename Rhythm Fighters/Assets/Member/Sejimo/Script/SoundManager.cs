@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum BGM
 {
+   
 }
 
 public enum SE
@@ -30,7 +31,7 @@ public enum SE
     YS2,
     LUOMaruAttack,
     LUOBatuAttack,
-
+    
     //リザルトで使うもの
     result1,
     result2,
