@@ -91,9 +91,6 @@ public class ResultManager : MonoBehaviour
 
     private void ResultSE()
     {
-        Debug.Log(result1Time);
-        Debug.Log(result2Time);
-
         result1Time -= Time.deltaTime;
         result2Time -= Time.deltaTime;
 
