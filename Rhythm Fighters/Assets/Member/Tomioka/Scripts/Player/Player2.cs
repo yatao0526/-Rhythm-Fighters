@@ -76,7 +76,8 @@ public class Player2 : MonoBehaviour
         knockBack2,
         knockBack3,
         negationSuccess,
-        negationFalse
+        negationFalse,
+        animeNow
     }
 
     public static Player2StateType p2StateType = Player2StateType.stand;
@@ -96,13 +97,14 @@ public class Player2 : MonoBehaviour
         p2StateType = Player2StateType.stand;
         moveAfter2P = this.transform.position;
         animator = GetComponent<Animator>();
-        animator.SetFloat("Speed", 5/3);
+        animator.SetFloat("Speed", 5 / 3);
     }
 
     void Update()
     {
+        Debug.Log(GameController.modeType);
         //Debug.Log(player1cs.moveAfter1P);
-        //Debug.Log("P2は" + p2StateType + "です");
+        Debug.Log("P2は" + p2StateType + "です");
         Player2Way();
         SetTargetPosition();
         DebugSetTargetPosition();
@@ -409,6 +411,12 @@ public class Player2 : MonoBehaviour
     private void AnimetionEnd2P()
     {
         p2BeforeState = p2StateType;
+        p2StateType = Player2StateType.animeNow;
+        Invoke("AnimetionStand2P", 1.0f);
+    }
+
+    private void AnimetionStand2P()
+    {
         p2StateType = Player2StateType.stand;
     }
 
