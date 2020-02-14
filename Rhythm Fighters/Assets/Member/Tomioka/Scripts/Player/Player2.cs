@@ -96,7 +96,7 @@ public class Player2 : MonoBehaviour
         p2StateType = Player2StateType.stand;
         moveAfter2P = this.transform.position;
         animator = GetComponent<Animator>();
-        animator.SetFloat("Speed", 1.7f);
+        animator.SetFloat("Speed", 5/3);
     }
 
     void Update()
