@@ -443,24 +443,26 @@ public class CharacterSelectPlayersController : MonoBehaviour
         characters[charNum_2].GetComponent<ImageGradientColour>().myX = 1760;
         characters[charNum_2].GetComponent<ImageGradientColour>().isCardPosXMove = true;
         characters[charNum_2].transform.eulerAngles = new Vector3(0, 180, 0);
-        Invoke("stageMove", 2.0f);
+        Invoke("stageMove", 3.0f);
     }
     //ステージ選択開始
     private void stageMove()
     {
-        if (stageMoves < 3)
-        {
-            backgroundGameObjects[stageMoves].transform.position = new Vector3(backgroundGameObjects[stageMoves].transform.position.x, 150);
-            backgroundGameObjects[stageMoves].GetComponent<BackgroundScropt>().isGradientColourMove = true;
-            stageMoves++;
-            Invoke("stageMove", stageMoves * 3);
-        }
-        else
-        {
-            //ステージ選択できるようになった
-            isStageController = true;
-            Background.GetComponent<Image>().sprite = backgroundGameObjects[1].GetComponent<Image>().sprite;
-        }
+        CharacterSelectPlayersControllerEnd();
+
+        //if (stageMoves < 3)
+        //{
+        //    backgroundGameObjects[stageMoves].transform.position = new Vector3(backgroundGameObjects[stageMoves].transform.position.x, 150);
+        //    backgroundGameObjects[stageMoves].GetComponent<BackgroundScropt>().isGradientColourMove = true;
+        //    stageMoves++;
+        //    Invoke("stageMove", stageMoves * 3);
+        //}
+        //else
+        //{
+        //    //ステージ選択できるようになった
+        //    isStageController = true;
+        //    Background.GetComponent<Image>().sprite = backgroundGameObjects[1].GetComponent<Image>().sprite;
+        //}
     }
     //ステージ選択入力
     private void PlayersStageController()
