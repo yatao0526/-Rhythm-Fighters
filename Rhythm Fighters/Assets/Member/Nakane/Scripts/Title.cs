@@ -39,7 +39,8 @@ public class Title : MonoBehaviour
     }
     private void InputGet()
     {
-        if (Input.GetButtonDown("Maru") || Input.GetButtonDown("2PMaru"))
+        if (Input.GetButtonDown("Maru") || Input.GetButtonDown("Batu") || Input.GetButtonDown("Sankaku") || Input.GetButtonDown("Sikaku")
+            || Input.GetButtonDown("2PMaru") || Input.GetButtonDown("2PBatu") || Input.GetButtonDown("2PSankaku") || Input.GetButtonDown("2PSikaku"))
         {
             SoundManager.Instance.PlaySe(SE.titleSE);
             // ロード画面UI表示
