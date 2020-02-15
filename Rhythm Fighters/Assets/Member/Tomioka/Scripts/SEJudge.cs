@@ -67,7 +67,7 @@ public class SEJudge : MonoBehaviour
                 break;
 
             case "Niduma1P(Clone)":
-                SoundManager.Instance.PlaySe(SE.YandNHP);
+                SoundManager.Instance.PlaySe(SE.NS1);
                 break;
 
             case "LUO1P(Clone)":
@@ -90,7 +90,7 @@ public class SEJudge : MonoBehaviour
                 break;
 
             case "Niduma1P(Clone)":
-                SoundManager.Instance.PlaySe(SE.YandNLP);
+                SoundManager.Instance.PlaySe(SE.NS2);
                 break;
 
             case "LUO1P(Clone)":
@@ -164,7 +164,7 @@ public class SEJudge : MonoBehaviour
                 break;
 
             case "Niduma2P(Clone)":
-                SoundManager.Instance.PlaySe(SE.YandNHP);
+                SoundManager.Instance.PlaySe(SE.NS1);
                 break;
 
             case "LUO2P(Clone)":
@@ -187,7 +187,7 @@ public class SEJudge : MonoBehaviour
                 break;
 
             case "Niduma2P(Clone)":
-                SoundManager.Instance.PlaySe(SE.YandNLP);
+                SoundManager.Instance.PlaySe(SE.NS2);
                 break;
 
             case "LUO2P(Clone)":

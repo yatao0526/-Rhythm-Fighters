@@ -29,6 +29,8 @@ public enum SE
     SuzukiS2,
     YS1,
     YS2,
+    NS1,
+    NS2,
     LUOMaruAttack,
     LUOBatuAttack,
     
