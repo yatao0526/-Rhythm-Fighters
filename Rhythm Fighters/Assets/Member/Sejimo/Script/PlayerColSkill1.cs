@@ -16,6 +16,7 @@ public class PlayerColSkill1 : MonoBehaviour
         animator = GetComponent<Animator>();
         boxCollider2D = GetComponent<BoxCollider2D>();
         boxCollider2D.isTrigger = true;
+        animator.SetFloat("Speed", 1.7f);
     }
 
     // Update is called once per frame

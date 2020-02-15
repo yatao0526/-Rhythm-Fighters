@@ -15,7 +15,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: Speed_D_fx
+  - m_Name: Speed
     m_Type: 1
     m_DefaultFloat: 1.3333334
     m_DefaultInt: 0
@@ -104,7 +104,7 @@ AnimatorState:
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 3b2457b043f11d74285463c0cfb578b0, type: 2}
   m_Tag: 
-  m_SpeedParameter: Speed_D_fx
+  m_SpeedParameter: Speed
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 

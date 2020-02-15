@@ -9,6 +9,7 @@ public class EffectScript : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        animator.SetFloat("Speed", 1.7f);
     }
 
     // Update is called once per frame

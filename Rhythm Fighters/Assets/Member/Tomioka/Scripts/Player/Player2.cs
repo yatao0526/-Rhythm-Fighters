@@ -107,7 +107,7 @@ public class Player2 : MonoBehaviour
         SetTargetPosition();
         DebugSetTargetPosition();
 
-        if (p2StateType == Player2StateType.stand && GameController.modeType == GameController.ModeType.normalMode)
+        if (GameController.modeType == GameController.ModeType.normalMode)
         {
             Move();
         }
@@ -410,7 +410,7 @@ public class Player2 : MonoBehaviour
     {
         p2BeforeState = p2StateType;
         p2StateType = Player2StateType.animeNow;
-        Invoke("AnimetionStand2P", 1.0f);
+        Invoke("AnimetionStand2P", 1.3f);
     }
 
     private void AnimetionStand2P()

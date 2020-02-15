@@ -51,7 +51,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: Speed_Fx
+  - m_Name: Speed
     m_Type: 1
     m_DefaultFloat: 1.7
     m_DefaultInt: 0

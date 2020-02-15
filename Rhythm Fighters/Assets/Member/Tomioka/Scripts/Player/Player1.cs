@@ -107,7 +107,7 @@ public class Player1 : MonoBehaviour
         SetTargetPosition();
         DebugSetTargetPosition();
 
-        if (p1StateType == Player1StateType.stand && GameController.modeType == GameController.ModeType.normalMode)
+        if (GameController.modeType == GameController.ModeType.normalMode)
         {
             NormalModeMove();
         }
@@ -410,7 +410,7 @@ public class Player1 : MonoBehaviour
     {
         p1BeforeState = p1StateType;
         p1StateType = Player1StateType.animeNow;
-        Invoke("AnimetionStand1P", 1.0f);
+        Invoke("AnimetionStand1P", 1.3f);
     }
 
     private void AnimetionStand1P()
