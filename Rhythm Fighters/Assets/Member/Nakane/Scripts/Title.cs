@@ -42,6 +42,7 @@ public class Title : MonoBehaviour
         if (Input.GetButtonDown("Maru") || Input.GetButtonDown("Batu") || Input.GetButtonDown("Sankaku") || Input.GetButtonDown("Sikaku")
             || Input.GetButtonDown("2PMaru") || Input.GetButtonDown("2PBatu") || Input.GetButtonDown("2PSankaku") || Input.GetButtonDown("2PSikaku"))
         {
+            SoundManager.Instance.FadeOutBgm(1.0f);
             SoundManager.Instance.PlaySe(SE.titleSE);
             // ロード画面UI表示
             loadingUI.SetActive(true);
@@ -122,7 +123,7 @@ public class Title : MonoBehaviour
     private void TitleBGM()
     {
         startBGM = true;
-        SoundManager.Instance.PlaySe(SE.titleBGM);
+        SoundManager.Instance.PlayBgm(BGM.titleBGM);
         BGMLength = SoundManager.Instance.seSound[0].clip.length + 1;
     }
 

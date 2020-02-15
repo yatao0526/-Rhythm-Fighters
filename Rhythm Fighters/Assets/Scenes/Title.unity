@@ -1084,7 +1084,7 @@ PrefabInstance:
     - target: {fileID: 2093611575765374991, guid: 351da7bc62e975c4ab4e86862120e1bb,
         type: 3}
       propertyPath: Loop
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2093611575765374991, guid: 351da7bc62e975c4ab4e86862120e1bb,
         type: 3}
@@ -1099,7 +1099,7 @@ PrefabInstance:
     - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
         type: 3}
       propertyPath: bgmSound.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
         type: 3}
@@ -1135,7 +1135,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bgmSound.Array.data[0].clip
       value: 
-      objectReference: {fileID: 8300000, guid: a9a837453b2104b4da8e496c56efd247, type: 3}
+      objectReference: {fileID: 8300000, guid: fc52891d7add3ff4886abc83c766d7e9, type: 3}
     - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
         type: 3}
       propertyPath: bgmSound.Array.data[0].volume
