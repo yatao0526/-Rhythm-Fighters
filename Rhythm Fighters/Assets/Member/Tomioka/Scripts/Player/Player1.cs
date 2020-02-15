@@ -102,7 +102,6 @@ public class Player1 : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log(player2cs.moveAfter2P);
         Debug.Log("P1は" + p1StateType + "です");
         Player1Way();
         SetTargetPosition();
