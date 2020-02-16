@@ -37,7 +37,7 @@ public class PlayerInfoManager : MonoBehaviour
 
             case "Character3":
                 thisGamePlayer1 = (GameObject)Resources.Load("Niduma1P");
-                Instantiate(thisGamePlayer1, new Vector3(-2.0f, -1.0f, 70.0f), Quaternion.identity);
+                Instantiate(thisGamePlayer1, new Vector3(-2.0f, -1.2f, 70.0f), Quaternion.identity);
                 thisGamePlayer1 = GameObject.Find("Niduma1P(Clone)");
                 break;
 
@@ -64,7 +64,7 @@ public class PlayerInfoManager : MonoBehaviour
 
             case "Character3":
                 thisGamePlayer2 = (GameObject)Resources.Load("Niduma2P");
-                Instantiate(thisGamePlayer2, new Vector3(2.0f, -1.0f, 70.0f), Quaternion.identity);
+                Instantiate(thisGamePlayer2, new Vector3(2.0f, -1.2f, 70.0f), Quaternion.identity);
                 thisGamePlayer2 = GameObject.Find("Niduma2P(Clone)");
                 break;
 
