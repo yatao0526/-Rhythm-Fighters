@@ -9,7 +9,7 @@ public class TitleBack : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(time);
+        //Debug.Log(time);
         
         if (Input.GetButton("1PShare") || Input.GetButton("2PShare"))
         {
