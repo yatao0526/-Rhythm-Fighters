@@ -196,19 +196,19 @@ public class Player1 : MonoBehaviour
             if (p1StateType == Player1StateType.pose)
             {
                 //スキル1右
-                if (Input.GetButtonDown("Maru") && Input.GetAxis("LeftRight") > 0.5f)
+                if (Input.GetButton("Maru") && Input.GetAxis("LeftRight") > 0.5f)
                 {
                     SkillR1P = true;
                     p1StateType = Player1StateType.skill1;
                 }
                 //スキル1左
-                if (Input.GetButtonDown("Maru") && Input.GetAxis("LeftRight") < -0.5f)
+                if (Input.GetButton("Maru") && Input.GetAxis("LeftRight") < -0.5f)
                 {
                     SkillR1P = false;
                     p1StateType = Player1StateType.skill1;
                 }
                 //スキル2
-                if (Input.GetButtonDown("Batu") && Input.GetAxis("LeftRight") != 0f)
+                if (Input.GetButton("Batu") && Input.GetAxis("LeftRight") != 0f)
                 {
                     p1StateType = Player1StateType.skill2;
                 }
