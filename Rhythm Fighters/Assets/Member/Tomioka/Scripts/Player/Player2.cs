@@ -350,7 +350,7 @@ public class Player2 : MonoBehaviour
             //スキル1
             case Player2StateType.skill1:
                 Debug.Log("スキル1");
-                animator.SetTrigger("Trigger_S1");
+                //animator.SetTrigger("Trigger_S1");
                 SkillOne();
                 //playercolS1.S1Col();
                 //effectscript.S1Fx();
@@ -520,12 +520,12 @@ public class Player2 : MonoBehaviour
         switch (myCharName2P)
         {
             case "suzuki":
-                if (SkillR2P == true)
+                if (SkillR2P == true && this.transform.position.x < maxMove.x - moveX.x * 2)
                 {
                     moveAfter2P = transform.position + moveX * 2;
                     SoundManager.Instance.PlaySe(SE.SuzukiS1);
                 }
-                else
+                else if(SkillR2P == false && minMove.x + moveX.x * 2 < this.transform.position.x)
                 {
                     moveAfter2P = transform.position - moveX * 2;
                     SoundManager.Instance.PlaySe(SE.SuzukiS1);
