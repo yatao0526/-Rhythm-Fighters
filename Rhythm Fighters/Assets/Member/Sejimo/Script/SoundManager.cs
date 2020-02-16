@@ -113,6 +113,11 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
         StartCoroutine(FadeOut(fadeTime));
     }
 
+    public void FadeOutSE(float fadeTime)
+    {
+        StartCoroutine(SEFadeOut(fadeTime));
+    }
+
     private IEnumerator FadeOut(float time)
     {
         float _time = time;
@@ -125,6 +130,21 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
         }
         audioSource_BGM.Stop();
         audioSource_BGM.clip = null;
+        yield break;
+    }
+
+    private IEnumerator SEFadeOut(float time)
+    {
+        float _time = time;
+        float vol = audioSource_SE.volume;
+        while (_time > 0f)
+        {
+            _time -= Time.deltaTime;
+            audioSource_SE.volume = vol * _time / time;
+            yield return null;
+        }
+        audioSource_SE.Stop();
+        audioSource_SE.clip = null;
         yield break;
     }
 

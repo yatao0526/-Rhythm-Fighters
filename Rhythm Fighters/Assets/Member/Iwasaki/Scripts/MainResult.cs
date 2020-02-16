@@ -26,6 +26,7 @@ public class MainResult : MonoBehaviour
             //オプションキー
             if (Input.GetButtonDown("Option") || Input.GetButtonDown("2POption") || Input.GetKeyDown(KeyCode.Space))
             {
+                SoundManager.Instance.FadeOutSE(1.0f);
                 SceneManager.LoadScene("Title");
             }
         }

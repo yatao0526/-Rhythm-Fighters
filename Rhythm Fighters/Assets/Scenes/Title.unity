@@ -1388,7 +1388,7 @@ PrefabInstance:
     - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
         type: 3}
       propertyPath: seSound.Array.data[19].volume
-      value: 0.3
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
         type: 3}
@@ -1398,7 +1398,7 @@ PrefabInstance:
     - target: {fileID: 231900421885057820, guid: 351da7bc62e975c4ab4e86862120e1bb,
         type: 3}
       propertyPath: seSound.Array.data[20].volume
-      value: 0.3
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 351da7bc62e975c4ab4e86862120e1bb, type: 3}
