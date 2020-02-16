@@ -26,6 +26,7 @@ public class Title : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = false;
         startBGM = false;
         // 一定時間後MoveMovie関数実行
         //Invoke("MoveMovie", 7.0f);

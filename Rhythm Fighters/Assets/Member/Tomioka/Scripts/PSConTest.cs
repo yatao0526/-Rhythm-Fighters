@@ -76,6 +76,10 @@ public class PSConTest : MonoBehaviour
         {
             Debug.Log("1P オプション");
         }
+        if (Input.GetButtonDown("1PShare"))
+        {
+            Debug.Log("1P シェア");
+        }
         #endregion
 
         #endregion
@@ -137,6 +141,10 @@ public class PSConTest : MonoBehaviour
         if (Input.GetButtonDown("2POption"))
         {
             Debug.Log("2P オプション");
+        }
+        if (Input.GetButtonDown("2PShare"))
+        {
+            Debug.Log("2P シェア");
         }
         #endregion
 
