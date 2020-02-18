@@ -107,7 +107,7 @@ public class Player1 : MonoBehaviour
         SetTargetPosition();
         DebugSetTargetPosition();
 
-        if (GameController.modeType == GameController.ModeType.normalMode)
+        if (p1StateType == Player1StateType.animeNow && GameController.modeType == GameController.ModeType.normalMode)
         {
             NormalModeMove();
         }

@@ -107,7 +107,7 @@ public class Player2 : MonoBehaviour
         SetTargetPosition();
         DebugSetTargetPosition();
 
-        if (GameController.modeType == GameController.ModeType.normalMode)
+        if (p2StateType == Player2StateType.animeNow && GameController.modeType == GameController.ModeType.normalMode)
         {
             Move();
         }
@@ -525,7 +525,7 @@ public class Player2 : MonoBehaviour
                     moveAfter2P = transform.position + moveX * 2;
                     SoundManager.Instance.PlaySe(SE.SuzukiS1);
                 }
-                else if(SkillR2P == false && minMove.x + moveX.x * 2 < this.transform.position.x)
+                else if (SkillR2P == false && minMove.x + moveX.x * 2 < this.transform.position.x)
                 {
                     moveAfter2P = transform.position - moveX * 2;
                     SoundManager.Instance.PlaySe(SE.SuzukiS1);
